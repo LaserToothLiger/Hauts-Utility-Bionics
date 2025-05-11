@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--anti-bleeding heart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AntiBleedingHeart</defName>
+    <label>anti-bleeding heart</label>
+    <labelNoun>an anti-bleeding heart</labelNoun>
+    <description>An installed anti-bleeding heart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AntiBleedingHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AntiBleedingHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodFiltration</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+        <totalBleedFactor>0.1</totalBleedFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_AntiBleedingHeart</defName>
+    <label>anti-bleeding heart</label>
+    <description>An artificial heart with advanced capabilities for dealing with circulatory insults. When it detects drops in blood pressure due to blood loss, it dispatches mechanites to reinforce the damaged blood vessels' walls and manage bloodflow without aggravating the injury further.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAntiBleedingHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallAntiBleedingHeart</defName>
+    <label>install anti-bleeding heart</label>
+    <description>Install an anti-bleeding heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AntiBleedingHeart</ThingDef>
+      <HediffDef>HVB_AntiBleedingHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing anti-bleeding heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AntiBleedingHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AntiBleedingHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AntiBleedingHeart</addsHediff>
+  </RecipeDef>
+
+  <!--clean heart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_CleanHeart</defName>
+    <label>clean heart</label>
+    <labelNoun>a clean heart</labelNoun>
+    <description>An installed clean heart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CleanHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CleanHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodFiltration</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ToxicResistance>0.4</ToxicResistance>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.05</P42_AllergicSensitivity>
+		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.3</Mashed_Ashlands_AshResistance>
+		  <Radiation MayRequire="Dubwise.Rimatomics">-0.05</Radiation>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_CleanHeart</defName>
+    <label>clean heart</label>
+    <description>An artificial heart which catches toxic particles and foreign cells via a filter in its pulmonary artery. Caught material is stored in compacted mucus pellets, and a biogel nerve-link stimulates the host to cough once enough have built up, expelling them.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCleanHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_SurvivalAdaptations</li>
+	    <li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallCleanHeart</defName>
+    <label>install clean heart</label>
+    <description>Install a clean heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CleanHeart</ThingDef>
+      <HediffDef>HVB_CleanHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing clean heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CleanHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CleanHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CleanHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--shieldpower heart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ShieldpowerHeart</defName>
+    <label>shieldpower heart</label>
+    <labelNoun>a shieldpower heart</labelNoun>
+    <description>An installed shieldpower heart. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 4.33 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ShieldpowerHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ShieldpowerHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>33.33</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>4.33</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>true</makesShield>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ShieldpowerHeart</defName>
+    <label>shieldpower heart</label>
+    <description>An artificial heart which seeds the bloodstream with polarized mechanites, creating a nearly-skintight momentum-repulsion field across the entire body. Though this field functions mostly the same as the kind created by a shield belt, its closeness to the skin enables the host to use ranged weapons without it getting in the way, and enables it to be layered 'under' worn shields.\n\nDue to technical limitations in projecting the field, it is only roughly as strong as a normal-quality shield belt, and it remains susceptible to EMPs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallShieldpowerHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1600</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_SurvivalAdaptations</li>
+		<li>ShieldBelt</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallShieldpowerHeart</defName>
+    <label>install shieldpower heart</label>
+    <description>Install a shieldpower heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShieldpowerHeart</ThingDef>
+      <HediffDef>HVB_ShieldpowerHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing shieldpower heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ShieldpowerHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ShieldpowerHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ShieldpowerHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--tempered heart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_TemperedHeart</defName>
+    <label>tempered heart</label>
+    <labelNoun>a tempered heart</labelNoun>
+    <description>An installed tempered heart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TemperedHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TemperedHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MentalBreakThreshold>-0.1</MentalBreakThreshold>
+          <PainShockThreshold>0.05</PainShockThreshold>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TemperedHeart</defName>
+    <label>tempered heart</label>
+    <description>An artificial heart with auxiliary chambers for synthesizing small molecules with painkilling and calming effects. In times of physical or mental stress, the heart begins seeding these small molecules into the bloodstream. The synthesis chambers read the host's immunological memory to ensure that the produced molecules are not targeted by leukocytes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTemperedHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallTemperedHeart</defName>
+    <label>install tempered heart</label>
+    <description>Install a tempered heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TemperedHeart</ThingDef>
+      <HediffDef>HVB_TemperedHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tempered heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TemperedHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TemperedHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TemperedHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--warlock's heart-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksHeart</defName>
+    <label>warlock's heart</label>
+    <labelNoun>a warlock's heart</labelNoun>
+    <description>An installed warlock's heart. Though its heartbeat is weak, it can be heard clearly to those attuned to the psychic field - its heartbeat boosts connectivity to the psychic field and passively generates psyfocus over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.7</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.18</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.09</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.6</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksHeart</defName>
+    <label>warlock's heart</label>
+    <description>An artificial heart. Woven into its muscle fibers are psychically-attuned, sensitivity-boosting filaments in patterns similar to those found on the exterior of some archotech constructions. It's a poor replacement for a heart, but its main purpose is to boost psycasting aptitude. With each heartbeat, it guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>4</Gold>
+      <Jade>30</Jade>
+      <BionicHeart>1</BionicHeart>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksHeart</defName>
+    <label>install warlock's heart</label>
+    <description>Install a warlock's heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksHeart</ThingDef>
+      <HediffDef>HVB_WarlocksHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--hemogen-cycling heart-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenCyclingHeart</defName>
+    <label>hemogen-cycling heart</label>
+    <labelNoun>a hemogen-cycling heart</labelNoun>
+    <description>An installed hemogen-cycling heart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HemogenCyclingHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HemogenCyclingHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<drainRateFactors>
+			<li>
+				<key>hemogen</key>
+				<value>1.25</value>
+			</li>
+		</drainRateFactors>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenCyclingHeart</defName>
+    <label>hemogen-cycling heart</label>
+    <description>An artificial heart of great value to bloodfeeders. As hemogen passes through this heart's chambers, its proteins are repaired and refolded to maximize their longevity, and waste particles that could lead to a reduction in hemogen half-life are broken down. This maintenance causes hemogen decay to take 60% longer.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHemogenCyclingHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHemogenCyclingHeart</defName>
+    <label>install hemogen-cycling heart</label>
+    <description>Install a hemogen-cycling heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HemogenCyclingHeart</ThingDef>
+      <HediffDef>HVB_HemogenCyclingHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hemogen-cycling heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HemogenCyclingHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HemogenCyclingHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HemogenCyclingHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--for I am the Swarm-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantHeart</defName>
+    <label>mechanityrant heart</label>
+    <labelNoun>a mechanityrant heart</labelNoun>
+    <description>An installed mechanityrant heart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.95</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <MechRepairSpeed>0.33</MechRepairSpeed>
+		  <Hauts_MechEnergyUsage>-0.24</Hauts_MechEnergyUsage>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantHeart</defName>
+    <label>mechanityrant heart</label>
+    <description>An artificial heart that emits a mechanite-synchronizing signal, optimizing the energy efficiency of controlled mechanoids' self-repair mechanites. This enables quicker repairs and slows the attrition on controlled mechanoids' energy reserves from wear and tear.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicHeart>1</BionicHeart>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1840</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>UltraMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantHeart</defName>
+    <label>install mechanityrant heart</label>
+    <description>Install a mechanityrant heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantHeart</ThingDef>
+      <HediffDef>HVB_MechanityrantHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantHeart</addsHediff>
+  </RecipeDef>
+  
+  <!--cardiac overdriver-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CardiacOverdriver</defName>
+    <label>cardiac overdriver</label>
+    <labelNoun>a cardiac overdriver</labelNoun>
+    <description>An installed cardiac overdriver.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CardiacOverdriver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CardiacOverdriver</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_CardiacOverdrive</li>
+        </abilityDefs>
+      </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CardiacOverdriver</defName>
+    <label>cardiac overdriver</label>
+    <description>An artificial organ hooked up to the sinoatrial node. Can be installed in either an organic or a bionic heart. It enhances myocardial strength, and it can be stimulated into overworking the heart via a biogel nerve-link, massively boosting the body's capabilities. However, overuse can tax the heart, causing pain and decreased long-term functionality.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCardiacOverdriver</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>315</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase">
+    <defName>HVB_InstallCardiacOverdriver</defName>
+    <label>install cardiac overdriver</label>
+    <description>Install a cardiac overdriver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CardiacOverdriver</ThingDef>
+      <HediffDef>HVB_CardiacOverdriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cardiac overdriver.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CardiacOverdriver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CardiacOverdriver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CardiacOverdriver</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCardiacOverdriver</defName>
+    <label>remove cardiac overdriver</label>
+    <description>Remove cardiac overdriver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CardiacOverdriver</ThingDef>
+      <HediffDef>HVB_CardiacOverdriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cardiac overdriver.</jobString>
+    <removesHediff>HVB_CardiacOverdriver</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_CardiacOverdrive</defName>
+		<label>cardiac boost</label>
+		<description>Bionic stimulation of cardiac output far beyond the norm.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+		  <li>
+			<label>overdrive</label>
+			<capMods>
+			  <li>
+				<capacity>BloodPumping</capacity>
+				<offset>1</offset>
+			  </li>
+			  <li>
+				<capacity>Manipulation</capacity>
+				<offset>0.2</offset>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<offset>0.2</offset>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-24</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+	  <HediffDef ParentName="DiseaseBase">
+		<defName>HVB_CardiacStrain</defName>
+		<label>bionic cardiac strain</label>
+		<description>Overuse of a cardiac overdriver can cause heart attacks.</description>
+		<defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>5</maxSeverity>
+		<stages>
+		  <li>
+			<label>initial</label>
+		  </li>
+		  <li>
+			<label>minor</label>
+			<minSeverity>1</minSeverity>
+			<painOffset>0.04</painOffset>
+		  </li>
+		  <li>
+			<label>moderate</label>
+			<minSeverity>2</minSeverity>
+			<painOffset>0.08</painOffset>
+			<hediffGivers>
+			  <li Class="HediffGiver_Random">
+				<hediff>HeartAttack</hediff>
+				<mtbDays>111</mtbDays>
+				<partsToAffect>
+				  <li>Heart</li>
+				</partsToAffect>
+			  </li>
+			</hediffGivers>
+		  </li>
+		  <li>
+			<label>serious</label>
+			<minSeverity>3</minSeverity>
+			<painOffset>0.12</painOffset>
+			<capMods>
+			  <li>
+				<capacity>BloodPumping</capacity>
+				<offset>-0.075</offset>
+			  </li>
+			</capMods>
+			<hediffGivers>
+			  <li Class="HediffGiver_Random">
+				<hediff>HeartAttack</hediff>
+				<mtbDays>37</mtbDays>
+				<partsToAffect>
+				  <li>Heart</li>
+				</partsToAffect>
+			  </li>
+			</hediffGivers>
+		  </li>
+		  <li>
+			<label>extreme</label>
+			<minSeverity>4</minSeverity>
+			<painOffset>0.16</painOffset>
+			<capMods>
+			  <li>
+				<capacity>BloodPumping</capacity>
+				<offset>-0.15</offset>
+			  </li>
+			</capMods>
+			<hediffGivers>
+			  <li Class="HediffGiver_Random">
+				<hediff>HeartAttack</hediff>
+				<mtbDays>13</mtbDays>
+				<partsToAffect>
+				  <li>Heart</li>
+				</partsToAffect>
+			  </li>
+			</hediffGivers>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-0.2</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
+`
+
+						<!--uncraftable-->
+  <!--archotech marrowheart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechMarrowheart</defName>
+    <label>archotech marrowheart</label>
+    <labelNoun>an archotech marrowheart</labelNoun>
+    <description>An installed archotech marrowheart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechMarrowheart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechMarrowheart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <HVB_MarrowEfficacy>0.5</HVB_MarrowEfficacy>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechMarrowheart</defName>
+    <label>archotech marrowheart</label>
+    <description>An artificial heart created by an archotech. It secretes archites into the bloodstream, which seek out bone marrow and, through means mysterious to all human minds, enhances the production of virtually every cell, mechanite, or chemical being produced by that tissue.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechMarrowheart</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechMarrowheart</defName>
+    <label>install archotech marrowheart</label>
+    <description>Install an archotech marrowheart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechMarrowheart</ThingDef>
+      <HediffDef>HVB_ArchotechMarrowheart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech marrowheart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechMarrowheart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechMarrowheart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechMarrowheart</addsHediff>
+  </RecipeDef>
+  
+</Defs>

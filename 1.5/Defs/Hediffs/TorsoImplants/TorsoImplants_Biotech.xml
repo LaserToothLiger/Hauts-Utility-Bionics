@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--healing infertilizer-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HealingInfertilizer</defName>
+    <label>healing infertilizer</label>
+    <labelNoun>an installed healing infertilizer</labelNoun>
+    <description>An installed healing infertilizer implant. Gradually depletes fertility, but improves injury healing factor until fertility runs out.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HealingInfertilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HealingInfertilizer</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <InjuryHealingFactor>1.25</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
+        <ticksToNextSpawn>14400</ticksToNextSpawn>
+		<hediffGiven>HVB_Infertilization</hediffGiven>
+		<startingCharges>1</startingCharges>
+		<maxStoredCharges>1</maxStoredCharges>
+		<severityToGive>0.001</severityToGive>
+		<showProgressInTooltip>false</showProgressInTooltip>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangesBasedOnStat">
+	    <turnInto>HVB_HealingInfertilizer0</turnInto>
+		<whenStat>Fertility</whenStat>
+		<goesBelow>0.001</goesBelow>
+	  </li>
+	</comps>
+	<tags><li>HVB_HInf</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HealingInfertilizer</defName>
+    <label>healing infertilizer</label>
+    <description>This artificial organ cannibalizes germline cells, transforming them into a plasm with regenerative properties. In other words, it gradually depletes the fertility of the host in order to enhance recovery from injury.\n\nIf the host is no longer naturally fertile, an extracted ovum can be quickly and painlessly inserted into this device by a doctor, temporarily "refueling" it.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHealingInfertilizer</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+      <WorkToMake>5000</WorkToMake>
+    </statBases>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHealingInfertilizer</defName>
+    <label>install healing infertilizer</label>
+    <description>Install a healing infertilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HealingInfertilizer</ThingDef>
+      <HediffDef>HVB_HealingInfertilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing healing infertilizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HealingInfertilizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HealingInfertilizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HealingInfertilizer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveHealingInfertilizer</defName>
+    <label>remove healing infertilizer</label>
+    <description>Remove healing infertilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HealingInfertilizer</ThingDef>
+      <HediffDef>HVB_HealingInfertilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing healing infertilizer.</jobString>
+    <removesHediff>HVB_HealingInfertilizer</removesHediff>
+  </RecipeDef>	
+	  <HediffDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVB_Infertilization</defName>
+		<label>germline depletion</label>
+		<description>A loss of germline cells caused by a healing infertilizer implant. This is permanent, unless cured by a healer mech serum or other regenerative effect of similar potency.</description>
+		<descriptionHyperlinks><ThingDef>HVB_HealingInfertilizer</ThingDef></descriptionHyperlinks>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <Fertility>-1</Fertility>
+			</statOffsets>
+			<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+		  </li>
+		</stages>
+	  </HediffDef>
+	  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVB_HealingInfertilizer0</defName>
+		<label>healing infertilizer</label>
+		<labelNoun>an installed healing infertilizer</labelNoun>
+		<description>An installed healing infertilizer implant. Since the host is infertile, it can now only function if 'fueled' by an ovum, which must be implanted by a surgeon. A single ovum lasts up to 5 days.\n\nSuch a procedure is quick and harmless, so it does not require anesthetics.</description>
+		<descriptionHyperlinks><ThingDef>HVB_HealingInfertilizer</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>HVB_HealingInfertilizer</spawnThingOnRemoved>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+		  <li>
+		    <label>depleted</label>
+		  </li>
+		  <li>
+		    <label>temporarily fueled</label>
+			<minSeverity>0.002</minSeverity>
+			<statOffsets>
+			  <InjuryHealingFactor>1.0</InjuryHealingFactor>
+			</statOffsets>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-0.2</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HautsFramework.HediffCompProperties_ChangesBasedOnStat">
+			<turnInto>HVB_HealingInfertilizer</turnInto>
+			<whenStat>Fertility</whenStat>
+			<goesAbove>0.002</goesAbove>
+			<goesBelow>-999</goesBelow>
+		  </li>
+		</comps>
+		<tags><li>HVB_HInf</li></tags>
+	  </HediffDef>
+	  <RecipeDef ParentName="SurgeryFlesh" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVB_RefuelInfertilizer</defName>
+		<label>refuel healing infertilizer</label>
+		<description>Refuel a healing infertilizer with an ovum.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>HVB_HealingInfertilizer</ThingDef>
+		  <HediffDef>HVB_HealingInfertilizer0</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Refueling healing infertilizer with ovum.</jobString>
+		<workerClass>HautsBionics_Biotech.Recipe_RefuelInfertilizer</workerClass>
+		<workAmount>1000</workAmount>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<anesthetize>false</anesthetize>
+		<skillRequirements>
+		  <Medicine>5</Medicine>
+		</skillRequirements>
+		<recipeUsers>
+		  <li>Human</li>
+		  <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+		</recipeUsers>
+		<ingredients>
+		  <li>
+			<filter><categories><li>Medicine</li></categories></filter>
+			<count>1</count>
+		  </li>
+		  <li>
+			<filter>
+			  <thingDefs>
+				<li>HumanOvum</li>
+			  </thingDefs>
+			</filter>
+			<count>1</count>
+		  </li>
+		</ingredients>
+		<fixedIngredientFilter>
+		  <categories>
+			<li>Medicine</li>
+		  </categories>
+		  <thingDefs>
+			<li>HumanOvum</li>
+		  </thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>HVB_HealingInfertilizer0</addsHediff><!--doesn't actually add this; this is the hediff which it sets to max severity-->
+	  </RecipeDef>
+
+  <!--mass hemogen reservoir-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MassHemogenReservoir</defName>
+    <label>mass hemogen reservoir</label>
+    <labelNoun>a mass hemogen reservoir</labelNoun>
+    <description>An installed mass hemogen reservoir implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MassHemogenReservoir</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MassHemogenReservoir</spawnThingOnRemoved>
+	<stages>
+	  <li>
+	    <statOffsets>
+		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">1.2</EBSG_HemogenMaxOffset>
+		</statOffsets>
+	  </li>
+	</stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<maxResourceOffsets>
+			<li>
+				<key>hemogen</key>
+				<value>1.2</value>
+			</li>
+		</maxResourceOffsets>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MassHemogenReservoir</defName>
+    <label>mass hemogen reservoir</label>
+    <description>This artificial, coiling tubelike organ can safely store a large amount of hemogen.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMassHemogenReservoir</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Hyperweave>15</Hyperweave>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <statBases>
+      <MarketValue>950</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMassHemogenReservoir</defName>
+    <label>install mass hemogen reservoir</label>
+    <description>Install a mass hemogen reservoir.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MassHemogenReservoir</ThingDef>
+      <HediffDef>HVB_MassHemogenReservoir</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mass hemogen reservoir.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MassHemogenReservoir</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MassHemogenReservoir</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MassHemogenReservoir</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveMassHemogenReservoir</defName>
+    <label>remove mass hemogen reservoir</label>
+    <description>Remove mass hemogen reservoir.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MassHemogenReservoir</ThingDef>
+      <HediffDef>HVB_MassHemogenReservoir</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mass hemogen reservoir.</jobString>
+    <removesHediff>HVB_MassHemogenReservoir</removesHediff>
+  </RecipeDef>
+  
+  <!--mechanityrant marrow tap-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantMarrowTap</defName>
+    <label>mechanityrant marrow tap</label>
+    <labelNoun>a mechanityrant marrow tap</labelNoun>
+    <description>An installed mechanityrant marrow tap implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantMarrowTap</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantMarrowTap</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <HVB_MarrowEfficacy>-1</HVB_MarrowEfficacy>
+		  <MechFormingSpeed>0.25</MechFormingSpeed>
+		  <MechRepairSpeed>0.25</MechRepairSpeed>
+		  <MechBandwidth>4</MechBandwidth>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.1</InjuryHealingFactor>
+		  <EBSG_BloodlossRecoveryBonus MayRequire="EBSG.Framework">-0.1</EBSG_BloodlossRecoveryBonus>
+        </statOffsets>
+		<statFactors>
+		  <MechRemoteShieldEnergy>1.25</MechRemoteShieldEnergy>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantMarrowTap</defName>
+    <label>mechanityrant marrow tap</label>
+    <description>This synthetic organ recruits metabolites and cells from the body's bone marrow and repurposes them to enhance the host's capabilities as a mechanitor.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantMarrowTap</RecipeDef></descriptionHyperlinks>
+    <costList>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+	<tradeability>Buyable</tradeability>
+    <recipeMaker>
+      <researchPrerequisite>HighMechtech</researchPrerequisite>
+    </recipeMaker>
+    <thingCategories>
+      <li>BodyPartsMechtech</li>
+    </thingCategories>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantMarrowTap</defName>
+    <label>install mechanityrant marrow tap</label>
+    <description>Install a mechanityrant marrow tap.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantMarrowTap</ThingDef>
+      <HediffDef>HVB_MechanityrantMarrowTap</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant marrow tap.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantMarrowTap</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantMarrowTap</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantMarrowTap</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveMechanityrantMarrowTap</defName>
+    <label>remove mechanityrant marrow tap</label>
+    <description>Remove mechanityrant marrow tap.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantMarrowTap</ThingDef>
+      <HediffDef>HVB_MechanityrantMarrowTap</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mechanityrant marrow tap.</jobString>
+    <removesHediff>HVB_MechanityrantMarrowTap</removesHediff>
+  </RecipeDef>
+  
+  <!--progenoid gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ProgenoidGlandCharging</defName>
+    <label>progenoid gland (not ready)</label>
+    <labelNoun>a progenoid gland (not ready)</labelNoun>
+    <description>An installed progenoid gland implant. A xenogerm of the host's endogenes or xenogenes (sans any archite genes) can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgenoidGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgenoidGland</spawnThingOnRemoved>
+	<tags><li>HVB_progenoid</li></tags>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>99999.0</maxSeverity>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
+		<severityPerComplexity>5</severityPerComplexity>
+		<canTranscribeArchiteGenes>false</canTranscribeArchiteGenes>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
+		<atOrBelowThisSeverity>0.01</atOrBelowThisSeverity>
+		<alternativeHediff>HVB_ProgenoidGland</alternativeHediff>
+	  </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ProgenoidGland</defName>
+    <label>progenoid gland (ready)</label>
+    <labelNoun>a progenoid gland (ready)</labelNoun>
+    <description>An installed progenoid gland implant. A xenogerm of the host's endogenes or xenogenes (sans any archite genes) is ready to be extracted from this gland.</description>
+    <descriptionHyperlinks>
+	  <ThingDef>HVB_ProgenoidGland</ThingDef>
+	  <RecipeDef>HVB_HarvestProgenoidGlandEndo</RecipeDef>
+	  <RecipeDef>HVB_HarvestProgenoidGlandXeno</RecipeDef>
+	</descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgenoidGland</spawnThingOnRemoved>
+	<tags><li>HVB_progenoid</li></tags>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>99999.0</maxSeverity>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
+		<severityPerComplexity>5</severityPerComplexity>
+		<canTranscribeArchiteGenes>false</canTranscribeArchiteGenes>
+		<transformsToWhenHarvested>HVB_ProgenoidGlandCharging</transformsToWhenHarvested>
+		<dropXenogermOnDeath>true</dropXenogermOnDeath>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ProgenoidGland</defName>
+    <label>progenoid gland</label>
+    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome (except for archite genes) via a process very similar to cellular mitosis. The amount of time required for the germ cells to achieve a critical stable population scales directly with the complexity of the host genome. Once ready, the germ cells can be harvested via surgical extraction.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProgenoidGland</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Neutroamine>15</Neutroamine>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_ProgenoidGlands</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallProgenoidGland</defName>
+    <label>install progenoid gland</label>
+    <description>Install a progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgenoidGland</ThingDef>
+      <HediffDef>HVB_ProgenoidGlandCharging</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing progenoid gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgenoidGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgenoidGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProgenoidGlandCharging</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_progenoid</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveProgenoidGland</defName>
+    <label>remove progenoid gland</label>
+    <description>Remove progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgenoidGland</ThingDef>
+      <HediffDef>HVB_ProgenoidGlandCharging</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing progenoid gland.</jobString>
+    <removesHediff>HVB_ProgenoidGlandCharging</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_HarvestProgenoidEndo" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HarvestProgenoidGlandEndo</defName>
+    <label>harvest endogenes from progenoid gland</label>
+    <description>Harvest endogenes from a progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgenoidGland</ThingDef>
+      <HediffDef>HVB_ProgenoidGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Harvesting endogenes from a progenoid gland.</jobString>
+    <removesHediff>HVB_ProgenoidGland</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HarvestProgenoidGlandXeno</defName>
+    <label>harvest xenogenes from progenoid gland</label>
+    <description>Harvest xenogenes from a progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgenoidGland</ThingDef>
+      <HediffDef>HVB_ProgenoidGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Harvesting xenogenes from a progenoid gland.</jobString>
+    <removesHediff>HVB_ProgenoidGland</removesHediff>
+  </RecipeDef>
+  
+  <!--archic progenoid gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ArchicProgenoidGlandCharging</defName>
+    <label>archic progenoid gland (not ready)</label>
+    <labelNoun>an archic progenoid gland (not ready)</labelNoun>
+    <description>An installed archic progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchicProgenoidGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchicProgenoidGland</spawnThingOnRemoved>
+	<tags><li>HVB_progenoid</li></tags>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>99999.0</maxSeverity>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
+		<severityPerComplexity>4</severityPerComplexity>
+		<severityPerArchites>4</severityPerArchites>
+		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
+		<atOrBelowThisSeverity>0.01</atOrBelowThisSeverity>
+		<alternativeHediff>HVB_ArchicProgenoidGland</alternativeHediff>
+	  </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ArchicProgenoidGland</defName>
+    <label>archic progenoid gland (ready)</label>
+    <labelNoun>an archic progenoid gland (ready)</labelNoun>
+    <description>An installed archic progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, is ready to be extracted from this gland.</description>
+    <descriptionHyperlinks>
+	  <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
+	  <RecipeDef>HVB_HarvestArchicProgenoidGlandEndo</RecipeDef>
+	  <RecipeDef>HVB_HarvestArchicProgenoidGlandXeno</RecipeDef>
+	</descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchicProgenoidGland</spawnThingOnRemoved>
+	<tags><li>HVB_progenoid</li></tags>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>99999.0</maxSeverity>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
+		<severityPerComplexity>4</severityPerComplexity>
+		<severityPerArchites>4</severityPerArchites>
+		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
+		<transformsToWhenHarvested>HVB_ArchicProgenoidGlandCharging</transformsToWhenHarvested>
+		<dropXenogermOnDeath>true</dropXenogermOnDeath>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ArchicProgenoidGland</defName>
+    <label>archic progenoid gland</label>
+    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome, including any archite genes, via a process very similar to cellular mitosis. The amount of time required for the germ cells to achieve a critical stable population scales directly with the complexity and archite cost of the host genome. Once ready, the germ cells can be harvested via surgical extraction.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchicProgenoidGland</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <ArchiteCapsule>4</ArchiteCapsule>
+      <HVB_ProgenoidGland>1</HVB_ProgenoidGland>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>HVB_ProgenoidGlands</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>300</displayPriority>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>4200</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallArchicProgenoidGland</defName>
+    <label>install archic progenoid gland</label>
+    <description>Install an archic progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archic progenoid gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchicProgenoidGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchicProgenoidGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchicProgenoidGlandCharging</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_progenoid</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveArchicProgenoidGland</defName>
+    <label>remove archic progenoid gland</label>
+    <description>Remove archic progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archic progenoid gland.</jobString>
+    <removesHediff>HVB_ArchicProgenoidGlandCharging</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_HarvestProgenoidEndo" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HarvestArchicProgenoidGlandEndo</defName>
+    <label>harvest endogenes from archic progenoid gland</label>
+    <description>Harvest endogenes from an archic progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Harvesting endogenes from an archic progenoid gland.</jobString>
+    <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HarvestArchicProgenoidGlandXeno</defName>
+    <label>harvest xenogenes from archic progenoid gland</label>
+    <description>Harvest xenogenes from an archic progenoid gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Harvesting xenogenes from an archic progenoid gland.</jobString>
+    <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
+  </RecipeDef>
+  
+</Defs>

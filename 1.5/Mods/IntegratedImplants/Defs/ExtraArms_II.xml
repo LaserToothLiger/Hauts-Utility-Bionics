@@ -1,0 +1,3330 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--so about that mechanitor command radius fix that requires Integrated Implants to be below HUB. it means abstract hediffDefs from II don't exist by the time the game loads these Defs. so I gotta replicate it here. AUGH-->
+  <HediffDef Name="HVB_Lesigh" ParentName="ImplantHediffBase" Abstract="True">
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>1</maxSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>0.017</severityPerDay>
+      </li>
+	</comps>
+    <duplicationAllowed>false</duplicationAllowed>
+  </HediffDef>
+  
+  <!--extra firing arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftFiringArm</defName>
+    <label>extra firing arm (left)</label>
+    <labelNoun>an extra firing arm (left)</labelNoun>
+    <description>An installed extra firing arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FiringArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FiringArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.95</RangedCooldownFactor>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.85</RangedCooldownFactor>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.8</RangedCooldownFactor>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.75</RangedCooldownFactor>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftFiringArm</defName>
+    <label>install extra firing arm (left)</label>
+    <description>Install an extra firing arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiringArm</ThingDef>
+      <HediffDef>HVB_LeftFiringArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra firing arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FiringArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FiringArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftFiringArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftFiringArm</defName>
+    <label>remove extra firing arm (left)</label>
+    <description>Remove extra firing arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiringArm</ThingDef>
+      <HediffDef>HVB_LeftFiringArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra firing arm (left).</jobString>
+    <removesHediff>HVB_LeftFiringArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightFiringArm</defName>
+    <label>extra firing arm (right)</label>
+    <labelNoun>an extra firing arm (right)</labelNoun>
+    <description>An installed extra firing arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FiringArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FiringArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.95</RangedCooldownFactor>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.85</RangedCooldownFactor>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.8</RangedCooldownFactor>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.75</RangedCooldownFactor>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightFiringArm</defName>
+    <label>install extra firing arm (right)</label>
+    <description>Install an extra firing arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiringArm</ThingDef>
+      <HediffDef>HVB_RightFiringArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra firing arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FiringArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FiringArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightFiringArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightFiringArm</defName>
+    <label>remove extra firing arm (right)</label>
+    <description>Remove extra firing arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiringArm</ThingDef>
+      <HediffDef>HVB_RightFiringArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra firing arm (right).</jobString>
+    <removesHediff>HVB_RightFiringArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra loping arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftLopingArm</defName>
+    <label>extra loping arm (left)</label>
+    <labelNoun>an extra loping arm (left)</labelNoun>
+    <description>An installed extra loping arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LopingArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+		<statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+		<statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+		<statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+		<statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.08</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftLopingArm</defName>
+    <label>install extra loping arm (left)</label>
+    <description>Install an extra loping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LopingArm</ThingDef>
+      <HediffDef>HVB_LeftLopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra loping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftLopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftLopingArm</defName>
+    <label>remove extra loping arm (left)</label>
+    <description>Remove extra loping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LopingArm</ThingDef>
+      <HediffDef>HVB_LeftLopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra loping arm (left).</jobString>
+    <removesHediff>HVB_LeftLopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightLopingArm</defName>
+    <label>extra loping arm (right)</label>
+    <labelNoun>an extra loping arm (right)</labelNoun>
+    <description>An installed extra loping arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LopingArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+		<statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+		<statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+		<statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+		<statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.08</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightLopingArm</defName>
+    <label>install extra loping arm (right)</label>
+    <description>Install an extra loping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LopingArm</ThingDef>
+      <HediffDef>HVB_RightLopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra loping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightLopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightLopingArm</defName>
+    <label>remove extra loping arm (right)</label>
+    <description>Remove extra loping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LopingArm</ThingDef>
+      <HediffDef>HVB_RightLopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra loping arm (right).</jobString>
+    <removesHediff>HVB_RightLopingArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra programmable limbs-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeftProgrammableLimb</defName>
+    <label>extra programmable arm (left)</label>
+    <labelNoun>an extra programmable arm (left)</labelNoun>
+    <description>An installed extra programmable limb. Its efficacy scales with the Intellectual skill of the user.\n\nUnlike other extra arms, this limb is sufficiently customizable that particularly adept users have no trouble at all with it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableLimb</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.2</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.17</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.14</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.11</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.08</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.05</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.02</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.01</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.04</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.075</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.1</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.13</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.16</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.19</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.22</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.25</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.28</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.31</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.34</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.37</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.4</offset></li></capMods>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>programmable limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftProgrammableLimb</defName>
+    <label>install extra programmable arm (left)</label>
+    <description>Install an extra programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLimb</ThingDef>
+      <HediffDef>HVB_LeftProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra programmable arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftProgrammableLimb</defName>
+    <label>remove extra programmable arm (left)</label>
+    <description>Remove extra programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLimb</ThingDef>
+      <HediffDef>HVB_RightProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra programmable arm (left).</jobString>
+    <removesHediff>HVB_LeftProgrammableLimb</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RightProgrammableLimb</defName>
+    <label>extra programmable arm (right)</label>
+    <labelNoun>an extra programmable arm (right)</labelNoun>
+    <description>An installed extra programmable limb. Its efficacy scales with the Intellectual skill of the user.\n\nUnlike other extra arms, this limb is sufficiently customizable that particularly adept users have no trouble at all with it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableLimb</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.2</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.175</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.15</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.125</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.1</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.075</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.05</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>-0.025</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.025</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.05</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.075</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.1</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.125</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.15</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.175</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.2</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.225</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.25</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.275</offset></li></capMods>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.3</offset></li></capMods>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>programmable limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightProgrammableLimb</defName>
+    <label>install extra programmable arm (right)</label>
+    <description>Install an extra programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLimb</ThingDef>
+      <HediffDef>HVB_RightProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra programmable arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightProgrammableLimb</defName>
+    <label>remove extra programmable arm (right)</label>
+    <description>Remove extra programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLimb</ThingDef>
+      <HediffDef>HVB_RightProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra programmable arm (right).</jobString>
+    <removesHediff>HVB_RightProgrammableLimb</removesHediff>
+  </RecipeDef>
+  
+  <!--extra servo-shank arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftServoShankArm</defName>
+    <label>extra servo-shank arm (left)</label>
+    <labelNoun>an extra servo-shank arm (left)</labelNoun>
+    <description>An installed extra servo-shank arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ServoShankArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ServoShankArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.6</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftServoShankArm</defName>
+    <label>install extra servo-shank arm (left)</label>
+    <description>Install an extra servo-shank arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ServoShankArm</ThingDef>
+      <HediffDef>HVB_LeftServoShankArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra servo-shank arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ServoShankArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ServoShankArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftServoShankArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftServoShankArm</defName>
+    <label>remove extra servo-shank arm (left)</label>
+    <description>Remove extra servo-shank arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ServoShankArm</ThingDef>
+      <HediffDef>HVB_LeftServoShankArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra servo-shank arm (left).</jobString>
+    <removesHediff>HVB_LeftServoShankArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightServoShankArm</defName>
+    <label>extra servo-shank arm (right)</label>
+    <labelNoun>an extra servo-shank arm (right)</labelNoun>
+    <description>An installed extra servo-shank arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ServoShankArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ServoShankArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.6</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightServoShankArm</defName>
+    <label>install extra servo-shank arm (right)</label>
+    <description>Install an extra servo-shank arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ServoShankArm</ThingDef>
+      <HediffDef>HVB_RightServoShankArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra servo-shank arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ServoShankArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ServoShankArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightServoShankArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightServoShankArm</defName>
+    <label>remove extra servo-shank arm (right)</label>
+    <description>Remove extra servo-shank arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ServoShankArm</ThingDef>
+      <HediffDef>HVB_RightServoShankArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra servo-shank arm (right).</jobString>
+    <removesHediff>HVB_RightServoShankArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra testudo arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftTestudoArm</defName>
+    <label>extra testudo arm (left)</label>
+    <labelNoun>an extra testudo arm (left)</labelNoun>
+    <description>An installed extra testudo arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TestudoArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TestudoArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftTestudoArm</defName>
+    <label>install extra testudo arm (left)</label>
+    <description>Install an extra testudo arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TestudoArm</ThingDef>
+      <HediffDef>HVB_LeftTestudoArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra testudo arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TestudoArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TestudoArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftTestudoArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftTestudoArm</defName>
+    <label>remove extra testudo arm (left)</label>
+    <description>Remove extra testudo arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TestudoArm</ThingDef>
+      <HediffDef>HVB_LeftTestudoArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra testudo arm (left).</jobString>
+    <removesHediff>HVB_LeftTestudoArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightTestudoArm</defName>
+    <label>extra testudo arm (right)</label>
+    <labelNoun>an extra testudo arm (right)</labelNoun>
+    <description>An installed extra testudo arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TestudoArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TestudoArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightTestudoArm</defName>
+    <label>install extra testudo arm (right)</label>
+    <description>Install an extra testudo arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TestudoArm</ThingDef>
+      <HediffDef>HVB_RightTestudoArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra testudo arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TestudoArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TestudoArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightTestudoArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightTestudoArm</defName>
+    <label>remove extra testudo arm (right)</label>
+    <description>Remove extra testudo arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TestudoArm</ThingDef>
+      <HediffDef>HVB_RightTestudoArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra testudo arm (right).</jobString>
+    <removesHediff>HVB_RightTestudoArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra welding arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftWeldingArm</defName>
+    <label>extra welding arm (left)</label>
+    <labelNoun>an extra welding arm (left)</labelNoun>
+    <description>An installed extra welding arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WeldingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WeldingArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.2</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.1</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>welder</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>Interact_Ignite</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+			<extraMeleeDamages>
+			  <li>
+				<def>Burn</def>
+				<amount>5</amount>
+				<chance>0.7</chance>
+			  </li>
+			</extraMeleeDamages>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftWeldingArm</defName>
+    <label>install extra welding arm (left)</label>
+    <description>Install an extra welding arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WeldingArm</ThingDef>
+      <HediffDef>HVB_LeftWeldingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra welding arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WeldingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WeldingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftWeldingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftWeldingArm</defName>
+    <label>remove extra welding arm (left)</label>
+    <description>Remove extra welding arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WeldingArm</ThingDef>
+      <HediffDef>HVB_LeftWeldingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra welding arm (left).</jobString>
+    <removesHediff>HVB_LeftWeldingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightWeldingArm</defName>
+    <label>extra welding arm (right)</label>
+    <labelNoun>an extra welding arm (right)</labelNoun>
+    <description>An installed extra welding arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WeldingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WeldingArm</spawnThingOnRemoved>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.2</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>1.1</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>welder</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>Interact_Ignite</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+			<extraMeleeDamages>
+			  <li>
+				<def>Burn</def>
+				<amount>5</amount>
+				<chance>0.7</chance>
+			  </li>
+			</extraMeleeDamages>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightWeldingArm</defName>
+    <label>install extra welding arm (right)</label>
+    <description>Install an extra welding arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WeldingArm</ThingDef>
+      <HediffDef>HVB_RightWeldingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra welding arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WeldingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WeldingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightWeldingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightWeldingArm</defName>
+    <label>remove extra welding arm (right)</label>
+    <description>Remove extra welding arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WeldingArm</ThingDef>
+      <HediffDef>HVB_RightWeldingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra welding arm (right).</jobString>
+    <removesHediff>HVB_RightWeldingArm</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+  
+  <!--uncraftables:
+  extra archotech programmable limb-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeftExtraArchotechProgrammableLimb</defName>
+    <label>extra archotech programmable arm (left)</label>
+    <labelNoun>an extra archotech programmable arm (left)</labelNoun>
+    <description>An installed extra archotech programmable arm. It functions like an ordinary limb, but is mostly composed of microscopic archites. Thus, its form and function can be redesigned in virtually limitless ways, so long as the host can accurately envision the end result.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <label>0 Int</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.08</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.16</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.24</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.32</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.48</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.56</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.64</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.72</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.88</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.96</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.04</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.12</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.28</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.36</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.44</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.52</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftExtraArchotechProgrammableLimb</defName>
+    <label>install extra archotech programmable arm (left)</label>
+    <description>Install an extra archotech programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech programmable arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftExtraArchotechProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftExtraArchotechProgrammableLimb</defName>
+    <label>remove extra archotech programmable arm (left)</label>
+    <description>Remove extra archotech programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech programmable arm (left).</jobString>
+    <removesHediff>HVB_LeftExtraArchotechProgrammableLimb</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RightExtraArchotechProgrammableLimb</defName>
+    <label>extra archotech programmable arm (right)</label>
+    <labelNoun>an extra archotech programmable arm (right)</labelNoun>
+    <description>An installed extra archotech programmable arm. It functions like an ordinary limb, but is mostly composed of microscopic archites. Thus, its form and function can be redesigned in virtually limitless ways, so long as the host can accurately envision the end result.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <label>0 Int</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.08</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.16</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.24</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.32</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.48</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.56</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.64</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.72</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.88</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.96</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.04</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.12</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.28</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.36</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.44</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.52</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightExtraArchotechProgrammableLimb</defName>
+    <label>install extra archotech programmable arm (right)</label>
+    <description>Install an extra archotech programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech programmable arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightExtraArchotechProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightExtraArchotechProgrammableLimb</defName>
+    <label>remove extra archotech programmable arm (right)</label>
+    <description>Remove extra archotech programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech programmable arm (right).</jobString>
+    <removesHediff>HVB_RightExtraArchotechProgrammableLimb</removesHediff>
+  </RecipeDef>
+  
+  <!--extra archotech telescoping arm-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeftExtraArchotechTelescopingArm</defName>
+    <label>extra archotech telescoping arm (left)</label>
+    <labelNoun>an extra archotech telescoping arm (left)</labelNoun>
+    <description>An installed extra archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftExtraArchotechTelescopingArm</defName>
+    <label>install extra archotech telescoping arm (left)</label>
+    <description>Install an extra archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech telescoping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (left)</label>
+    <description>Remove extra archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech telescoping arm (left).</jobString>
+    <removesHediff>HVB_LeftExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RightExtraArchotechTelescopingArm</defName>
+    <label>extra archotech telescoping arm (right)</label>
+    <labelNoun>an extra archotech telescoping arm (right)</labelNoun>
+    <description>An installed extra archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightExtraArchotechTelescopingArm</defName>
+    <label>install extra archotech telescoping arm (right)</label>
+    <description>Install an extra archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech telescoping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (right)</label>
+    <description>Remove extra archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech telescoping arm (right).</jobString>
+    <removesHediff>HVB_RightExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra archotech shield bubbler-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeftExtraArchotechShieldBubbler</defName>
+    <label>extra archotech shield bubbler (left)</label>
+    <labelNoun>an extra archotech shield bubbler (left)</labelNoun>
+    <description>An installed extra archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_ProjectBionicShield</li>
+    </abilities>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <EnergyShieldRechargeRate>0.2</EnergyShieldRechargeRate>
+		  <EnergyShieldEnergyMax>0.5</EnergyShieldEnergyMax>
+		  <VEF_EnergyShieldEnergyMaxOffset>0.5</VEF_EnergyShieldEnergyMaxOffset>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftExtraArchotechShieldBubbler</defName>
+    <label>install extra archotech shield bubbler (left)</label>
+    <description>Install an extra archotech shield bubbler (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech shield bubbler (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftExtraArchotechShieldBubbler</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftExtraArchotechShieldBubbler</defName>
+    <label>remove extra archotech shield bubbler (left)</label>
+    <description>Remove extra archotech shield bubbler (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech shield bubbler (left).</jobString>
+    <removesHediff>HVB_LeftExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RightExtraArchotechShieldBubbler</defName>
+    <label>extra archotech shield bubbler (right)</label>
+    <labelNoun>an extra archotech shield bubbler (right)</labelNoun>
+    <description>An installed extra archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_ProjectBionicShield</li>
+    </abilities>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <EnergyShieldRechargeRate>0.2</EnergyShieldRechargeRate>
+		  <EnergyShieldEnergyMax>0.5</EnergyShieldEnergyMax>
+		  <VEF_EnergyShieldEnergyMaxOffset>0.5</VEF_EnergyShieldEnergyMaxOffset>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightExtraArchotechShieldBubbler</defName>
+    <label>install extra archotech shield bubbler (right)</label>
+    <description>Install an extra archotech shield bubbler (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech shield bubbler (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightExtraArchotechShieldBubbler</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightExtraArchotechShieldBubbler</defName>
+    <label>remove extra archotech shield bubbler (right)</label>
+    <description>Remove extra archotech shield bubbler (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech shield bubbler (right).</jobString>
+    <removesHediff>HVB_RightExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  
+  <!--Archotech Expanded Prosthetics:
+  extra adv archotech programmable limb-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_LeftExtraArchotechProgrammableLimb</defName>
+    <label>extra advanced archotech programmable arm (left)</label>
+    <labelNoun>an extra advanced archotech programmable arm (left)</labelNoun>
+    <description>An installed extra advanced archotech programmable arm. It functions like an ordinary limb, but is mostly composed of microscopic archites. Thus, its form and function can be redesigned in virtually limitless ways, so long as the host can accurately envision the end result.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <label>0 Int</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.5</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.1</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.7</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.9</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.5</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.1</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.7</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallLeftExtraArchotechProgrammableLimb</defName>
+    <label>install extra advanced archotech programmable arm (left)</label>
+    <description>Install an extra advanced archotech programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech programmable arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_LeftExtraArchotechProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveLeftExtraArchotechProgrammableLimb</defName>
+    <label>remove extra advanced archotech programmable arm (left)</label>
+    <description>Remove extra advanced archotech programmable arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech programmable arm (left).</jobString>
+    <removesHediff>HVB_AEP_LeftExtraArchotechProgrammableLimb</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RightExtraArchotechProgrammableLimb</defName>
+    <label>extra advanced archotech programmable arm (right)</label>
+    <labelNoun>an extra advanced archotech programmable arm (right)</labelNoun>
+    <description>An installed extra advanced archotech programmable arm. It functions like an ordinary limb, but is mostly composed of microscopic archites. Thus, its form and function can be redesigned in virtually limitless ways, so long as the host can accurately envision the end result.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <label>0 Int</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.5</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>1.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.1</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>2.7</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.3</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>3.9</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.2</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.5</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>4.8</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.1</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.4</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>5.7</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods><li><capacity>Manipulation</capacity><offset>6</offset></li></capMods>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallRightExtraArchotechProgrammableLimb</defName>
+    <label>install extra advanced archotech programmable arm (right)</label>
+    <description>Install an extra advanced archotech programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech programmable arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_RightExtraArchotechProgrammableLimb</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveRightExtraArchotechProgrammableLimb</defName>
+    <label>remove extra advanced archotech programmable arm (right)</label>
+    <description>Remove extra advanced archotech programmable arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech programmable arm (right).</jobString>
+    <removesHediff>HVB_AEP_RightExtraArchotechProgrammableLimb</removesHediff>
+  </RecipeDef>
+  
+  <!--extra adv archotech telescoping arm-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_LeftExtraArchotechTelescopingArm</defName>
+    <label>extra advanced archotech telescoping arm (left)</label>
+    <labelNoun>an extra advanced archotech telescoping arm (left)</labelNoun>
+    <description>An installed extra advanced archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallLeftExtraArchotechTelescopingArm</defName>
+    <label>install extra advanced archotech telescoping arm (left)</label>
+    <description>Install an extra advanced archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech telescoping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveLeftExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (left)</label>
+    <description>Remove extra advanced archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech telescoping arm (left).</jobString>
+    <removesHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RightExtraArchotechTelescopingArm</defName>
+    <label>extra advanced archotech telescoping arm (right)</label>
+    <labelNoun>an extra advanced archotech telescoping arm (right)</labelNoun>
+    <description>An installed extra advanced archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallRightExtraArchotechTelescopingArm</defName>
+    <label>install extra advanced archotech telescoping arm (right)</label>
+    <description>Install an extra advanced archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech telescoping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_RightExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveRightExtraArchotechTelescopingArm</defName>
+    <label>remove extra advanced archotech telescoping arm (right)</label>
+    <description>Remove extra advanced archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech telescoping arm (right).</jobString>
+    <removesHediff>HVB_AEP_RightExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra adv archotech shield bubbler-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_LeftExtraArchotechShieldBubbler</defName>
+    <label>extra advanced archotech shield bubbler (left)</label>
+    <labelNoun>an extra advanced archotech shield bubbler (left)</labelNoun>
+    <description>An installed extra advanced archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_ProjectBionicShield</li>
+    </abilities>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <EnergyShieldRechargeRate>0.4</EnergyShieldRechargeRate>
+		  <EnergyShieldEnergyMax>1</EnergyShieldEnergyMax>
+		  <VEF_EnergyShieldEnergyMaxOffset>1</VEF_EnergyShieldEnergyMaxOffset>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallLeftExtraArchotechShieldBubbler</defName>
+    <label>install extra advanced archotech shield bubbler (left)</label>
+    <description>Install an extra advanced archotech shield bubbler (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech shield bubbler (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_LeftExtraArchotechShieldBubbler</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveLeftExtraArchotechShieldBubbler</defName>
+    <label>remove extra archotech shield bubbler (left)</label>
+    <description>Remove extra advanced archotech shield bubbler (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech shield bubbler (left).</jobString>
+    <removesHediff>HVB_AEP_LeftExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RightExtraArchotechShieldBubbler</defName>
+    <label>extra advanced archotech shield bubbler (right)</label>
+    <labelNoun>an extra advanced archotech shield bubbler (right)</labelNoun>
+    <description>An installed extra advanced archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_ProjectBionicShield</li>
+    </abilities>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <EnergyShieldRechargeRate>0.4</EnergyShieldRechargeRate>
+		  <EnergyShieldEnergyMax>1</EnergyShieldEnergyMax>
+		  <VEF_EnergyShieldEnergyMaxOffset>1</VEF_EnergyShieldEnergyMaxOffset>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallRightExtraArchotechShieldBubbler</defName>
+    <label>install extra advanced archotech shield bubbler (right)</label>
+    <description>Install an extra advanced archotech shield bubbler (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech shield bubbler (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_RightExtraArchotechShieldBubbler</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveRightExtraArchotechShieldBubbler</defName>
+    <label>remove extra advanced archotech shield bubbler (right)</label>
+    <description>Remove extra advanced archotech shield bubbler (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech shield bubbler (right).</jobString>
+    <removesHediff>HVB_AEP_RightExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  
+</Defs>

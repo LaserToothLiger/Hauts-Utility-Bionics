@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--Baleful eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_BalefulEye</defName>
+    <label>baleful eye</label>
+    <labelNoun>a baleful eye</labelNoun>
+    <description>An installed baleful eye. Can fire at targets independently, even in melee.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BalefulEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BalefulEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <!--<partEfficiency>1.25</partEfficiency>-->
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+			<li>
+			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
+			  <label>baleful eye</label>
+			  <hasStandardCommand>true</hasStandardCommand>
+			  <defaultProjectile>Bullet_ChargeLance</defaultProjectile>
+			  <warmupTime>2.4</warmupTime>
+			  <range>29.9</range>
+			  <soundCast>ChargeLance_Fire</soundCast>
+			  <soundCastTail>GunTail_Heavy</soundCastTail>
+			  <muzzleFlashScale>6</muzzleFlashScale>
+			  <commandIcon>Weapons/HUB_BalefulEye</commandIcon>
+			</li>
+		</verbs>
+		<verbProps>
+			<li>
+			  <label>baleful eye</label>
+			  <canBeToggled>true</canBeToggled>
+			  <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
+                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
+					<invisible>true</invisible>
+					<uniqueTargets>false</uniqueTargets>
+              </li>
+            </comps>
+			  <description>Fires a single shot at high velocity, charging it with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
+			</li>
+		</verbProps>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BalefulEye</defName>
+    <label>baleful eye</label>
+    <description>An artificial eye with extremely miniaturized pulse-charge and mass acceleration technology, enabling it to fire projectiles akin to a charge lance. It does not offer improved eyesight when compared to organic eyes. Due to its compact design, its rate of fire is slower than that of a proper charge lance; however, because it only requires eyesight and a mental trigger to fire, it can also be used in melee.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBalefulEye</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <BionicEye>1</BionicEye>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>1810</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>AdvancedWeapon</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallBalefulEye</defName>
+    <label>install baleful eye</label>
+    <description>Install a baleful eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BalefulEye</ThingDef>
+      <HediffDef>HVB_BalefulEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing baleful eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BalefulEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BalefulEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BalefulEye</addsHediff>
+  </RecipeDef>
+  
+  <!--Longshot eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_LongshotEye</defName>
+    <label>longshot eye</label>
+    <labelNoun>a longshot eye</labelNoun>
+    <description>An installed longshot eye.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LongshotEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LongshotEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <VEF_VerbRangeFactor>0.075</VEF_VerbRangeFactor>
+		  <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+		  <MeleeHitChance>-1</MeleeHitChance>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_LongshotEye</defName>
+    <label>longshot eye</label>
+    <description>An artificial eye with telescoping vision and a target-lock feature. Its biogel nerve-link produces a visual hallucination in the shape of a targeting reticle when desired. While useful for ensuring accurate aim over long distances, it has a tendency to glitch when focusing on combatants within arm's reach.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLongshotEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEye>1</BionicEye>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallLongshotEye</defName>
+    <label>install longshot eye</label>
+    <description>Install a longshot eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LongshotEye</ThingDef>
+      <HediffDef>HVB_LongshotEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing longshot eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LongshotEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LongshotEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LongshotEye</addsHediff>
+  </RecipeDef>
+  
+  <!--Ocular computing node-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_OcularComputingNode</defName>
+    <label>ocular computing node</label>
+    <labelNoun>an ocular computing node</labelNoun>
+    <description>An installed ocular computing node.</description>
+    <descriptionHyperlinks><ThingDef>HVB_OcularComputingNode</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_OcularComputingNode</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <createHediff>BrainShock</createHediff>
+      </li>
+    </comps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_OcularComputingNode</defName>
+    <label>ocular computing node</label>
+    <description>A powerful computer the size and shape of an eye. It can be used to replace an eye, though it doesn't actually provide any vision. Instead, it hooks up to the optic nerve and repurposes brainpower from the visual cortex to augment the host's consciousness.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallOcularComputingNode</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>950</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallOcularComputingNode</defName>
+    <label>install ocular computing node</label>
+    <description>Install an ocular computing node.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_OcularComputingNode</ThingDef>
+      <HediffDef>HVB_OcularComputingNode</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing ocular computing node.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_OcularComputingNode</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_OcularComputingNode</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_OcularComputingNode</addsHediff>
+  </RecipeDef>
+  
+  <!--Programmable eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ProgrammableEye</defName>
+    <label>programmable eye</label>
+    <labelNoun>a programmable eye</labelNoun>
+    <description>An installed programmable eye. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.03</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.06</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.09</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.15</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.18</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.21</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.27</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.33</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>0.39</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>0.42</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>0.45</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>0.51</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>0.54</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>0.57</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ProgrammableEye</defName>
+    <label>programmable eye</label>
+    <description>A bionic eye with interchangeable layerable lenses, a modular set of synthetic photoreceptors, and customizable visual enhancement algorithms. Hosts with no particular intellectual acumen will not find this much better than a natural eyes; however, notably intellectually skilled hosts can program it to surpass the efficacy of regular bionic eyes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProgrammableEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>1</Gold>
+      <Plasteel>5</Plasteel>
+      <Uranium>5</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_ProgrammableBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallProgrammableEye</defName>
+    <label>install programmable eye</label>
+    <description>Install a programmable eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableEye</ThingDef>
+      <HediffDef>HVB_ProgrammableEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing programmable eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProgrammableEye</addsHediff>
+  </RecipeDef>
+  
+  <!--Wayfinder eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_WayfinderEye</defName>
+    <label>wayfinder eye</label>
+    <labelNoun>a wayfinder eye</labelNoun>
+    <description>An installed wayfinder eye.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WayfinderEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WayfinderEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <MoveSpeed>0.1</MoveSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_WayfinderEye</defName>
+    <label>wayfinder eye</label>
+    <description>An artificial eye that uses GPS and a two-stage geological classifier AI to plot optimal travel routes for the host, enabling faster movement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWayfinderEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEye>1</BionicEye>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallWayfinderEye</defName>
+    <label>install wayfinder eye</label>
+    <description>Install a wayfinder eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WayfinderEye</ThingDef>
+      <HediffDef>HVB_WayfinderEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing wayfinder eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WayfinderEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WayfinderEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WayfinderEye</addsHediff>
+  </RecipeDef>
+  
+  <!--Mechanityrant eye-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantEye</defName>
+    <label>mechanityrant eye</label>
+    <description>An installed mechanityrant eye.</description>
+    <labelNoun>a mechanityrant eye</labelNoun>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MechBandwidth>4</MechBandwidth>
+          <MechRemoteRepairDistance>4</MechRemoteRepairDistance>
+		  <MechRemoteShieldDistance>4</MechRemoteShieldDistance>
+		  <MechRemoteResurrectDistance MayRequire="lts.I">4</MechRemoteResurrectDistance>
+		  <MechRemoteDominateDistance MayRequire="lts.I">4</MechRemoteDominateDistance>
+        </statOffsets>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantEye</defName>
+    <label>mechanityrant eye</label>
+    <description>A powerful computer the size and shape of an eye. It can be used to replace an eye, though it doesn't actually provide any vision. Instead, it hijacks the visual cortex to assist with projecting the host's mechanoid control over further distances.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>450</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>StandardMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantEye</defName>
+    <label>install mechanityrant eye</label>
+    <description>Install a mechanityrant eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantEye</ThingDef>
+      <HediffDef>HVB_MechanityrantEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantEye</addsHediff>
+  </RecipeDef>
+  
+  <!--Warlock's eye-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEye</defName>
+    <label>warlock's eye</label>
+    <labelNoun>a warlock's eye</labelNoun>
+    <description>An installed warlock's eye. This is a barely functional replacement for an eye - instead, its main use is to guide the host's background thought processes, boosting connectivity to the psychic field and passively generating psyfocus over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.1</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.05</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/BionicEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEye</defName>
+    <label>warlock's eye</label>
+    <description>A barely functional bionic eye inlaid with patterns similar to those found on the exterior of some archotech constructions. It subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into the biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+      <BionicEye>1</BionicEye>
+    </costList>
+	<statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksEye</defName>
+    <label>install warlock's eye</label>
+    <description>Install a warlock's eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksEye</ThingDef>
+      <HediffDef>HVB_WarlocksEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksEye</addsHediff>
+  </RecipeDef>
+  
+						<!--uncraftable-->
+  <!--Archotech death glare-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechDeathGlare</defName>
+    <label>archotech death glare</label>
+    <labelNoun>an archotech death glare</labelNoun>
+    <description>An installed archotech "death glare". In addition to the usual functions of an archotech eye, death glares are devastating weapons that can launch a stream of pulse-charged projectiles over long distances. Since the weapon only needs eyesight and a mental trigger to fire, it can even be used in melee.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechDeathGlare</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/ArchotechEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+			<li>
+			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
+			  <label>archotech death glare</label>
+			  <hasStandardCommand>true</hasStandardCommand>
+			  <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
+			  <warmupTime>3.5</warmupTime>
+			  <range>45.9</range>
+			  <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+			  <burstShotCount>5</burstShotCount>
+			  <soundCast>Shot_ChargeBlaster</soundCast>
+			  <soundCastTail>GunTail_Heavy</soundCastTail>
+			  <muzzleFlashScale>9</muzzleFlashScale>
+			  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
+			</li>
+		</verbs>
+		<verbProps>
+			<li>
+			  <label>archotech death glare</label>
+			  <canBeToggled>true</canBeToggled>
+			  <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
+                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
+					<invisible>true</invisible>
+					<uniqueTargets>false</uniqueTargets>
+              </li>
+            </comps>
+			  <description>Fires a stream of slugs at high velocity. Each is charged with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
+			</li>
+		</verbProps>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechDeathGlare</defName>
+    <label>archotech death glare</label>
+    <description>An artificial eye built by an archotech. Can fire at targets independently, even in melee.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechDeathGlare</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <Mass>0.3</Mass>
+	  <MarketValue>5000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechDeathGlare</defName>
+    <label>install archotech death glare</label>
+    <description>Install an archotech death glare.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechDeathGlare</ThingDef>
+      <HediffDef>HVB_ArchotechDeathGlare</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech death glare.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechDeathGlare</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechDeathGlare</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechDeathGlare</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech programmable eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechProgrammableEye</defName>
+    <label>archotech programmable eye</label>
+    <labelNoun>an archotech programmable eye</labelNoun>
+    <description>An installed archotech programmable eye. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgrammableEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgrammableEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.08</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.16</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.32</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.56</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.64</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.72</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.88</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.96</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>1.04</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>1.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>1.28</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>1.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>1.44</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>1.52</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>1.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/ArchotechEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechProgrammableEye</defName>
+    <label>archotech programmable eye</label>
+    <description>An artificial eye built by an archotech. It appears to be an ordinary eye, but is entirely composed out of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the eye as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of “regular” archotech eyes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechProgrammableEye</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>3000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechProgrammableEye</defName>
+    <label>install archotech programmable eye</label>
+    <description>Install an archotech programmable eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableEye</ThingDef>
+      <HediffDef>HVB_ArchotechProgrammableEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech programmable eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechProgrammableEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechProgrammableEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechProgrammableEye</addsHediff>
+  </RecipeDef>
+
+</Defs>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--banshee cords-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BansheeCords</defName>
+    <label>banshee cords</label>
+    <description>An installed banshee cords implant. Grants the ability to disorient nearby foes with a sonic scream.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BansheeCords</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BansheeCords</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <abilities>
+      <li>HVB_BionicBansheeWail</li>
+    </abilities>
+    <comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BansheeCords</defName>
+    <label>banshee cords</label>
+    <description>A neck implant containing additional, specialized vocal folds. When fully charged, it can be activated to distort the pitch and volume of a triggering scream, resulting in a keening ultrasonic wail that debilitates anyone nearby.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBansheeCords</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase">
+    <defName>HVB_InstallBansheeCords</defName>
+    <label>install banshee cords</label>
+    <description>Install a set of banshee cords.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BansheeCords</ThingDef>
+      <HediffDef>HVB_BansheeCords</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing banshee cords.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BansheeCords</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BansheeCords</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BansheeCords</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveBansheeCords</defName>
+    <label>remove banshee cords</label>
+    <description>Remove banshee cords.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BansheeCords</ThingDef>
+      <HediffDef>HVB_BansheeCords</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing banshee cords.</jobString>
+    <removesHediff>HVB_BansheeCords</removesHediff>
+  </RecipeDef>
+
+  <!--techno-larynx-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_TechnoLarynx</defName>
+    <label>techno-larynx</label>
+    <labelNoun>techno-larynx</labelNoun>
+    <description>An installed techno-larynx.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TechnoLarynx</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TechnoLarynx</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TechnoLarynx</defName>
+    <label>techno-larynx</label>
+    <description>An artificial larynx with synthetic muscles that can further distort the vocal folds in ways subtle or profound, affording greater control over one's own voice.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTechnoLarynx</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+	<tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallTechnoLarynx</defName>
+    <label>install techno-larynx</label>
+    <description>Install a techno-larynx.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TechnoLarynx</ThingDef>
+      <HediffDef>HVB_TechnoLarynx</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing techno-larynx.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TechnoLarynx</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TechnoLarynx</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TechnoLarynx</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveTechnoLarynx</defName>
+    <label>remove techno-larynx</label>
+    <description>Remove techno-larynx.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TechnoLarynx</ThingDef>
+      <HediffDef>HVB_TechnoLarynx</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing techno-larynx.</jobString>
+    <removesHediff>HVB_TechnoLarynx</removesHediff>
+  </RecipeDef>
+  
+  <!--exotracheal spray xylem-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ExotrachealSprayXylem</defName>
+    <label>exotracheal spray xylem</label>
+    <labelNoun>an exotracheal spray xylem</labelNoun>
+    <description>An installed exotracheal spray xylem implant. Improves the range and cooldown of spray and spew abilities.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ExotrachealSprayXylem</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ExotrachealSprayXylem</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_SpewRangeFactor>0.6</Hauts_SpewRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.6</increasedCooldownRecovery>
+		<affectedDMEs>
+		  <li Class="HautsFramework.Hauts_SpewAbility" />
+		</affectedDMEs>
+	  </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_ExotrachealSprayXylem</defName>
+    <label>exotracheal spray xylem</label>
+    <description>A neck implant through which the chemicals necessary for most breath weapons can be stored for later use, or jettisoned at great speed. This boosts the range and lowers the cooldown of spray and spew abilities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallExotrachealSprayXylem</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_SprayAbility</li></techHediffsTags>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallExotrachealSprayXylem</defName>
+    <label>install exotracheal spray xylem</label>
+    <description>Install an exotracheal spray xylem.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ExotrachealSprayXylem</ThingDef>
+      <HediffDef>HVB_ExotrachealSprayXylem</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing exotracheal spray xylem.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ExotrachealSprayXylem</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ExotrachealSprayXylem</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ExotrachealSprayXylem</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveExotrachealSprayXylem</defName>
+    <label>remove exotracheal spray xylem</label>
+    <description>Remove exotracheal spray xylem.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ExotrachealSprayXylem</ThingDef>
+      <HediffDef>HVB_ExotrachealSprayXylem</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing exotracheal spray xylem.</jobString>
+    <removesHediff>HVB_ExotrachealSprayXylem</removesHediff>
+  </RecipeDef>
+  
+  <!--dryad pheromone gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DryadPheromoneGland</defName>
+    <label>dryad pheromone gland</label>
+    <labelNoun>a dryad pheromone gland</labelNoun>
+    <description>An installed dryad pheromone gland implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DryadPheromoneGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DryadPheromoneGland</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <stages>
+      <li>
+        <statOffsets>
+		  <PruningSpeed>0.67</PruningSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DryadPheromoneGland</defName>
+    <label>dryad pheromone gland</label>
+    <description>A neck implant that continually secretes dryadic pheromones, specifically those that facilitate the close degree of symbiosis between a gauranlen tree and its dryad inhabitants.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDryadPheromoneGland</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+    <statBases>
+      <MarketValue>350</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <WoodLog>35</WoodLog>
+      <Neutroamine>6</Neutroamine>
+	  <GauranlenSeed>1</GauranlenSeed>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallDryadPheromoneGland</defName>
+    <label>install dryad pheromone gland</label>
+    <description>Install a dryad pheromone gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DryadPheromoneGland</ThingDef>
+      <HediffDef>HVB_DryadPheromoneGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dryad pheromone gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DryadPheromoneGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DryadPheromoneGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DryadPheromoneGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveDryadPheromoneGland</defName>
+    <label>remove dryad pheromone gland</label>
+    <description>Remove dryad pheromone gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DryadPheromoneGland</ThingDef>
+      <HediffDef>HVB_DryadPheromoneGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing dryad pheromone gland.</jobString>
+    <removesHediff>HVB_DryadPheromoneGland</removesHediff>
+  </RecipeDef>
+  
+  <!--bionic neck gills-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_BionicNeckGills</defName>
+    <label>bionic neck gills</label>
+    <labelNoun>bionic neck gills</labelNoun>
+    <description>An installed set of bionic neck gills. Increases breathing marginally while in the rain, or more severely while immersed in water.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicNeckGills</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicNeckGills</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <stages>
+      <li>
+		<label>inactive</label>
+	  </li>
+      <li>
+        <minSeverity>0.05</minSeverity>
+        <label>marginal use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.1</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.30</minSeverity>
+        <label>partial use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.2</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.42</minSeverity>
+        <label>full use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.4</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0.051</rainCountsFor>
+	  </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_BionicNeckGills</defName>
+    <label>bionic neck gills</label>
+    <description>A set of bionic gills intended to be installed in the neck. After installation, capillaries grow towards the gas-exchanging filaments, enabling the gills to pass oxygen into the blood and carbon dioxide into the air. These gills can even extract marginal bonus oxygen from sufficiently heavy rain.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBionicNeckGills</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallBionicNeckGills</defName>
+    <label>install bionic neck gills</label>
+    <description>Install a set of bionic neck gills.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicNeckGills</ThingDef>
+      <HediffDef>HVB_BionicNeckGills</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bionic neck gills.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicNeckGills</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicNeckGills</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BionicNeckGills</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_RemoveBionicNeckGills</defName>
+    <label>remove bionic neck gills</label>
+    <description>Remove bionic neck gills.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicNeckGills</ThingDef>
+      <HediffDef>HVB_BionicNeckGills</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bionic neck gills.</jobString>
+    <removesHediff>HVB_BionicNeckGills</removesHediff>
+  </RecipeDef>
+  
+</Defs>

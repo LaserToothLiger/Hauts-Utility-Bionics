@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--his name... is Miles Morales. He was bitten by a radioactive spider, and... he's not the only one.
+			once again, one item for many, many bionics
+			... but this time we're going wack as all hell. BEYOND the spider-verse. What about an entirely new bionic system from scratch eh?-->
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_MarrowSubstitute</defName>
+    <label>marrow substitute</label>
+    <description>A capsule containing marrow-reprogramming factors and the inactive mechanites to assist them in their work. A surgeon can inject it into bone, radically altering the properties of the marrow in a way that strengthens the host.</description>
+    <descriptionHyperlinks>
+	  <RecipeDef>HVB_InstallAntiGeriatricMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallAntiToxicMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallAnxiolyticMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallBionicSynergyMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallLeukocyticMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallPluripotentMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallPsionicMarrow</RecipeDef>
+	  <RecipeDef>HVB_InstallThermoregulatoryMarrow</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Biotech">HVB_InstallHemogenicMarrow</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Ideology">HVB_InstallGaumarrow</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Neutroamine>7</Neutroamine>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>105</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardHighFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SyntheticMarrows</researchPrerequisite>
+	  <productCount>3</productCount>
+    </recipeMaker>
+  </ThingDef>
+  <!--the remaining marrow decrement that is added with each installed bionic is hidden NOT to prevent players from wondering "what is Remaining Marrow", but rather to prevent it from scaling with the stat offset multiplier-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AugmentedMarrowCounter</defName>
+    <label>augmented marrow counter</label>
+    <description>Tracks how much marrow has been replaced by synthetic marrow. Once this reaches the character's max marrow substitutions (15 by default), further synthetic marrow can't be installed.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <hediffClass>HautsBionics.Hediff_MarrowCounter</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <stages>
+      <li>
+	    <statOffsets><HVB_RemainingMarrow>-1</HVB_RemainingMarrow></statOffsets>
+		<becomeVisible>false</becomeVisible>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+
+  <!--anti-geriatric-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AntiGeriatricMarrow</defName>
+    <label>anti-geriatric marrow</label>
+    <description>Injected anti-geriatric marrow. Boosts lifespan.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><LifespanFactor>0.1</LifespanFactor><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.1</CancerRate></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallAntiGeriatricMarrow</defName>
+    <label>inject anti-geriatric marrow</label>
+    <description>Inject anti-geriatric marrow to improve lifespan and lower cancer rate.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AntiGeriatricMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing anti-geriatric marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_AntiGeriatricMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveAntiGeriatricMarrow</defName>
+    <label>remove anti-geriatric marrow</label>
+    <description>Remove anti-geriatric marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AntiGeriatricMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing anti-geriatric marrow.</jobString>
+    <removesHediff>HVB_AntiGeriatricMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--anti-toxic-->
+		<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AntiToxicMarrow</defName>
+    <label>anti-toxic marrow</label>
+    <description>Injected anti-toxic marrow. Boosts toxic resistance.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><ToxicResistance>0.03</ToxicResistance><ToxicEnvironmentResistance>0.04</ToxicEnvironmentResistance><Radiation MayRequire="Dubwise.Rimatomics">-0.07</Radiation></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallAntiToxicMarrow</defName>
+    <label>inject anti-toxic marrow</label>
+    <description>Inject anti-toxic marrow to improve toxic resistance.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AntiToxicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing anti-toxic marrow.</jobString>
+    <researchPrerequisite MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_AntiToxicMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveAntiToxicMarrow</defName>
+    <label>remove anti-toxic marrow</label>
+    <description>Remove anti-toxic marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AntiToxicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing anti-toxic marrow.</jobString>
+    <removesHediff>HVB_AntiToxicMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--anxiolytic-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AnxiolyticMarrow</defName>
+    <label>anxiolytic marrow</label>
+    <description>Injected anxiolytic marrow. Boosts mental fortitude.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><MentalBreakThreshold>-0.03</MentalBreakThreshold></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallAnxiolyticMarrow</defName>
+    <label>inject anxiolytic marrow</label>
+    <description>Inject anxiolytic marrow to improve mental break threshold.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AnxiolyticMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing anxiolytic marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_AnxiolyticMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveAnxiolyticMarrow</defName>
+    <label>remove anxiolytic marrow</label>
+    <description>Remove anxiolytic marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_AnxiolyticMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing anxiolytic marrow.</jobString>
+    <removesHediff>HVB_AnxiolyticMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--bionic synergy-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BionicSynergyMarrow</defName>
+    <label>bionic synergy marrow</label>
+    <description>Injected bionic synergy marrow. Causes bionic ability cooldowns to elapse faster.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	  </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.1</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+		<multiplyByStat>HVB_MarrowEfficacy</multiplyByStat>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallBionicSynergyMarrow</defName>
+    <label>inject bionic synergy marrow</label>
+    <description>Inject bionic synergy marrow to improve the cooldown recovery speed of bionic abilities.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_BionicSynergyMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bionic synergy marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_BionicSynergyMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveBionicSynergyMarrow</defName>
+    <label>remove bionic synergy marrow</label>
+    <description>Remove bionic synergy marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_BionicSynergyMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bionic synergy marrow.</jobString>
+    <removesHediff>HVB_BionicSynergyMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--leukocytic-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeukocyticMarrow</defName>
+    <label>leukocytic marrow</label>
+    <description>Injected leukocytic marrow. Boosts immunity.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><ImmunityGainSpeed>0.07</ImmunityGainSpeed><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.05</CancerRate></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallLeukocyticMarrow</defName>
+    <label>inject leukocytic marrow</label>
+    <description>Inject leukocytic marrow to improve immunity gain speed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_LeukocyticMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing leukocytic marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeukocyticMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveLeukocyticMarrow</defName>
+    <label>remove leukocytic marrow</label>
+    <description>Remove leukocytic marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_LeukocyticMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing leukocytic marrow.</jobString>
+    <removesHediff>HVB_LeukocyticMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--pluripotent-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PluripotentMarrow</defName>
+    <label>pluripotent marrow</label>
+    <description>Injected pluripotent marrow. Boosts healing factor.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><InjuryHealingFactor>0.12</InjuryHealingFactor></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallPluripotentMarrow</defName>
+    <label>inject pluripotent marrow</label>
+    <description>Inject pluripotent marrow to improve injury healing factor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_PluripotentMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing pluripotent marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_PluripotentMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemovePluripotentMarrow</defName>
+    <label>remove pluripotent marrow</label>
+    <description>Remove pluripotent marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_PluripotentMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing pluripotent marrow.</jobString>
+    <removesHediff>HVB_PluripotentMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--psionic-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PsionicMarrow</defName>
+    <label>psionic marrow</label>
+    <description>Injected psionic marrow. Boosts psychic sensitivity.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><PsychicSensitivity>0.07</PsychicSensitivity><PsychicEntropyRecoveryRate MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">0.03</PsychicEntropyRecoveryRate></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallPsionicMarrow</defName>
+    <label>inject psionic marrow</label>
+    <description>Inject psionic marrow to improve psychic sensitivity.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_PsionicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psionic marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsionicMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemovePsionicMarrow</defName>
+    <label>remove psionic marrow</label>
+    <description>Remove psionic marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_PsionicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing psionic marrow.</jobString>
+    <removesHediff>HVB_PsionicMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--thermoregulatory-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ThermoregulatoryMarrow</defName>
+    <label>thermoregulatory marrow</label>
+    <description>Injected thermoregulatory marrow. Boosts temperature tolerances.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><ComfyTemperatureMin>-2</ComfyTemperatureMin><ComfyTemperatureMax>2</ComfyTemperatureMax></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase">
+    <defName>HVB_InstallThermoregulatoryMarrow</defName>
+    <label>inject thermoregulatory marrow</label>
+    <description>Inject thermoregulatory marrow to improve both cold tolerance and heat tolerance.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_ThermoregulatoryMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing thermoregulatory marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_ThermoregulatoryMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveThermoregulatoryMarrow</defName>
+    <label>remove thermoregulatory marrow</label>
+    <description>Remove thermoregulatory marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_ThermoregulatoryMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing thermoregulatory marrow.</jobString>
+    <removesHediff>HVB_ThermoregulatoryMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--hemogenic-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenicMarrow</defName>
+    <label>hemogenic marrow</label>
+    <description>Injected hemogenic marrow.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><Hauts_HemogenContentFactor>0.075</Hauts_HemogenContentFactor><EBSG_BloodlossRecoveryBonus MayRequire="EBSG.Framework">0.075</EBSG_BloodlossRecoveryBonus><InjuryHealingFactor>0.06</InjuryHealingFactor></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHemogenicMarrow</defName>
+    <label>inject hemogenic marrow</label>
+    <description>Inject hemogenic marrow to improve the amount of hemogen that can be obtained from this individual per feeding or medical extraction, as well as to slightly improve recovery from injury.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_HemogenicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hemogenic marrow.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_HemogenicMarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveHemogenicMarrow</defName>
+    <label>remove hemogenic marrow</label>
+    <description>Remove hemogenic marrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_HemogenicMarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing hemogenic marrow.</jobString>
+    <removesHediff>HVB_HemogenicMarrow</removesHediff>
+  </RecipeDef>
+  
+  <!--gau-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_Gaumarrow</defName>
+    <label>gaumarrow</label>
+    <description>Injected gaumarrow. Hastens gauranlen tree pruning.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
+    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>99999</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+	    <statOffsets><PruningSpeed>0.06</PruningSpeed></statOffsets>
+		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+	  </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryAddMarrowBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallGaumarrow</defName>
+    <label>inject gaumarrow</label>
+    <description>Inject gaumarrow to improve the number of dryads any connected gauranlen tree can support.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_Gaumarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gaumarrow.</jobString>
+    <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>HVB_MarrowSubstitute</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+    <addsHediff>HVB_Gaumarrow</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveGaumarrow</defName>
+    <label>remove gaumarrow</label>
+    <description>Remove gaumarrow.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MarrowSubstitute</ThingDef>
+      <HediffDef>HVB_Gaumarrow</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing gaumarrow.</jobString>
+    <removesHediff>HVB_Gaumarrow</removesHediff>
+  </RecipeDef>
+  
+</Defs>

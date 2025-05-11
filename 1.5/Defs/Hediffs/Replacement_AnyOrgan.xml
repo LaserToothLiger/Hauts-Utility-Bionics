@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--archotech intercessor-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechIntercessor</defName>
+    <label>archotech intercessor</label>
+    <labelNoun>an archotech intercessor</labelNoun>
+    <description>An installed archotech intercessor. Gains 1 charge every 12 hours, up to a max of 2 charges; when damage is taken, 1 charge is spent to nullify it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechIntercessor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
+        <ticksToNextSpawn>30000</ticksToNextSpawn>
+		<hediffGiven>HVB_DamageBlock</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<startingCharges>1</startingCharges>
+		<maxStoredCharges>2</maxStoredCharges>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>true</showProgressInTooltip>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechIntercessor</defName>
+    <label>archotech intercessor</label>
+    <description>An artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechIntercessor</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3400</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechIntercessor</defName>
+    <label>install archotech intercessor</label>
+    <description>Install an archotech intercessor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechIntercessor</ThingDef>
+      <HediffDef>HVB_ArchotechIntercessor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech intercessor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechIntercessor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechIntercessor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechIntercessor</addsHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_DamageBlock</defName>
+		<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+		<label>archotech intercession</label>
+		<description>An anomalous effect that negates incoming damage. After taking damage, this effect will be removed - though "archotech intercessor" organs will expend their energy to recreate it.</description>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_DamageNegation">
+			<chance>1</chance>
+			<severityOnHit>-1</severityOnHit>
+			<damageScalesSeverityLoss>false</damageScalesSeverityLoss>
+			<soundOnBlock>Psycast_Skip_Entry</soundOnBlock>
+			<fleckOnBlock>ExplosionFlash</fleckOnBlock>
+			<throwDustPuffsOnBlock>true</throwDustPuffsOnBlock>
+			<priority>990</priority>
+		  </li>
+		</comps>
+	  </HediffDef>
+	  
+</Defs>

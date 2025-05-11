@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HautsBionics_Biotech", "HautsBionics_Biotech.csproj", "{F2392FD5-B609-45D4-BC27-B80013ECD45C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2392FD5-B609-45D4-BC27-B80013ECD45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2392FD5-B609-45D4-BC27-B80013ECD45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2392FD5-B609-45D4-BC27-B80013ECD45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2392FD5-B609-45D4-BC27-B80013ECD45C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {194C8034-0BB0-4029-B747-068B17CE18DB}
+	EndGlobalSection
+EndGlobal

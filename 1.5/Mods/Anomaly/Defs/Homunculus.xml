@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <EntityCodexEntryDef>
+    <defName>HVB_HomunculusEntry</defName>
+    <label>voidshard homunculus</label>
+    <description>A heavily modified transhuman further augmented by the integration of a dark archotech's shards. The potency of its augments strengthen as the doorway to the void is further opened.</description>
+    <category>Basic</category>
+    <uiIconPath>UI/CodexEntries/DeathPall</uiIconPath>
+    <linkedIncidents>
+      <li>HVB_HomunculusExamined</li>
+    </linkedIncidents>
+    <discoveredResearchProjects>
+      <li>HVB_VoidshardBionics</li>
+    </discoveredResearchProjects>
+    <provocationIncidents>
+      <li>HVB_HomunculusExamined</li>
+    </provocationIncidents>
+    <orderInCategory>705</orderInCategory>
+  </EntityCodexEntryDef>
+  
+  <CreepJoinerBenefitDef>
+    <defName>HVB_HomunculusBenefit</defName>
+    <label>homunculus</label>
+    <letterExtra>{PAWN_pronoun} has been extensively modified. It is virtually impossible to understand how {PAWN_possessive} body works, preventing extraction of any of {PAWN_possessive} natural or artificial body parts. Perhaps surgical inspection could reveal more...</letterExtra>
+    <traits>
+      <HVB_HomunculusTrait />
+    </traits>
+  </CreepJoinerBenefitDef>
+  
+  <TraitDef>
+	<defName>HVB_HomunculusTrait</defName>
+	<commonality>0</commonality>
+	<canBeSuppressed>false</canBeSuppressed>
+	<degreeDatas>
+	  <li>
+		<label>homunculus</label>
+		<description>{PAWN_nameDef} has been extensively modified. It is virtually impossible to understand how {PAWN_possessive} body works, preventing extraction of any of {PAWN_possessive} natural or artificial body parts.</description>
+	  </li>
+	</degreeDatas>
+	<modExtensions>
+		<li Class="HautsFramework.CannotRemoveBionicsFrom" />
+		<li Class="HautsFramework.ExciseTraitExemption" />
+	</modExtensions>
+  </TraitDef>
+  
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>HVB_HomunculusExamined</defName>
+    <label>homunculus examined</label>  
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+	  <li>Map_Misc</li>
+    </targetTags>
+    <workerClass>HautsBionics_Anomaly.IncidentWorker_HomunculusExamined</workerClass>
+    <letterLabel>homunculus examined</letterLabel>
+	<letterText>Insights from examining the internal workings of a homunculus could be used to figure out the process of creating voidshard bionics.</letterText>
+	<letterDef>NeutralEvent</letterDef>
+    <baseChance>-1</baseChance>
+    <minAnomalyThreatLevel>0</minAnomalyThreatLevel>
+    <minRefireDays>9999999</minRefireDays>
+    <durationDays>1</durationDays>
+  </IncidentDef>
+
+</Defs>

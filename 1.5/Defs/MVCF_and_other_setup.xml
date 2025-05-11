@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+	<MVCF.ModDef>
+		<defName>Hauts_HVB_MVCF</defName>
+		<label>mwah</label>
+		<description>mrow</description>
+		<ActivateFeatures>
+			<li>Drawing</li>
+			<li>HediffVerbs</li>
+            <li>IndependentFire</li>
+            <li>IntegratedToggle</li>
+		</ActivateFeatures>
+	</MVCF.ModDef>
+  <!--surgery to install an "add-on" for a pawn-->
+  <RecipeDef Name="HVB_SurgeryAddImplantBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_AddImplant</workerClass>
+    <workAmount>2500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--surgery to install a bionic tongue regardless of whether or not they currently have a tongue, and whether or not their jaw is natural. This recipe can work, essentially, so long as the jaw is not missing outright-->
+  <RecipeDef Name="HVB_SurgeryAddTongueBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_AddTongue</workerClass>
+    <workAmount>2500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--surgery for add-ons that go on a HAND or FOOT. this specifically enables them to be added to a bionic replacement to the limb as well-->
+  <RecipeDef Name="HVB_SurgeryAddImplantToLimbBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_AddImplantToLimb</workerClass>
+    <workAmount>2500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--surgeries to add or remove an implant with levels-->
+  <RecipeDef Name="HVB_SurgeryAddImplantLevelBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_InstallLevellingImplant</workerClass>
+    <workAmount>500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <RecipeDef Name="HVB_SurgeryLowerImplantLevelBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_RemoveLevellingImplant</workerClass>
+    <workAmount>500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--surgery specifically for marrow-->
+  <RecipeDef Name="HVB_SurgeryAddMarrowBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics.Recipe_AddMarrow</workerClass>
+    <workAmount>500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+	<anesthetize>false</anesthetize>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--surgery for harvesting a progenoid gland-->
+  <RecipeDef Name="HVB_HarvestProgenoidEndo" ParentName="SurgeryFlesh" Abstract="True" MayRequire="Ludeon.RimWorld.Biotech">
+    <workerClass>HautsBionics_Biotech.Recipe_HarvestProgenoidEndo</workerClass>
+	<workAmount>2500</workAmount>
+    <isViolation>true</isViolation>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <RecipeDef Name="HVB_HarvestProgenoidXeno" ParentName="SurgeryFlesh" Abstract="True" MayRequire="Ludeon.RimWorld.Biotech">
+    <workerClass>HautsBionics_Biotech.Recipe_HarvestProgenoidXeno</workerClass>
+	<workAmount>2500</workAmount>
+    <isViolation>true</isViolation>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <!--scar kintsugi stuff-->
+  <HediffDef Name="HVB_Kintsugi" Abstract="True" MayRequire="Ludeon.RimWorld.Ideology">
+    <hediffClass>HautsBionics_Ideology.Hediff_ScarKintsugi</hediffClass>
+    <tendable>false</tendable>
+    <displayWound>true</displayWound>
+    <labelNounPretty>{0} in the {1}</labelNounPretty>
+    <priceImpact>false</priceImpact>
+    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <comps><li Class="HediffCompProperties_GetsPermanent" /></comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.01</averagePainPerSeverityPermanent>
+      <bleedRate>0</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+  <RecipeDef Name="HVB_InlayScar" ParentName="SurgeryFlesh" Abstract="True" MayRequire="Ludeon.RimWorld.Ideology">
+    <workerClass>HautsBionics_Ideology.Recipe_ScarKintsugi</workerClass>
+	<workAmount>1000</workAmount>
+    <isViolation>true</isViolation>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <anesthetize>false</anesthetize>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+	<!--this bugs out the tooltip when you mouse over Pain is Virtue, because memePrerequisitesAny is supposed to only be for Thing-making recipes and there's no exception catcher when it's not
+	<memePrerequisitesAny><li>PainIsVirtue</li></memePrerequisitesAny>-->
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  
+</Defs>

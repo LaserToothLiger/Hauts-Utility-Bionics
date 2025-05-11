@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--lazarus seed-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_VoidshardCruciform</defName>
+    <label>voidshard cruciform</label>
+    <labelNoun>a voidshard cruciform</labelNoun>
+    <description>An installed dark Lazarus seed implant. Once it detects the clinical death of the host, it begins secreting archites to repair broken-down tissues and kickstart the body back to life. This process takes 3 days.\n\nThe higher the anomalous activity level, the likelier side effects will be - namely, infertility and gradual deterioration of mental faculties.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LazarusSeed</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LazarusSeed</spawnThingOnRemoved>
+	<tags><li>HVB_Laz</li></tags>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>4.0</maxSeverity>
+	<stages>
+	  <li>
+	  </li>
+	  <li>
+		<minSeverity>1</minSeverity>
+		<label>level 1</label>
+		<regeneration>2</regeneration>
+	  </li>
+	  <li>
+		<minSeverity>2</minSeverity>
+		<label>level 2</label>
+		<regeneration>4</regeneration>
+	  </li>
+	  <li>
+		<minSeverity>3</minSeverity>
+		<label>level 3</label>
+		<regeneration>6</regeneration>
+	  </li>
+	  <li>
+		<minSeverity>4</minSeverity>
+		<label>embraced</label>
+		<regeneration>8</regeneration>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		  <severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		  </severityAtEachLevel>
+		  <defaultSeverity>0.001</defaultSeverity>
+		</li>
+      <li Class="HautsFramework.HediffCompProperties_DelayedResurrection">
+        <rareTickDelay>60~720</rareTickDelay><!--rare ticks only occur once every 250 ticks. 60-720 thus means 6h-3days-->
+		<onDeathMessage>HVB_DarkLazCanRez</onDeathMessage>
+		<onRezMessage>HVB_DarkLazRez</onRezMessage>
+		<shouldTranslateOnDeath>true</shouldTranslateOnDeath>
+		<shouldTranslateOnRez>true</shouldTranslateOnRez>
+		<shouldSendMessage>true</shouldSendMessage>
+		<preventRisingAsShambler>true</preventRisingAsShambler>
+		<potentialMutation>HVB_BikuraState</potentialMutation>
+		<mutationChance>10.5</mutationChance>
+		<mutationSeverity>0.1~1</mutationSeverity>
+      </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard cruciform has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+	</comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase">
+    <defName>HVB_InstallVoidshardCruciform</defName>
+    <label>upgrade Lazarus seed with shards</label>
+    <description>Alter a Lazarus seed by merging it with the shards of a dark archotech, causing it to take longer to resurrect the host and potentially inducing side effects with each resurrection, but nullifying its recharge time.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LazarusSeed</ThingDef>
+      <HediffDef>HVB_VoidshardCruciform</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading Lazarus seed with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardCruciform</addsHediff>
+	<removesHediff>HVB_LazarusSeed</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveVoidshardCruciform</defName>
+    <label>remove voidshard cruciform</label>
+    <description>Remove voidshard cruciform.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LazarusSeed</ThingDef>
+      <HediffDef>HVB_VoidshardCruciform</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard cruciform.</jobString>
+    <removesHediff>HVB_VoidshardCruciform</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="DiseaseBase">
+		<defName>HVB_BikuraState</defName>
+		<label>debasement of the cruciform</label>
+		<description>Degeneration caused by the imperfect resurrection brought about by the cruciform.</description>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>10</maxSeverity>
+		<aptitudes>
+		  <Social>-5</Social>
+		</aptitudes>
+		<stages>
+		  <li>
+		    <becomeVisible>false</becomeVisible>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.95</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.95</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.9</Fertility>
+			</statFactors>
+			<opinionOfOthersFactor>0.95</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.9</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.9</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.9</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.8</Fertility>
+			</statFactors>
+			<opinionOfOthersFactor>0.9</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.84</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.84</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.84</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.7</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.84</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.78</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.78</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.78</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.6</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.78</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.71</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>5</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.71</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.71</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.5</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.71</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.64</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>6</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.64</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.64</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.4</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.64</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.56</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>7</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.56</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.56</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.3</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.56</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.48</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>8</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.48</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.48</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.2</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.48</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.39</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>9</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.39</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.39</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.1</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-1.5</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.39</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.3</socialFightChanceFactor>
+		  </li>
+		  <li>
+			<minSeverity>10</minSeverity>
+			<statFactors>
+			  <GlobalLearningFactor>0.3</GlobalLearningFactor>
+			  <MentalBreakThreshold>0.3</MentalBreakThreshold>
+			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0</Fertility>
+			</statFactors>
+			<statOffsets><PawnBeauty>-1.5</PawnBeauty></statOffsets>
+			<opinionOfOthersFactor>0.3</opinionOfOthersFactor>
+			<socialFightChanceFactor>0.2</socialFightChanceFactor>
+		  </li>
+		</stages>
+	  </HediffDef>
+  
+  <!--skipgate generator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_VoidshardSkipstalker</defName>
+    <label>voidshard skipstalker</label>
+    <labelNoun>a voidshard skipstalker</labelNoun>
+    <description>An installed dark personal skipgate generator. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PersonalSkipgateGenerator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PersonalSkipgateGenerator</spawnThingOnRemoved>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <statOffsets><Hauts_SkipcastRangeFactor>0.05</Hauts_SkipcastRangeFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <statOffsets><Hauts_SkipcastRangeFactor>0.1</Hauts_SkipcastRangeFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <statOffsets><Hauts_SkipcastRangeFactor>0.15</Hauts_SkipcastRangeFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <statOffsets><Hauts_SkipcastRangeFactor>0.2</Hauts_SkipcastRangeFactor></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard skipstalker has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_PersonalSkip</li>
+        </abilityDefs>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.2</increasedCooldownRecovery>
+		<affectedAbilities>
+			<li>HVB_PersonalSkip</li>
+			<!--<li MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">HVB_AEP_PersonalSkip</li>-->
+		</affectedAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallVoidshardSkipstalker</defName>
+    <label>upgrade personal skipgate generator with shards</label>
+    <description>Alter a personal skipgate generator by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_VoidshardSkipstalker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading personal skipgate generator with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardSkipstalker</addsHediff>
+	<removesHediff>HVB_PersonalSkipgateGenerator</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveVoidshardSkipstalker</defName>
+    <label>remove voidshard skipstalker</label>
+    <description>Remove voidshard skipstalker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_VoidshardSkipstalker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard skipstalker.</jobString>
+    <removesHediff>HVB_VoidshardSkipstalker</removesHediff>
+  </RecipeDef>
+  
+  <!--bioferrite destabilizer-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_VoidshardBioferriteDestabilizer</defName>
+    <label>voidshard destabilizer</label>
+    <labelNoun>a voidshard destabilizer</labelNoun>
+    <description>An installed dark archotech bioferrite destabilizer. Prevents ghoulizing, rising as a shambler, and metalhorror infections. Does not destroy mutations. Its potency scales with the current anomalous activity level.\n\nDamaging an unnatural entity or affecting it with a psycast may cause it to experience minor burns.</description>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechBioferriteDestabilizer</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets><Hauts_EntityDamageFactor>1</Hauts_EntityDamageFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <statOffsets><Hauts_EntityDamageFactor>1.25</Hauts_EntityDamageFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <statOffsets><Hauts_EntityDamageFactor>1.5</Hauts_EntityDamageFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <statOffsets><Hauts_EntityDamageFactor>1.75</Hauts_EntityDamageFactor></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <statOffsets><Hauts_EntityDamageFactor>2</Hauts_EntityDamageFactor></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard destabilizer has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
+		<extraDamages>
+          <li>
+            <def>Burn</def>
+            <amount>0.15</amount>
+            <chance>0.25</chance>
+          </li>
+		</extraDamages>
+		<showTooltip>false</showTooltip>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<damageScaling>true</damageScaling>
+		<appliedViaPsycasts>true</appliedViaPsycasts>
+		<entropyCostScaling>true</entropyCostScaling>
+		<worldTileRange>99999</worldTileRange>
+		<cellRange>99999</cellRange>
+		<canAffectAnimals>false</canAffectAnimals>
+		<canAffectHumanlikes>false</canAffectHumanlikes>
+		<canAffectMechs>false</canAffectMechs>
+		<canAffectEntities>true</canAffectEntities>
+		<canAffectMutants>true</canAffectMutants>
+      </li>
+      <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+	    <destroyedBySevereInteractions>false</destroyedBySevereInteractions>
+		<damageVsGhouls>40</damageVsGhouls>
+		<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+		<postKillDamageToShamblers>10</postKillDamageToShamblers>
+		<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+		<mutationImmunity>false</mutationImmunity>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase">
+    <defName>HVB_InstallVoidshardBioferriteDestabilizer</defName>
+    <label>upgrade archotech bioferrite destabilizer with shards</label>
+    <description>Alter an archotech bioferrite destabilizer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_VoidshardBioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech bioferrite destabilizer with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardBioferriteDestabilizer</addsHediff>
+	<removesHediff>HVB_ArchotechBioferriteDestabilizer</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveVoidshardBioferriteDestabilizer</defName>
+    <label>remove voidshard bioferrite destabilizer</label>
+    <description>Remove voidshard bioferrite destabilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_VoidshardBioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard bioferrite destabilizer.</jobString>
+    <removesHediff>HVB_VoidshardBioferriteDestabilizer</removesHediff>
+  </RecipeDef>
+  
+  <!--marrowheart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardMarrowheart</defName>
+    <label>voidshard marrowheart</label>
+    <labelNoun>a voidshard marrowheart</labelNoun>
+    <description>An installed dark archotech marrowheart. Its potency, and the pain it causes, scale with the current anomalous activity level. It also slightly increases the volume of marrow inside the host's body, enabling an additional substitution.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechMarrowheart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechMarrowheart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+		<statOffsets><HVB_MarrowEfficacy>0.5</HVB_MarrowEfficacy><HVB_RemainingMarrow>1</HVB_RemainingMarrow></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<statOffsets><HVB_MarrowEfficacy>0.6</HVB_MarrowEfficacy><HVB_RemainingMarrow>1</HVB_RemainingMarrow></statOffsets>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <painOffset>0.04</painOffset>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<statOffsets><HVB_MarrowEfficacy>0.7</HVB_MarrowEfficacy><HVB_RemainingMarrow>1</HVB_RemainingMarrow></statOffsets>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <painOffset>0.08</painOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<statOffsets><HVB_MarrowEfficacy>0.8</HVB_MarrowEfficacy><HVB_RemainingMarrow>1</HVB_RemainingMarrow></statOffsets>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <painOffset>0.12</painOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<statOffsets><HVB_MarrowEfficacy>0.9</HVB_MarrowEfficacy><HVB_RemainingMarrow>1</HVB_RemainingMarrow></statOffsets>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <painOffset>0.16</painOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard marrowheart has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardMarrowheart</defName>
+    <label>upgrade archotech marrowheart with shards</label>
+    <description>Alter an archotech marrowheart by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. It will also enable an additional marrow substitution, but also causes slightly increased pain.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechMarrowheart</ThingDef>
+      <HediffDef>HVB_VoidshardMarrowheart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech marrowheart with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardMarrowheart</addsHediff>
+	<removesHediff>HVB_ArchotechMarrowheart</removesHediff>
+  </RecipeDef>
+  
+  <!--apeliotan lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardApeliotanLung</defName>
+    <label>voidshard apeliotan lung</label>
+    <labelNoun>a voidshard apeliotan lung</labelNoun>
+    <description>An installed dark archotech apeliotan lung. Every exhalation is accompanied by a flux in the atomic composition of the surrounding air, enhancing its quality and making it particularly breathable without altering its flammability. The lung's potency, and the radius of its aura, scale with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechApeliotanLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechApeliotanLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.2</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.25</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard apeliotan lung has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_AuraHediff">
+		<range>2.9</range>
+		<bonusRangePerSeverity>0.5</bonusRangePerSeverity>
+		<hediffs>
+		  <li>HVB_HighOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>false</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<affectsMechs>false</affectsMechs>
+		<affectsEntities>false</affectsEntities>
+		<mutantsAreEntities>true</mutantsAreEntities>
+		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardApeliotanLung</defName>
+    <label>upgrade archotech apeliotan lung with shards</label>
+    <description>Alter an archotech apeliotan lung by merging it with the shards of a dark archotech, improving its capabilities (including the radius of its effect) in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechApeliotanLung</ThingDef>
+      <HediffDef>HVB_VoidshardApeliotanLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech apeliotan lung with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardApeliotanLung</addsHediff>
+	<removesHediff>HVB_ArchotechApeliotanLung</removesHediff>
+  </RecipeDef>
+  
+  <!--breathtaker-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardBreathTaker</defName>
+    <label>voidshard breathtaker</label>
+    <labelNoun>a voidshard breathtaker</labelNoun>
+    <description>An installed dark archotech breathtaker. Anyone nearby (except for mechanoids and unnatural entities) will quickly find their breathing and movement hindered. Its potency, and the radius of its aura, scale with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechBreathTaker</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <statFactors><Flammability>0</Flammability></statFactors>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <statFactors><Flammability>0</Flammability></statFactors>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <statFactors><Flammability>0</Flammability></statFactors>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <statFactors><Flammability>0</Flammability></statFactors>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <statFactors><Flammability>0</Flammability></statFactors>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard breathtaker has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsBionics.HediffCompProperties_BreathtakerAura">
+		<range>2.9</range>
+		<bonusRangePerSeverity>0.5</bonusRangePerSeverity>
+		<hediffs>
+		  <li>HVB_LowOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>false</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<affectsMechs>false</affectsMechs>
+		<affectsEntities>false</affectsEntities>
+		<mutantsAreEntities>true</mutantsAreEntities>
+		<affectsOthersInCaravan>false</affectsOthersInCaravan>
+		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardBreathTaker</defName>
+    <label>upgrade archotech breathtaker with shards</label>
+    <description>Alter an archotech breathtaker by merging it with the shards of a dark archotech, improving its capabilities (including the radius of its effect) in accordance with the current anomaly activity level. However, it will no longer be able to steal the breath from unnatural entities.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechBreathTaker</ThingDef>
+      <HediffDef>HVB_VoidshardBreathTaker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech breathtaker with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardBreathTaker</addsHediff>
+	<removesHediff>HVB_ArchotechBreathTaker</removesHediff>
+  </RecipeDef>
+  
+  <!--refinery stomach-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardRefineryStomach</defName>
+    <label>voidshard refinery stomach</label>
+    <labelNoun>a voidshard refinery stomach</labelNoun>
+    <description>An installed dark archotech refinery stomach. Produces valuable anomalous resources with every 3-5 meals worth' of nutrition ingested. Unlike other voidshards, its potency DOES NOT scale with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechRefineryStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechRefineryStomach</spawnThingOnRemoved>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <maxSeverity>20.001</maxSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard refinery stomach has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnIngestion">
+        <severityPerNutritionIngested>0.9~1.4</severityPerNutritionIngested>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_CreateThingsBySpendingSeverity">
+		<severityToTrigger>4</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Shard</key><value>1</value></li>
+			<li><key>Meat_Twisted</key><value>14~24</value></li>
+			<li><key>Bioferrite</key><value>12~22</value></li>
+			<li><key>GhoulResurrectionSerum</key><value>1</value></li>
+			<li><key>Luciferium</key><value>1</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardRefineryStomach</defName>
+    <label>upgrade archotech refinery stomach with shards</label>
+    <description>Alter an archotech refinery stomach by merging it with the shards of a dark archotech, causing it to produce anomalous materials (or rarely luciferium) instead.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechRefineryStomach</ThingDef>
+      <HediffDef>HVB_VoidshardRefineryStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech refinery stomach with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardRefineryStomach</addsHediff>
+	<removesHediff>HVB_ArchotechRefineryStomach</removesHediff>
+  </RecipeDef>
+  
+  <!--neutralizer-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardNeutralizer</defName>
+    <hediffClass>HautsBionics.Hediff_Neutralizer</hediffClass>
+    <label>voidshard neutralizer</label>
+    <labelNoun>a voidshard neutralizer</labelNoun>
+    <description>An installed dark archotech neutralizer. Prevents random diseases, and near-instantly neutralizes all drugs and diseases. Will not protect against instantaneously fatal drug effects. Its potency scales with the current anomalous activity level, and it also protects against anomalous mutations and metalhorror parasites.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechNeutralizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechNeutralizer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard neutralizer has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+	    <destroyedBySevereInteractions>false</destroyedBySevereInteractions>
+		<damageVsGhouls>40</damageVsGhouls>
+		<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+		<postKillDamageToShamblers>10</postKillDamageToShamblers>
+		<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardNeutralizer</defName>
+    <label>upgrade archotech neutralizer with shards</label>
+    <description>Alter an archotech neutralizer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. It will also destroy anomalous mutations, immunize the host against metalhorror infestation, and prevent ghoulizing.\n\nDo not use this procedure on a ghoul, unless you want it to die.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechNeutralizer</ThingDef>
+      <HediffDef>HVB_VoidshardNeutralizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech neutralizer with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardNeutralizer</addsHediff>
+	<removesHediff>HVB_ArchotechNeutralizer</removesHediff>
+  </RecipeDef>
+  
+  <!--growth stimulator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardGrowthStimulator</defName>
+    <label>voidshard growth stimulator</label>
+    <labelNoun>a voidshard growth stimulator</labelNoun>
+    <description>An installed dark archotech growth stimulator. Its potency scales with the current anomalous activity level. It also causes ugly but harmless growths which periodically shed, forming into either twisted meat or bioferrite.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGrowthStimulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGrowthStimulator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <statOffsets><MeleeDamageFactor>1.25</MeleeDamageFactor><MoveSpeed>0.5</MoveSpeed><VEF_BodySize_Offset>1</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+		<statFactors><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>1.35</MeleeDamageFactor><MoveSpeed>0.54</MoveSpeed><VEF_BodySize_Offset>1.05</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+		<statFactors><VEF_MassCarryCapacity>2.1</VEF_MassCarryCapacity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>1.45</MeleeDamageFactor><MoveSpeed>0.58</MoveSpeed><VEF_BodySize_Offset>1.10</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+		<statFactors><VEF_MassCarryCapacity>2.2</VEF_MassCarryCapacity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>1.55</MeleeDamageFactor><MoveSpeed>0.62</MoveSpeed><VEF_BodySize_Offset>1.15</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+		<statFactors><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity></statFactors>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.5</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>1.65</MeleeDamageFactor><MoveSpeed>0.66</MoveSpeed><VEF_BodySize_Offset>1.2</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+		<statFactors><VEF_MassCarryCapacity>2.4</VEF_MassCarryCapacity></statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard growth stimulator has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_CreateThingsPeriodically">
+		<ticksToNextSpawn>75000~105000</ticksToNextSpawn><!--60000ticks is 1d, so 75kTicks-105kTicks is 1.25d-1.75d-->
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Meat_Twisted</key><value>10~20</value></li>
+			<li><key>Bioferrite</key><value>5~9</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardGrowthStimulator</defName>
+    <label>upgrade archotech growth stimulator with shards</label>
+    <description>Alter an archotech growth stimulator by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGrowthStimulator</ThingDef>
+      <HediffDef>HVB_VoidshardGrowthStimulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech growth stimulator with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardGrowthStimulator</addsHediff>
+	<removesHediff>HVB_ArchotechGrowthStimulator</removesHediff>
+  </RecipeDef>
+  
+  <!--thinking kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardThinkingKidney</defName>
+    <label>voidsahrd thinking kidney</label>
+    <labelNoun>a voidshard thinking kidney</labelNoun>
+    <description>An installed dark archotech thinking kidney. Its potency, and the pain it causes, scale with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechThinkingKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechThinkingKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.0</maxSeverity>
+    <stages>
+      <li>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.15</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.1</PsychicSensitivity></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.2</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.15</PsychicSensitivity></statOffsets>
+        <painOffset>0.02</painOffset>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.25</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.2</PsychicSensitivity></statOffsets>
+        <painOffset>0.04</painOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.3</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.25</PsychicSensitivity></statOffsets>
+        <painOffset>0.06</painOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.35</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.3</PsychicSensitivity></statOffsets>
+        <painOffset>0.08</painOffset>
+      </li>
+	  <li>
+        <minSeverity>5</minSeverity>
+        <label>disrupted</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.25</offset></li></capMods>
+		<statOffsets><PsychicSensitivity>0.2</PsychicSensitivity></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>5</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard thinking kidney has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardThinkingKidney</defName>
+    <label>upgrade archotech thinking kidney with shards</label>
+    <description>Alter an archotech thinking kidney by merging it with the shards of a dark archotech, improving its capabilities - and the pain it causes - in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechThinkingKidney</ThingDef>
+      <HediffDef>HVB_VoidshardThinkingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech thinking kidney with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardThinkingKidney</addsHediff>
+	<removesHediff>HVB_ArchotechThinkingKidney</removesHediff>
+  </RecipeDef>
+  
+  <!--intercessor-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_VoidshardIntercessor</defName>
+    <label>voidshard intercessor</label>
+    <labelNoun>a voidshard intercessor</labelNoun>
+    <description>An installed dark archotech intercessor. Gains 1 charge every 12 hours, up to a max of 2 charges; when damage is taken, 1 charge is spent to nullify it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechIntercessor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>6.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>5</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>6</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>3</value></li>
+			<li><key>2</key><value>4</value></li>
+			<li><key>3</key><value>5</value></li>
+			<li><key>4</key><value>5</value></li>
+			<li><key>5</key><value>6</value></li>
+			<li><key>6</key><value>4</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>2</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard intercessor has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
+        <ticksToNextSpawn>30000</ticksToNextSpawn>
+		<hediffGiven>HVB_DamageBlock</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<startingCharges>1</startingCharges>
+		<maxStoredCharges>1</maxStoredCharges>
+		<maxChargesScaleWithSeverity>true</maxChargesScaleWithSeverity>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>true</showProgressInTooltip>
+      </li>
+	</comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
+    <defName>HVB_InstallVoidshardIntercessor</defName>
+    <label>upgrade archotech intercessor with shards</label>
+    <description>Alter an archotech intercessor by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechIntercessor</ThingDef>
+      <HediffDef>HVB_VoidshardIntercessor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech intercessor with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardIntercessor</addsHediff>
+	<removesHediff>HVB_ArchotechIntercessor</removesHediff>
+  </RecipeDef>
+  
+</Defs>

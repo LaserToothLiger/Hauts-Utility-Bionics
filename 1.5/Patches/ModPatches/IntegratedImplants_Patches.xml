@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Integrated Implants</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AteMealWithGourmandTongue"]/nullifyingHediffs</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteMealWithGourmandTongue"]</xpath>
+						<value>
+							<nullifyingHediffs>
+								<li>HVB_PurifierJaw</li>
+								<li>HVB_Gastrostomy</li>
+							</nullifyingHediffs>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteMealWithGourmandTongue"]/nullifyingHediffs</xpath>
+						<value>
+							<li>HVB_PurifierJaw</li>
+							<li>HVB_Gastrostomy</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--le sigh. this is necessary to eliminate a bug where the mechanityrant cervix aura does not scale off of Signal Boosters-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=1]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=1]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>3</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=1]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>3</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=2]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=2]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>6</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=2]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>6</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=3]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=3]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>9</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=3]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>9</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=4]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=4]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>12</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=4]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>12</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=5]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=5]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>15</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=5]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>15</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=6]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=6]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>18</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=6]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>18</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=7]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=7]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>21</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=7]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>21</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=8]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=8]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>24</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=8]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>24</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=9]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=9]/statOffsets</xpath>
+									<value><Hauts_MechCommandRange>27</Hauts_MechCommandRange></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=9]/statOffsets/MechRemoteControlDistanceOffset</xpath>
+									<value><Hauts_MechCommandRange>27</Hauts_MechCommandRange></value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Athena Framework</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--modules: note that voidshards will not have any because that's a little too much nested patching even for me
+							let's start w eyes. Ocular Computing Nodes and Mechanityrant Eyes aren't actually eyes, so don't get this treatment-->
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_BalefulEye" or defName="HVB_LongshotEye" or defName="HVB_ProgrammableEye" or defName="HVB_WayfinderEye" or defName="HVB_ArchotechDeathGlare" or defName="HVB_ArchotechProgrammableEye"]</xpath>
+							  <value>
+								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_LongshotEye" or defName="HVB_WayfinderEye"]</xpath>
+							  <value>
+								<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_EyeModuleSlot</slotID><slotName>eye module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_BalefulEye" or defName="HVB_ProgrammableEye" or defName="HVB_ArchotechDeathGlare" or defName="HVB_ArchotechProgrammableEye"]/comps</xpath>
+							  <value>
+								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_EyeModuleSlot</slotID><slotName>eye module slot</slotName><capacity>-1</capacity></li></slots></li>
+							  </value>
+							</li>
+							<!--arms-->
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]</xpath>
+							  <value>
+								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]/comps</xpath>
+							  <value>
+								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+							  </value>
+							</li>
+							<!--arm-or-leg limbs get a weird deal here because I'm not inventing arm- and leg-specific hediff variants for the limbs. DITTO FOR INTERCESSORS, SO THEY STRAIGHT UP DON'T GET THIS. (if you can optimize enough to install modules on your pawns you can replace their limbs with something more fitting than an intercessor... come on)-->
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_ProgrammableLimb" or defName="HVB_ArchotechProgrammableLimb"]</xpath>
+							  <value>
+								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_ProgrammableLimb" or defName="HVB_ArchotechProgrammableLimb"]/comps</xpath>
+							  <value>
+								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+									<li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li>
+									<li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li>
+								</slots></li>
+							  </value>
+							</li>
+							<!--legs-->
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_JetLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
+							  <value>
+								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
+							  <value>
+								<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_GeneratorLeg" or defName="HVB_JetLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]/comps</xpath>
+							  <value>
+								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
+							  </value>
+							</li>
+							<!--spine. note that the mechanityrant vertebral link can't have this due to it having the Level hediff class... that's mutually exclusive with Athena's ModularAddedPart class-->
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_BracingSpine" or defName="HVB_HyperflexibleSpine" or defName="HVB_LifeguardSpine" or defName="HVB_LoadBearingSpine" or defName="HVB_ArchotechThinkingSpine" or defName="HVB_ArchotechUndulatingSpine"]</xpath>
+							  <value>
+								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_BracingSpine" or defName="HVB_HyperflexibleSpine" or defName="HVB_LifeguardSpine" or defName="HVB_LoadBearingSpine" or defName="HVB_ArchotechThinkingSpine"]</xpath>
+							  <value>
+								<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+							  </value>
+							</li>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/HediffDef[defName="HVB_ArchotechUndulatingSpine"]/comps</xpath>
+							  <value>
+								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+							  </value>
+							</li>
+							<!--stuff dependent on other mods or DLCs-->
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Anomaly</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_RupturingLimb" or defName="HVB_SkitteringLimb" or defName="HVB_SpikeSlingingSpine"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_RupturingLimb"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+												<li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li>
+												<li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li>
+											</slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_SkitteringLimb"]</xpath>
+										  <value>
+											<comps>
+												<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+													<li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li>
+													<li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li>
+												</slots></li>
+											</comps>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_SpikeSlingingSpine"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+												<li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li>
+											</slots></li>
+										  </value>
+										</li>
+										<!--VOIDSHARDS. AAAGH-->
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardEarthshaker" or defName="HVB_VoidshardGeneratorLeg"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardDeathGlare"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_EyeModuleSlot</slotID><slotName>eye module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_VoidshardArm" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardShieldBubbler"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_VoidshardLeg" or defName="HVB_VoidshardEarthshaker" or defName="HVB_VoidshardGeneratorLeg"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Archotech Expanded Prosthetics</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardDeathClaw" or defName="HVB_VoidshardObliterator"]</xpath>
+													  <value>
+														<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardDeathClaw" or defName="HVB_VoidshardObliterator"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+												</operations>
+											</match>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>[FSF] Advanced Bionics Expansion</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardPowerArm"]</xpath>
+													  <value>
+														<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardPowerArm"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+													<li Class="PatchOperationFindMod">
+														<mods>
+															<li>Biotech</li>
+														</mods>
+														<match Class="PatchOperationSequence">
+															<operations>
+																<li Class="PatchOperationAdd">
+																  <xpath>/Defs/HediffDef[defName="HVB_VoidshardMedicArm"]</xpath>
+																  <value>
+																	<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+																  </value>
+																</li>
+																<li Class="PatchOperationAdd">
+																  <xpath>/Defs/HediffDef[defName="HVB_VoidshardMedicArm"]/comps</xpath>
+																  <value>
+																	<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+																  </value>
+																</li>
+															</operations>
+														</match>
+													</li>
+												</operations>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Biotech</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_JetLeg"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_JetLeg"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Ideology</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_Dryadspine"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+											<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+										  </value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Royalty</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_WarlocksEye"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+											<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_EyeModuleSlot</slotID><slotName>eye module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+										  </value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>SwimmingKit</li>
+									<li>Pathfinding Framework</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AquadynamicLimb"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+											<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+												<li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li>
+												<li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li>
+											</slots></li></comps>
+										  </value>
+										</li>
+										
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_EyeModuleSlot</slotID><slotName>eye module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechProgrammableLimb"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
+												<li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li>
+												<li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li>
+											</slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechThinkingSpine"]</xpath>
+										  <value>
+											<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechUndulatingSpine"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

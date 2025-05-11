@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--psychic levitator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I">
+    <defName>HVB_VoidshardLevitatorII</defName>
+    <label>voidshard psychic levitator</label>
+    <labelNoun>a voidshard psychic levitator</labelNoun>
+    <description>An installed dark psychic levitator. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>PsychicLevitator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>PsychicLevitator</spawnThingOnRemoved>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <statOffsets><MoveSpeed>0.20</MoveSpeed></statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+		<statFactors><TrapSpringChance>0</TrapSpringChance></statFactors>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <statOffsets><MoveSpeed>0.28</MoveSpeed></statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+		<statFactors><TrapSpringChance>0</TrapSpringChance></statFactors>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <statOffsets><MoveSpeed>0.36</MoveSpeed></statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+		<statFactors><TrapSpringChance>0</TrapSpringChance></statFactors>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <statOffsets><MoveSpeed>0.44</MoveSpeed></statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+		<statFactors><TrapSpringChance>0</TrapSpringChance></statFactors>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <statOffsets><MoveSpeed>0.52</MoveSpeed></statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+		<statFactors><TrapSpringChance>0</TrapSpringChance></statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard psychic levitator has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating"/>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="lts.I">
+    <defName>HVB_InstallVoidshardLevitatorII</defName>
+    <label>upgrade psychic levitator with shards</label>
+    <description>Alter a psychic levitator by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PsychicLevitator</ThingDef>
+      <HediffDef>HVB_VoidshardLevitatorII</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading psychic levitator with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardLevitatorII</addsHediff>
+	<removesHediff>PsychicLevitator</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I">
+    <defName>HVB_RemoveVoidshardLevitatorII</defName>
+    <label>remove voidshard levitator</label>
+    <description>Remove voidshard levitator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PsychicLevitator</ThingDef>
+      <HediffDef>HVB_VoidshardLevitatorII</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard levitator.</jobString>
+    <removesHediff>HVB_VoidshardLevitatorII</removesHediff>
+  </RecipeDef>
+  
+  <!--archotech womb-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I,Ludeon.RimWorld.Biotech">
+	<defName>HVB_VoidshardWomb</defName>
+	<label>voidshard womb</label>
+	<labelNoun>a voidshard womb</labelNoun>
+	<description>An installed dark archotech womb. Though it finishes pregnancy even faster, it does not enhance the quality of birth. Spawned children are liable to have mutations and will be linked to the void.</description>
+	<descriptionHyperlinks><ThingDef>Archowomb</ThingDef></descriptionHyperlinks>
+	<spawnThingOnRemoved>Archowomb</spawnThingOnRemoved>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>4.0</maxSeverity>
+	<stages>
+	  <li>
+        <statFactors><Fertility>2</Fertility><GestationSpeedFactorDummyStat>3</GestationSpeedFactorDummyStat></statFactors>
+	  </li>
+	</stages>
+	<modExtensions>
+      <li Class="LTS_Implants.LTS_IModExtension">
+		<LTS_TicksBetweenPulse>2500</LTS_TicksBetweenPulse>
+		<LTS_Hediff>PregnantHuman</LTS_Hediff>
+		<LTS_Severity>0.003472</LTS_Severity>
+	  </li>
+    </modExtensions>
+	<comps>
+		<li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+		  <letterLabel>Voidshard removed</letterLabel>
+		  <letterText>Removal of {PAWN_nameDef}'s voidshard womb has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		  <downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		  </downsides>
+		</li>
+	</comps>
+	<tags><li>Womb</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="lts.I,Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallVoidshardWomb</defName>
+    <label>upgrade archotech womb with shards</label>
+    <description>Alter an archotech womb by merging it with the shards of a dark archotech, increasing fertility in accordance with the current anomalous activity level and further speeding the progress of pregnancy. However, this will strip away the archotech womb's usual protections which ensure safe childbirth, and the spawned children may be born with mutations.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Archowomb</ThingDef>
+      <HediffDef>HVB_VoidshardWomb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech womb with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardWomb</addsHediff>
+	<removesHediff>Archowomb</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I,Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveVoidshardWomb</defName>
+    <label>remove voidshard womb</label>
+    <description>Remove voidshard womb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Archowomb</ThingDef>
+      <HediffDef>HVB_VoidshardWomb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard womb.</jobString>
+    <removesHediff>HVB_VoidshardWomb</removesHediff>
+  </RecipeDef>
+	  <HediffDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVB_Voidborn</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>voidborn</label>
+		<description>This person was formed in a dark archotech womb. Connected to the void, they are more than human. Should the void be disrupted, these effects will vanish.</description>
+		<defaultLabelColor>(1,0.1,0.1)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<isBad>false</isBad>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>4.0</maxSeverity>
+		<stages>
+		  <li>
+			<statOffsets><PsychicSensitivity>1</PsychicSensitivity><MeditationFocusGain>0.5</MeditationFocusGain><PsychicEntropyRecoveryRate>0.5</PsychicEntropyRecoveryRate><StudyEfficiency>0.04</StudyEfficiency><PsychicRitualQualityOffset>0.04</PsychicRitualQualityOffset></statOffsets>
+			<statFactors><LifespanFactor>2</LifespanFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<statOffsets><PsychicSensitivity>1.5</PsychicSensitivity><MeditationFocusGain>0.6</MeditationFocusGain><PsychicEntropyRecoveryRate>0.6</PsychicEntropyRecoveryRate><StudyEfficiency>0.08</StudyEfficiency><PsychicRitualQualityOffset>0.08</PsychicRitualQualityOffset></statOffsets>
+			<statFactors><LifespanFactor>3</LifespanFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<statOffsets><PsychicSensitivity>2</PsychicSensitivity><MeditationFocusGain>0.7</MeditationFocusGain><PsychicEntropyRecoveryRate>0.7</PsychicEntropyRecoveryRate><StudyEfficiency>0.12</StudyEfficiency><PsychicRitualQualityOffset>0.12</PsychicRitualQualityOffset></statOffsets>
+			<statFactors><LifespanFactor>4</LifespanFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<statOffsets><PsychicSensitivity>2.5</PsychicSensitivity><MeditationFocusGain>0.8</MeditationFocusGain><PsychicEntropyRecoveryRate>0.8</PsychicEntropyRecoveryRate><StudyEfficiency>0.16</StudyEfficiency><PsychicRitualQualityOffset>0.16</PsychicRitualQualityOffset></statOffsets>
+			<statFactors><LifespanFactor>5</LifespanFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<statOffsets><PsychicSensitivity>3</PsychicSensitivity><MeditationFocusGain>0.9</MeditationFocusGain><PsychicEntropyRecoveryRate>0.9</PsychicEntropyRecoveryRate><StudyEfficiency>0.2</StudyEfficiency><PsychicRitualQualityOffset>0.2</PsychicRitualQualityOffset></statOffsets>
+			<statFactors><LifespanFactor>6</LifespanFactor></statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+			<severityAtEachLevel>
+				<li><key>1</key><value>1</value></li>
+				<li><key>2</key><value>2</value></li>
+				<li><key>3</key><value>3</value></li>
+				<li><key>4</key><value>3</value></li>
+				<li><key>5</key><value>4</value></li>
+				<li><key>6</key><value>-1</value></li>
+			</severityAtEachLevel>
+			<defaultSeverity>0.001</defaultSeverity>
+		  </li>
+		  <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+			<destroyedBySevereInteractions>false</destroyedBySevereInteractions>
+			<damageVsGhouls>40</damageVsGhouls>
+			<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+			<postKillDamageToShamblers>10</postKillDamageToShamblers>
+			<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+		  </li>
+		</comps>
+	  </HediffDef>
+  
+  <!--archotech voice box-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I">
+    <defName>HVB_VoidshardVoiceBox</defName>
+    <label>voidshard voice box</label>
+    <labelNoun>a voidshard voice box</labelNoun>
+    <description>An installed dark archotech voice box implant. Its potency scales with the current anomalous activity level.\n\nAttempts to socially interact with others have a chance to come out as inhuman rambling instead, and the voice box itself seems to infrequently murmur disturbing things only audible to the host.</description>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <descriptionHyperlinks><ThingDef>ArchotechVoicebox</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechVoicebox</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <TradePriceImprovement>0.25</TradePriceImprovement>
+          <SocialImpact>0.5</SocialImpact>
+          <ArrestSuccessChance>0.5</ArrestSuccessChance>
+          <NegotiationAbility>0.5</NegotiationAbility>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</SuppressionPower>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
+        </statOffsets>
+        <capMods><li><capacity>Talking</capacity><offset>0.5</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <statOffsets>
+          <TradePriceImprovement>0.3</TradePriceImprovement>
+          <SocialImpact>0.7</SocialImpact>
+          <ArrestSuccessChance>0.75</ArrestSuccessChance>
+          <NegotiationAbility>0.7</NegotiationAbility>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.75</SuppressionPower>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.7</ConversionPower>
+        </statOffsets>
+        <capMods><li><capacity>Talking</capacity><offset>0.6</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <statOffsets>
+          <TradePriceImprovement>0.35</TradePriceImprovement>
+          <SocialImpact>0.9</SocialImpact>
+          <ArrestSuccessChance>1</ArrestSuccessChance>
+          <NegotiationAbility>0.95</NegotiationAbility>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">1</SuppressionPower>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.95</ConversionPower>
+        </statOffsets>
+        <capMods><li><capacity>Talking</capacity><offset>0.7</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <statOffsets>
+          <TradePriceImprovement>0.4</TradePriceImprovement>
+          <SocialImpact>1.1</SocialImpact>
+          <ArrestSuccessChance>1.25</ArrestSuccessChance>
+          <NegotiationAbility>1.1</NegotiationAbility>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">1.25</SuppressionPower>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.1</ConversionPower>
+        </statOffsets>
+        <capMods><li><capacity>Talking</capacity><offset>0.8</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <statOffsets>
+          <TradePriceImprovement>0.45</TradePriceImprovement>
+          <SocialImpact>1.3</SocialImpact>
+          <ArrestSuccessChance>1.5</ArrestSuccessChance>
+          <NegotiationAbility>1.3</NegotiationAbility>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</SuppressionPower>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.3</ConversionPower>
+        </statOffsets>
+        <capMods><li><capacity>Talking</capacity><offset>0.9</offset></li></capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard voice box has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_InhumanRambler">
+        <chancePerSeverity>0.2</chancePerSeverity>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_GiveThoughtsRandomly">
+        <mtbDays>5</mtbDays>
+		<mtbLossPerExtraSeverity>0.25</mtbLossPerExtraSeverity>
+		<mtbLossSeverityCap>1</mtbLossSeverityCap>
+		<thoughtDefs>
+          <li>HVB_SubversiveThought</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="lts.I">
+    <defName>HVB_InstallHVB_VoidshardVoiceBox</defName>
+    <label>upgrade archotech voice box with shards</label>
+    <description>Alter an archotech voice box by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechVoicebox</ThingDef>
+      <HediffDef>HVB_VoidshardVoiceBox</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech voice box with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardVoiceBox</addsHediff>
+	<removesHediff>ArchotechVoicebox</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I">
+    <defName>HVB_RemoveVoidshardVoiceBox</defName>
+    <label>remove voidshard voice box</label>
+    <description>Remove voidshard voice box.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechVoicebox</ThingDef>
+      <HediffDef>HVB_VoidshardVoiceBox</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard voice box.</jobString>
+    <removesHediff>HVB_VoidshardVoiceBox</removesHediff>
+  </RecipeDef>
+  
+</Defs>

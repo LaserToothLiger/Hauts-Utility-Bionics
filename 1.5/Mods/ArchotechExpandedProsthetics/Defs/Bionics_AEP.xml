@@ -1,0 +1,2205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--Archotech death glare-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechDeathGlare</defName>
+    <label>advanced archotech death glare</label>
+    <labelNoun>an advanced archotech death glare</labelNoun>
+    <description>An installed advanced archotech "death glare". Can fire at targets independently, even in melee.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechDeathGlare</spawnThingOnRemoved>
+    <woundAnchorRange>0</woundAnchorRange>
+    <displayWound>true</displayWound>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>2.50</partEfficiency>
+    </addedPartProps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/ArchotechEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+			<li>
+			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
+			  <label>advanced archotech death glare</label>
+			  <hasStandardCommand>true</hasStandardCommand>
+			  <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
+			  <warmupTime>3.5</warmupTime>
+			  <range>49.9</range>
+			  <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+			  <burstShotCount>20</burstShotCount>
+			  <soundCast>Shot_ChargeBlaster</soundCast>
+			  <soundCastTail>GunTail_Heavy</soundCastTail>
+			  <muzzleFlashScale>9</muzzleFlashScale>
+			  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
+			</li>
+		</verbs>
+		<verbProps>
+			<li>
+			  <label>advanced archotech death glare</label>
+			  <canBeToggled>true</canBeToggled>
+			  <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
+                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
+					<invisible>true</invisible>
+					<uniqueTargets>false</uniqueTargets>
+              </li>
+            </comps>
+			  <description>Fires a stream of slugs at high velocity. Each is charged with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
+			</li>
+		</verbProps>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechDeathGlare</defName>
+    <label>advanced archotech death glare</label>
+    <description>An advanced artificial eye built by an archotech. In addition to its various enhanced vision modes and boosted visual acuity, it has been fitted with heavy, rapid-firing pulse weaponry. Since the weapon only needs eyesight and a mental trigger to fire, it can even be used in melee.\n\nThis advanced version fires 20 shots per burst, up from 5.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechDeathGlare</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <Mass>0.3</Mass>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechDeathGlare</defName>
+    <label>install advanced archotech death glare</label>
+    <description>Install an advanced archotech death glare.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechDeathGlare</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechDeathGlare</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech death glare.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechDeathGlare</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechDeathGlare</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechDeathGlare</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech programmable eye-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechProgrammableEye</defName>
+    <label>advanced archotech programmable eye</label>
+    <labelNoun>an advanced archotech programmable eye</labelNoun>
+    <description>An installed advanced archotech programmable eye. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechProgrammableEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechProgrammableEye</spawnThingOnRemoved>
+    <woundAnchorRange>0</woundAnchorRange>
+    <displayWound>true</displayWound>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+        <texPath>Things/Pawn/Wounds/ArchotechEye</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>56</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+          <dataWest>
+            <flip>true</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>1.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>1.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>2.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>2.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>2.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>3.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>3.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>3.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>4.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>4.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>4.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>5.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>5.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>5.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechProgrammableEye</defName>
+    <label>advanced archotech programmable eye</label>
+    <description>An advanced artificial eye built by an archotech. It appears to be an ordinary eye, but is entirely composed out of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the eye as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of other advanced archotech eyes.\n\nThis advanced version grants +30% part efficiency per Intellectual skill (up from +8%).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechProgrammableEye</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechProgrammableEye</defName>
+    <label>install advanced archotech programmable eye</label>
+    <description>Install an advanced archotech programmable eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableEye</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechProgrammableEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech programmable eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechProgrammableEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechProgrammableEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechProgrammableEye</addsHediff>
+  </RecipeDef>
+
+<!--Archotech echolocator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechEcholocator</defName>
+    <label>advanced archotech echolocator</label>
+    <labelNoun>an advanced archotech echolocator</labelNoun>
+    <description>An installed advanced archotech echolocator. It generates sound waves by striking the contours of the host's presence in the psychic manifold, then uses them to provide detailed sonar mapping of the environment to boost hearing, moving, and manipulation. The effect's efficacy scales with the host's psychic sensitivity, and it further strengthens if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechEcholocator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechEcholocator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.45</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.45</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.225</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.375</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.375</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.1875</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.3</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.3</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.15</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechEcholocator</defName>
+    <label>advanced archotech echolocator</label>
+    <description>An advanced artificial ear built by an archotech. It generates sound waves by striking the contours of the host's presence in the psychic manifold, then uses them to provide detailed sonar mapping of the environment to boost moving and manipulation. The effect's efficacy scales with the host's psychic sensitivity.\n\nThe benefits provided by this bionic strengthen if the host has weak or nonexistent vision.\n\nAt 100% sight and psychic sensitivity, this advanced version provides 1.3x hearing and manipulation, and 1.15x moving.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechEcholocator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechEcholocator</defName>
+    <label>install advanced archotech echolocator</label>
+    <description>Install an advanced archotech echolocator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechEcholocator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechEcholocator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech echolocator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechEcholocator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechEcholocator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechEcholocator</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech food disintegrator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechFoodDisintegrator</defName>
+    <label>advanced archotech food disintegrator</label>
+    <labelNoun>an advanced archotech food disintegrator</labelNoun>
+    <description>An installed advanced archotech food disintegrator. Grants a powerful, rapid melee attack that grants nutrition based on damage dealt to organic victims.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechFoodDisintegrator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechFoodDisintegrator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>10</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-1.20</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>advanced disintegration bite</label>
+            <capacities>
+              <li>HVB_DisintegrationBite</li>
+            </capacities>
+            <power>36</power>
+            <cooldownTime>0.67</cooldownTime>
+			<armorPenetration>1</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechFoodDisintegrator</defName>
+    <label>advanced archotech food disintegrator</label>
+    <description>An advanced artificial jaw which breaks down food not by mechanical crushing action, but by enveloping the victim in a maelstrom of overlapping repulsion fields which quickly break it down into its constituent components. When used to attack, this process will grant nutrition per damage taken by the victim, so long as the victim is organic.\n\nThis advanced version grants +1000% eating speed (up from +160%) and its disintegration attack deals double damage.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechFoodDisintegrator</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechFoodDisintegrator</defName>
+    <label>install advanced archotech food disintegrator</label>
+    <description>Install an advanced archotech food disintegrator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechFoodDisintegrator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechFoodDisintegrator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech food disintegrator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechFoodDisintegrator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechFoodDisintegrator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechFoodDisintegrator</addsHediff>
+  </RecipeDef>
+  
+  <!--advanced archotech skill hoarder-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="EBSG.Framework">
+    <defName>HVB_AEP_ArchotechSkillHoarder</defName>
+    <label>advanced archotech skill hoarder</label>
+    <labelNoun>an advanced archotech skill hoarder</labelNoun>
+    <description>An installed advanced archotech skill hoarder.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechSkillHoarder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechSkillHoarder</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+		<statFactors>
+		  <EBSG_SkillLossRate>0</EBSG_SkillLossRate>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="EBSG.Framework">
+    <defName>HVB_AEP_ArchotechSkillHoarder</defName>
+    <label>advanced archotech skill hoarder</label>
+    <description>A brain implant which greatly slows the loss of technical knowledge by means utterly unknown to mortal minds.\n\nThis advanced version grants ten times the consciousness boost and all but totally negates skill loss.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechSkillHoarder</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_AEP_InstallArchotechSkillHoarder</defName>
+    <label>install advanced archotech skill hoarder</label>
+    <description>Install an advanced archotech skill hoarder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSkillHoarder</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechSkillHoarder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech skill hoarder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechSkillHoarder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechSkillHoarder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechSkillHoarder</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_AEP_RemoveArchotechSkillHoarder</defName>
+    <label>remove advanced archotech skill hoarder</label>
+    <description>Remove advanced archotech skill hoarder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSkillHoarder</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechSkillHoarder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech skill hoarder.</jobString>
+    <removesHediff>HVB_AEP_ArchotechSkillHoarder</removesHediff>
+  </RecipeDef>
+  
+  <!--archotech worship drive-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <hediffClass>HautsBionics_Ideology.Hediff_ArchoWorship</hediffClass>
+    <defName>HVB_AEP_ArchotechWorshipDrive</defName>
+    <label>advanced archotech worship drive</label>
+    <labelNoun>an advanced archotech worship drive</labelNoun>
+    <description>An installed advanced archotech worship drive. IA! IA!</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechWorshipDrive</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechWorshipDrive</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>1.5</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ConversionPower>1.2</ConversionPower>
+        </statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ArchoConvert</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_ArchotechWorshipDrive</defName>
+    <label>advanced archotech worship drive</label>
+    <description>A brain implant that, in addition to enhancing consciousness, compels the host to endlessly glorify and extol the archotechs. Hosts are incapable of believing in any non-archist ideoligion, and gain psychic assistance from this implant when attempting to convert others. As with any other work of the archotechs, the reasons for this device's construction are inscrutable.\n\nOnce implanted, the worship drive seemingly dissolves, preventing surgical removal.\n\nThis advanced version grants ten times the consciousness boost and six times the conversion power.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechWorshipDrive</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_InstallArchotechWorshipDrive</defName>
+    <label>install advanced archotech worship drive</label>
+    <description>Install an advanced archotech worship drive.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechWorshipDrive</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechWorshipDrive</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech worship drive.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechWorshipDrive</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechWorshipDrive</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechWorshipDrive</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech truelife-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_ArchotechTruelife</defName>
+    <label>advanced archotech truelife</label>
+    <labelNoun>an archotech truelife</labelNoun>
+    <description>An installed advanced archotech truelife. Rapidly restores the host to a normal state of life if it is a shambler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTruelife</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTruelife</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>60</maxSeverity>
+    <stages>
+      <li>
+        <label>recharging</label>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>1</Hauts_EntityDamageFactor>
+        </statOffsets>
+		<regeneration>4</regeneration>
+		<totalBleedFactor>0.1</totalBleedFactor>
+      </li>
+	  <li>
+        <minSeverity>60</minSeverity>
+		<label>ready</label>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>1</Hauts_EntityDamageFactor>
+        </statOffsets>
+		<regeneration>4</regeneration>
+		<totalBleedFactor>0.1</totalBleedFactor>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Truelife">
+		<periodicity>60</periodicity>
+		<reversionText>HVB_TruelifedAEP</reversionText>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>2</severityPerDay>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_ArchotechTruelife</defName>
+    <label>advanced archotech truelife</label>
+    <description>A brain implant which stabilizes deadlife mechanites and co-opts them to instead reconstruct a healthy version of the host's body; if the host becomes a shambler, ghoul, or other dark archotechnological mutant, this implant will rapidly reverse that state and bring them back to true life, hence the name.\n\nIt also provides a slow but continual regenerative effect.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechTruelife</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_InstallArchotechTruelife</defName>
+    <label>install advanced archotech truelife</label>
+    <description>Install an advanced archotech truelife.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTruelife</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechTruelife</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech truelife.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTruelife</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTruelife</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechTruelife</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_RemoveArchotechTruelife</defName>
+    <label>remove advanced archotech truelife</label>
+    <description>Remove advanced archotech truelife.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTruelife</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechTruelife</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech truelife.</jobString>
+    <removesHediff>HVB_AEP_ArchotechTruelife</removesHediff>
+  </RecipeDef>
+  
+ <!--archotech levitator
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AEP_ArchotechLevitator</defName>
+    <label>advanced archotech levitator</label>
+    <labelNoun>an advanced archotech levitator</labelNoun>
+    <description>An installed advanced archotech levitator. By means utterly unknown to human minds, it enables the host to float, nullifying slowdown from different terrain types.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechLevitator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechLevitator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>1</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">1</SwimSpeed>
+        </statOffsets>
+        <statFactors>
+		  <PawnTrapSpringChance>0</PawnTrapSpringChance>
+		  <CarryingCapacity>2.5</CarryingCapacity>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating"/>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechLevitator</defName>
+    <label>advanced archotech levitator</label>
+    <description>This coiling v-shaped organ somehow provides weight support in midair, up to a few feet off the ground. This nullifies movement penalties from different terrain types. How it accomplishes this is a mystery - every conceivable explanation sounds equally outlandish.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechLevitator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_AEP_InstallArchotechLevitator</defName>
+    <label>install advanced archotech levitator</label>
+    <description>Install an advanced archotech levitator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechLevitator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechLevitator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech levitator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechLevitator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechLevitator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechLevitator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_AEP_RemoveArchotechLevitator</defName>
+    <label>remove advanced archotech levitator</label>
+    <description>Remove advanced archotech levitator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechLevitator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechLevitator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech levitator.</jobString>
+    <removesHediff>HVB_AEP_ArchotechLevitator</removesHediff>
+  </RecipeDef>-->
+  
+  <!--archotech dryadic resonator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_ArchotechDryadicResonator</defName>
+    <label>advanced archotech dryadic resonator</label>
+    <labelNoun>an advanced archotech dryadic resonator</labelNoun>
+    <description>An installed advanced archotech dryadic resonator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechDryadicResonator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechDryadicResonator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statFactors>
+		  <Hauts_MaxDryadFactor>5</Hauts_MaxDryadFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_ArchotechDryadicResonator</defName>
+    <label>advanced archotech dryadic resonator</label>
+    <description>This whorled, woodlike orb is actually a bionic implant of archotech origin. Once installed in a living, sapient host, it broadcasts a psychic wave that amplifies the host's dryadic telempathy, increasing the number of dryads connected gauranlen trees can support.\n\nThis advanced version multiplies the max dryad count by 5 (up from 1.5).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechDryadicResonator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_InstallArchotechDryadicResonator</defName>
+    <label>install advanced archotech dryadic resonator</label>
+    <description>Install an advanced archotech dryadic resonator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechDryadicResonator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechDryadicResonator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech dryadic resonator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechDryadicResonator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechDryadicResonator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechDryadicResonator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_AEP_RemoveArchotechDryadicResonator</defName>
+    <label>remove advanced archotech dryadic resonator</label>
+    <description>Remove advanced archotech dryadic resonator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechDryadicResonator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechDryadicResonator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech dryadic resonator.</jobString>
+    <removesHediff>HVB_AEP_ArchotechDryadicResonator</removesHediff>
+  </RecipeDef>
+  
+  <!--archotech bioferrite destabilizer-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_ArchotechBioferriteDestabilizer</defName>
+    <label>advanced archotech bioferrite destabilizer</label>
+    <labelNoun>an archotech bioferrite destabilizer</labelNoun>
+    <description>An installed advanced archotech bioferrite destabilizer. Prevents ghoulizing, rising as a shambler, and metalhorror infections.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechBioferriteDestabilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechBioferriteDestabilizer</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>4</Hauts_EntityDamageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+	    <destroyedBySevereInteractions>false</destroyedBySevereInteractions>
+		<damageVsGhouls>40</damageVsGhouls>
+		<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+		<postKillDamageToShamblers>10</postKillDamageToShamblers>
+		<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_ArchotechBioferriteDestabilizer</defName>
+    <label>advanced archotech bioferrite destabilizer</label>
+    <description>An implant which manipulates local psychic flows, forcing the destruction of bioferrite-dependent biological modifications undergone by the host. It also induces this same destabilization in those the host attacks, allowing them to dispatch unnatural entities with relative ease.\n\nThis advanced version grants quadruple the damage boost against unnatural entities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechBioferriteDestabilizer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_AEP_InstallArchotechBioferriteDestabilizer</defName>
+    <label>install advanced archotech bioferrite destabilizer</label>
+    <description>Install an advanced archotech bioferrite destabilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechBioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechBioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech bioferrite destabilizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechBioferriteDestabilizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechBioferriteDestabilizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechBioferriteDestabilizer</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech marrowheart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechMarrowheart</defName>
+    <label>advanced archotech marrowheart</label>
+    <labelNoun>an advanced archotech marrowheart</labelNoun>
+    <description>An installed advanced archotech marrowheart.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechMarrowheart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechMarrowheart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <HVB_MarrowEfficacy>1.75</HVB_MarrowEfficacy>
+		  <HVB_RemainingMarrow>2</HVB_RemainingMarrow>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechMarrowheart</defName>
+    <label>advanced archotech marrowheart</label>
+    <description>An advanced artificial heart created by an archotech. It secretes archites into the bloodstream, which seek out bone marrow and, through means mysterious to all human minds, enhances the production of virtually every cell, mechanite, or chemical being produced by that tissue.\n\nThis advanced version grants triple the boost to synthetic marrow efficiency, and also enables the installation of two additional synthetic marrow implants.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechMarrowheart</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechMarrowheart</defName>
+    <label>install advanced archotech marrowheart</label>
+    <description>Install an advanced archotech marrowheart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechMarrowheart</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechMarrowheart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech marrowheart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechMarrowheart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechMarrowheart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechMarrowheart</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech apeliotan lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechApeliotanLung</defName>
+    <label>advanced archotech apeliotan lung</label>
+    <labelNoun>an advanced archotech apeliotan lung</labelNoun>
+    <description>An installed advanced archotech apeliotan lung. Improves the breathing of anyone nearby, including mechanoids.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechApeliotanLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechApeliotanLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AuraHediff">
+		<range>6.5</range>
+		<hediffs>
+		  <li>HVB_HighOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>false</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechApeliotanLung</defName>
+    <label>advanced archotech apeliotan lung</label>
+    <description>An advanced artificial lung built by an archotech. Every exhalation is accompanied by a flux in the atomic composition of the surrounding air, enhancing its quality and making it particularly breathable without altering its flammability.\n\nThis advanced version's aura has a radius of 6.5 cells (up from 3 cells) and can affect mechanoids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechApeliotanLung</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechApeliotanLung</defName>
+    <label>install advanced archotech apeliotan lung</label>
+    <description>Install an advanced archotech apeliotan lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechApeliotanLung</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechApeliotanLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech apeliotan lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechApeliotanLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechApeliotanLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechApeliotanLung</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech breathtaker-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechBreathTaker</defName>
+    <label>advanced archotech breathtaker</label>
+    <labelNoun>an advanced archotech breathtaker</labelNoun>
+    <description>An installed advanced archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (including mechanoids).</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechBreathTaker</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_BreathtakerAura">
+		<range>6.5</range>
+		<hediffs>
+		  <li>HVB_LowOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>false</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<affectsOthersInCaravan>false</affectsOthersInCaravan>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechBreathTaker</defName>
+    <label>advanced archotech breathtaker</label>
+    <description>An advanced artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This makes it difficult for anyone nearby to breathe, and has the nice side effect of lowering their flammability.\n\nThis advanced version's aura has a radius of 6.5 cells (up from 3 cells) and can affect mechanoids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechBreathTaker</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechBreathTaker</defName>
+    <label>install advanced archotech breathtaker</label>
+    <description>Install an advanced archotech breathtaker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechBreathTaker</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechBreathTaker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech breathtaker.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechBreathTaker</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechBreathTaker</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechBreathTaker</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech programmable lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechProgrammableLung</defName>
+    <label>advanced archotech programmable lung</label>
+    <labelNoun>an advanced archotech programmable lung</labelNoun>
+    <description>An installed advanced archotech programmable lung. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechProgrammableLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechProgrammableLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>1.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>1.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>2.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>2.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>2.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>3.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>3.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>3.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>4.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>4.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>4.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>5.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>5.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>5.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechProgrammableLung</defName>
+    <label>advanced archotech programmable lung</label>
+    <description>An advanced artificial lung built by an archotech. It appears to be an ordinary lung, but is entirely composed out of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the lung as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of other advanced archotech lungs.\n\nThis advanced version grants +30% part efficiency per Intellectual skill (up from +8%).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechProgrammableLung</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechProgrammableLung</defName>
+    <label>install advanced archotech programmable lung</label>
+    <description>Install an advanced archotech programmable lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLung</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechProgrammableLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech programmable lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechProgrammableLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechProgrammableLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechProgrammableLung</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech growth stimulator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechGrowthStimulator</defName>
+    <label>advanced archotech growth stimulator</label>
+    <labelNoun>an advanced archotech growth stimulator</labelNoun>
+    <description>An installed advanced archotech growth stimulator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGrowthStimulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGrowthStimulator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDamageFactor>3.5</MeleeDamageFactor>
+		  <MoveSpeed>1.5</MoveSpeed>
+		  <VEF_BodySize_Offset>2.25</VEF_BodySize_Offset>
+        </statOffsets>
+		<statFactors>
+		  <VEF_MassCarryCapacity>6</VEF_MassCarryCapacity>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechGrowthStimulator</defName>
+    <label>advanced archotech growth stimulator</label>
+    <description>An advanced artificial liver created by an archotech. Vanometrically empowered archites facilitate dramatic metabolic and structural changes to the body, rapidly increasing its size and strength.\n\nThis advanced version grants +350% melee damage (up from +125%), +2 c/s move speed (up from 0.5 c/s), 6x carrying capacity (up from 2x), and even more body size.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGrowthStimulator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechGrowthStimulator</defName>
+    <label>install advanced archotech growth stimulator</label>
+    <description>Install an advanced archotech growth stimulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGrowthStimulator</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGrowthStimulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech growth stimulator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGrowthStimulator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGrowthStimulator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGrowthStimulator</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech thinking kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechThinkingKidney</defName>
+    <label>advanced archotech thinking kidney</label>
+    <labelNoun>an advanced archotech thinking kidney</labelNoun>
+    <description>An installed advanced archotech thinking kidney.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechThinkingKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechThinkingKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <PsychicSensitivity>0.4</PsychicSensitivity>
+		</statOffsets>
+      </li>
+	</stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechThinkingKidney</defName>
+    <label>advanced archotech thinking kidney</label>
+    <description>An advanced artificial kidney created by an archotech. The actual functions of the kidney take place in a miniaturized chamber, leaving room for a complex matrix of archite-infused biogel which enhances the host's thought processes.\n\nThis advanced version grants over triple the consciousness and psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechThinkingKidney</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>17000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechThinkingKidney</defName>
+    <label>install advanced archotech thinking kidney</label>
+    <description>Install an advanced archotech thinking kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechThinkingKidney</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechThinkingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech thinking kidney.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechThinkingKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechThinkingKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechThinkingKidney</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech intercessor-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechIntercessor</defName>
+    <label>advanced archotech intercessor</label>
+    <labelNoun>an advanced archotech intercessor</labelNoun>
+    <description>An installed advanced archotech intercessor. Gains 1 charge per 4 hours, up to a max of 5 charges; whenever damage is taken, 1 charge is spent to nullify it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechIntercessor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
+        <ticksToNextSpawn>10000</ticksToNextSpawn>
+		<hediffGiven>HVB_DamageBlock</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<startingCharges>1</startingCharges>
+		<maxStoredCharges>5</maxStoredCharges>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>true</showProgressInTooltip>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechIntercessor</defName>
+    <label>advanced archotech intercessor</label>
+    <description>An advanced artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.\n\nThis advanced version can store up to 5 charges, and gains 1 charge every 4 hours (up from 12).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechIntercessor</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechIntercessor</defName>
+    <label>install advanced archotech intercessor</label>
+    <description>Install an advanced archotech intercessor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechIntercessor</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechIntercessor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech intercessor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechIntercessor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechIntercessor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechIntercessor</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech programmable limb-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechProgrammableLimb</defName>
+    <label>advanced archotech programmable limb</label>
+    <labelNoun>an advanced archotech programmable limb</labelNoun>
+    <description>An installed advanced archotech programmable limb. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>1.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>1.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>2.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>2.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>2.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>3.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>3.6</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>3.9</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>4.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>4.5</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>4.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>5.1</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>5.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>5.7</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>programmable limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechProgrammableLimb</defName>
+    <label>advanced archotech programmable limb</label>
+    <description>An advanced artificial limb built by an archotech. It appears to be an ordinary limb, but it is almost entirely composed of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the limb as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of other advanced archotech limbs.\n\nThis advanced version grants +30% part efficiency per Intellectual skill (up from +8%).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechProgrammableLimb</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>2800</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechProgrammableLimb</defName>
+    <label>install advanced archotech programmable limb</label>
+    <description>Install an advanced archotech programmable limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech programmable limb.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechProgrammableLimb</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech thinking spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechThinkingSpine</defName>
+    <label>advanced archotech thinking spine</label>
+    <labelNoun>an advanced archotech thinking spine</labelNoun>
+    <description>An installed advanced archotech thinking spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechThinkingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechThinkingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <postFactor>1.4</postFactor>
+          </li>
+        </capMods>
+      </li>
+	</stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechThinkingSpine</defName>
+    <label>advanced archotech thinking spine</label>
+    <description>An advanced artificial spine created by an archotech. The segments of this spinal cord are connected by interwoven strands of an organo-metallic substance which somehow enhance the host's thought processes.\n\nThis advanced version grants 1.4x consciousness (up from 1.1x).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechThinkingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechThinkingSpine</defName>
+    <label>install advanced archotech thinking spine</label>
+    <description>Install an advanced archotech thinking spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechThinkingSpine</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechThinkingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech thinking spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechThinkingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechThinkingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechThinkingSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech undulating spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechUndulatingSpine</defName>
+    <label>advanced archotech undulating spine</label>
+    <labelNoun>an advanced archotech undulating spine</labelNoun>
+    <description>An installed advanced archotech undulating spine. Due to its levitation-granting properties, it nullifies slowdown from different terrain types.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechUndulatingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechUndulatingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <statOffsets>
+		  <MeleeDodgeChance>12</MeleeDodgeChance>
+		  <MeleeHitChance>12</MeleeHitChance>
+        </statOffsets>
+		<statFactors>
+		  <CrawlSpeed>12</CrawlSpeed>
+		  <PawnTrapSpringChance>0</PawnTrapSpringChance>
+		  <CarryingCapacity>2</CarryingCapacity>
+		  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+        </statFactors>
+      </li>
+	</stages>
+    <comps>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating"/>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechUndulatingSpine</defName>
+    <label>advanced archotech undulating spine</label>
+    <description>An advanced artificial spine created by an archotech. Each of its segments contains a miniature vanometric power generator, which expels the created energy as a modulated propulsive field - in other words, it makes its host levitate. This 'levitation field' subtly fluctuates, causing the host to undulate slightly while it is active, hence the spine's name.\n\nThis advanced version has triple the melee dodge and hit chance, and it doubles carrying capacity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechUndulatingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechUndulatingSpine</defName>
+    <label>install advanced archotech undulating spine</label>
+    <description>Install an advanced archotech undulating spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechUndulatingSpine</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechUndulatingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech undulating spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechUndulatingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechUndulatingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechUndulatingSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech telescoping arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechTelescopingArm</defName>
+    <label>advanced archotech telescoping arm</label>
+    <labelNoun>an advanced archotech telescoping arm</labelNoun>
+    <description>An installed advanced archotech telescoping arm. Can grab objects at a distance, either to pull them to oneself or vice versa.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_AEP_BionicYank</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechTelescopingArm</defName>
+    <label>advanced archotech telescoping arm</label>
+    <description>An advanced artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can extend out to disturbingly long distances in order to grab objects, then rapidly retract in order to either bring the object to oneself or oneself to the object.\n\nThis advanced version can grab objects up to 27 cells away (up from 9 cells) and has a base cooldown of 3/4 hours (down from 1 hour).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechTelescopingArm</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechTelescopingArm</defName>
+    <label>install advanced archotech telescoping arm</label>
+    <description>Install an advanced archotech telescoping arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech telescoping arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechTelescopingArm</addsHediff>
+  </RecipeDef>
+  <AbilityDef>
+    <defName>HVB_AEP_BionicYank</defName>
+    <label>advanced bionic lasso</label>
+    <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>1875</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>27</range>
+      <warmupTime>0.01</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+		<canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+		<canTargetItems>true</canTargetItems>
+		<canTargetPlants>true</canTargetPlants>
+		<mustBeSelectable>true</mustBeSelectable>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
+        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
+        <color>155,165,148</color>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--archotech shield bubbler-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechShieldBubbler</defName>
+    <label>advanced archotech shield bubbler</label>
+    <labelNoun>an advanced archotech shield bubbler</labelNoun>
+    <description>An installed advanced archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_AEP_ProjectBionicShield</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechShieldBubbler</defName>
+    <label>advanced archotech shield bubbler</label>
+    <description>An advanced artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can somehow induce electromagnetic distortions to create projectile-repulsion fields at a distance. Since these fields are not being constantly maintained by a dedicated shield-core, they collapse after a short duration. However, they are quite strong.\n\nThis advanced version produces a shield four times as strong.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechShieldBubbler</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechShieldBubbler</defName>
+    <label>install advanced archotech shield bubbler</label>
+    <description>Install an advanced archotech shield bubbler.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech shield bubbler.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechShieldBubbler</addsHediff>
+  </RecipeDef>
+  <AbilityDef>
+    <defName>HVB_AEP_ProjectBionicShield</defName>
+    <label>project advanced bionic shield</label>
+    <description>Erects a temporary 800-energy repulsion shield over the target creature. This shield blocks projectiles but will instantly be destroyed when exposed to EMPs.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</iconPath>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse><!--for now, at least...-->
+    <warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>2500</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>18</range>
+      <warmupTime>0.01</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVB_AEP_ProjectedShield</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_AEP_ProjectedShield</defName>
+		<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+		<label>projected shield</label>
+		<description>A projectile-repulsion field generated by an archotech shield bubbler. It will attempt to stop incoming damage of all kinds. It prevents the wearer from firing out, and shuts down instantly if hit by EMP.\n\nThis shield takes damage after any shields generated by equipment. Since it is nearly skintight, it is possible to fire ranged weapons through it. It does not regenerate after running out of energy.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<comps>
+		  <li Class="HautsBionics.HediffCompProperties_BionicShield">
+			<chance>1</chance>
+			<severityOnHit>-1</severityOnHit>
+			<minSeverityToWork>0.001</minSeverityToWork>
+			<damageScalesSeverityLoss>true</damageScalesSeverityLoss>
+			<soundOnBlock>EnergyShield_AbsorbDamage</soundOnBlock>
+			<fleckOnBlock>ExplosionFlash</fleckOnBlock>
+			<instantlyOverwhelmedBy>EMP</instantlyOverwhelmedBy>
+			<destroyIfOverwhelmed>true</destroyIfOverwhelmed>
+			<energyOnReset>280</energyOnReset>
+			<baseEnergyRechargeRate>4.33</baseEnergyRechargeRate>
+			<baseMaxEnergy>280</baseMaxEnergy>
+			<maxEnergyScalar>VEF_EnergyShieldEnergyMaxFactor</maxEnergyScalar>
+			<breakEffect>Shield_Break</breakEffect>
+			<visualRange>1.2~1.5</visualRange>
+			<priority>10010</priority>
+			<reactsToOther>true</reactsToOther><!--works on any kind of damage-->
+			<shouldUseIncomingDamageFactor>false</shouldUseIncomingDamageFactor>
+			<noCostIfInvincible>false</noCostIfInvincible>
+		  </li>
+		  <li Class="HautsFramework.HediffCompProperties_MoteConditionalShield">
+			<mote>Hauts_DefaultShieldGraphic</mote>
+			<scale>1</scale>
+			<minDrawFactor>1.2</minDrawFactor>
+			<maxDrawFactor>1.5</maxDrawFactor>
+			<randomRotation>true</randomRotation>
+			<validRange>0.001~9999999</validRange>
+		  </li>
+		  <li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>2500</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
+  <!--archotech earthshaker-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechEarthshaker</defName>
+    <label>advanced archotech earthshaker</label>
+    <labelNoun>an advanced archotech earthshaker</labelNoun>
+    <description>An installed advanced archotech earthshaker. Can be toggled to, after landing from any jump, release a shockwave that stuns anyone nearby, produces smoke, and damages buildings.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechEarthshaker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechEarthshaker</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicPounce</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Hauts_BreachDamageFactor>1</Hauts_BreachDamageFactor>
+		  <Hauts_JumpRangeFactor>0.4</Hauts_JumpRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Earthshaker">
+		<shockwavePower>2</shockwavePower>
+	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ToggleEarthshaker</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechEarthshaker</defName>
+    <label>advanced archotech earthshaker</label>
+    <description>An advanced artificial leg built by an archotech. In addition to the already superb functions of an archotech leg, the earthshaker contains a ground-directed vanometric energy generator. This generator can be mentally commanded to release pulses of energy for propulsion, facilitating leaps that cover vast distances. Moreover, it can be mentally toggled to also discharge an energy pulse into the ground when landing after a jump, causing a powerful shockwave that damages buildings, throws up particulate, and stuns anyone nearby.\n\nThis advanced version quadruples both the damage boost against buildings and the increased leap range. It also doubles the stun duration of the leap shockwave.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechEarthshaker</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechEarthshaker</defName>
+    <label>install advanced archotech earthshaker</label>
+    <description>Install an advanced archotech earthshaker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechEarthshaker</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechEarthshaker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech earthshaker.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechEarthshaker</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechEarthshaker</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechEarthshaker</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech generator leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechGeneratorLeg</defName>
+    <label>advanced archotech generator leg</label>
+    <labelNoun>an advanced archotech generator leg</labelNoun>
+    <description>An installed advanced archotech generator leg. Affects abilities granted by other bionics, and quarters the time it takes for an internal shield generator's shield to reset after being broken.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGeneratorLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGeneratorLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+		  <RestFallRateFactor>0.7</RestFallRateFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>3</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+	  </li>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>0</maxEnergyOffset>
+        <resetDelayFactor>0.25</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>false</makesShield>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechGeneratorLeg</defName>
+    <label>advanced archotech generator leg</label>
+    <description>An advanced artificial leg built by an archotech. In addition to the already superb functions of an advanced archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for an internal shield generator to reset its shield after being broken, and prolong the amount of time the host can go without sleep.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGeneratorLeg</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechGeneratorLeg</defName>
+    <label>install advanced archotech generator leg</label>
+    <description>Install an advanced archotech generator leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGeneratorLeg</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGeneratorLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech generator leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGeneratorLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGeneratorLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGeneratorLeg</addsHediff>
+  </RecipeDef>
+  
+</Defs>

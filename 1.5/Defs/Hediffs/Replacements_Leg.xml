@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--dancer's leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_DancersLeg</defName>
+    <label>dancer's leg</label>
+    <labelNoun>a dancer's leg</labelNoun>
+    <description>An installed dancer's leg.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DancersLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DancersLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDodgeChance>2</MeleeDodgeChance>
+		  <MeleeHitChance>2</MeleeHitChance>
+		  <StaggerDurationFactor>-0.25</StaggerDurationFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_DancersLeg</defName>
+    <label>dancer's leg</label>
+    <description>A bionic leg with increased articulation, internal movable weights controlled via biogel nerve-links, and gripping talons. This leg can bend in truly unusual ways while still supporting the host's weight, no matter where its foot is planted in relation to the rest of the body, which makes it a great help in melee combat.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDancersLeg</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicLeg>1</BionicLeg>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallDancersLeg</defName>
+    <label>install dancer's leg</label>
+    <description>Install a dancer's leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DancersLeg</ThingDef>
+      <HediffDef>HVB_DancersLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dancer's leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DancersLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DancersLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DancersLeg</addsHediff>
+  </RecipeDef>
+  
+  <!--generator leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_GeneratorLeg</defName>
+    <label>generator leg</label>
+    <labelNoun>a generator leg</labelNoun>
+    <description>An installed generator leg. Affects abilities granted by other bionics, and slightly reduces the time it takes for an internal shield generator's shield to reset after being broken.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GeneratorLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GeneratorLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.5</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+	  </li>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>0</maxEnergyOffset>
+        <resetDelayFactor>0.9</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>false</makesShield>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_GeneratorLeg</defName>
+    <label>generator leg</label>
+    <description>A bionic leg which generates and stores energy from the forces it experiences during use in the gait cycle. This energy is rerouted to other bionic systems, allowing their abilities to be used more frequently, and hastening the reset process for internal shield generators that have been overwhelmed.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGeneratorLeg</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicLeg>1</BionicLeg>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallGeneratorLeg</defName>
+    <label>install generator leg</label>
+    <description>Install a generator leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GeneratorLeg</ThingDef>
+      <HediffDef>HVB_GeneratorLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing generator leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GeneratorLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GeneratorLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GeneratorLeg</addsHediff>
+  </RecipeDef>
+  
+  <!--jet leg-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_JetLeg</defName>
+    <label>jet leg</label>
+    <labelNoun>a jet leg</labelNoun>
+    <description>An installed jet leg. It can be activated in a short burst to unleash a jet of flame.</description>
+    <descriptionHyperlinks><ThingDef>HVB_JetLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_JetLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicFlameKick</li>
+    </abilities>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+	    <label>cooling down</label>
+	  </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+		<label>ready</label>
+		<statFactors>
+		  <Hauts_JumpRangeFactor>1.2</Hauts_JumpRangeFactor>
+        </statFactors>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownSeverity">
+		<sevBonusPerGrantedAbilityOnCD>-1</sevBonusPerGrantedAbilityOnCD>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_JetLeg</defName>
+    <label>jet leg</label>
+    <description>A bionic leg with a calf-mounted jet engine. The engine's small size and fuel capacitance prevents it from being constantly used to enhance speed, but it can be discharged in small bursts to enhance leap distance, or briefly throttled to maximum for a devastating fire attack.\n\nThe jet leg doesn't need to be loaded with chemfuel - it generates its own fuel from the host's metabolic byproducts.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallJetLeg</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicLeg>1</BionicLeg>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallJetLeg</defName>
+    <label>install jet leg</label>
+    <description>Install a jet leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_JetLeg</ThingDef>
+      <HediffDef>HVB_JetLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing jet leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_JetLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_JetLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_JetLeg</addsHediff>
+  </RecipeDef>
+  
+  <!--load-bearing leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_LoadBearingLeg</defName>
+    <label>load-bearing leg</label>
+    <labelNoun>a load-bearing leg</labelNoun>
+    <description>An installed load-bearing leg.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LoadBearingLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LoadBearingLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <VEF_MassCarryCapacity>25</VEF_MassCarryCapacity>
+		  <StaggerDurationFactor>-0.25</StaggerDurationFactor>
+        </statOffsets>
+        <statFactors>
+		  <RestFallRateFactor>0.92</RestFallRateFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_LoadBearingLeg</defName>
+    <label>load-bearing leg</label>
+    <description>A bionic leg reinforced with additional plasteel and self-repairing lattice-dust matrices at each joint. This leg can handle much more weight than normal, and it alleviates some of the day-to-day energy expenditure usually involved in motion and standing upright.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLoadBearingLeg</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicLeg>1</BionicLeg>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallLoadBearingLeg</defName>
+    <label>install load-bearing leg</label>
+    <description>Install a load-bearing leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LoadBearingLeg</ThingDef>
+      <HediffDef>HVB_LoadBearingLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing load-bearing leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LoadBearingLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LoadBearingLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LoadBearingLeg</addsHediff>
+  </RecipeDef>
+  
+  <!--pouncing leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_PouncingLeg</defName>
+    <label>pouncing leg</label>
+    <labelNoun>a pouncing leg</labelNoun>
+    <description>An installed pouncing leg.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PouncingLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PouncingLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicPounce</li>
+    </abilities>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_PouncingLeg</defName>
+    <label>pouncing leg</label>
+    <description>A bionic leg with a unique set of additional artificial muscles which can be activated to brace against a solid, stationary surface, then kick off it to launch oneself far into the air. In midair, it then issues repeated short pneumatic blasts to slow the fall; in tandem with its superior strength and force-dissipating construction, this enables a safe landing. Both the pneumatic thrusters and the leaping muscles must undergo brief self-repairs in order to be usable again.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPouncingLeg</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicLeg>1</BionicLeg>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <techHediffsTags><li>HVB_ImAlreadyLeaper</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallPouncingLeg</defName>
+    <label>install pouncing leg</label>
+    <description>Install a pouncing leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PouncingLeg</ThingDef>
+      <HediffDef>HVB_PouncingLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing pouncing leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PouncingLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PouncingLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PouncingLeg</addsHediff>
+  </RecipeDef>
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech earthshaker-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechEarthshaker</defName>
+    <label>archotech earthshaker</label>
+    <labelNoun>an archotech earthshaker</labelNoun>
+    <description>An installed archotech earthshaker. Can be toggled to, after landing from any jump, release a shockwave that stuns anyone nearby, produces smoke, and damages buildings.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechEarthshaker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechEarthshaker</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicPounce</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Hauts_BreachDamageFactor>0.25</Hauts_BreachDamageFactor>
+		  <Hauts_JumpRangeFactor>0.1</Hauts_JumpRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Earthshaker">
+		<shockwavePower>1</shockwavePower>
+	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ToggleEarthshaker</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechEarthshaker</defName>
+    <label>archotech earthshaker</label>
+    <description>An artificial leg built by an archotech. In addition to the already superb functions of an archotech leg, the earthshaker contains a ground-directed vanometric energy generator. This generator can be mentally commanded to release pulses of energy for propulsion, facilitating leaps that cover vast distances. Moreover, it can be mentally toggled to also discharge an energy pulse into the ground when landing after a jump, causing a powerful shockwave that damages buildings, throws up a cloud of particulate, and stuns anyone nearby.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechEarthshaker</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3900</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechEarthshaker</defName>
+    <label>install archotech earthshaker</label>
+    <description>Install an archotech earthshaker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechEarthshaker</ThingDef>
+      <HediffDef>HVB_ArchotechEarthshaker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech earthshaker.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechEarthshaker</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechEarthshaker</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechEarthshaker</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech generator leg-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechGeneratorLeg</defName>
+    <label>archotech generator leg</label>
+    <labelNoun>an archotech generator leg</labelNoun>
+    <description>An installed archotech generator leg. Affects abilities granted by other bionics, and reduces the time it takes for an internal shield generator's shield to reset after being broken by a quarter.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGeneratorLeg</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGeneratorLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+		  <RestFallRateFactor>0.9</RestFallRateFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>1</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+	  </li>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>0</maxEnergyOffset>
+        <resetDelayFactor>0.75</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>false</makesShield>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechGeneratorLeg</defName>
+    <label>archotech generator leg</label>
+    <description>An artificial leg built by an archotech. In addition to the already superb functions of an archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for an internal shield generator to reset its shield after being broken, and prolong the amount of time the host can go without sleep.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGeneratorLeg</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechGeneratorLeg</defName>
+    <label>install archotech generator leg</label>
+    <description>Install an archotech generator leg.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGeneratorLeg</ThingDef>
+      <HediffDef>HVB_ArchotechGeneratorLeg</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech generator leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGeneratorLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGeneratorLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGeneratorLeg</addsHediff>
+  </RecipeDef>
+  
+</Defs>

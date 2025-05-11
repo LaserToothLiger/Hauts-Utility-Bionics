@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--Neural resoc-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <hediffClass>HautsBionics.Hediff_Resoc</hediffClass>
+    <defName>HVB_NeuralResocialization</defName>
+    <label>neural resocialization</label>
+    <description>Surgical and chemical modification of principal consciousness. Most personality has been suppressed or overwritten.</description>
+    <priceImpact>false</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <disablesNeeds>
+      <li>Joy</li>
+      <li>Beauty</li>
+      <li>Comfort</li>
+      <li>Outdoors</li>
+      <li>Indoors</li>
+    </disablesNeeds>
+    <stages>
+      <li>
+        <socialFightChanceFactor>0</socialFightChanceFactor>
+		<statOffsets>
+		  <GlobalLearningFactor>0.25</GlobalLearningFactor>
+		  <PainShockThreshold>1</PainShockThreshold>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0</MentalBreakThreshold><!--minimum is 0.01, so this isn't actual, total removal-->
+		  <ResearchSpeed>0.25</ResearchSpeed>
+		  <NegotiationAbility>0.3</NegotiationAbility>
+		  <TradePriceImprovement>0.3</TradePriceImprovement>
+		  <SocialImpact>0.3</SocialImpact>
+		  <TameAnimalChance>0.3</TameAnimalChance>
+		  <TrainAnimalChance>0.3</TrainAnimalChance>
+		  <BondAnimalChanceFactor>0.3</BondAnimalChanceFactor>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.3</ConversionPower>
+		  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.3</SocialIdeoSpreadFrequencyFactor>
+		  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.5</CertaintyLossFactor>
+		  <MinimumContainmentStrength MayRequire="Ludeon.RimWorld.Anomaly">0.7</MinimumContainmentStrength>
+		  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallNeuralResocialization</defName>
+    <label>perform neural resocialization</label>
+    <description>Suppress and overwrite much of the vicitm's memory to engender compliance and mental fortitude at the expense of individuality. When performed on a prisoner, it also removes a random amount of their will and resistance.</description>
+    <descriptionHyperlinks><HediffDef>HVB_NeuralResocialization</HediffDef></descriptionHyperlinks>
+    <jobString>Performing neural resocialization.</jobString>
+    <researchPrerequisite>HVB_NeuralResocialization</researchPrerequisite>
+    <workAmount>3000</workAmount>
+    <skillRequirements>
+      <Medicine>10</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_NeuralResocialization</addsHediff>
+  </RecipeDef>
+	  <HediffDef>
+		<defName>HVB_BrokenResoc</defName>
+		<label>resocialization backlash</label>
+		<description>A potential side effect of breaking the programming of neural resocialization, resulting in frequent violent episodes.</description>
+		<isBad>true</isBad>
+		<everCurableByItem>true</everCurableByItem>
+		<stages>
+		  <li>
+			<mentalStateGivers>
+			  <li>
+				<mentalState>Berserk</mentalState>
+				<mtbDays>2</mtbDays>
+			  </li>
+			</mentalStateGivers>
+			<statFactors>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">2</VAEI_SanityLossMultiplier>
+			</statFactors>
+		  </li>
+		</stages>
+	  </HediffDef>
+  
+</Defs>

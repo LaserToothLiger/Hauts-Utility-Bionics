@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--Banshee cords-->
+  <AbilityDef>
+    <defName>HVB_BionicBansheeWail</defName>
+    <label>bionic banshee wail</label>
+    <description>The caster releases an extremely loud, ululating ultrasonic pulse that stuns everyone nearby. The radius is based on the caster's ability to talk, and the duration is based on the victims' hearing.\n\nThe caster will also be affected, but only for half as long.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>BionicAbilities/HUB_BansheeWail</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.2</warmupTime>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsBionics.CompProperties_AbilityBansheeWail">
+        <compClass>HautsBionics.CompAbilityEffect_BansheeWail</compClass>
+        <stunScalarCapacity>Hearing</stunScalarCapacity>
+		<aiHearingDifferenceToUse>0.2</aiHearingDifferenceToUse>
+		<stunTicks>200</stunTicks>
+        <radiusScalarCapacity>Talking</radiusScalarCapacity>
+		<baseRadius>2.5</baseRadius>
+        <maxRadius>40</maxRadius>
+		<sound>Pawn_Mech_Scyther_Death</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Electroflash skin-->
+  <AbilityDef>
+    <defName>HVB_EMPDischarge</defName>
+    <label>bionic EMP discharge</label>
+    <description>The caster's body releases an EMP. Radius scales with caster body size.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>Things/Mote/BlastEMP</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<cooldownTicksRange>7500</cooldownTicksRange>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.2</warmupTime>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsFramework.CompProperties_AbilityNova">
+        <compClass>HautsBionics.CompAbilityEffect_EMPDischarge</compClass>
+		<baseRadius>1.5</baseRadius>
+        <maxRadius>40</maxRadius>
+		<sound>Explosion_EMP</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Mechanite lure-->
+  <AbilityDef>
+    <defName>HVB_InflictMechaniteDisease</defName>
+    <label>inflict mechanite disease</label>
+    <description>Discharges a mass of stored mechanites into the target, inflicting a random mechanite disease. Has a highly variable cooldown. Range scales with mechanitor remote repair distance.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>Things/Item/Special/MechSerumHealer</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>360000~720000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>1</range>
+      <rangeStat MayRequire="Ludeon.RimWorld.Biotech">MechRemoteRepairDistance</rangeStat>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsBionics.CompProperties_AbilityInflictMechanites">
+        <compClass>HautsBionics.CompAbilityEffect_InflictMechanites</compClass>
+		<onlyHostiles>true</onlyHostiles>
+		<scanForPawnsOnly>true</scanForPawnsOnly>
+		<possibleHediffs>
+		  <li>FibrousMechanites</li>
+		  <li>SensoryMechanites</li>
+		</possibleHediffs>
+		<sound>MechSerumUsed</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Cardiac overdriver-->
+  <AbilityDef>
+    <defName>HVB_CardiacOverdrive</defName>
+    <label>cardiac overdrive</label>
+    <description>Temporarily strengthens cardiac output far beyond the norm, resulting in enhanced physical capabilities for a short duration. Afterward, the heart must recover from being overtaxed in such a manner.</description>
+   <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>Things/Mote/ColonistFleeing</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass>
+	  <range>0</range>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsBionics.CompProperties_AbilityCO">
+        <compClass>HautsBionics.CompAbilityEffect_GiveHediffCO</compClass>
+        <hediffDef>HVB_CardiacOverdrive</hediffDef>
+		<secondHediff>HVB_CardiacStrain</secondHediff>
+		<secondHediffSeverity>1</secondHediffSeverity>
+		<secondHediffPart>Heart</secondHediffPart>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Pouncing leg-->
+  <AbilityDef>
+    <defName>HVB_BionicPounce</defName>
+    <label>bionic pounce</label>
+    <description>Leap through the air to the target point.</description>
+    <iconPath>Things/Special/DropPod</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hostile>false</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityJump</verbClass>
+      <label>jump</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.5</warmupTime>
+      <range>12</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <soundCast>Pawn_Melee_BigBash_HitBuilding</soundCast>
+      <soundLanding>Pawn_Melee_BigBash_HitBuilding</soundLanding>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <jobDef>CastJump</jobDef>
+    <comps>
+      <li Class="HautsFramework.CompProperties_AbilityAiTargetingDistanceRange">
+        <compClass>HautsFramework.CompAbilityEffect_AiTargetingDistanceRange</compClass>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiUsesToRetreat">
+        <compClass>HautsFramework.CompAbilityEffect_AiUsesToRetreat</compClass>
+		<hpThreshold>0.2</hpThreshold>
+		<mustBeRanged>true</mustBeRanged>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech breathtaker-->
+  <AbilityDef>
+    <defName>HVB_ToggleBreathtaker</defName>
+    <label>toggle breathtaker field</label>
+    <description>Enable or disable the breathing-inhibiting field generated by one's own archotech breathtaker(s).</description>
+	<jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<iconPath>Things/Mote/ColonistFleeing</iconPath>
+	<cooldownTicksRange>10</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>False</drawAimPie>
+	  <range>0</range>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityEffect">
+        <compClass>HautsBionics.CompAbilityEffect_Toggle</compClass>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech breathtaker-->
+  <AbilityDef>
+    <defName>HVB_ToggleEarthshaker</defName>
+    <label>toggle earthshaker shockwave</label>
+    <description>Enable or disable the stunning, building-damaging, and smoke-emitting explosion .</description>
+	<jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<iconPath>Things/Mote/ColonistFleeing</iconPath>
+	<cooldownTicksRange>10</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>False</drawAimPie>
+	  <range>0</range>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityEffect">
+        <compClass>HautsBionics.CompAbilityEffect_Toggle</compClass>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Bile blaster-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_BileSpray</defName>
+    <label>bionic bile spray</label>
+    <description>Spray a corrosive solvent all over the target area. It coats anything hit, causing chemical burns.</description>
+    <iconPath>UI/Abilities/AcidSpray</iconPath>
+    <cooldownTicksRange>10000</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <displayOrder>301</displayOrder>
+    <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>8.9</range>
+      <warmupTime>0.5</warmupTime>
+      <soundCast>AcidSpray_Resolve</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySprayLiquid">
+        <projectileDef>Proj_Acid</projectileDef>
+        <numCellsToHit>9</numCellsToHit>
+        <sprayEffecter>AcidSpray_Directional</sprayEffecter>
+      </li>
+    </comps>
+	<modExtensions>
+		<li Class="HautsFramework.Hauts_SpewAbility" />
+	</modExtensions>
+  </AbilityDef>
+	  <ThingDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>Proj_Acid</defName>
+		<label>acid</label>
+		<thingClass>Projectile_Liquid</thingClass>
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+		<graphicData>
+		  <texPath>Things/Projectile/Acid</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <shaderType>MoteGlow</shaderType>
+		  <drawSize>0.7</drawSize>
+		</graphicData>
+		<projectile>
+		  <damageDef>AcidBurn</damageDef>
+		  <speed>25</speed>
+		  <damageAmountBase>8</damageAmountBase>
+		  <arcHeightFactor>0.4</arcHeightFactor>
+		  <armorPenetrationBase>0.8</armorPenetrationBase>
+		  <stoppingPower>1</stoppingPower>
+		  <shadowSize>0</shadowSize>
+		  <filth>Filth_SpentAcid</filth>
+		  <filthCount>1</filthCount>
+		</projectile>
+	  </ThingDef>
+  
+  <!--Jet leg-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_BionicFlameKick</defName>
+    <label>bionic flame kick</label>
+    <description>Launch a stream of burning chemfuel from a jet leg. It can ignite anything or anyone it hits, and also form flaming pools on the ground.\n\nUsing this ability will temporarily negate the bonus jump range granted by the jet leg.</description>
+    <iconPath>UI/Abilities/FireSpew</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <ai_IsIncendiary>true</ai_IsIncendiary>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>7.9</range>
+      <warmupTime>1</warmupTime>
+      <soundCast>Shot_MiniFlameblaster</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityFireSpew">
+        <range>7.9</range>
+        <lineWidthEnd>3</lineWidthEnd>
+        <filthDef>Filth_FlammableBile</filthDef>
+        <effecterDef>Fire_Spew</effecterDef>
+        <canHitFilledCells>true</canHitFilledCells>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech extensible arm-->
+  <AbilityDef>
+    <defName>HVB_BionicYank</defName>
+    <label>bionic lasso</label>
+    <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse><!--for now, at least. usually non-player pawns can't have archotech bionics so this really doesn't matter...-->
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>2500</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>9</range>
+      <warmupTime>0.01</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+		<canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+		<canTargetItems>true</canTargetItems>
+		<canTargetPlants>true</canTargetPlants>
+		<mustBeSelectable>true</mustBeSelectable>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
+        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
+        <color>155,165,148</color>
+      </li>
+    </comps>
+  </AbilityDef>
+	  <ThingDef ParentName="PawnFlyerBase">
+		<defName>HVB_GrabFlyer</defName>
+		<label>grabbed</label>
+		<thingClass>HautsBionics.GrabFlyer</thingClass>
+		<pawnFlyer>
+		  <flightDurationMin>0.5</flightDurationMin>
+		  <flightSpeed>12</flightSpeed>
+		  <workerClass>PawnFlyerWorker</workerClass>
+		  <heightFactor>0.25</heightFactor>
+		  <progressCurve>
+			<points>
+			  <li>(0, 0)</li>
+			  <li>(0.1, 0.15)</li> <!-- Complete 15% of the journey in first 10% of time -->
+			  <li>(1, 1)</li>
+			</points>
+		  </progressCurve>
+		</pawnFlyer>
+	  </ThingDef>
+  
+  <!--Archotech shield bubbler-->
+  <AbilityDef>
+    <defName>HVB_ProjectBionicShield</defName>
+    <label>project bionic shield</label>
+    <description>Erects a temporary repulsion shield over the target creature. This shield blocks up to 70 damage from projectiles but will instantly be destroyed when exposed to EMPs.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</iconPath>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse><!--for now, at least...-->
+    <warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>2500</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>18</range>
+      <warmupTime>0.01</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVB_ProjectedShield</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!--Neural supercharger-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_NeuralSuperchargeTouch</defName>
+    <label>neural supercharge</label>
+    <description>Channel bioelectricity into the target to cause a neural supercharge.</description>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <iconPath>UI/Gizmos/BiosculpterCycleHealing</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>15</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>120000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <aiCanUse>true</aiCanUse>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>NeuralSupercharge</hediffDef>
+        <onlyBrain>True</onlyBrain>
+        <applicableToMechs>False</applicableToMechs>
+        <canTargetBaby>False</canTargetBaby>
+		<sound>NeuralSupercharger_Injection</sound>
+      </li>
+      <li Class = "HautsFramework.CompProperties_AbilityAiAppliesToSelf">
+        <compClass>HautsFramework.CompAbilityEffect_AiAppliesToSelf</compClass>
+	  </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech worship engine-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ArchoConvert</defName>
+    <label>archo-convert</label>
+    <description>Attempt to convert someone to the speaker's ideoligion. This will reduce the target's certainty in their own beliefs. The certainty reduction depends on the speaker's negotiation ability.</description>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <iconPath>UI/Abilities/Convert</iconPath>
+    <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>1</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hostile>false</hostile>
+    <comps>
+      <li Class="CompProperties_AbilityConvert">
+        <successMessage>{INITIATOR_labelShort} has converted {RECIPIENT_labelShort} to {IDEO}.</successMessage>
+        <failMessage>{INITIATOR_labelShort} failed to convert {RECIPIENT_labelShort}. {RECIPIENT_labelShort} was upset by the attempt, but {RECIPIENT_possessive} certainty fell from {CERTAINTYBEFORE} to {CERTAINTYAFTER}.</failMessage>
+        <failedThoughtInitiator>FailedConvertAbilityInitiator</failedThoughtInitiator>
+        <failedThoughtRecipient>FailedConvertAbilityRecipient</failedThoughtRecipient>
+        <convertPowerFactor>2</convertPowerFactor>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilityShowTargetIdeoCertainty" />
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  
+  <!--Retro-reflective skin-->
+  <AbilityDef MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+    <defName>HVB_RetroReflectiveCloak</defName>
+    <label>bionic cloak</label>
+    <description>Turns the caster invisible for half an hour.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>UI/Abilities/Invisibility</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>15</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVB_RetroReflectiveCloaking</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

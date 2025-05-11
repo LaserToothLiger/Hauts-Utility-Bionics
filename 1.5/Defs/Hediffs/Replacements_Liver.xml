@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--digestive assistant-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_DigestiveAssistant</defName>
+    <label>digestive assistant</label>
+    <labelNoun>a digestive assistant</labelNoun>
+    <description>An installed digestive assistant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DigestiveAssistant</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DigestiveAssistant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.1</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <hungerRateFactor>0.82</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_DigestiveAssistant</defName>
+    <label>digestive assistant</label>
+    <description>An artificial liver that enhances nutritional uptake from food, reducing how often the host needs to feed. The modified bile it produces can break down a wider range of nutritional food substances, and it can perform synthesis of organic compounds in a more spatially-efficient manner.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDigestiveAssistant</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_DigestionAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallDigestiveAssistant</defName>
+    <label>install digestive assistant</label>
+    <description>Install a digestive assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DigestiveAssistant</ThingDef>
+      <HediffDef>HVB_DigestiveAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing digestive assistant.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DigestiveAssistant</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DigestiveAssistant</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DigestiveAssistant</addsHediff>
+  </RecipeDef>
+
+  <!--dosage sustainer-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_DosageSustainer</defName>
+    <hediffClass>HautsBionics.Hediff_DosageSustainer</hediffClass>
+    <label>dosage sustainer</label>
+    <labelNoun>a dosage sustainer</labelNoun>
+    <description>An installed dosage sustainer. Doubles the duration of ingested drugs' effects.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DosageSustainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DosageSustainer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.10</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_DosageSustainer</defName>
+    <label>dosage sustainer</label>
+    <description>An artificial liver which modifies drug metabolism. It is programmed to recognize - and generally ignore - the chemicals responsible for the desired effects of most drugs and medicines, doubling the half-life of any ingested drugs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDosageSustainer</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallDosageSustainer</defName>
+    <label>install dosage sustainer</label>
+    <description>Install a dosage sustainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DosageSustainer</ThingDef>
+      <HediffDef>HVB_DosageSustainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dosage sustainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DosageSustainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DosageSustainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DosageSustainer</addsHediff>
+  </RecipeDef>
+
+  <!--growth stimulator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_GrowthStimulator</defName>
+    <label>growth stimulator</label>
+    <labelNoun>a growth stimulator</labelNoun>
+    <description>An installed growth stimulator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GrowthStimulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GrowthStimulator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDamageFactor>0.25</MeleeDamageFactor>
+		  <MoveSpeed>0.2</MoveSpeed>
+		  <VEF_BodySize_Offset>0.2</VEF_BodySize_Offset>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.15</P42_AllergicSensitivity>
+        </statOffsets>
+		<statFactors>
+		  <VEF_MassCarryCapacity>1.2</VEF_MassCarryCapacity>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_GrowthStimulator</defName>
+    <label>growth stimulator</label>
+    <description>An artificial liver which produces hypertrophic and height-enhancing growth factors. To avoid severe health complications, the effect is restrained, but it is still sufficient to notably enhance strength. This focus on growth factor production precludes this bionic from excelling in other aspects of liver function.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGrowthStimulator</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallGrowthStimulator</defName>
+    <label>install growth stimulator</label>
+    <description>Install a growth stimulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GrowthStimulator</ThingDef>
+      <HediffDef>HVB_GrowthStimulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing growth stimulator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GrowthStimulator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GrowthStimulator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GrowthStimulator</addsHediff>
+  </RecipeDef>
+
+  <!--bile blaster-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_BileBlaster</defName>
+    <label>bile blaster</label>
+    <labelNoun>a bile blaster</labelNoun>
+    <description>An installed bile blaster. Bile from this organ can be sprayed out to deal damage to foes in a small area.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BileBlaster</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BileBlaster</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<abilities>
+	  <li>HVB_BileSpray</li>
+	</abilities>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_BileBlaster</defName>
+    <label>bile blaster</label>
+    <description>An artificial liver which produces a dangerously corrosive solvent as a byproduct of its normal function. This solvent collects in capillaries across the body, from which it can be fired out at high pressure over far distances.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBileBlaster</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallBileBlaster</defName>
+    <label>install bile blaster</label>
+    <description>Install a bile blaster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BileBlaster</ThingDef>
+      <HediffDef>HVB_BileBlaster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bile blaster.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BileBlaster</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BileBlaster</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BileBlaster</addsHediff>
+  </RecipeDef>
+
+  <!--hepatic hemogen reservoir-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HepaticHemogenReservoir</defName>
+    <label>hepatic hemogen reservoir</label>
+    <labelNoun>a hepatic hemogen reservoir</labelNoun>
+    <description>An installed hepatic hemogen reservoir.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HepaticHemogenReservoir</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HepaticHemogenReservoir</spawnThingOnRemoved>
+	<stages>
+	  <li>
+	    <statOffsets>
+		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">1.2</EBSG_HemogenMaxOffset>
+		</statOffsets>
+	  </li>
+	</stages>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<maxResourceOffsets>
+			<li>
+				<key>hemogen</key>
+				<value>1.2</value>
+			</li>
+		</maxResourceOffsets>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HepaticHemogenReservoir</defName>
+    <label>hepatic hemogen reservoir</label>
+    <description>This artificial liver has synthetic spongy tissues that can store up to 120 units of hemogen in an extremely dense state.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHepaticHemogenReservoir</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHepaticHemogenReservoir</defName>
+    <label>install hepatic hemogen reservoir</label>
+    <description>Install a hepatic hemogen reservoir.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HepaticHemogenReservoir</ThingDef>
+      <HediffDef>HVB_HepaticHemogenReservoir</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hepatic hemogen reservoir.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HepaticHemogenReservoir</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HepaticHemogenReservoir</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HepaticHemogenReservoir</addsHediff>
+  </RecipeDef>
+  
+
+
+						<!--uncraftable-->
+  <!--archotech neutralizer-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechNeutralizer</defName>
+    <hediffClass>HautsBionics.Hediff_Neutralizer</hediffClass>
+    <label>archotech neutralizer</label>
+    <labelNoun>an archotech neutralizer</labelNoun>
+    <description>An installed archotech neutralizer. Prevents random diseases, and near-instantly neutralizes all drugs and diseases. Will not protect against instantaneously fatal drug effects.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechNeutralizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechNeutralizer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <stages>
+	  <li>
+		<statOffsets>
+		  <ToxicResistance>10</ToxicResistance>
+		</statOffsets>
+		<statFactors>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechNeutralizer</defName>
+    <label>archotech neutralizer</label>
+    <description>An artificial liver created by an archotech. In addition to its supernatural potency as a liver, it aggressively targets and removes the effects of most drugs and pathogenic agents from the body - though how it does so, or even discerns its targets, is a mystery to all human minds.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechNeutralizer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechNeutralizer</defName>
+    <label>install archotech neutralizer</label>
+    <description>Install an archotech neutralizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechNeutralizer</ThingDef>
+      <HediffDef>HVB_ArchotechNeutralizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech neutralizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechNeutralizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechNeutralizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechNeutralizer</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech growth stimulator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechGrowthStimulator</defName>
+    <label>archotech growth stimulator</label>
+    <labelNoun>an archotech growth stimulator</labelNoun>
+    <description>An installed archotech growth stimulator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGrowthStimulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGrowthStimulator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDamageFactor>1.25</MeleeDamageFactor>
+		  <MoveSpeed>0.5</MoveSpeed>
+		  <VEF_BodySize_Offset>1</VEF_BodySize_Offset>
+        </statOffsets>
+		<statFactors>
+		  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechGrowthStimulator</defName>
+    <label>archotech growth stimulator</label>
+    <description>An artificial liver created by an archotech. Vanometrically empowered archites facilitate dramatic metabolic and structural changes to the body, rapidly increasing its size and strength.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGrowthStimulator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechGrowthStimulator</defName>
+    <label>install archotech growth stimulator</label>
+    <description>Install an archotech growth stimulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGrowthStimulator</ThingDef>
+      <HediffDef>HVB_ArchotechGrowthStimulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech growth stimulator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGrowthStimulator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGrowthStimulator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGrowthStimulator</addsHediff>
+  </RecipeDef>
+  
+</Defs>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--Mutually EXClusive Foot Add-ons (yeah this acronym isn't as good as MEXCHA).-->
+  <!--adaptive polymer sole-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AdaptivePolymerSole</defName>
+    <label>adaptive polymer sole</label>
+    <labelNoun>an adaptive polymer sole</labelNoun>
+    <description>An installed adaptive polymer sole.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AdaptivePolymerSole</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AdaptivePolymerSole</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_FootTools</li></tags>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_TrackSize>-0.5</Hauts_TrackSize>
+		  <HuntingStealth>0.1</HuntingStealth>
+		  <Hauts_PersonalCaravanVisibilityFactor>-0.1</Hauts_PersonalCaravanVisibilityFactor>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_AdaptivePolymerSole</defName>
+    <label>adaptive polymer sole</label>
+    <description>A plasteel-membrane lattice strongly adhered to the bottom of the foot. It deforms to minimize impact on the terrain without negatively impacting gait, reducing the sound and track size of the host's footfalls. This makes it quite advantageous for stealth purposes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAdaptivePolymerSole</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags><li>HVB_Caravaneer</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallAdaptivePolymerSole</defName>
+    <label>install adaptive polymer sole</label>
+    <description>Install an adaptive polymer sole.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AdaptivePolymerSole</ThingDef>
+      <HediffDef>HVB_AdaptivePolymerSole</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing adaptive polymer sole.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AdaptivePolymerSole</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AdaptivePolymerSole</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AdaptivePolymerSole</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_FootTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveAdaptivePolymerSole</defName>
+    <label>remove adaptive polymer sole</label>
+    <description>Remove adaptive polymer sole.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AdaptivePolymerSole</ThingDef>
+      <HediffDef>HVB_AdaptivePolymerSole</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing adaptive polymer sole.</jobString>
+    <removesHediff>HVB_AdaptivePolymerSole</removesHediff>
+  </RecipeDef>
+  
+  <!--filtration footpad-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_FiltrationFootpad</defName>
+    <label>filtration footpad</label>
+    <labelNoun>a filtration footpad</labelNoun>
+    <description>An installed filtration footpad.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FiltrationFootpad</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FiltrationFootpad</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_FootTools</li></tags>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <FilthRate>-0.2</FilthRate>
+          <Hauts_TrackSize>-0.5</Hauts_TrackSize>
+          <ToxicEnvironmentResistance>0.2</ToxicEnvironmentResistance>
+          <CleaningSpeed>0.4</CleaningSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_FiltrationFootpad</defName>
+    <label>filtration footpad</label>
+    <description>A miniature vacuum pump and filter built into the foot. The vacuum force it generates sucks up loose particulate from the ground and helps erase one's own tracks. When the particulate trap gets full, a simple rinse suffices to clean it again for further use.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAdaptivePolymerSole</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>Bionics</li>
+	    <li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <techHediffsTags><li>HVB_Caravaneer</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallFiltrationFootpad</defName>
+    <label>install filtration footpad</label>
+    <description>Install a filtration footpad.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiltrationFootpad</ThingDef>
+      <HediffDef>HVB_FiltrationFootpad</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing filtration footpad.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FiltrationFootpad</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FiltrationFootpad</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FiltrationFootpad</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_FootTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveFiltrationFootpad</defName>
+    <label>remove filtration footpad</label>
+    <description>Remove filtration footpad.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiltrationFootpad</ThingDef>
+      <HediffDef>HVB_FiltrationFootpad</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing filtration footpad.</jobString>
+    <removesHediff>HVB_FiltrationFootpad</removesHediff>
+  </RecipeDef>
+  
+  <!--locomotive microthrusters-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LocomotiveMicrothrusters</defName>
+    <label>locomotive microthrusters</label>
+    <labelNoun>locomotive microthrusters</labelNoun>
+    <description>An installed set of locomotive microthrusters.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LocomotiveMicrothrusters</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LocomotiveMicrothrusters</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_FootTools</li></tags>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+			<MoveSpeed>0.1</MoveSpeed>
+			<Hauts_JumpRangeFactor>0.1</Hauts_JumpRangeFactor>
+		</statOffsets>
+		<statFactors><SwimSpeed MayRequire="pyrce.swimming.modkit">1.05</SwimSpeed></statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Fin">
+		<finPower>0.1</finPower>
+	  </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_LocomotiveMicrothrusters</defName>
+    <label>locomotive microthrusters</label>
+    <description>Miniature thrusters installed in the foot and ankle. Sustained use of its internal power reserves result in a meager increase in speed. While airborne, it is also possible to fire them at maximum throttle for a brief moment, extending the range of any leap.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLocomotiveMicrothrusters</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>330</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags><li>HVB_Hemogen</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallLocomotiveMicrothrusters</defName>
+    <label>install locomotive microthrusters</label>
+    <description>Install a set of locomotive microthrusters.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LocomotiveMicrothrusters</ThingDef>
+      <HediffDef>HVB_LocomotiveMicrothrusters</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing locomotive microthrusters.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LocomotiveMicrothrusters</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LocomotiveMicrothrusters</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LocomotiveMicrothrusters</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_FootTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLocomotiveMicrothrusters</defName>
+    <label>remove locomotive microthrusters</label>
+    <description>Remove locomotive microthrusters.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LocomotiveMicrothrusters</ThingDef>
+      <HediffDef>HVB_LocomotiveMicrothrusters</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing locomotive microthrusters.</jobString>
+    <removesHediff>HVB_LocomotiveMicrothrusters</removesHediff>
+  </RecipeDef>
+  
+  <!--plantar vibrosensor-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PlantarVibrosensor</defName>
+    <label>plantar vibrosensor</label>
+    <labelNoun>a plantar vibrosensor</labelNoun>
+    <description>An installed plantar vibrosensor.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PlantarVibrosensor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PlantarVibrosensor</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_FootTools</li></tags>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <capMods><li><capacity>Hearing</capacity><offset>0.07</offset></li></capMods>
+        <statOffsets><MiningSpeed>0.3</MiningSpeed><DeepDrillingSpeed>0.12</DeepDrillingSpeed><PawnTrapSpringChance>-0.45</PawnTrapSpringChance><Hauts_BreachDamageFactor>0.1</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <capMods><li><capacity>Hearing</capacity><offset>0.05</offset></li></capMods>
+        <statOffsets><MiningSpeed>0.15</MiningSpeed><DeepDrillingSpeed>0.15</DeepDrillingSpeed><PawnTrapSpringChance>-0.35</PawnTrapSpringChance><Hauts_BreachDamageFactor>0.075</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <capMods><li><capacity>Hearing</capacity><offset>0.03</offset></li></capMods>
+        <statOffsets><MiningSpeed>0.2</MiningSpeed><DeepDrillingSpeed>0.1</DeepDrillingSpeed><PawnTrapSpringChance>-0.25</PawnTrapSpringChance><Hauts_BreachDamageFactor>0.05</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_PlantarVibrosensor</defName>
+    <label>plantar vibrosensor</label>
+    <description>A grid of vibration detectors and sonar emitters embedded into a foot. Each footfall produces a wealth of data on the surrounding terrain, acute enough to detect structural weak points or traps buried shallowly in the environment.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPlantarVibrosensor</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+	  <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags>
+      <li>DrillArm</li>
+	  <li>HVB_Breach</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallPlantarVibrosensor</defName>
+    <label>install plantar vibrosensor</label>
+    <description>Install a plantar vibrosensor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PlantarVibrosensor</ThingDef>
+      <HediffDef>HVB_PlantarVibrosensor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing plantar vibrosensor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PlantarVibrosensor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PlantarVibrosensor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PlantarVibrosensor</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_FootTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemovePlantarVibrosensor</defName>
+    <label>remove plantar vibrosensor</label>
+    <description>Remove plantar vibrosensor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PlantarVibrosensor</ThingDef>
+      <HediffDef>HVB_PlantarVibrosensor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing plantar vibrosensor.</jobString>
+    <removesHediff>HVB_PlantarVibrosensor</removesHediff>
+  </RecipeDef>
+  
+</Defs>

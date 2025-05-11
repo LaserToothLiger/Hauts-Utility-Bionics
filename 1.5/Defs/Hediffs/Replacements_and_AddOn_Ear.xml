@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--Echolocator ear. Echolocatear? Sorry.-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_EcholocatorEar</defName>
+    <label>echolocator ear</label>
+    <labelNoun>an echolocator ear</labelNoun>
+    <description>An installed echolocator ear. It nullifies fear of the dark, and increases in potency if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_EcholocatorEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_EcholocatorEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+		<capMods>
+          <li><capacity>Manipulation</capacity><offset>0.09</offset></li>
+          <li><capacity>Moving</capacity><offset>0.09</offset></li>
+        </capMods>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+		<capMods>
+          <li><capacity>Manipulation</capacity><offset>0.06</offset></li>
+          <li><capacity>Moving</capacity><offset>0.06</offset></li>
+        </capMods>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+		<capMods>
+          <li><capacity>Manipulation</capacity><offset>0.03</offset></li>
+          <li><capacity>Moving</capacity><offset>0.03</offset></li>
+        </capMods>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		</statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_EcholocatorEar</defName>
+    <label>echolocator ear</label>
+    <description>An artificial ear that emits the host's choice of modulated- or constant-frequency soundwaves to obtain sonar imaging, then relays this information via a biogel nerve-link in the middle ear. This sonar increases the surety of the host's movements and manipulation, and it nullifies fear of the dark.\n\nThe manipulation and moving benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallEcholocatorEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallEcholocatorEar</defName>
+    <label>install echolocator ear</label>
+    <description>Install an echolocator ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EcholocatorEar</ThingDef>
+      <HediffDef>HVB_EcholocatorEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing echolocator ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_EcholocatorEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_EcholocatorEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_EcholocatorEar</addsHediff>
+  </RecipeDef>
+  
+  <!--Equilibrium ear-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_EquilibriumEar</defName>
+    <label>equilibrium ear</label>
+    <labelNoun>an equilibrium ear</labelNoun>
+    <description>An installed equilibrium ear. Increases in potency if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_EquilibriumEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_EquilibriumEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <capMods><li><capacity>Moving</capacity><offset>0.1</offset></li></capMods>
+        <statOffsets><MeleeDodgeChance>2</MeleeDodgeChance></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <capMods><li><capacity>Moving</capacity><offset>0.075</offset></li></capMods>
+        <statOffsets><MeleeDodgeChance>1.5</MeleeDodgeChance></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <capMods><li><capacity>Moving</capacity><offset>0.05</offset></li></capMods>
+        <statOffsets><MeleeDodgeChance>1</MeleeDodgeChance></statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_EquilibriumEar</defName>
+    <label>equilibrium ear</label>
+    <description>An artificial ear which maintains a vastly superior sense of equilibrium, enhancing movement and dodging capabilities.\n\nThe moving and melee dodge benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallEquilibriumEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallEquilibriumEar</defName>
+    <label>install equilibrium ear</label>
+    <description>Install an equilibrium ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EquilibriumEar</ThingDef>
+      <HediffDef>HVB_EquilibriumEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing equilibrium ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_EquilibriumEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_EquilibriumEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_EquilibriumEar</addsHediff>
+  </RecipeDef>
+  
+  <!--Hunting ear-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_HuntingEar</defName>
+    <label>hunting ear</label>
+    <labelNoun>a hunting ear</labelNoun>
+    <description>An installed hunting ear. Increases in potency if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HuntingEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HuntingEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <statOffsets><ShootingAccuracyPawn>2</ShootingAccuracyPawn><HuntingStealth>0.2</HuntingStealth><VEF_VerbRangeFactor>0.08</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <statOffsets><ShootingAccuracyPawn>1.5</ShootingAccuracyPawn><HuntingStealth>0.15</HuntingStealth><VEF_VerbRangeFactor>0.06</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <statOffsets><ShootingAccuracyPawn>1</ShootingAccuracyPawn><HuntingStealth>0.1</HuntingStealth><VEF_VerbRangeFactor>0.04</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_HuntingEar</defName>
+    <label>hunting ear</label>
+    <description>An artificial ear with an onboard classifier AI that extrapolates the existence, positions, and profiles of nearby creatures based on sounds of movement. It is useful for detecting prey and raiders, and it quickly teaches its host to minimize their own sound profile, but the occasional false alarm generated by extrapolation from random noises keeps the host's nerves on edge.\n\nThe shooting accuracy, attack range, and hunting stealth benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHuntingEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallHuntingEar</defName>
+    <label>install hunting ear</label>
+    <description>Install a hunting ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HuntingEar</ThingDef>
+      <HediffDef>HVB_HuntingEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hunting ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HuntingEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HuntingEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HuntingEar</addsHediff>
+  </RecipeDef>
+  
+  <!--Radio surfing ear-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_RadioSurferEar</defName>
+    <label>radio-surfer ear</label>
+    <labelNoun>a radio-surfer ear</labelNoun>
+    <description>An installed radio-surfer ear. Provides a mood boost that scales with hearing capacity. Joy fall rate decreases further if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_RadioSurferEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_RadioSurferEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <statOffsets><ResearchSpeed>0.1</ResearchSpeed></statOffsets>
+		<statFactors><JoyFallRateFactor>0.7</JoyFallRateFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <statOffsets><ResearchSpeed>0.1</ResearchSpeed></statOffsets>
+		<statFactors><JoyFallRateFactor>0.775</JoyFallRateFactor></statFactors>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <statOffsets><ResearchSpeed>0.1</ResearchSpeed></statOffsets>
+		<statFactors><JoyFallRateFactor>0.85</JoyFallRateFactor></statFactors>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_RadioSurferEar</defName>
+    <label>radio-surfer ear</label>
+    <description>An artificial ear which can perceive and interpret various long-range radio communications. The radio channel can be switched with a mental impulse, as can various aspects of audio quality and volume. The variety of available audio shows, music, and other forms of engaging content can be used for merriment, recreation, and even occasional insight into practical matters.\n\nThe joy fall rate benefit provided by this bionic strengthens if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallRadioSurferEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>900</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallRadioSurferEar</defName>
+    <label>install radio-surfer ear</label>
+    <description>Install an radio-surfer ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RadioSurferEar</ThingDef>
+      <HediffDef>HVB_RadioSurferEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing radio-surfer ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RadioSurferEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RadioSurferEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RadioSurferEar</addsHediff>
+  </RecipeDef>
+  
+  <!--Tremorsense ear-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_TremorsenseEar</defName>
+    <label>tremorsense ear</label>
+    <labelNoun>an tremorsense ear</labelNoun>
+    <description>An installed tremorsense ear. Increases in potency if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TremorsenseEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TremorsenseEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <statOffsets><MiningYield>0.2</MiningYield><MiningSpeed>0.12</MiningSpeed><DeepDrillingSpeed>0.12</DeepDrillingSpeed><Hauts_BreachDamageFactor>0.2</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <statOffsets><MiningYield>0.15</MiningYield><MiningSpeed>0.09</MiningSpeed><DeepDrillingSpeed>0.09</DeepDrillingSpeed><Hauts_BreachDamageFactor>0.15</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <statOffsets><MiningYield>0.1</MiningYield><MiningSpeed>0.06</MiningSpeed><DeepDrillingSpeed>0.06</DeepDrillingSpeed><Hauts_BreachDamageFactor>0.1</Hauts_BreachDamageFactor></statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TremorsenseEar</defName>
+    <label>tremorsense ear</label>
+    <description>An artificial ear specifically attuned to the minute sounds produced by stresses in geographical and architectural structures, enabling the host to pick out the ideal point to strike when attempting to break them down. This is of benefit to both mining and breaching.\n\nThe breach damage, drilling speed, and mining speed and yield benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTremorsenseEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags>
+      <li>DrillArm</li>
+	  <li>HVB_Breach</li>
+    </techHediffsTags>
+    <statBases>
+      <MarketValue>1110</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallTremorsenseEar</defName>
+    <label>install tremorsense ear</label>
+    <description>Install an tremorsense ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TremorsenseEar</ThingDef>
+      <HediffDef>HVB_TremorsenseEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tremorsense ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TremorsenseEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TremorsenseEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TremorsenseEar</addsHediff>
+  </RecipeDef>
+  
+  <!--zoologist's ear-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ZoologistsEar</defName>
+    <label>zoologist's ear</label>
+    <labelNoun>a zoologist's ear</labelNoun>
+    <description>An installed zoologist's ear. Increases in potency if the host is half- or fully-blind.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ZoologistsEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ZoologistsEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+        <statOffsets><BondAnimalChanceFactor>0.2</BondAnimalChanceFactor><TameAnimalChance>0.2</TameAnimalChance><TrainAnimalChance>0.3</TrainAnimalChance></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+        <statOffsets><BondAnimalChanceFactor>0.15</BondAnimalChanceFactor><TameAnimalChance>0.15</TameAnimalChance><TrainAnimalChance>0.225</TrainAnimalChance></statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+        <statOffsets><BondAnimalChanceFactor>0.1</BondAnimalChanceFactor><TameAnimalChance>0.1</TameAnimalChance><TrainAnimalChance>0.15</TrainAnimalChance></statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ZoologistsEar</defName>
+    <label>zoologist's ear</label>
+    <description>An artificial ear. In addition to the normal functions of a bionic ear, it is especially suited to picking out animal communications, even those outside normal human hearing range.\n\nThe animal tame, train, and bond chance benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallZoologistsEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicEar>1</BionicEar>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallZoologistsEar</defName>
+    <label>install zoologist's ear</label>
+    <description>Install a zoologist's ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ZoologistsEar</ThingDef>
+      <HediffDef>HVB_ZoologistsEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing zoologist's ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ZoologistsEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ZoologistsEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ZoologistsEar</addsHediff>
+  </RecipeDef>
+  
+  <!--mechanityrant ear-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantEar</defName>
+    <label>mechanityrant ear</label>
+    <labelNoun>a mechanityrant ear</labelNoun>
+    <description>An installed mechanityrant ear.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantEar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantEar</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MechBandwidth>1</MechBandwidth>
+          <Hauts_MechCommandRange>1</Hauts_MechCommandRange>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantEar</defName>
+    <label>mechanityrant ear</label>
+    <description>An artificial ear which acts as a transceiver for mechanoid communication frequencies, to the detriment of its function as an ordinary ear.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantEar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>490</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>StandardMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantEar</defName>
+    <label>install mechanityrant ear</label>
+    <description>Install a mechanityrant ear.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantEar</ThingDef>
+      <HediffDef>HVB_MechanityrantEar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant ear.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantEar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantEar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantEar</addsHediff>
+  </RecipeDef>
+  
+  <!--prosthetic earfin-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_ProstheticEarfin</defName>
+    <label>prosthetic earfin</label>
+    <labelNoun>a prosthetic earfin</labelNoun>
+    <description>An installed prosthetic earfin.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProstheticEarfin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProstheticEarfin</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.3</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.09</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.42</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.09</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_Fin">
+		<finPower>0.15</finPower>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0</rainCountsFor>
+	  </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_ProstheticEarfin</defName>
+    <label>prosthetic earfin</label>
+    <description>A hydrodynamic fin which fits around the ear to boost swim speed.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProstheticEarfin</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+    <statBases>
+      <MarketValue>60</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallProstheticEarfin</defName>
+    <label>install prosthetic earfin</label>
+    <description>Install a prosthetic earfin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProstheticEarfin</ThingDef>
+      <HediffDef>HVB_ProstheticEarfin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic earfin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProstheticEarfin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProstheticEarfin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProstheticEarfin</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_RemoveProstheticEarfin</defName>
+    <label>remove prosthetic earfin</label>
+    <description>Remove prosthetic earfin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProstheticEarfin</ThingDef>
+      <HediffDef>HVB_ProstheticEarfin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing prosthetic earfin.</jobString>
+    <removesHediff>HVB_ProstheticEarfin</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--Archotech echolocator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechEcholocator</defName>
+    <label>archotech echolocator</label>
+    <labelNoun>an archotech echolocator</labelNoun>
+    <description>An installed archotech echolocator. It emits psychically-attuned sound waves, providing an unparalleled sonar sense whose efficacy scales with the host's psychic sensitivity.\n\nThe benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechEcholocator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechEcholocator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<label>blind</label>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.13</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.13</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.075</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.001</minSeverity>
+		<label>half-blind</label>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.09</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.09</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.05</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.751</minSeverity>
+		<capMods>
+          <li><capacity>Hearing</capacity><postFactor>1.05</postFactor></li>
+          <li><capacity>Manipulation</capacity><postFactor>1.05</postFactor></li>
+          <li><capacity>Moving</capacity><postFactor>1.025</postFactor></li>
+        </capMods>
+        <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		<statOffsets>
+		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		</statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_CapacitySeverity">
+		<capacity>Sight</capacity>
+		<plusInitialSeverity>true</plusInitialSeverity>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechEcholocator</defName>
+    <label>archotech echolocator</label>
+    <description>An artificial ear built by an archotech. It generates sound waves by striking the contours of the host's presence in the psychic manifold, then uses them to provide detailed sonar mapping of the environment to boost hearing, moving, and manipulation. The effect's efficacy scales with the host's psychic sensitivity, and it further strengthens if the host has weak or nonexistent vision.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechEcholocator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechEcholocator</defName>
+    <label>install archotech echolocator</label>
+    <description>Install an archotech echolocator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechEcholocator</ThingDef>
+      <HediffDef>HVB_ArchotechEcholocator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech echolocator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechEcholocator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechEcholocator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechEcholocator</addsHediff>
+  </RecipeDef>
+  
+</Defs>

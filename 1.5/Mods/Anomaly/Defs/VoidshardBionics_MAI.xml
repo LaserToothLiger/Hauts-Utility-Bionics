@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--vanometric stomach-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_VoidshardSustainer</defName>
+    <label>voidshard sustainer</label>
+    <labelNoun>a voidshard sustainer</labelNoun>
+    <description>An installed dark vanometric stomach. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechVanometricStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechVanometricStomach</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.5</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <hungerRateFactor>0.25</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <hungerRateFactor>0.2</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <hungerRateFactor>0.15</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <hungerRateFactor>0.10</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <hungerRateFactor>0.05</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard sustainer has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_InstallVoidshardSustainer</defName>
+    <label>upgrade vanometric stomach with shards</label>
+    <description>Alter a vanometric stomach by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechVanometricStomach</ThingDef>
+      <HediffDef>HVB_VoidshardSustainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading vanometric stomach with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardSustainer</addsHediff>
+	<removesHediff>ArchotechVanometricStomach</removesHediff>
+  </RecipeDef>
+  
+  <!--cerebral turbocharger-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_VoidshardTurbocharger</defName>
+    <label>voidshard turbocharger</label>
+    <labelNoun>a voidshard turbocharger</labelNoun>
+    <description>An installed dark cerebral turbocharger implant. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechCerebralTurbocharger</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechCerebralTurbocharger</spawnThingOnRemoved>
+    <abilities MayRequire="Ludeon.RimWorld.Ideology">
+      <li>HVB_NeuralSuperchargeTouch</li>
+    </abilities>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <minSeverity>0.001</minSeverity>
+        <partEfficiencyOffset>0.25</partEfficiencyOffset>
+        <capMods><li><capacity>Moving</capacity><postFactor>1.10</postFactor></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <capMods><li><capacity>Moving</capacity><postFactor>1.14</postFactor></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <partEfficiencyOffset>0.35</partEfficiencyOffset>
+        <capMods><li><capacity>Moving</capacity><postFactor>1.18</postFactor></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <capMods><li><capacity>Moving</capacity><postFactor>1.22</postFactor></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <partEfficiencyOffset>0.45</partEfficiencyOffset>
+        <capMods><li><capacity>Moving</capacity><postFactor>1.26</postFactor></li></capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard turbocharger has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_InstallVoidshardTurbocharger</defName>
+    <label>upgrade cerebral turbocharger with shards</label>
+    <description>Alter a cerebral turbocharger by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. It will also behave as a neural supercharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechCerebralTurbocharger</ThingDef>
+      <HediffDef>HVB_VoidshardTurbocharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading cerebral turbocharger with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardTurbocharger</addsHediff>
+	<removesHediff>ArchotechCerebralTurbocharger</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_RemoveVoidshardTurbocharger</defName>
+    <label>remove voidshard turbocharger</label>
+    <description>Remove voidshard turbocharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechCerebralTurbocharger</ThingDef>
+      <HediffDef>HVB_VoidshardTurbocharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard turbocharger.</jobString>
+    <removesHediff>HVB_VoidshardTurbocharger</removesHediff>
+  </RecipeDef>
+  
+  <!--neural recharger-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_VoidshardRecharger</defName>
+    <label>voidshard recharger</label>
+    <labelNoun>a voidshard recharger</labelNoun>
+    <description>An installed dark neural recharger implant. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechNeuralRecharger</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechNeuralRecharger</spawnThingOnRemoved>
+    <abilities MayRequire="Ludeon.RimWorld.Ideology">
+      <li>HVB_NeuralSuperchargeTouch</li>
+    </abilities>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <restFallFactorOffset>-0.75</restFallFactorOffset>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <restFallFactorOffset>-0.8</restFallFactorOffset>
+		<statOffsets><Hauts_BoredomDropPerDay>0.02</Hauts_BoredomDropPerDay></statOffsets>
+		<statFactors><JoyFallRateFactor>0.96</JoyFallRateFactor></statFactors>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <restFallFactorOffset>-0.85</restFallFactorOffset>
+		<statOffsets><Hauts_BoredomDropPerDay>0.04</Hauts_BoredomDropPerDay></statOffsets>
+		<statFactors><JoyFallRateFactor>0.92</JoyFallRateFactor></statFactors>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <restFallFactorOffset>-0.9</restFallFactorOffset>
+		<statOffsets><Hauts_BoredomDropPerDay>0.06</Hauts_BoredomDropPerDay></statOffsets>
+		<statFactors><JoyFallRateFactor>0.88</JoyFallRateFactor></statFactors>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <restFallFactorOffset>-0.95</restFallFactorOffset>
+		<statOffsets><Hauts_BoredomDropPerDay>0.08</Hauts_BoredomDropPerDay></statOffsets>
+		<statFactors><JoyFallRateFactor>0.84</JoyFallRateFactor></statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard recharger has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_InstallVoidshardRecharger</defName>
+    <label>upgrade neural recharger with shards</label>
+    <description>Alter a neural recharger by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. It will also behave as a neural supercharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechNeuralRecharger</ThingDef>
+      <HediffDef>HVB_VoidshardRecharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading neural recharger with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardRecharger</addsHediff>
+	<removesHediff>ArchotechNeuralRecharger</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_RemoveVoidshardRecharger</defName>
+    <label>remove voidshard recharger</label>
+    <description>Remove voidshard recharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechNeuralRecharger</ThingDef>
+      <HediffDef>HVB_VoidshardRecharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard recharger.</jobString>
+    <removesHediff>HVB_VoidshardRecharger</removesHediff>
+  </RecipeDef>
+  
+  <!--joywire-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_VoidshardJoywire</defName>
+    <label>voidshard joywire</label>
+    <labelNoun>a voidshard joywire</labelNoun>
+    <description>An installed dark archotech joywire implant. Instead of improving the host's mood, it enables others to feel better. As the anomalous activity level increases, the host will become more irritable and prone to dark thoughts.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechJoywire</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechJoywire</spawnThingOnRemoved>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<statOffsets><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<statOffsets><MentalBreakThreshold>0.1</MentalBreakThreshold></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<statOffsets><MentalBreakThreshold>0.15</MentalBreakThreshold></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<statOffsets><MentalBreakThreshold>0.2</MentalBreakThreshold></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>0.001</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard joywire has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>Joyous</traitDef>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_GiveThoughtsRandomly">
+        <mtbDays>8</mtbDays>
+		<thoughtDefs>
+          <li>HVB_SubversiveThought</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_InstallVoidshardJoywire</defName>
+    <label>upgrade archotech joywire with shards</label>
+    <description>Alter an archotech joywire by merging it with the shards of a dark archotech, causing it to improve others' mood instead of the host's. The host's mental instability will worsen in accordance with the anomalous activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechJoywire</ThingDef>
+      <HediffDef>HVB_VoidshardJoywire</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech joywire with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardJoywire</addsHediff>
+	<removesHediff>ArchotechJoywire</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_RemoveVoidshardJoywire</defName>
+    <label>remove voidshard joywire</label>
+    <description>Remove voidshard joywire.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechJoywire</ThingDef>
+      <HediffDef>HVB_VoidshardJoywire</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard joywire.</jobString>
+    <removesHediff>HVB_VoidshardJoywire</removesHediff>
+  </RecipeDef>
+  
+  <!--nanoskin-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_VoidshardNanoskin</defName>
+    <label>voidshard nanoskin</label>
+    <labelNoun>a voidshard nanoskin</labelNoun>
+    <description>An installed dark archotech nanoskin. Its protective potency scales with the current anomalous activity level, though at higher levels it will actually amplify pain instead of reduce it.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechNanoskin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechNanoskin</spawnThingOnRemoved>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+        <painFactor>0.75</painFactor>
+		<statOffsets><ArmorRating_Sharp>0.70</ArmorRating_Sharp><ArmorRating_Blunt>0.50</ArmorRating_Blunt><ArmorRating_Heat>0.50</ArmorRating_Heat></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <painFactor>0.85</painFactor>
+		<statOffsets><ArmorRating_Sharp>0.80</ArmorRating_Sharp><ArmorRating_Blunt>0.60</ArmorRating_Blunt><ArmorRating_Heat>0.60</ArmorRating_Heat></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <painFactor>0.95</painFactor>
+		<statOffsets><ArmorRating_Sharp>0.90</ArmorRating_Sharp><ArmorRating_Blunt>0.70</ArmorRating_Blunt><ArmorRating_Heat>0.70</ArmorRating_Heat></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <painFactor>1.05</painFactor>
+		<statOffsets><ArmorRating_Sharp>1</ArmorRating_Sharp><ArmorRating_Blunt>0.80</ArmorRating_Blunt><ArmorRating_Heat>0.80</ArmorRating_Heat></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <painFactor>1.15</painFactor>
+		<statOffsets><ArmorRating_Sharp>1.10</ArmorRating_Sharp><ArmorRating_Blunt>0.90</ArmorRating_Blunt><ArmorRating_Heat>0.90</ArmorRating_Heat></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard nanoskin has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_InstallVoidshardNanoskin</defName>
+    <label>upgrade archotech nanoskin with shards</label>
+    <description>Alter an archotech nanoskin by merging it with the shards of a dark archotech, improving its defensive potency but decreasing its pain-numbing effect in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechNanoskin</ThingDef>
+      <HediffDef>HVB_VoidshardNanoskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech nanoskin with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardNanoskin</addsHediff>
+	<removesHediff>ArchotechNanoskin</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="LegendaryMinuteman.MAI">
+    <defName>HVB_RemoveVoidshardNanoskin</defName>
+    <label>remove voidshard nanoskin</label>
+    <description>Remove voidshard nanoskin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechNanoskin</ThingDef>
+      <HediffDef>HVB_VoidshardNanoskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard nanoskin.</jobString>
+    <removesHediff>HVB_VoidshardNanoskin</removesHediff>
+  </RecipeDef>
+  
+</Defs>

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--firing arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_FiringArm</defName>
+    <label>firing arm</label>
+    <labelNoun>a firing arm</labelNoun>
+    <description>An installed firing arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FiringArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FiringArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeHitChance>-3</MeleeHitChance>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <RangedCooldownFactor>0.75</RangedCooldownFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_FiringArm</defName>
+    <label>firing arm</label>
+    <description>In addition to the capabilities of an ordinary bionic arm, the firing arm extrudes additional miniature limbs that ensure a steady grip, additional draw for bows, and tougher bracing for recoil; these limbs also help with reloading ammunition. Unfortunately, this added complexity makes the arm unwieldy to use in situations other than handling ranged weapons.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFiringArm</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <BionicArm>1</BionicArm>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallFiringArm</defName>
+    <label>install firing arm</label>
+    <description>Install a firing arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FiringArm</ThingDef>
+      <HediffDef>HVB_FiringArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firing arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FiringArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FiringArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FiringArm</addsHediff>
+  </RecipeDef>
+  
+  <!--loping arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_LopingArm</defName>
+    <label>loping arm</label>
+    <labelNoun>a loping arm</labelNoun>
+    <description>An installed loping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LopingArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.2</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.08</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_LopingArm</defName>
+    <label>loping arm</label>
+    <description>A lengthy bionic arm; its forearms can extend further to reach the ground, and the design of the wrist and palm allow it to provide stable weight support while running.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLopingArm</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicArm>1</BionicArm>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallLopingArm</defName>
+    <label>install loping arm</label>
+    <description>Install a loping arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LopingArm</ThingDef>
+      <HediffDef>HVB_LopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing loping arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LopingArm</addsHediff>
+  </RecipeDef>
+  
+  <!--servo-shank arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ServoShankArm</defName>
+    <label>servo-shank arm</label>
+    <labelNoun>a servo-shank arm</labelNoun>
+    <description>An installed servo-shank arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ServoShankArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ServoShankArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <ShootingAccuracyPawn>-3</ShootingAccuracyPawn>
+		  <WorkSpeedGlobal>-0.07</WorkSpeedGlobal>
+        </statOffsets>
+		<statFactors>
+		  <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ServoShankArm</defName>
+    <label>servo-shank arm</label>
+    <description>In addition to the capabilities of an ordinary bionic arm, the servo-shank arm contains additional motors at the base of each joint, which enable more rapid, nimble explosive movements. Users can throw punches and swing weapons notably faster, but the added complexity makes the arm unwieldy to use in situations other than handling ranged weapons.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallServoShankArm</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <BionicArm>1</BionicArm>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallServoShankArm</defName>
+    <label>install servo-shank arm</label>
+    <description>Install a servo-shank arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ServoShankArm</ThingDef>
+      <HediffDef>HVB_ServoShankArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing servo-shank arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ServoShankArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ServoShankArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ServoShankArm</addsHediff>
+  </RecipeDef>
+  
+  <!--testudo arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_TestudoArm</defName>
+    <label>testudo arm</label>
+    <labelNoun>a testudo arm</labelNoun>
+    <description>An installed testudo arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TestudoArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TestudoArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.3</ArmorRating_Heat>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TestudoArm</defName>
+    <label>testudo arm</label>
+    <description>A bionic arm covered in thick ceramo-metal plates. These plates are incredibly durable, and a mental command through the arm's biogel nerve-link can cause them to "flex" outward, increasing their surface area and causing them to overlap for greater protection. The one downside with all this added armor is the severe weight of the plates; even with the arm's bionic strength, it's still quite heavy, slowing movement slightly.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTestudoArm</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicArm>1</BionicArm>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallTestudoArm</defName>
+    <label>install testudo arm</label>
+    <description>Install a testudo arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TestudoArm</ThingDef>
+      <HediffDef>HVB_TestudoArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing testudo arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TestudoArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TestudoArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TestudoArm</addsHediff>
+  </RecipeDef>
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech telescoping arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechTelescopingArm</defName>
+    <label>archotech telescoping arm</label>
+    <labelNoun>an archotech telescoping arm</labelNoun>
+    <description>An installed archotech telescoping arm. Can grab objects at a distance, either to pull them to oneself or vice versa.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicYank</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechTelescopingArm</defName>
+    <label>archotech telescoping arm</label>
+    <description>An artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can extend out to disturbingly long distances in order to grab objects, then rapidly retract in order to either bring the object to oneself or oneself to the object.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechTelescopingArm</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>4200</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechTelescopingArm</defName>
+    <label>install archotech telescoping arm</label>
+    <description>Install an archotech telescoping arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_ArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech telescoping arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechTelescopingArm</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech shield bubbler-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechShieldBubbler</defName>
+    <label>archotech shield bubbler</label>
+    <labelNoun>an archotech shield bubbler</labelNoun>
+    <description>An installed archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_ProjectBionicShield</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechShieldBubbler</defName>
+    <label>archotech shield bubbler</label>
+    <description>An artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can somehow induce electromagnetic distortions to create projectile-repulsion fields at a distance. Since these fields are not being constantly maintained by a dedicated shield-core, they collapse after a short duration. However, they are quite strong.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechShieldBubbler</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3900</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechShieldBubbler</defName>
+    <label>install archotech shield bubbler</label>
+    <description>Install an archotech shield bubbler.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_ArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech shield bubbler.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechShieldBubbler</addsHediff>
+  </RecipeDef>
+  
+</Defs>

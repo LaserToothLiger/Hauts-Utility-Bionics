@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--You can have a Royalty armor gland AND one of these at the same time, don't worry-->
+
+  <!-- shieldpower gland -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ShieldpowerGland</defName>
+    <label>shieldpower gland</label>
+    <labelNoun>a shieldpower gland</labelNoun>
+    <description>An installed shieldpower gland. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 0.4 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ShieldpowerGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ShieldpowerGland</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>33.33</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>0.4</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>true</makesShield>
+      </li>
+    </comps>
+    <tags><li>ArmorGland</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ShieldpowerGland</defName>
+    <label>shieldpower gland</label>
+    <description>This bionic gland seeds the dermal capillaries and hair follicles with mechanites that generate electromagnetic fields that briefly achieve the toughness of solid armor when encountering sufficiently fast objects - in other words, they generate a projectile-repulsion barrier akin to that made by a shield belt. The field is nearly skin-tight, enabling the host to use ranged weapons without fear of the barrier getting in the way, and placing it 'under' worn shields, but it is still susceptible to EMPs and is only roughly as strong as a 'normal' shield belt.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallShieldpowerGland</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>SkinHardening</li>
+		<li>ShieldBelt</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallShieldpowerGland</defName>
+    <label>install shieldpower gland</label>
+    <description>Install a shieldpower gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShieldpowerGland</ThingDef>
+      <HediffDef>HVB_ShieldpowerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing shieldpower gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ShieldpowerGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ShieldpowerGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ShieldpowerGland</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>ArmorGland</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveShieldpowerGland</defName>
+    <label>remove shieldpower gland</label>
+    <description>Remove shieldpower gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShieldpowerGland</ThingDef>
+      <HediffDef>HVB_ShieldpowerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing shieldpower gland.</jobString>
+    <removesHediff>HVB_ShieldpowerGland</removesHediff>
+  </RecipeDef>
+  
+</Defs>

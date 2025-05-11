@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--<StatDef>
+		<defName>HVB_MaxMechadendrites</defName>
+		<label>max mechadendrites</label>
+		<description>How many mechadendrites this character can have. Installing mechadendrites in excess of the maximum will cause all of them to shut down, rendering them useless.</description>
+		<category>BasicsPawn</category>
+		<defaultBaseValue>4</defaultBaseValue>
+		<displayPriorityInCategory>16518</displayPriorityInCategory>
+		<toStringStyle>Integer</toStringStyle>
+		<showOnAnimals>false</showOnAnimals>
+		<showOnMechanoids>false</showOnMechanoids>
+	</StatDef>-->
+	
+	<StatDef>
+		<defName>HVB_RemainingMarrow</defName>
+		<label>remaining marrow</label>
+		<description>How much unaugmented marrow is remaining in this character. Once this value reaches zero, no more marrow implants can be installed.</description>
+		<category>BasicsPawn</category>
+		<defaultBaseValue>15</defaultBaseValue>
+		<displayPriorityInCategory>16520</displayPriorityInCategory>
+		<toStringStyle>Integer</toStringStyle>
+		<showOnPawns>false</showOnPawns>
+	</StatDef>
+	<StatDef>
+		<defName>HVB_MarrowEfficacy</defName>
+		<label>synthetic marrow efficacy</label>
+		<description>A multiplier to the stat effects of most types of bionic marrow substitutions.</description>
+		<category>BasicsPawn</category>
+		<hideAtValue>1</hideAtValue>
+		<defaultBaseValue>1</defaultBaseValue>
+		<displayPriorityInCategory>16521</displayPriorityInCategory>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+</Defs>

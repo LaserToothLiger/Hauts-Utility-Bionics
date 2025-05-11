@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--So these go "in" the neck, but they're exclusive only with each other, not with the other neck replacements. This is why they're written as implants with mutual exclusion tags, instead of added parts.
+			Also, we're going kidney style with this: one Thing to rule them all-->
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BionicThyroidSubstitute</defName>
+    <label>bionic thyroid substitute</label>
+    <description>An artificial set of thyroid glands which can be configured by a surgeon to alter the body's hormonal balance.</description>
+    <descriptionHyperlinks>
+	  <RecipeDef>HVB_InstallJoyRefresherGland</RecipeDef>
+	  <RecipeDef>HVB_InstallMarrowEnhancementGland</RecipeDef>
+	  <RecipeDef>HVB_InstallMetabolicEnhancerGland</RecipeDef>
+	  <RecipeDef>HVB_InstallRestfulSleepGland</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>300</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  
+  <!--joy refresher gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_JoyRefresherGland</defName>
+    <label>joy refresher gland</label>
+    <labelNoun>a joy refresher gland</labelNoun>
+    <description>An installed joy refresher gland. The decrease in boredom is equal to the increase in boredom when moving from very low expectations to sky-high expectations.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_BoredomDropPerDay>0.06</Hauts_BoredomDropPerDay>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallJoyRefresherGland</defName>
+    <label>install joy refresher gland</label>
+    <description>Install a joy refresher gland to slow the rate at which one gets bored of recreation.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_JoyRefresherGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing joy refresher gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_JoyRefresherGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveJoyRefresherGland</defName>
+    <label>remove joy refresher gland</label>
+    <description>Remove joy refresher gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_JoyRefresherGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing joy refresher gland.</jobString>
+    <removesHediff>HVB_JoyRefresherGland</removesHediff>
+  </RecipeDef>
+  
+  <!--marrow enhancement gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MarrowEnhancementGland</defName>
+    <label>marrow enhancement gland</label>
+    <labelNoun>a marrow enhancement gland</labelNoun>
+    <description>An installed marrow enhancement gland.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <HVB_MarrowEfficacy>0.1</HVB_MarrowEfficacy>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMarrowEnhancementGland</defName>
+    <label>install marrow enhancement gland</label>
+    <description>Install a marrow enhancement gland to improve the stat bonuses from synthetic marrows.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_MarrowEnhancementGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing marrow enhancement gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MarrowEnhancementGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMarrowEnhancementGland</defName>
+    <label>remove marrow enhancement gland</label>
+    <description>Remove marrow enhancement gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_MarrowEnhancementGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing marrow enhancement gland.</jobString>
+    <removesHediff>HVB_MarrowEnhancementGland</removesHediff>
+  </RecipeDef>
+  
+  <!--metabolic enhancer gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MetabolicEnhancerGland</defName>
+    <label>metabolic enhancer gland</label>
+    <labelNoun>a metabolic enhancer gland</labelNoun>
+    <description>An installed metabolic enhancer gland.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <hungerRateFactor>0.9</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMetabolicEnhancerGland</defName>
+    <label>install metabolic enhancer gland</label>
+    <description>Install a metabolic enhancer gland to reduce the amount of food one needs to ingest each day.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_MetabolicEnhancerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing metabolic enhancer gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MetabolicEnhancerGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMetabolicEnhancerGland</defName>
+    <label>remove metabolic enhancer gland</label>
+    <description>Remove metabolic enhancer gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_MetabolicEnhancerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing metabolic enhancer gland.</jobString>
+    <removesHediff>HVB_MetabolicEnhancerGland</removesHediff>
+  </RecipeDef>
+  
+  <!--restful sleep gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RestfulSleepGland</defName>
+    <label>restful sleep gland</label>
+    <labelNoun>a restful sleep gland</labelNoun>
+    <description>An installed restful sleep gland.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <RestRateMultiplier>0.15</RestRateMultiplier>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRestfulSleepGland</defName>
+    <label>install restful sleep gland</label>
+    <description>Install a restful sleep gland to improve rest rate.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_RestfulSleepGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing restful sleep gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RestfulSleepGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRestfulSleepGland</defName>
+    <label>remove restful sleep gland</label>
+    <description>Remove restful sleep gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_RestfulSleepGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing restful sleep gland.</jobString>
+    <removesHediff>HVB_RestfulSleepGland</removesHediff>
+  </RecipeDef>
+  
+  <!--fermentation gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_FermentationGland</defName>
+    <label>fermentation gland</label>
+    <labelNoun>a fermentation gland</labelNoun>
+    <description>An installed fermentation gland. Ingesting nutrition or being exposed to rot stink will increase the rate at which it produces beer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>25.001</maxSeverity>
+	<comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>1.6</severityPerDay>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_GasSeverity">
+        <gasTypes>
+			<li>RotStink</li>
+		</gasTypes>
+		<perTickInGas>0.0003</perTickInGas>
+      </li>
+      <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnIngestion">
+        <severityPerNutritionIngested>0.9~1.2</severityPerNutritionIngested>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_CreateThingsBySpendingSeverity">
+		<severityToTrigger>25</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Beer</key><value>1</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+	</comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallFermentationGland</defName>
+    <label>install fermentation gland</label>
+    <description>Install a fermentation gland, which periodically produces beer - and does so faster if the host is fed or exposed to rot stink.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_FermentationGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing fermentation gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FermentationGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveFermentationGland</defName>
+    <label>remove fermentation gland</label>
+    <description>Remove fermentation gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_FermentationGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing fermentation gland.</jobString>
+    <removesHediff>HVB_FermentationGland</removesHediff>
+  </RecipeDef>
+  
+  <!--antihistamine gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="phil42.allergies">
+    <defName>HVB_AntihistamineGland</defName>
+    <label>antihistamine gland</label>
+    <labelNoun>an antihistamine gland</labelNoun>
+    <description>An installed antihistamine gland.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <P42_AllergicSensitivity>-0.2</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="phil42.allergies">
+    <defName>HVB_InstallAntihistamineGland</defName>
+    <label>install antihistamine gland</label>
+    <description>Install an antihistamine gland to reduce the severity of allergic responses.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_AntihistamineGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing antihistamine gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AntihistamineGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="phil42.allergies">
+    <defName>HVB_RemoveAntihistamineGland</defName>
+    <label>remove antihistamine gland</label>
+    <description>Remove antihistamine gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_AntihistamineGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing antihistamine gland.</jobString>
+    <removesHediff>HVB_AntihistamineGland</removesHediff>
+  </RecipeDef>
+  
+</Defs>

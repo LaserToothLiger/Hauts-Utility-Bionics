@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>ReGrowth: Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="RG_Wet"]/nullifyingHediffs</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Wet"]</xpath>
+						<value>
+							<nullifyingHediffs>
+								<li>HVB_OilskinGland</li>
+								<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
+							</nullifyingHediffs>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Wet"]/nullifyingHediffs</xpath>
+						<value>
+							<li>HVB_OilskinGland</li>
+							<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingHediffs</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]</xpath>
+						<value>
+							<nullifyingHediffs>
+								<li>HVB_OilskinGland</li>
+								<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
+							</nullifyingHediffs>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingHediffs</xpath>
+						<value>
+							<li>HVB_OilskinGland</li>
+							<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!--power arm-->
+    <HediffDef ParentName="AddedBodyPartBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion">
+		<defName>HVB_VoidshardPowerArm</defName>
+		<label>voidshard power arm</label>
+		<labelNoun>a voidshard power arm</labelNoun>
+		<description>An installed dark archotech power arm. Its potency scales with the current anomalous activity level.</description>
+		<descriptionHyperlinks><ThingDef>FSFArchotechPowerArm</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>FSFArchotechPowerArm</spawnThingOnRemoved>
+		<addedPartProps>
+			<isGoodWeapon>true</isGoodWeapon>
+			<solid>true</solid>
+			<partEfficiency>2.0</partEfficiency>
+			<betterThanNatural>true</betterThanNatural>
+		</addedPartProps>
+		<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>4.0</maxSeverity>
+		<stages>
+		  <li>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<partEfficiencyOffset>0.2</partEfficiencyOffset>
+			<statOffsets><MeleeDamageFactor>0.1</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.1</Hauts_MeleeArmorPenetration></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<partEfficiencyOffset>0.4</partEfficiencyOffset>
+			<statOffsets><MeleeDamageFactor>0.2</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.2</Hauts_MeleeArmorPenetration></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<partEfficiencyOffset>0.6</partEfficiencyOffset>
+			<statOffsets><MeleeDamageFactor>0.3</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.3</Hauts_MeleeArmorPenetration></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<partEfficiencyOffset>0.8</partEfficiencyOffset>
+			<statOffsets><MeleeDamageFactor>0.4</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.4</Hauts_MeleeArmorPenetration></statOffsets>
+		  </li>
+		</stages>
+		<comps>
+		    <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+			  <severityAtEachLevel>
+				<li><key>1</key><value>1</value></li>
+				<li><key>2</key><value>2</value></li>
+				<li><key>3</key><value>3</value></li>
+				<li><key>4</key><value>3</value></li>
+				<li><key>5</key><value>4</value></li>
+				<li><key>6</key><value>2</value></li>
+			  </severityAtEachLevel>
+			  <defaultSeverity>0.001</defaultSeverity>
+		    </li>
+		    <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+			  <letterLabel>Voidshard removed</letterLabel>
+			  <letterText>Removal of {PAWN_nameDef}'s voidshard power arm has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+			  <downsides>
+				<li>HVB_DownsideCorruptor</li>
+				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideInsinuator</li>
+				<li>HVB_DownsideIncubator</li>
+			  </downsides>
+		    </li>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>fist</label>
+						<capacities>
+							<li>Blunt</li>
+						</capacities>
+						<power>48</power>
+						<armorPenetration>1.5</armorPenetration>
+						<cooldownTime>2</cooldownTime>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+					</li>
+					<li>
+						<label>edge</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>48</power>
+						<armorPenetration>2.0</armorPenetration>
+						<cooldownTime>2</cooldownTime>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+					</li>
+					<li>
+						<label>point</label>
+						<capacities>
+							<li>Stab</li>
+						</capacities>
+						<power>48</power>
+						<armorPenetration>2.0</armorPenetration>
+						<cooldownTime>2</cooldownTime>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion">
+    <defName>HVB_InstallVoidshardPowerArm</defName>
+    <label>upgrade archotech power arm with shards</label>
+    <description>Alter an archotech power arm by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechPowerArm</ThingDef>
+      <HediffDef>HVB_VoidshardPowerArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech power arm with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardPowerArm</addsHediff>
+	<removesHediff>FSFArchotechPowerArm</removesHediff>
+  </RecipeDef>
+  
+    <!--immortality core-->
+    <HediffDef ParentName="ImplantHediffBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion">
+		<defName>HVB_VoidshardImmortalityCore</defName>
+		<label>voidshard immortality core</label>
+		<labelNoun>a voidshard immortality core</labelNoun>
+		<description>An installed dark immortality core. In addition to resurrecting the host on death, it regenerates lost or damaged tissue at a rate scaling with the current anomalous activity level. However, whenever the host dies, something will hatch from the body.</description>
+		<descriptionHyperlinks><ThingDef>FSFArchotechImplantTorsoImmortal</ThingDef></descriptionHyperlinks>
+		<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>4.0</maxSeverity>
+		<stages>
+		  <li>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<regeneration>2</regeneration>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<regeneration>4</regeneration>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<regeneration>6</regeneration>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<regeneration>8</regeneration>
+		  </li>
+		</stages>
+		<comps>
+		    <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+			  <severityAtEachLevel>
+				<li><key>1</key><value>1</value></li>
+				<li><key>2</key><value>2</value></li>
+				<li><key>3</key><value>3</value></li>
+				<li><key>4</key><value>3</value></li>
+				<li><key>5</key><value>4</value></li>
+				<li><key>6</key><value>2</value></li>
+			  </severityAtEachLevel>
+			  <defaultSeverity>0.001</defaultSeverity>
+		    </li>
+		    <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+			  <letterLabel>Voidshard removed</letterLabel>
+			  <letterText>Removal of {PAWN_nameDef}'s voidshard immortality core has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+			  <downsides>
+				<li>HVB_DownsideCorruptor</li>
+				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideInsinuator</li>
+				<li>HVB_DownsideIncubator</li>
+			  </downsides>
+		    </li>
+			<li Class="AnimalBehaviours.HediffCompProperties_Resurrect">
+				<livesLeft>1000000</livesLeft>
+			</li>
+		  <li Class="HautsBionics_Anomaly.HediffCompProperties_Incubator">
+			<letterLabel>Incubating entity released</letterLabel>
+			<letterText>As {PAWN_nameDef} died, the vile influence of {PAWN_possessive} implanted voidshard technology revealed itself. A horrific entity was subtly incubating within {PAWN_objective}, but it has now emerged!</letterText>
+			<possiblePawnKinds>
+			  <li><key>Metalhorror</key><value>1</value></li>
+			  <li><key>Sightstealer</key><value>1</value></li>
+			  <li><key>Toughspike</key><value>1</value></li>
+			  <li><key>Trispike</key><value>1</value></li>
+			  <li><key>Devourer</key><value>3</value></li>
+			  <li><key>Bulbfreak</key><value>3</value></li>
+			  <li><key>Revenant</key><value>4</value></li>
+			  <li><key>Nociosphere</key><value>7</value></li>
+			</possiblePawnKinds>
+		  </li>
+		</comps>
+	</HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion">
+    <defName>HVB_InstallVoidshardImmortalityCore</defName>
+    <label>upgrade immortality core with shards</label>
+    <description>Alter an immortality core by merging it with the shards of a dark archotech, causing it to regenerate lost or damaged tissue at a rate scaling with the current anomaly activity level, but also causing a horrific entity to spawn whenever the host dies.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechImplantTorsoImmortal</ThingDef>
+      <HediffDef>HVB_VoidshardImmortalityCore</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading immortality core with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardImmortalityCore</addsHediff>
+	<removesHediff>FSFArchotechImplantTorsoImmortal</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion">
+    <defName>HVB_RemoveVoidshardImmortalityCore</defName>
+    <label>remove and destroy voidshard immortality core</label>
+    <description>Remove and destroy voidshard immortality core.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechImplantTorsoImmortal</ThingDef>
+      <HediffDef>HVB_VoidshardImmortalityCore</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing and destroying voidshard immortality core.</jobString>
+    <removesHediff>HVB_VoidshardImmortalityCore</removesHediff>
+  </RecipeDef>
+  
+    <!--medic arm-->
+	<HediffDef ParentName="AddedBodyPartBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion,Ludeon.RimWorld.Biotech">
+		<defName>HVB_VoidshardMedicArm</defName>
+		<label>voidshard medic arm</label>
+		<labelNoun>a voidshard medic arm</labelNoun>
+		<description>An installed dark archotech medic arm. Its potency scales with the current anomalous activity level.</description>
+		<descriptionHyperlinks><ThingDef>FSFArchotechMedicArm</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>FSFArchotechMedicArm</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>2.0</partEfficiency>
+			<betterThanNatural>true</betterThanNatural>
+		</addedPartProps>
+		<abilities>
+			<li>FSFArchotechMedic</li>
+			<li>FSFArchotechHealSerum</li>
+		</abilities>
+		<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>4.0</maxSeverity>
+		<stages>
+		  <li>
+			<statOffsets><MedicalOperationSpeed>0.9</MedicalOperationSpeed><MedicalTendSpeed>0.9</MedicalTendSpeed></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<partEfficiencyOffset>0.2</partEfficiencyOffset>
+			<statOffsets><MedicalOperationSpeed>1</MedicalOperationSpeed><MedicalTendSpeed>1</MedicalTendSpeed></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<partEfficiencyOffset>0.4</partEfficiencyOffset>
+			<statOffsets><MedicalOperationSpeed>1.1</MedicalOperationSpeed><MedicalTendSpeed>1,1</MedicalTendSpeed></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<partEfficiencyOffset>0.6</partEfficiencyOffset>
+			<statOffsets><MedicalOperationSpeed>1.2</MedicalOperationSpeed><MedicalTendSpeed>1.2</MedicalTendSpeed></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<partEfficiencyOffset>0.8</partEfficiencyOffset>
+			<statOffsets><MedicalOperationSpeed>1.3</MedicalOperationSpeed><MedicalTendSpeed>1.3</MedicalTendSpeed></statOffsets>
+		  </li>
+		</stages>
+		<comps>
+		    <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+			  <severityAtEachLevel>
+				<li><key>1</key><value>1</value></li>
+				<li><key>2</key><value>2</value></li>
+				<li><key>3</key><value>3</value></li>
+				<li><key>4</key><value>3</value></li>
+				<li><key>5</key><value>4</value></li>
+				<li><key>6</key><value>2</value></li>
+			  </severityAtEachLevel>
+			  <defaultSeverity>0.001</defaultSeverity>
+		    </li>
+		    <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+			  <letterLabel>Voidshard removed</letterLabel>
+			  <letterText>Removal of {PAWN_nameDef}'s voidshard medic arm has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+			  <downsides>
+				<li>HVB_DownsideCorruptor</li>
+				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideInsinuator</li>
+				<li>HVB_DownsideIncubator</li>
+			  </downsides>
+		    </li>
+		  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+			<increasedCooldownRecovery>0.1</increasedCooldownRecovery>
+			<affectedAbilities>
+				<li>FSFArchotechMedic</li>
+				<li>FSFArchotechHealSerum</li>
+			</affectedAbilities>
+			<multiplyBySeverity>true</multiplyBySeverity>
+		  </li>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>fist</label>
+						<capacities>
+							<li>Blunt</li>
+						</capacities>
+						<power>24</power>
+						<armorPenetration>1.0</armorPenetration>
+						<cooldownTime>2</cooldownTime>
+						<alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+						<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion,Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallVoidshardMedicArm</defName>
+    <label>upgrade archotech medic arm with shards</label>
+    <description>Alter an archotech medic arm by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechMedicArm</ThingDef>
+      <HediffDef>HVB_VoidshardMedicArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech medic arm with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardMedicArm</addsHediff>
+	<removesHediff>FSFArchotechMedicArm</removesHediff>
+  </RecipeDef>
+    
+	<!--skin gland-->
+    <HediffDef ParentName="ImplantHediffBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion,Ludeon.RimWorld.Royalty">
+		<defName>HVB_VoidshardSkinGland</defName>
+		<label>voidshard skin gland</label>
+		<labelNoun>a voidshard skin gland</labelNoun>
+		<description>An installed dark synthetic skin gland. The resilience - and the hideousness - of the generated tissue increase with the current anomalous activity level.</description>
+		<descriptionHyperlinks><ThingDef>FSFArchotechSkinI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>FSFArchotechSkinI</spawnThingOnRemoved>
+		<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>4.0</maxSeverity>
+		<stages>
+		  <li>
+			<statOffsets><ArmorRating_Sharp>1.0</ArmorRating_Sharp><ArmorRating_Blunt>0.5</ArmorRating_Blunt><ArmorRating_Heat>0.7</ArmorRating_Heat><PawnBeauty>1</PawnBeauty></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<statOffsets><ArmorRating_Sharp>1.0</ArmorRating_Sharp><ArmorRating_Blunt>0.5</ArmorRating_Blunt><ArmorRating_Heat>0.7</ArmorRating_Heat><PawnBeauty>0.5</PawnBeauty></statOffsets>
+			<statFactors><IncomingDamageFactor>0.9</IncomingDamageFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<statOffsets><ArmorRating_Sharp>1.0</ArmorRating_Sharp><ArmorRating_Blunt>0.5</ArmorRating_Blunt><ArmorRating_Heat>0.7</ArmorRating_Heat><PawnBeauty>0</PawnBeauty></statOffsets>
+			<statFactors><IncomingDamageFactor>0.8</IncomingDamageFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<statOffsets><ArmorRating_Sharp>1.0</ArmorRating_Sharp><ArmorRating_Blunt>0.5</ArmorRating_Blunt><ArmorRating_Heat>0.7</ArmorRating_Heat><PawnBeauty>-0.5</PawnBeauty></statOffsets>
+			<statFactors><IncomingDamageFactor>0.7</IncomingDamageFactor></statFactors>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<statOffsets><ArmorRating_Sharp>1.0</ArmorRating_Sharp><ArmorRating_Blunt>0.5</ArmorRating_Blunt><ArmorRating_Heat>0.7</ArmorRating_Heat><PawnBeauty>-1</PawnBeauty></statOffsets>
+			<statFactors><IncomingDamageFactor>0.6</IncomingDamageFactor></statFactors>
+		  </li>
+		</stages>
+		<comps>
+		    <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+			  <severityAtEachLevel>
+				<li><key>1</key><value>1</value></li>
+				<li><key>2</key><value>2</value></li>
+				<li><key>3</key><value>3</value></li>
+				<li><key>4</key><value>3</value></li>
+				<li><key>5</key><value>4</value></li>
+				<li><key>6</key><value>2</value></li>
+			  </severityAtEachLevel>
+			  <defaultSeverity>0.001</defaultSeverity>
+		    </li>
+		    <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+			  <letterLabel>Voidshard removed</letterLabel>
+			  <letterText>Removal of {PAWN_nameDef}'s voidshard skin gland has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+			  <downsides>
+				<li>HVB_DownsideCorruptor</li>
+				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideInsinuator</li>
+				<li>HVB_DownsideIncubator</li>
+			  </downsides>
+		    </li>
+		  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+			<increasedCooldownRecovery>0.1</increasedCooldownRecovery>
+			<affectedAbilities>
+				<li>FSFArchotechMedic</li>
+				<li>FSFArchotechHealSerum</li>
+			</affectedAbilities>
+			<multiplyBySeverity>true</multiplyBySeverity>
+		  </li>
+		</comps>
+		<tags><li>ArmorGland</li></tags>
+	</HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion,Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallVoidshardSkinGland</defName>
+    <label>upgrade synthetic skin gland with shards</label>
+    <description>Alter a synthetic skin gland by merging it with the shards of a dark archotech, increasing the host's resilience - and hideousness - in accordance with the current anomalous activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechSkinI</ThingDef>
+      <HediffDef>HVB_VoidshardSkinGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading synthetic skin gland with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardSkinGland</addsHediff>
+	<removesHediff>FSFArchotechSkinI</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="FrozenSnowFox.AdvancedBionicsExpansion,Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveVoidshardSkinGland</defName>
+    <label>remove voidshard skin gland</label>
+    <description>Remove voidshard skin gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>FSFArchotechSkinI</ThingDef>
+      <HediffDef>HVB_VoidshardSkinGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard skin gland.</jobString>
+    <removesHediff>HVB_VoidshardSkinGland</removesHediff>
+  </RecipeDef>
+  
+</Defs>

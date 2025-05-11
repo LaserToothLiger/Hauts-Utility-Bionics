@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--These are implants w/ mutual exclusion tags so that the neck implants and thyroid replacements can ALSO be installed.-->
+
+  <!--breathing neck-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BreathingNeck</defName>
+    <label>breathing neck</label>
+    <labelNoun>a breathing neck</labelNoun>
+    <description>An installed breathing neck.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BreathingNeck</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BreathingNeck</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BreathingNeck</defName>
+    <label>breathing neck</label>
+    <description>An artificial neck dermis with myriad microscopic air intake pores, which route through a series of self-repairing lattice-dust filters to improve air quality.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBreathingNeck</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallBreathingNeck</defName>
+    <label>install breathing neck</label>
+    <description>Install a breathing neck.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BreathingNeck</ThingDef>
+      <HediffDef>HVB_BreathingNeck</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing breathing neck.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BreathingNeck</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BreathingNeck</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_BreathingNeck</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveBreathingNeck</defName>
+    <label>remove breathing neck</label>
+    <description>Remove breathing neck.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BreathingNeck</ThingDef>
+      <HediffDef>HVB_BreathingNeck</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing breathing neck.</jobString>
+    <removesHediff>HVB_BreathingNeck</removesHediff>
+  </RecipeDef>
+  
+  <!--ultraconductive cervix-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_UltraconductiveCervix</defName>
+    <label>ultraconductive cervix</label>
+    <labelNoun>an ultraconductive cervix</labelNoun>
+    <description>An installed ultraconductive cervix.</description>
+    <descriptionHyperlinks><ThingDef>HVB_UltraconductiveCervix</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_UltraconductiveCervix</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.04</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_UltraconductiveCervix</defName>
+    <label>ultraconductive cervix</label>
+    <description>A thick artificial sheath which extends from the base of the skull and covers the cervical spinal cord. Pleats of nervous biogel amplify and accelerate the conduction of signals traveling from the upper motor neurons to their lower counterparts, enhancing bodily control.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallUltraconductiveCervix</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallUltraconductiveCervix</defName>
+    <label>install ultraconductive cervix</label>
+    <description>Install an ultraconductive cervix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_UltraconductiveCervix</ThingDef>
+      <HediffDef>HVB_UltraconductiveCervix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing ultraconductive cervix.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_UltraconductiveCervix</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_UltraconductiveCervix</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_UltraconductiveCervix</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveUltraconductiveCervix</defName>
+    <label>remove ultraconductive cervix</label>
+    <description>Remove ultraconductive cervix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_UltraconductiveCervix</ThingDef>
+      <HediffDef>HVB_UltraconductiveCervix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing ultraconductive cervix.</jobString>
+    <removesHediff>HVB_UltraconductiveCervix</removesHediff>
+  </RecipeDef>
+  
+  <!--mechanityrant cervix-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantCervix</defName>
+    <label>mechanityrant cervix</label>
+    <labelNoun>a mechanityrant cervix</labelNoun>
+    <description>An installed mechanityrant cervix. Broadcasts a mechanoid-coordinating signal with a range equal to half the mechanitor's mech command range.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantCervix</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantCervix</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <postFactor>0.8</postFactor>
+          </li>
+          <li>
+            <capacity>Eating</capacity>
+            <postFactor>0.25</postFactor>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <postFactor>0.25</postFactor>
+          </li>
+        </capMods>
+        <statOffsets>
+		  <MechControlGroups>1</MechControlGroups>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsBionics_Biotech.HediffCompProperties_OnlyYourMechsAura">
+        <range>0.5</range>
+		<rangeModifier>Hauts_MechCommandRange</rangeModifier>
+		<maxRangeModifier>200</maxRangeModifier>
+        <hediffs>
+		  <li>HVB_MTCervixBuff</li>
+		</hediffs>
+		<color>1,0.3,0.1,0.35</color>
+		<affectsSelf>false</affectsSelf>
+		<affectsAllies>true</affectsAllies>
+		<affectsHostiles>false</affectsHostiles>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantCervix</defName>
+    <label>mechanityrant cervix</label>
+    <description>Mechanitor-enhancing machinery which largely replaces the larynx and shrinks the esophagus. It enables subvocal command of mechanoids, and projects a coordinating effect across half the mechanitor's direct control range.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantCervix</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <NanostructuringChip>1</NanostructuringChip>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1830</MarketValue>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li><li>HVB_DontTalk</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>UltraMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantCervix</defName>
+    <label>install mechanityrant cervix</label>
+    <description>Install a mechanityrant cervix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantCervix</ThingDef>
+      <HediffDef>HVB_MechanityrantCervix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant cervix.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantCervix</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantCervix</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_MechanityrantCervix</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveMechanityrantCervix</defName>
+    <label>remove mechanityrant cervix</label>
+    <description>Remove mechanityrant cervix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantCervix</ThingDef>
+      <HediffDef>HVB_MechanityrantCervix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mechanityrant cervix.</jobString>
+    <removesHediff>HVB_MechanityrantCervix</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVB_MTCervixBuff</defName>
+		<label>mechanityrant coordination aura</label>
+		<description>A nearby mechanityrant cervix is coordinating this mechanoid.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(1, 0.3, 0.1)</defaultLabelColor>
+		<initialSeverity>0.1001</initialSeverity>
+		<maxSeverity>0.1001</maxSeverity>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+			  <ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+			  <MeleeHitChance>3</MeleeHitChance>
+			  <MeleeDodgeChance>3</MeleeDodgeChance>
+			</statOffsets>
+			<statFactors>
+			  <AimingDelayFactor>0.75</AimingDelayFactor>
+			</statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-24</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
+  <!--tone modulator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ToneModulator</defName>
+    <label>tone modulator</label>
+    <labelNoun>a tone modulator</labelNoun>
+    <description>An installed tone modulator. Affects Command abilities, as well as abilities dependent on social interaction.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ToneModulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ToneModulator</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.3</increasedCooldownRecovery>
+		<affectedAbilities>
+			<li>CombatCommand</li>
+			<li>MarksmanCommand</li>
+			<li>ResearchCommand</li>
+			<li>FarmingCommand</li>
+			<li>ProductionCommand</li>
+			<li>MiningCommand</li>
+			<li>ImmunityDrive</li>
+			<li>HVB_BionicBansheeWail</li>
+			<li MayRequire="vanillaracesexpanded.phytokin">VRE_AnimaSong</li>
+			<!--the VIEMS compats are hardcoded into abilitycooldownmodifier, so no need to put them here-->
+		</affectedAbilities>
+		<abilitiesUsingThisWorkTag>
+			<li>Social</li>
+		</abilitiesUsingThisWorkTag>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ToneModulator</defName>
+    <label>tone modulator</label>
+    <description>An artificial neck with greatly strengthened vocal cords. Valve-like structures in the windpipe can be used to achieve fine control over the volume and texture of speech and song.\n\nCauses the cooldowns of most ideoligious abilities - as well as some other vocal or social abilities - to recover faster.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallToneModulator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1450</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+    </thingSetMakerTags>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+	<tradeability>Sellable</tradeability>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallToneModulator</defName>
+    <label>install tone modulator</label>
+    <description>Install a tone modulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ToneModulator</ThingDef>
+      <HediffDef>HVB_ToneModulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tone modulator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ToneModulator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ToneModulator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_ToneModulator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveToneModulator</defName>
+    <label>remove tone modulator</label>
+    <description>Remove tone modulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ToneModulator</ThingDef>
+      <HediffDef>HVB_ToneModulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing tone modulator.</jobString>
+    <removesHediff>HVB_ToneModulator</removesHediff>
+  </RecipeDef>
+  
+  <!--warlock's collum-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksCollum</defName>
+    <label>warlock's collum</label>
+    <labelNoun>a warlock's collum</labelNoun>
+    <description>An installed warlock's collum.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksCollum</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksCollum</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <postFactor>0.8</postFactor>
+          </li>
+        </capMods>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.05</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksCollum</defName>
+    <label>warlock's collum</label>
+    <description>Rods of psychically-attuned materials inserted into the neck stiffen it and impede airflow. These rods subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into its biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksCollum</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksCollum</defName>
+    <label>install warlock's collum</label>
+    <description>Install a warlock's collum.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksCollum</ThingDef>
+      <HediffDef>HVB_WarlocksCollum</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's collum.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksCollum</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksCollum</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_WarlocksCollum</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveWarlocksCollum</defName>
+    <label>remove warlock's collum</label>
+    <description>Remove warlock's collum.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksCollum</ThingDef>
+      <HediffDef>HVB_WarlocksCollum</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing warlock's collum.</jobString>
+    <removesHediff>HVB_WarlocksCollum</removesHediff>
+  </RecipeDef>
+  
+</Defs>

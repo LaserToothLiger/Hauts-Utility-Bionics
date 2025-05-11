@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--that this should also allow the installation of venom fangs.-->
+
+  <!--purifier jaw-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_PurifierJaw</defName>
+    <label>purifier jaw</label>
+    <labelNoun>a purifier jaw</labelNoun>
+    <description>An installed purifier jaw. Though it renders any food completely safe to eat, it also strips it of all flavor. This prevents the host's mood from being affected by ingestion of any food (except when cannibalizing corpses).</description>
+    <descriptionHyperlinks><ThingDef>HVB_PurifierJaw</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PurifierJaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity>
+        </statOffsets>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_PurifierJaw</defName>
+    <label>purifier jaw</label>
+    <description>An artificial jaw which seals food into a closed chamber during mastication, then scans for and neutralizes detected toxins to prevent food poisoning. This "purification" procedure is sufficiently thorough to remove all flavor and texture from the food, which nullifies all thoughts the host might otherwise gain from ingestion.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPurifierJaw</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicJaw>1</BionicJaw>
+      <Silver>12</Silver>
+    </costList>
+    <statBases>
+      <MarketValue>1180</MarketValue>
+	  <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_DigestionAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallPurifierJaw</defName>
+    <label>install purifier jaw</label>
+    <description>Install a purifier jaw.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PurifierJaw</ThingDef>
+      <HediffDef>HVB_PurifierJaw</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing purifier jaw.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PurifierJaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PurifierJaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PurifierJaw</addsHediff>
+  </RecipeDef>
+
+  <!--razortooth maw-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_RazortoothMaw</defName>
+    <label>razortooth maw</label>
+    <labelNoun>a razortooth maw</labelNoun>
+    <description>An installed razortooth maw. Can be used as an extremely sharp weapon.</description>
+    <descriptionHyperlinks><ThingDef>HVB_RazortoothMaw</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_RazortoothMaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>0.80</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.6</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>razor bite</label>
+            <capacities>
+              <li>Bite</li>
+            </capacities>
+            <power>18</power>
+            <cooldownTime>1.33</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_RazortoothMaw</defName>
+    <label>razortooth maw</label>
+    <description>An artificial jaw with multiple alternating sharklike rows of razor-sharp teeth and crushing molars. It makes eating far faster, and it can even be used for a strong melee attack. However, having so many large teeth makes it difficult to talk.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallRazortoothMaw</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <BionicJaw>1</BionicJaw>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+	  <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <techHediffsTags><li>AdvancedWeapon</li><li>HVB_DontTalk</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_DigestionAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallRazortoothMaw</defName>
+    <label>install razortooth maw</label>
+    <description>Install a razortooth maw.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RazortoothMaw</ThingDef>
+      <HediffDef>HVB_RazortoothMaw</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing razortooth maw.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RazortoothMaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RazortoothMaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RazortoothMaw</addsHediff>
+  </RecipeDef>
+  
+  <!--mechanityrant maw-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantMouth</defName>
+    <label>mechanityrant maw</label>
+    <labelNoun>a mechanityrant maw</labelNoun>
+    <description>An installed mechanityrant maw. It is crammed full of machinery for boosting mechanoid control signals, which makes eating and vocalizing difficult.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantMouth</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantMouth</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.2</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MechBandwidth>4</MechBandwidth>
+        </statOffsets>
+		<statFactors>
+          <Hauts_MechCommandRange>1.2</Hauts_MechCommandRange>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantMouth</defName>
+    <label>mechanityrant maw</label>
+    <description>This artificial jaw replaces most of the oral cavity with mechlink-amplifying technology, including bandwidth amplifiers and a range booster. This unfortunately makes using the mouth for its evolutionarily intended purposes difficult.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantMouth</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>900</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li><li>HVB_DontTalk</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>HighMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantMouth</defName>
+    <label>install mechanityrant maw</label>
+    <description>Install a mechanityrant maw.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantMouth</ThingDef>
+      <HediffDef>HVB_MechanityrantMouth</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant maw.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantMouth</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantMouth</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantMouth</addsHediff>
+  </RecipeDef>
+
+  <!--oral spray projector-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_OralSprayProjector</defName>
+    <label>oral spray projector</label>
+    <labelNoun>an oral spray projector</labelNoun>
+    <description>An installed oral spray projector. Improves the range and cooldown of spray and spew abilities.</description>
+    <descriptionHyperlinks><ThingDef>HVB_OralSprayProjector</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_OralSprayProjector</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_SpewRangeFactor>0.9</Hauts_SpewRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.9</increasedCooldownRecovery>
+		<affectedDMEs>
+		  <li Class="HautsFramework.Hauts_SpewAbility" />
+		</affectedDMEs>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_OralSprayProjector</defName>
+    <label>oral spray projector</label>
+    <description>This artificial jaw improves the frequency at which spray or spew abilities can be employed. To do so, it redirects and reinforces the passageways by which the chemicals utilized by such abilities are ejected, and assists in the replenishment of these chemicals by refining them from trace particles captured during inhalation or ingestion.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallOralSprayProjector</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicJaw>1</BionicJaw>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+	  <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_SprayAbility</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallOralSprayProjector</defName>
+    <label>install oral spray projector</label>
+    <description>Install an oral spray projector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_OralSprayProjector</ThingDef>
+      <HediffDef>HVB_OralSprayProjector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing oral spray projector.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_OralSprayProjector</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_OralSprayProjector</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_OralSprayProjector</addsHediff>
+  </RecipeDef>
+  
+  <!--aesthetic jaw-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_AestheticJaw</defName>
+    <label>aesthetic jaw</label>
+    <labelNoun>an aesthetic jaw</labelNoun>
+    <description>An installed aesthetic jaw.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AestheticJaw</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AestheticJaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <PawnBeauty>1</PawnBeauty>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_AestheticJaw</defName>
+    <label>aesthetic jaw</label>
+    <description>The jaw is shaped to the user's desired form, matching prevalent beauty standards and enhancing physical impressions.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAestheticJaw</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>FleshShaping</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallAestheticJaw</defName>
+    <label>install aesthetic jaw</label>
+    <description>Install an aesthetic jaw.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AestheticJaw</ThingDef>
+      <HediffDef>HVB_AestheticJaw</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing aesthetic jaw.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AestheticJaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AestheticJaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AestheticJaw</addsHediff>
+  </RecipeDef>
+  
+  <!--warlock's rictus-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksRictus</defName>
+    <label>warlock's rictus</label>
+    <labelNoun>a warlock's rictus</labelNoun>
+    <description>An installed warlock's rictus.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksRictus</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksRictus</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.2</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.07</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.04</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.28</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksRictus</defName>
+    <label>warlock's rictus</label>
+    <description>This contraption stitches together the lower and upper jaw via eltex threads, trapping the mouth in a particular, leering shape that makes it difficult to talk or eat. It subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into its biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksRictus</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li><li>HVB_DontTalk</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksRictus</defName>
+    <label>install warlock's rictus</label>
+    <description>Install a warlock's rictus.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksRictus</ThingDef>
+      <HediffDef>HVB_WarlocksRictus</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's rictus.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksRictus</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksRictus</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksRictus</addsHediff>
+  </RecipeDef>
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech food disintegrator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechFoodDisintegrator</defName>
+    <label>archotech food disintegrator</label>
+    <labelNoun>an archotech food disintegrator</labelNoun>
+    <description>An installed archotech food disintegrator. Grants a powerful, rapid melee attack that grants nutrition based on damage dealt to organic victims.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechFoodDisintegrator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechFoodDisintegrator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>1.60</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-1.20</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>disintegration bite</label>
+            <capacities>
+              <li>HVB_DisintegrationBite</li>
+            </capacities>
+            <power>18</power>
+            <cooldownTime>0.67</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechFoodDisintegrator</defName>
+    <label>archotech food disintegrator</label>
+    <description>An artificial jaw which breaks down food not by mechanical crushing action, but by enveloping the victim in a maelstrom of overlapping repulsion fields which quickly break it down into its constituent components. When used to attack, this process will grant nutrition per damage taken by the victim, so long as the victim is organic.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechFoodDisintegrator</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <MarketValue>3500</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags><li>AdvancedWeapon</li><li>HVB_DontTalk</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechFoodDisintegrator</defName>
+    <label>install archotech food disintegrator</label>
+    <description>Install an archotech food disintegrator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechFoodDisintegrator</ThingDef>
+      <HediffDef>HVB_ArchotechFoodDisintegrator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech food disintegrator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechFoodDisintegrator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechFoodDisintegrator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechFoodDisintegrator</addsHediff>
+  </RecipeDef>
+  
+</Defs>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--Gastrostomy-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_Gastrostomy</defName>
+    <label>gastrostomy</label>
+    <labelNoun>a gastrostomy</labelNoun>
+    <description>An installed gastrostomy - a feeding tube that goes directly to the stomach.</description>
+    <priceImpact>false</priceImpact>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.60</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <setMax>1</setMax>
+            <offset>100</offset>
+          </li>
+          <li>
+            <capacity>Metabolism</capacity>
+            <setMax>0.6</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallGastrostomy</defName>
+    <label>install gastrostomy</label>
+    <description>Install a gastrostomy. This fixes eating speed at 100% (though due to technical limitations, the subject still won't be able to eat with a fully missing jaw, so just install a denture at that point).\n\nCan be used to replace a destroyed stomach, though its function is lesser than that of a natural stomach.</description>
+    <descriptionHyperlinks><HediffDef>HVB_Gastrostomy</HediffDef></descriptionHyperlinks>
+    <jobString>Installing gastrostomy.</jobString>
+    <workAmount>1500</workAmount>
+    <skillRequirements>
+      <Medicine>3</Medicine>
+    </skillRequirements>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Gastrostomy</addsHediff>
+  </RecipeDef>
+  
+  <!--psychic trepanation-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PsychicTrepanation</defName>
+    <label>psychic trepanation</label>
+    <labelNoun>a psychic trepanation</labelNoun>
+    <description>A surgically excavated hole in the skull which somehow enhances connection to the psychic field. It is also slightly painful.</description>
+    <priceImpact>false</priceImpact>
+    <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+    <stages>
+      <li>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+          <PsychicSensitivity>0.3</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_PerformPsychicTrepanation</defName>
+    <label>perform psychic trepanation</label>
+    <description>Perform a psychic trepanation, slightly increasing the subject's pain but improving psychic sensitivity.</description>
+    <descriptionHyperlinks><HediffDef>HVB_PsychicTrepanation</HediffDef></descriptionHyperlinks>
+    <jobString>Performing psychic trepanation.</jobString>
+    <workAmount>1500</workAmount>
+    <skillRequirements>
+      <Medicine>14</Medicine>
+    </skillRequirements>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsychicTrepanation</addsHediff>
+  </RecipeDef>
+  
+  <!--tracheal intubation-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_TrachealIntubation</defName>
+    <label>tracheal intubation</label>
+    <labelNoun>a tracheal intubation</labelNoun>
+    <description>An installed tracheal intubation.</description>
+	<tags><li>HVB_Neck</li></tags>
+    <priceImpact>false</priceImpact>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <setMax>1</setMax>
+            <offset>0.6</offset>
+          </li>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.2</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallTrachealIntubation</defName>
+    <label>install tracheal intubation</label>
+    <description>Install a tracheal intubation. This tube brings airflow to the lungs, which can meliorate impaired breathing. However, it also caps breathing at 100%, and makes it harder to vocalize or get food down.</description>
+    <jobString>Installing tracheal intubation.</jobString>
+    <workAmount>1500</workAmount>
+    <skillRequirements>
+      <Medicine>10</Medicine>
+    </skillRequirements>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_TrachealIntubation</addsHediff>
+  </RecipeDef>
+  
+  <!--implanted explosive device
+  <HediffDef>
+    <defName>HVB_ImplantedExplosiveDevice</defName>
+    <label>implanted explosive device</label>
+    <labelNoun>an implanted explosive device</labelNoun>
+    <description>An implanted explosive device. On death, the shell immediately detonates.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_IED">
+		<defaultShellType>Shell_HighExplosive</defaultShellType>
+		<ticksToExplosion>60~240</ticksToExplosion>
+		<toxResistantChanceForDefaultToxShell>0.7</toxResistantChanceForDefaultToxShell>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>HVB_ImplantExplosiveDevice</defName>
+    <label>implant explosive device</label>
+    <description>Implant a modified mortar shell in the chest cavity. On death, the shell will detonate.</description>
+    <workerClass>HautsBionics.Recipe_IED</workerClass>
+    <isViolation>true</isViolation>
+    <descriptionHyperlinks><HediffDef>HVB_ImplantedExplosiveDevice</HediffDef></descriptionHyperlinks>
+    <jobString>Implanting explosive device.</jobString>
+    <uiIconPath>UI/Icons/ThingCategories/MortarShells</uiIconPath>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <workAmount>1500</workAmount>
+    <skillRequirements>
+      <Medicine>8</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <ingredients>
+      <li>
+        <filter><categories><li>MortarShells</li></categories></filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+        <li>MortarShells</li>
+      </categories>
+    </fixedIngredientFilter>
+    <addsHediff>HVB_ImplantedExplosiveDevice</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>HVB_RemoveIED</defName>
+    <label>remove explosive device</label>
+    <description>Remove explosive device.</description>
+    <workerClass>HautsBionics.Recipe_NoIED</workerClass>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <workAmount>1500</workAmount>
+    <descriptionHyperlinks>
+      <HediffDef>HVB_ImplantedExplosiveDevice</HediffDef>
+    </descriptionHyperlinks>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <jobString>Removing implanted explosive device.</jobString>
+    <removesHediff>HVB_ImplantedExplosiveDevice</removesHediff>
+    <surgerySuccessChanceFactor>5</surgerySuccessChanceFactor>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+	  <ThingDef ParentName="EtherealThingBase">
+		<defName>HVB_IEDExplosionTimer</defName>
+		<thingClass>HautsBionics.ExplosionTimer</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<graphicData>
+		  <texPath>Things/Item/Artifact/PsychicAnimalPulser</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <color>(10,10,10,0)</color>
+		</graphicData>
+	  </ThingDef>-->
+  
+</Defs>

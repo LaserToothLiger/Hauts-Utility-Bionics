@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>EBSG Framework</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--so EBSG breaks my own genetic resource modifier system SPECIFICALLY where it intersects with hemogen, due to its own stats. Thus here I remove the hemogen reservoirs' GRMs and let EBSG's max hemogen offset stat handle it-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVB_SinusHemogenReservoir"]/comps/li[@Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers"]</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVB_MassHemogenReservoir"]/comps/li[@Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers"]</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVB_HepaticHemogenReservoir"]/comps/li[@Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers"]</xpath>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

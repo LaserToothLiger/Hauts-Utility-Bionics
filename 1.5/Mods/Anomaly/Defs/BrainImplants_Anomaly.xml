@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--uncraftable: archotech truelife-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ArchotechTruelife</defName>
+    <label>archotech truelife</label>
+    <labelNoun>an archotech truelife</labelNoun>
+    <description>An installed archotech truelife. Once fully charged, it rapidly restores the host to a normal state of life if it is a shambler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTruelife</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTruelife</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>60</maxSeverity>
+    <stages>
+      <li>
+        <label>recharging</label>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>0.25</Hauts_EntityDamageFactor>
+        </statOffsets>
+      </li>
+	  <li>
+        <minSeverity>60</minSeverity>
+		<label>ready</label>
+		<statOffsets>
+          <Hauts_EntityDamageFactor>0.25</Hauts_EntityDamageFactor>
+        </statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Truelife">
+	    <revertedMutantDefs>
+		  <li>Shambler</li>
+		</revertedMutantDefs>
+		<periodicity>60</periodicity>
+		<reversionText>HVB_Truelifed</reversionText>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>1</severityPerDay>
+      </li>
+    </comps>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechTruelife</defName>
+    <label>archotech truelife</label>
+    <description>A brain implant which stabilizes deadlife mechanites and co-opts them to instead reconstruct a healthy version of the host's body; if the host becomes a shambler, this implant will rapidly reverse that state and bring them back to true life, hence the name. However, it needs a full year to charge between each reversion, and it starts uncharged.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechTruelife</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>5000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallArchotechTruelife</defName>
+    <label>install archotech truelife</label>
+    <description>Install an archotech truelife.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTruelife</ThingDef>
+      <HediffDef>HVB_ArchotechTruelife</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech truelife.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTruelife</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTruelife</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechTruelife</addsHediff>
+  </RecipeDef>
+  
+</Defs>

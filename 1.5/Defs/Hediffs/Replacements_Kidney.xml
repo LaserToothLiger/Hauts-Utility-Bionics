@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--let's... do things differently, this time. So, so differently.
+			Nearly all the craftable kidneys are interchangeable - they're created by the same bionic Thing. I thought about doing this for the other bionics too but decided it was especially fitting here since they're all just
+			variations on 125% part efficiency + narrow capacity or superpower buffs
+			To that end, we start with the Thing of the hour-->
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_AssistiveKidney</defName>
+    <label>assistive kidney</label>
+    <description>An artificial kidney which can be configured to also assist other organ systems: it can enhance cardiovascular blood distribution, cerebellar health, metabolic stability, or other, more exotic processes. However, it can only augment one system at a time, determined during implantation via quick modifications of its biogel interface by the surgeon.</description>
+    <descriptionHyperlinks>
+	  <RecipeDef>HVB_InstallCirculatoryAuxiliary</RecipeDef>
+	  <RecipeDef>HVB_InstallCogitationAuxiliary</RecipeDef>
+	  <RecipeDef>HVB_InstallMetabolicAuxiliary</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Biotech">HVB_InstallMechanityrantKidney</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Biotech">HVB_InstallHemogenCyclingKidney</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Ideology">HVB_InstallGauranlenAuxiliary</RecipeDef>
+	  <RecipeDef MayRequire="pyrce.swimming.modkit">HVB_InstallBallastKidney</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <Neutroamine>5</Neutroamine>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1125</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_AssistiveKidneyBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <!--circulatory auxiliary-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_CirculatoryAuxiliary</defName>
+    <label>circulatory auxiliary</label>
+    <labelNoun>a circulatory auxiliary</labelNoun>
+    <description>An installed circulatory auxiliary.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.08</offset>
+          </li>
+        </capMods>
+        <painOffset>0.04</painOffset>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallCirculatoryAuxiliary</defName>
+    <label>install circulatory auxiliary</label>
+    <description>Install a circulatory auxiliary to improve blood circulation, at the expense of a slight increase in pain.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_CirculatoryAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing circulatory auxiliary.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CirculatoryAuxiliary</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCirculatoryAuxiliary</defName>
+    <label>remove circulatory auxiliary</label>
+    <description>Remove circulatory auxiliary. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_CirculatoryAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing circulatory auxiliary.</jobString>
+    <removesHediff>HVB_CirculatoryAuxiliary</removesHediff>
+  </RecipeDef>
+
+  <!--cogitation auxiliary-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_CogitationAuxiliary</defName>
+    <label>cogitation auxiliary</label>
+    <labelNoun>a cogitation auxiliary</labelNoun>
+    <description>An installed cogitation auxiliary.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <MentalBreakThreshold>0.04</MentalBreakThreshold>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallCogitationAuxiliary</defName>
+    <label>install cogitation auxiliary</label>
+    <description>Install a cogitation auxiliary to improve consciousness, at the expense of decreased tolerance for emotional stress.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_CogitationAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogitation auxiliary.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CogitationAuxiliary</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCogitationAuxiliary</defName>
+    <label>remove cogitation auxiliary</label>
+    <description>Remove cogitation auxiliary. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_CogitationAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogitation auxiliary.</jobString>
+    <removesHediff>HVB_CogitationAuxiliary</removesHediff>
+  </RecipeDef>
+
+  <!--metabolic auxiliary-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_MetabolicAuxiliary</defName>
+    <label>metabolic auxiliary</label>
+    <labelNoun>a metabolic auxiliary</labelNoun>
+    <description>An installed metabolic auxiliary.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Metabolism</capacity>
+            <offset>0.12</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallMetabolicAuxiliary</defName>
+    <label>install metabolic auxiliary</label>
+    <description>Install a metabolic auxiliary to improve metabolism.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_MetabolicAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing metabolic auxiliary.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MetabolicAuxiliary</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMetabolicAuxiliary</defName>
+    <label>remove metabolic auxiliary</label>
+    <description>Remove metabolic auxiliary. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_MetabolicAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing metabolic auxiliary.</jobString>
+    <removesHediff>HVB_MetabolicAuxiliary</removesHediff>
+  </RecipeDef>
+
+  <!--mechanityrant kidney-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantKidney</defName>
+    <label>mechanityrant kidney</label>
+    <labelNoun>a mechanityrant kidney</labelNoun>
+    <description>An installed mechanityrant kidney. Mechanite control systems within these kidneys simulate mechanoid organoid formation and broadcast the information across mechanitor control frequencies, assisting in the gestation of new mechanoid bodies.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <MechBandwidth>2</MechBandwidth>
+		  <MechFormingSpeed>0.35</MechFormingSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantKidney</defName>
+    <label>install mechanityrant kidney</label>
+    <description>Install a mechanityrant kidney to improve mechanitor bandwidth and mech gestation speed. Note that it does not perform the functions of a kidney any better than a natural kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_MechanityrantKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant kidney.</jobString>
+    <researchPrerequisite>StandardMechtech</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantKidney</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveMechanityrantKidney</defName>
+    <label>remove mechanityrant kidney</label>
+    <description>Remove mechanityrant kidney. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_MechanityrantKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mechanityrant kidney.</jobString>
+    <removesHediff>HVB_MechanityrantKidney</removesHediff>
+  </RecipeDef>
+
+  <!--hemogen-cycling kidney-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenCyclingKidney</defName>
+    <label>hemogen-cycling kidney</label>
+    <labelNoun>a hemogen-cycling kidney</labelNoun>
+    <description>An installed hemogen-cycling kidney.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<drainRateFactors>
+			<li>
+				<key>hemogen</key>
+				<value>0.5</value>
+			</li>
+		</drainRateFactors>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHemogenCyclingKidney</defName>
+    <label>install hemogen-cycling kidney</label>
+    <description>Install a hemogen-cycling kidney to cause hemogen to decay 50% slower.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_HemogenCyclingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hemogen-cycling kidney.</jobString>
+    <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HemogenPack</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HemogenCyclingKidney</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveHemogenCyclingKidney</defName>
+    <label>remove hemogen-cycling kidney</label>
+    <description>Remove hemogen-cycling kidney. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_HemogenCyclingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing hemogen-cycling kidney.</jobString>
+    <removesHediff>HVB_HemogenCyclingKidney</removesHediff>
+  </RecipeDef>
+
+  <!--gauranlen auxiliary-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_GauranlenAuxiliary</defName>
+    <label>gauranlen auxiliary</label>
+    <labelNoun>a gauranlen auxiliary</labelNoun>
+    <description>An installed gauranlen auxiliary.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <Hauts_MaxDryadFactor>0.25</Hauts_MaxDryadFactor>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallGauranlenAuxiliary</defName>
+    <label>install gauranlen auxiliary</label>
+    <description>Install a gauranlen auxiliary to increase the maximum number of dryads each connected gauranlen tree can sustain.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_GauranlenAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gauranlen auxiliary.</jobString>
+    <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GauranlenAuxiliary</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveGauranlenAuxiliary</defName>
+    <label>remove gauranlen auxiliary</label>
+    <description>Remove gauranlen auxiliary. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_GauranlenAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing gauranlen auxiliary.</jobString>
+    <removesHediff>HVB_GauranlenAuxiliary</removesHediff>
+  </RecipeDef>
+
+  <!--ballast kidney-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_BallastKidney</defName>
+    <label>ballast kidney</label>
+    <labelNoun>a ballast kidney</labelNoun>
+    <description>An installed ballast kidney.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statFactors>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">1.15</SwimSpeed>
+		</statFactors>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.3</minSeverity>
+		<statFactors>
+		  <MoveSpeed>1.05</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">1.15</SwimSpeed>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Fin">
+		<finPower>0.15</finPower>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0</rainCountsFor>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallBallastKidney</defName>
+    <label>install ballast kidney</label>
+    <description>Install a ballast kidney to increase swim speed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_BallastKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing ballast kidney.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BallastKidney</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_RemoveBallastKidney</defName>
+    <label>remove ballast kidney</label>
+    <description>Remove ballast kidney. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_BallastKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing ballast kidney.</jobString>
+    <removesHediff>HVB_BallastKidney</removesHediff>
+  </RecipeDef>
+
+  <!--shielding auxiliary-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ShieldingAuxiliary</defName>
+    <label>shielding auxiliary</label>
+    <labelNoun>a shielding auxiliary</labelNoun>
+    <description>An installed shielding auxiliary. It boosts the maximum energy and recharge rate of an internal shield generator - however, it does not generate one of its own.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>11.11</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>1</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>false</makesShield>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallShieldingAuxiliary</defName>
+    <label>install shielding auxiliary</label>
+    <description>Install a shielding auxiliary to increase the potency of internal shield generators on this individual. Note that it does not generate a shield of its own.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_ShieldingAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing shielding auxiliary.</jobString>
+    <researchPrerequisite>ShieldBelt</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ShieldingAuxiliary</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveShieldingAuxiliary</defName>
+    <label>remove shielding auxiliary</label>
+    <description>Remove shielding auxiliary. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_ShieldingAuxiliary</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing shielding auxiliary.</jobString>
+    <removesHediff>HVB_ShieldingAuxiliary</removesHediff>
+  </RecipeDef>
+  
+
+
+						<!--uncraftable-->
+  <!--archotech thinking kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechThinkingKidney</defName>
+    <label>archotech thinking kidney</label>
+    <labelNoun>an archotech thinking kidney</labelNoun>
+    <description>An installed archotech thinking kidney.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechThinkingKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechThinkingKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <PsychicSensitivity>0.1</PsychicSensitivity>
+		</statOffsets>
+      </li>
+	</stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechThinkingKidney</defName>
+    <label>archotech thinking kidney</label>
+    <description>An artificial kidney created by an archotech. The actual functions of the kidney take place in a miniaturized chamber, leaving room for a complex matrix of archite-infused biogel which enhances the host's thought processes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechThinkingKidney</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3400</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechThinkingKidney</defName>
+    <label>install archotech thinking kidney</label>
+    <description>Install an archotech thinking kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechThinkingKidney</ThingDef>
+      <HediffDef>HVB_ArchotechThinkingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech thinking kidney.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechThinkingKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechThinkingKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechThinkingKidney</addsHediff>
+  </RecipeDef>
+  
+</Defs>

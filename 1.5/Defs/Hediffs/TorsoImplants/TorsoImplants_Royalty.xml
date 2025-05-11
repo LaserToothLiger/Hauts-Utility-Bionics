@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--warlock's entrails-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEntrails</defName>
+    <label>warlock's entrails</label>
+    <labelNoun>a warlock's entrails</labelNoun>
+    <description>An installed set of warlock's entrails.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksEntrails</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksEntrails</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Metabolism</capacity>
+            <postFactor>0.6</postFactor>
+          </li>
+        </capMods>
+        <hungerRateFactor>1.15</hungerRateFactor>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusFromFood>0.02</Hauts_PsyfocusFromFood>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEntrails</defName>
+    <label>warlock's entrails</label>
+    <description>A set of warlock's entrails, replacing most of the large intestines. As bionic replacements, these are barely functional and cause severe disruptions to digestive metabolism. Instead, their main purpose is to guide the host's background thought processes, boosting connectivity to the psychic field and stimulating psyfocus-producing psychic activity through the gutbrain during digestion of food.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksEntrails</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksEntrails</defName>
+    <label>install warlock's entrails</label>
+    <description>Install a set of warlock's entrails.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksEntrails</ThingDef>
+      <HediffDef>HVB_WarlocksEntrails</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's entrails.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksEntrails</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksEntrails</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksEntrails</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveWarlocksEntrails</defName>
+    <label>remove warlock's entrails</label>
+    <description>Remove warlock's entrails.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksEntrails</ThingDef>
+      <HediffDef>HVB_WarlocksEntrails</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing warlock's entrails.</jobString>
+    <removesHediff>HVB_WarlocksEntrails</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--personal skipgate generator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_PersonalSkipgateGenerator</defName>
+    <label>personal skipgate generator</label>
+    <labelNoun>a personal skipgate generator</labelNoun>
+    <description>An installed personal skipgate generator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PersonalSkipgateGenerator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PersonalSkipgateGenerator</spawnThingOnRemoved>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_PersonalSkip</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_PersonalSkipgateGenerator</defName>
+    <label>personal skipgate generator</label>
+    <description>This archotech body implant, resembling an armillary sphere, enables the host to teleport via the use of skipgates.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPersonalSkipgateGenerator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallPersonalSkipgateGenerator</defName>
+    <label>install personal skipgate generator</label>
+    <description>Install an personal skipgate generator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_PersonalSkipgateGenerator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing personal skipgate generator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PersonalSkipgateGenerator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PersonalSkipgateGenerator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PersonalSkipgateGenerator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemovePersonalSkipgateGenerator</defName>
+    <label>remove personal skipgate generator</label>
+    <description>Remove personal skipgate generator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_PersonalSkipgateGenerator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing personal skipgate generator.</jobString>
+    <removesHediff>HVB_PersonalSkipgateGenerator</removesHediff>
+  </RecipeDef>
+  
+</Defs>

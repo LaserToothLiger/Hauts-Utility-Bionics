@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--Bandwidth appropriator-->
+  <HediffDef>
+    <defName>HVB_BandwidthAppropriatorImplant</defName>
+    <hediffClass>Hediff_Level</hediffClass>
+    <descriptionHyperlinks><ThingDef>HVB_BandwidthAppropriator</ThingDef></descriptionHyperlinks>
+    <label>bandwidth appropriator</label>
+    <description>An implant which reduces a mechanitor's bandwidth in exchange for increased consciousness.\n\nThe implant allows a mechanitor to utilize the computational power of a mechlink to enhance cognition rather than command mechanoids.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionShort>An implant which reduces a mechanitor's bandwidth in exchange for increased consciousness. This can be installed up to 3 times.</descriptionShort>
+    <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <priceImpact>true</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>6</maxSeverity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.8</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.075</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.6</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.4</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.225</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.3</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2625</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.2</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.3</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+		<statFactors>
+		  <MechBandwidth>0.1</MechBandwidth>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.3375</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="MechanitorImplantCraftableBase">
+    <defName>HVB_BandwidthAppropriator</defName>
+    <label>bandwidth appropriator (standard)</label>
+    <description>An implant which reduces a mechanitor's bandwidth in exchange for increased consciousness.\n\nThe implant allows a mechanitor to utilize the computational power of a mechlink to enhance cognition rather than command mechanoids.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_BandwidthAppropriatorImplant</HediffDef></descriptionHyperlinks>
+    <costList>
+      <NanostructuringChip>1</NanostructuringChip>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>UltraMechtech</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MaxInstallCount>3</MaxInstallCount>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUsableImplant</compClass>
+        <useJob>UseItem</useJob>
+        <useLabel>Implant bandwidth appropriator</useLabel>
+        <userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+      </li>
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>HVB_BandwidthAppropriatorImplant</hediffDef>
+        <bodyPart>Brain</bodyPart>
+        <canUpgrade>true</canUpgrade>
+        <maxSeverity>3</maxSeverity>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="MechanitorImplantCraftableBase" MayRequire="sarg.alphamechs">
+    <defName>HVB_BandwidthAppropriatorHigh</defName>
+    <label>bandwidth appropriator (high)</label>
+    <description>An implant which reduces a mechanitor's bandwidth in exchange for increased consciousness.\n\nThe implant allows a mechanitor to utilize the computational power of a mechlink to enhance cognition rather than command mechanoids.\n\nThis implant can be installed in an extant bandwidth appropriator of at least 3rd level to increase its level, up to 3 more times.</description>
+    <descriptionHyperlinks><HediffDef>HVB_BandwidthAppropriatorImplant</HediffDef></descriptionHyperlinks>
+    <costList>
+      <AM_QuantumMatrixChip>1</AM_QuantumMatrixChip>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>UltraMechtech</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MaxInstallCount>3</MaxInstallCount>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUsableImplant</compClass>
+        <useJob>UseItem</useJob>
+        <useLabel>Implant high bandwidth appropriator</useLabel>
+        <userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+      </li>
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>HVB_BandwidthAppropriatorImplant</hediffDef>
+        <bodyPart>Brain</bodyPart>
+        <canUpgrade>true</canUpgrade>
+        <requiresExistingHediff>true</requiresExistingHediff>
+        <minSeverity>3</minSeverity>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!--Energy optimizer-->
+  <HediffDef>
+    <defName>HVB_EnergyOptimizerImplant</defName>
+    <hediffClass>Hediff_Level</hediffClass>
+    <descriptionHyperlinks><ThingDef>HVB_EnergyOptimizer</ThingDef></descriptionHyperlinks>
+    <label>energy optimizer</label>
+    <description>An implant which reduces the energy usage of a mechanitor's mechs.\n\nThe implant allows a mechanitor to track the real-time and longitudinal energy expenditure of controlled mechanoids with superhuman precision, identify the causes of excess power consumption, and adjust mechanoid behavior to remove such causes.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionShort>An implant which reduces the energy usage of a mechanitor's mechs. This can be installed up to 3 times.</descriptionShort>
+    <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <priceImpact>true</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets>
+          <Hauts_MechEnergyUsage>-0.12</Hauts_MechEnergyUsage>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <statOffsets>
+          <Hauts_MechEnergyUsage>-0.24</Hauts_MechEnergyUsage>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <statOffsets>
+          <Hauts_MechEnergyUsage>-0.36</Hauts_MechEnergyUsage>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="MechanitorImplantCraftableBase">
+    <defName>HVB_EnergyOptimizer</defName>
+    <label>energy optimizer</label>
+    <description>An implant which reduces the energy usage of a mechanitor's mechs.\n\nThe implant allows a mechanitor to track the real-time and longitudinal energy expenditure of controlled mechanoids with superhuman precision, identify the causes of excess power consumption, and adjust mechanoid behavior to remove such causes.\n\nThis implant can be self-installed in the same way as the mechlink.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_EnergyOptimizerImplant</HediffDef></descriptionHyperlinks>
+    <costList>
+      <NanostructuringChip>1</NanostructuringChip>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>UltraMechtech</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MaxInstallCount>3</MaxInstallCount>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUsableImplant</compClass>
+        <useJob>UseItem</useJob>
+        <useLabel>Implant {0_label}</useLabel>
+        <userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+      </li>
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>HVB_EnergyOptimizerImplant</hediffDef>
+        <bodyPart>Brain</bodyPart>
+        <canUpgrade>true</canUpgrade>
+      </li>
+    </comps>
+  </ThingDef>
+  
+						<!--uncraftable-->
+  <!--archotech mechaqueen. KACHOW-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ArchotechMechaqueen</defName>
+    <label>archotech mechaqueen</label>
+    <labelNoun>an archotech mechaqueen</labelNoun>
+    <description>An implant which vastly improves a mechanitor's capabilities. This can be installed up to 3 times.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechMechaqueen</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechMechaqueen</spawnThingOnRemoved>
+    <hediffClass>Hediff_Level</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+		<statFactors><MechBandwidth>2</MechBandwidth><MechControlGroups>1.25</MechControlGroups><Hauts_MechCommandRange>1.2</Hauts_MechCommandRange><SubcoreEncodingSpeed>2</SubcoreEncodingSpeed></statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+		<statFactors><MechBandwidth>3</MechBandwidth><MechControlGroups>1.5</MechControlGroups><Hauts_MechCommandRange>1.4</Hauts_MechCommandRange><SubcoreEncodingSpeed>3</SubcoreEncodingSpeed></statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+		<statFactors><MechBandwidth>4</MechBandwidth><MechControlGroups>1.75</MechControlGroups><Hauts_MechCommandRange>1.6</Hauts_MechCommandRange><SubcoreEncodingSpeed>4</SubcoreEncodingSpeed></statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechMechaqueen</defName>
+    <label>archotech mechaqueen</label>
+    <description>A device of archotech origin which amplifies psionic control of mechanoids, vastly amplifying a mechanitor's control over their mechs. To render this device compatible with a mechlink, it must be implanted along with a signal chip, a powerfocus chip, and a nano-structuring chip.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_ArchotechMechaqueen</HediffDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4200</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>HVB_MiscHighValue</li></thingSetMakerTags>
+	<thingCategories>
+      <li>BodyPartsMechtech</li>
+    </thingCategories>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase">
+    <defName>HVB_InstallArchotechMechaqueen</defName>
+    <label>install archotech mechaqueen</label>
+    <description>Install an archotech mechaqueen.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechMechaqueen</ThingDef>
+      <HediffDef>HVB_ArchotechMechaqueen</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech mechaqueen.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechMechaqueen</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SignalChip</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PowerfocusChip</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>NanostructuringChip</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechMechaqueen</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechMechaqueen</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveArchotechMechaqueen</defName>
+    <label>remove archotech mechaqueen</label>
+    <description>Remove archotech mechaqueen.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechMechaqueen</ThingDef>
+      <HediffDef>HVB_ArchotechMechaqueen</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech mechaqueen.</jobString>
+    <removesHediff>HVB_ArchotechMechaqueen</removesHediff>
+  </RecipeDef>
+  
+</Defs>

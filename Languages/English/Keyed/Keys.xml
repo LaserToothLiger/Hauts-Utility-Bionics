@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<!--Initialization-->
+<HVB_Initialize>[Hauts' Utility Bionics] active.</HVB_Initialize>
+<!--Notifications-->
+<HVB_LazCanRez>A lazarus seed has begun its work on {PAWN_nameDef}. After somewhere between an hour to a day, it will restore {PAWN_objective} to life.</HVB_LazCanRez>
+<HVB_LazRez>The lazarus seed has restored {PAWN_nameDef} to life!</HVB_LazRez>
+<HVB_ResocBroke>Due to the extreme stress experienced by {PAWN_nameDef}, {PAWN_possessive} neural resocialization has broken down. Check {PAWN_possessive} health tab to see if this has caused any damage.</HVB_ResocBroke>
+<HVB_ArchoWorshipIdeoChange>The recently implanted archotech worship drive has caused {0} to convert to the {1} ideoligion.</HVB_ArchoWorshipIdeoChange>
+<HVB_HomunculusLetter>Entity discovered: voidshard homunculus</HVB_HomunculusLetter>
+<HVB_HomunculusText>After examining the internal workings of {CREEP_nameDef}, {PAWN_nameDef} is no closer to understanding how {CREEP_possessive} bionics could be removed from {CREEP_possessive} body, but {PAWN_pronoun} believes {PAWN_pronoun} has stumbled on the basics of creating voidshard bionics.</HVB_HomunculusText>
+<HVB_Truelifed>An archotech truelife has undone the shambler-state of {PAWN_nameDef} and restored {PAWN_objective} to life!</HVB_Truelifed>
+<HVB_TruelifedAEP>An archotech truelife has undone the dark archotechnological warping of {PAWN_nameDef} and restored {PAWN_objective} to life!</HVB_TruelifedAEP>
+<HVB_DarkLazCanRez>A cruciform has begun its work on {PAWN_nameDef}. After three days, it will restore {PAWN_objective} to life, though it may have a lasting effect on {PAWN_possessive} mind.</HVB_DarkLazCanRez>
+<HVB_DarkLazRez>The cruciform has restored {PAWN_nameDef} to life!</HVB_DarkLazRez>
+<!--Item descriptions-->
+<HVB_ProgenoidXenogerm>Line of {0}</HVB_ProgenoidXenogerm>
+<!--ability labels-->
+<HVB_Toggler>(currently on)</HVB_Toggler>
+<HVB_Toggler2>(currently off)</HVB_Toggler2>
+<!--Mod settings-->
+<HVB_SettingBSM>Amount of bionics sold by traders</HVB_SettingBSM>
+<HVB_TooltipBionicSaleMulti>Scales the amount of bionics traders will sell; at 2x, a trader who would ordinarily sell 1-3 bionics will sell 2-6. This won't cause traders who don't sell bionics to start doing so.</HVB_TooltipBionicSaleMulti>
+</LanguageData>
