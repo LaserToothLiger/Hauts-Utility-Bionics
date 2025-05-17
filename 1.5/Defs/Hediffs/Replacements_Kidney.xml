@@ -15,6 +15,7 @@
 	  <RecipeDef MayRequire="Ludeon.RimWorld.Biotech">HVB_InstallMechanityrantKidney</RecipeDef>
 	  <RecipeDef MayRequire="Ludeon.RimWorld.Biotech">HVB_InstallHemogenCyclingKidney</RecipeDef>
 	  <RecipeDef MayRequire="Ludeon.RimWorld.Ideology">HVB_InstallGauranlenAuxiliary</RecipeDef>
+	  <RecipeDef MayRequire="Dubwise.DubsBadHygiene">HVB_InstallImmunomicturator</RecipeDef>
 	  <RecipeDef MayRequire="pyrce.swimming.modkit">HVB_InstallBallastKidney</RecipeDef>
 	</descriptionHyperlinks>
     <costList>
@@ -431,6 +432,74 @@
     </descriptionHyperlinks>
     <jobString>Removing gauranlen auxiliary.</jobString>
     <removesHediff>HVB_GauranlenAuxiliary</removesHediff>
+  </RecipeDef>
+
+  <!--immunomicturator-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_Immunomicturator</defName>
+    <label>immunomicturator</label>
+    <labelNoun>an immunomicturator</labelNoun>
+    <description>An installed immunomicturator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.09</ImmunityGainSpeed>
+		  <ToxicResistance>0.5</ToxicResistance>
+		  <BladderRateMultiplier>1</BladderRateMultiplier>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallImmunomicturator</defName>
+    <label>install immunomicturator</label>
+    <description>Install an immunomicturator to increase immunity gain speed and toxic resistance, at the expense of needing to use the bathroom much more often.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_Immunomicturator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing immunomicturator.</jobString>
+    <researchPrerequisites>
+	    <li MayRequire="Ludeon.RimWorld.Royalty">MolecularAnalysis</li>
+	    <li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+	</researchPrerequisites>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AssistiveKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AssistiveKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Immunomicturator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveImmunomicturator</defName>
+    <label>remove immunomicturator</label>
+    <description>Remove immunomicturator. It will transform into an assistive kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AssistiveKidney</ThingDef>
+      <HediffDef>HVB_Immunomicturator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing immunomicturator.</jobString>
+    <removesHediff>HVB_Immunomicturator</removesHediff>
   </RecipeDef>
 
   <!--ballast kidney-->

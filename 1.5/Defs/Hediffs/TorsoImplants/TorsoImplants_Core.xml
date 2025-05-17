@@ -564,6 +564,210 @@
     <removesHediff>HVB_TissueHardener</removesHediff>
   </RecipeDef>
   
+  <!--composting intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_CompostingIntestine</defName>
+    <label>composting intestine</label>
+    <labelNoun>a composting intestine</labelNoun>
+    <description>An installed composting intestine implant. Refines biosolids from the host's waste; this process is paused while suffering from hypothermia, heatstroke, or malnutrition.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CompostingIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CompostingIntestine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>5</maxSeverity>
+    <stages>
+      <li>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_DubsIntestine">
+		<severityPerDay>1</severityPerDay>
+		<progressDisabledBy>
+		  <li>Heatstroke</li>
+		  <li>Hypothermia</li>
+		  <li>Malnutrition</li>
+		</progressDisabledBy>
+		<severityToTrigger>5</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Biosolids</key><value>5</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_CompostingIntestine</defName>
+    <label>composting intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into biosolids which can be used to fertilize terrain. One day's worth of waste is sufficient to produce one unit of biosolids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCompostingIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallCompostingIntestine</defName>
+    <label>install composting intestine</label>
+    <description>Install a composting intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CompostingIntestine</ThingDef>
+      <HediffDef>HVB_CompostingIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing composting intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CompostingIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CompostingIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CompostingIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveCompostingIntestine</defName>
+    <label>remove composting intestine</label>
+    <description>Remove composting intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CompostingIntestine</ThingDef>
+      <HediffDef>HVB_CompostingIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing composting intestine.</jobString>
+    <removesHediff>HVB_CompostingIntestine</removesHediff>
+  </RecipeDef>
+  
+  <!--fuel-refining intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FuelRefiningIntestine</defName>
+    <label>fuel-refining intestine</label>
+    <labelNoun>a fuel-refining intestine</labelNoun>
+    <description>An installed fuel-refining intestine implant. Refines chemfuel from the host's waste; this process is paused while suffering from hypothermia, heatstroke, or malnutrition.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FuelRefiningIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FuelRefiningIntestine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>10</maxSeverity>
+    <stages>
+      <li>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_DubsIntestine">
+		<severityPerDay>1</severityPerDay>
+		<progressDisabledBy>
+		  <li>Heatstroke</li>
+		  <li>Hypothermia</li>
+		  <li>Malnutrition</li>
+		</progressDisabledBy>
+		<severityToTrigger>10</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Chemfuel</key><value>5</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FuelRefiningIntestine</defName>
+    <label>fuel-refining intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into biosolids which can be used to fertilize terrain. One day's worth of waste is sufficient to produce one unit of biosolids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFuelRefiningIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallFuelRefiningIntestine</defName>
+    <label>install fuel-refining intestine</label>
+    <description>Install a fuel-refining intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FuelRefiningIntestine</ThingDef>
+      <HediffDef>HVB_FuelRefiningIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing fuel-refining intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FuelRefiningIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FuelRefiningIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FuelRefiningIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveFuelRefiningIntestine</defName>
+    <label>remove fuel-refining intestine</label>
+    <description>Remove fuel-refining intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FuelRefiningIntestine</ThingDef>
+      <HediffDef>HVB_FuelRefiningIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing fuel-refining intestine.</jobString>
+    <removesHediff>HVB_FuelRefiningIntestine</removesHediff>
+  </RecipeDef>
+  
   <!--prosthetic dorsal fin-->
   <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
     <defName>HVB_ProstheticDorsalFin</defName>

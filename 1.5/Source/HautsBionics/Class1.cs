@@ -1873,6 +1873,40 @@ namespace HautsBionics
             }
         }
     }
+    public class HediffCompProperties_DubsIntestine : HediffCompProperties_CreateThingsBySpendingSeverity
+    {
+        public HediffCompProperties_DubsIntestine()
+        {
+            this.compClass = typeof(HediffComp_DubsIntestine);
+        }
+        public float severityPerDay;
+        public List<HediffDef> progressDisabledBy;
+    }
+    public class HediffComp_DubsIntestine : HediffComp_CreateThingsBySpendingSeverity
+    {
+        public new HediffCompProperties_DubsIntestine Props
+        {
+            get
+            {
+                return (HediffCompProperties_DubsIntestine)this.props;
+            }
+        }
+        public override void CompPostTick(ref float severityAdjustment)
+        {
+            base.CompPostTick(ref severityAdjustment);
+            if (this.Pawn.IsHashIntervalTick(300))
+            {
+                foreach (HediffDef hd in this.Props.progressDisabledBy)
+                {
+                    if (this.Pawn.health.hediffSet.HasHediff(hd))
+                    {
+                        return;
+                    }
+                }
+                this.parent.Severity += this.Props.severityPerDay/200f;
+            }
+        }
+    }
     public class HediffCompProperties_Fin : HediffCompProperties
     {
         public HediffCompProperties_Fin()

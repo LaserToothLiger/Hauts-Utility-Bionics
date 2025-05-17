@@ -25,6 +25,7 @@
         </statOffsets>
       </li>
     </stages>
+	<tags><li>HVB_IntestineImplant</li></tags>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_WarlocksEntrails</defName>
@@ -73,6 +74,9 @@
       <li>Torso</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_WarlocksEntrails</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_RemoveWarlocksEntrails</defName>
