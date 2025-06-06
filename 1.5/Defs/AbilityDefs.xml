@@ -252,7 +252,7 @@
     </comps>
   </AbilityDef>
   
-  <!--Archotech breathtaker-->
+  <!--Archotech earthshaker-->
   <AbilityDef>
     <defName>HVB_ToggleEarthshaker</defName>
     <label>toggle earthshaker shockwave</label>
@@ -280,6 +280,38 @@
     </comps>
   </AbilityDef>
   
+  <!--Firefoam tongue-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_BionicFoamSpit</defName>
+    <label>bionic foam spit</label>
+    <description>Spit out a rapidly expanding mass of thick fire-retardant foam. The foam will cover a small area and extinguish any fire it touches.</description>
+    <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
+    <cooldownTicksRange>30000</cooldownTicksRange>
+    <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+    <hostile>false</hostile>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>4.9</range>
+      <warmupTime>1</warmupTime>
+      <soundCast>FoamSpray_Resolve</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySprayLiquid">
+        <projectileDef>Proj_Foam_Ability</projectileDef>
+        <numCellsToHit>9</numCellsToHit>
+        <sprayEffecter>FoamSpray_Directional</sprayEffecter>
+      </li>
+    </comps>
+	<modExtensions>
+		<li Class="HautsFramework.Hauts_SpewAbility" />
+	</modExtensions>
+  </AbilityDef>
+  
   <!--Bile blaster-->
   <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_BileSpray</defName>
@@ -301,7 +333,7 @@
     </verbProperties>
     <comps>
       <li Class="CompProperties_AbilitySprayLiquid">
-        <projectileDef>Proj_Acid</projectileDef>
+        <projectileDef>HVB_Proj_Acid</projectileDef>
         <numCellsToHit>9</numCellsToHit>
         <sprayEffecter>AcidSpray_Directional</sprayEffecter>
       </li>
@@ -311,7 +343,7 @@
 	</modExtensions>
   </AbilityDef>
 	  <ThingDef MayRequire="Ludeon.RimWorld.Biotech">
-		<defName>Proj_Acid</defName>
+		<defName>HVB_Proj_Acid</defName>
 		<label>acid</label>
 		<thingClass>Projectile_Liquid</thingClass>
 		<category>Projectile</category>

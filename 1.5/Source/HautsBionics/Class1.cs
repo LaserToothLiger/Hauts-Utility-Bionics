@@ -21,6 +21,7 @@ using System.Runtime.CompilerServices;
 using static UnityEngine.GraphicsBuffer;
 using System.Security.Cryptography;
 using VFECore.Shields;
+using System.Net.NetworkInformation;
 
 namespace HautsBionics
 {
@@ -1904,6 +1905,60 @@ namespace HautsBionics
                     }
                 }
                 this.parent.Severity += this.Props.severityPerDay/200f;
+            }
+        }
+    }
+    public class HediffCompProperties_Firefoamer : HediffCompProperties_SeverityPerDay
+    {
+        public HediffCompProperties_Firefoamer()
+        {
+            this.compClass = typeof(HediffComp_Firefoamer);
+        }
+        public float radius;
+        public float minSevToTrigger;
+        public List<DamageDef> respondTo;
+        public List<ThingDef> detectTo;
+        public DamageDef damageType;
+        public ThingDef postBurstSpawn;
+    }
+    public class HediffComp_Firefoamer : HediffComp_SeverityPerDay
+    {
+        public HediffCompProperties_Firefoamer Props
+        {
+            get
+            {
+                return (HediffCompProperties_Firefoamer)this.props;
+            }
+        }
+        public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+        {
+            base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
+            if (this.Props.respondTo.Contains(dinfo.Def))
+            {
+                this.DetonateCheck();
+            }
+        }
+        public override void CompPostTick(ref float severityAdjustment)
+        {
+            base.CompPostTick(ref severityAdjustment);
+            if (this.Pawn.IsHashIntervalTick(250)) 
+            {
+                foreach (ThingDef t in this.Props.detectTo)
+                {
+                    if (GenClosest.ClosestThingReachable(this.Pawn.Position, this.Pawn.Map, ThingRequest.ForDef(t), PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false, false, false), this.Props.radius, null, null, 0, -1, false, RegionType.Set_Passable, false) != null)
+                    {
+                        this.DetonateCheck();
+                        break;
+                    }
+                }
+            }
+        }
+        public void DetonateCheck()
+        {
+            if (this.parent.Severity >= this.Props.minSevToTrigger && this.Pawn.SpawnedOrAnyParentSpawned)
+            {
+                GenExplosion.DoExplosion(this.Pawn.PositionHeld, this.Pawn.MapHeld, this.Props.radius, this.Props.damageType, this.Pawn, -1, -1f, SoundDefOf.Explosion_FirefoamPopper, null, null, null, this.Props.postBurstSpawn, 1f, 3, null, true, null, 0f, 0, 0f, false, null, null, null, true, 1f, 0f, true, null, 1f, null, null);
+                this.parent.Severity = this.parent.def.minSeverity;
             }
         }
     }

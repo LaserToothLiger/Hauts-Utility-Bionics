@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--warlock's entrails-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEntrails</defName>
+    <label>warlock's entrails</label>
+    <labelNoun>a warlock's entrails</labelNoun>
+    <description>An installed set of warlock's entrails.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksEntrails</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksEntrails</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Metabolism</capacity>
+            <postFactor>0.6</postFactor>
+          </li>
+        </capMods>
+        <hungerRateFactor>1.15</hungerRateFactor>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusFromFood>0.02</Hauts_PsyfocusFromFood>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksEntrails</defName>
+    <label>warlock's entrails</label>
+    <description>A set of warlock's entrails, replacing most of the large intestines. As bionic replacements, these are barely functional and cause severe disruptions to digestive metabolism. Instead, their main purpose is to guide the host's background thought processes, boosting connectivity to the psychic field and stimulating psyfocus-producing psychic activity through the gutbrain during digestion of food.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksEntrails</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksEntrails</defName>
+    <label>install warlock's entrails</label>
+    <description>Install a set of warlock's entrails.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksEntrails</ThingDef>
+      <HediffDef>HVB_WarlocksEntrails</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's entrails.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksEntrails</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksEntrails</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksEntrails</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveWarlocksEntrails</defName>
+    <label>remove warlock's entrails</label>
+    <description>Remove warlock's entrails.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksEntrails</ThingDef>
+      <HediffDef>HVB_WarlocksEntrails</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing warlock's entrails.</jobString>
+    <removesHediff>HVB_WarlocksEntrails</removesHediff>
+  </RecipeDef>
+  
+  <!--composting intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_CompostingIntestine</defName>
+    <label>composting intestine</label>
+    <labelNoun>a composting intestine</labelNoun>
+    <description>An installed composting intestine implant. Refines biosolids from the host's waste; this process is paused while suffering from hypothermia, heatstroke, or malnutrition.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CompostingIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CompostingIntestine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>5</maxSeverity>
+    <stages>
+      <li>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_DubsIntestine">
+		<severityPerDay>1</severityPerDay>
+		<progressDisabledBy>
+		  <li>Heatstroke</li>
+		  <li>Hypothermia</li>
+		  <li>Malnutrition</li>
+		</progressDisabledBy>
+		<severityToTrigger>5</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Biosolids</key><value>5</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_CompostingIntestine</defName>
+    <label>composting intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into biosolids which can be used to fertilize terrain. One day's worth of waste is sufficient to produce one unit of biosolids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCompostingIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallCompostingIntestine</defName>
+    <label>install composting intestine</label>
+    <description>Install a composting intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CompostingIntestine</ThingDef>
+      <HediffDef>HVB_CompostingIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing composting intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CompostingIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CompostingIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CompostingIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveCompostingIntestine</defName>
+    <label>remove composting intestine</label>
+    <description>Remove composting intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CompostingIntestine</ThingDef>
+      <HediffDef>HVB_CompostingIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing composting intestine.</jobString>
+    <removesHediff>HVB_CompostingIntestine</removesHediff>
+  </RecipeDef>
+  
+  <!--fuel-refining intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FuelRefiningIntestine</defName>
+    <label>fuel-refining intestine</label>
+    <labelNoun>a fuel-refining intestine</labelNoun>
+    <description>An installed fuel-refining intestine implant. Refines chemfuel from the host's waste; this process is paused while suffering from hypothermia, heatstroke, or malnutrition.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FuelRefiningIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FuelRefiningIntestine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>10</maxSeverity>
+    <stages>
+      <li>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_DubsIntestine">
+		<severityPerDay>1</severityPerDay>
+		<progressDisabledBy>
+		  <li>Heatstroke</li>
+		  <li>Hypothermia</li>
+		  <li>Malnutrition</li>
+		</progressDisabledBy>
+		<severityToTrigger>10</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Chemfuel</key><value>5</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FuelRefiningIntestine</defName>
+    <label>fuel-refining intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into biosolids which can be used to fertilize terrain. One day's worth of waste is sufficient to produce one unit of biosolids.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFuelRefiningIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallFuelRefiningIntestine</defName>
+    <label>install fuel-refining intestine</label>
+    <description>Install a fuel-refining intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FuelRefiningIntestine</ThingDef>
+      <HediffDef>HVB_FuelRefiningIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing fuel-refining intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FuelRefiningIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FuelRefiningIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FuelRefiningIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveFuelRefiningIntestine</defName>
+    <label>remove fuel-refining intestine</label>
+    <description>Remove fuel-refining intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FuelRefiningIntestine</ThingDef>
+      <HediffDef>HVB_FuelRefiningIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing fuel-refining intestine.</jobString>
+    <removesHediff>HVB_FuelRefiningIntestine</removesHediff>
+  </RecipeDef>
+  
+  <!--firefoam intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FirefoamIntestine</defName>
+    <label>firefoam intestine</label>
+    <labelNoun>a firefoam intestine</labelNoun>
+    <description>An installed firefoam intestine implant. Releases a firefoam burst on taking flame damage, on a 2-day cooldown.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FirefoamIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FirefoamIntestine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <label>not ready</label>
+		<painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+		  <Flammability>-0.5</Flammability>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+		<label>ready</label>
+		<painOffset>0.1</painOffset>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.1</ImmunityGainSpeed>
+		  <Flammability>-0.5</Flammability>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Firefoamer">
+		<severityPerDay>1</severityPerDay>
+		<radius>2.5</radius>
+		<minSevToTrigger>2</minSevToTrigger>
+		<respondTo><li>Flame</li></respondTo>
+		<damageType>Extinguish</damageType>
+		<postBurstSpawn>Filth_FireFoam</postBurstSpawn>
+		<detectTo>
+			<li>Fire</li>
+			<li MayRequire="vanillaquestsexpanded.cryptoforge">VQE_Cryptofreeze</li>
+		</detectTo>
+	  </li>
+    </comps>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FirefoamIntestine</defName>
+    <label>firefoam intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into an internal reservoir of biodegradable firefoam. When the host takes fire damage, this reservoir is forcibly expelled, extinguishing all nearby fires.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFirefoamIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallFirefoamIntestine</defName>
+    <label>install firefoam intestine</label>
+    <description>Install a firefoam intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamIntestine</ThingDef>
+      <HediffDef>HVB_FirefoamIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firefoam intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FirefoamIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FirefoamIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FirefoamIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveFirefoamIntestine</defName>
+    <label>remove firefoam intestine</label>
+    <description>Remove firefoam intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamIntestine</ThingDef>
+      <HediffDef>HVB_FirefoamIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing firefoam intestine.</jobString>
+    <removesHediff>HVB_FirefoamIntestine</removesHediff>
+  </RecipeDef>
+  
+</Defs>
