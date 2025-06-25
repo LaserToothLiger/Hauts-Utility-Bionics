@@ -1007,6 +1007,11 @@
 		<affectsOthersInCaravan>false</affectsOthersInCaravan>
 		<mote>Hauts_DefaultAuraGraphic</mote>
 	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ToggleBreathtaker</li>
+        </abilityDefs>
+      </li>
     </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase">
