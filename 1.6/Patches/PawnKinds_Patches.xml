@@ -146,7 +146,7 @@
 			</operations>
 		</match>
 	</Operation>
-	<Operation Class="PatchOperationFindMod"><!--for players who have Anomaly but not Royalty, there needs to be a way for retro-reflection skin to spawn. so, they spawn on Horaxian cultists. Invisible raiders are fun I swear, just play gud-->
+	<Operation Class="PatchOperationFindMod"><!--in 1.5 invisibility was restricted to Anomaly or Royalty, so retro-reflection skins were only available thru their unique factions. This is no longer necessary, but I actually find the occasional invisible cultist fun to deal with-->
 		<mods>
 			<li>Anomaly</li>
 		</mods>

@@ -685,7 +685,7 @@
   <!--uncraftable-->
   
   <!-- retro-reflection skin -->
-  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_RetroReflectionSkin</defName>
     <label>retro-reflection skin</label>
     <labelNoun>a retro-reflection skin</labelNoun>
@@ -709,7 +709,7 @@
     </comps>
     <tags><li>HVB_SecondSkin</li></tags>
   </HediffDef>
-  <ThingDef ParentName="BodyPartArchotechBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+  <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_RetroReflectionSkin</defName>
     <label>retro-reflection skin</label>
     <description>This artificial skin uses a triple-layered honeycomb of digital chromatophores to lens light away from the body and adjust color gradients, reducing visual profile.\n\nThough not fully on most of the time, it can be briefly fully engaged to temporarily render the host invisible.</description>
@@ -719,6 +719,7 @@
     </statBases>
     <thingSetMakerTags>
       <li>ImplantEmpireRoyal</li>
+      <li>HVB_MiscHighValue</li>
     </thingSetMakerTags>
     <tradeTags>
       <li>ImplantEmpireRoyal</li>
@@ -728,7 +729,7 @@
       <li>HVB_Horaxian</li>
     </techHediffsTags>
   </ThingDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>HVB_InstallRetroReflectionSkin</defName>
     <label>install retro-reflection skin</label>
     <description>Install a retro-reflection skin.</description>
@@ -760,7 +761,7 @@
       <li>HVB_SecondSkin</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
     <defName>HVB_RemoveRetroReflectionSkin</defName>
     <label>remove retro-reflection skin</label>
     <description>Remove retro-reflection skin.</description>
@@ -771,7 +772,7 @@
     <jobString>Removing retro-reflection skin.</jobString>
     <removesHediff>HVB_RetroReflectionSkin</removesHediff>
   </RecipeDef>
-	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+	  <HediffDef ParentName="HVT_TraitHediffBase">
 		<defName>HVB_RetroReflectiveCloaking</defName>
 		<label>retro-reflective cloaking</label>
 		<description>Invisibility achieved through the use of multiple layers of digital chromatophores embedded in the skin. Due to the ridiculous computational complexity required to maintain the effect, it can't be sustained indefinitely.</description>

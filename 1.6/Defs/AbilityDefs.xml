@@ -597,7 +597,7 @@
   </AbilityDef>
   
   <!--Retro-reflective skin-->
-  <AbilityDef MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+  <AbilityDef>
     <defName>HVB_RetroReflectiveCloak</defName>
     <label>bionic cloak</label>
     <description>Turns the caster invisible for half an hour.</description>
