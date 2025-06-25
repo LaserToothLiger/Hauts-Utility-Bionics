@@ -547,7 +547,7 @@
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_CardiacOverdriver</defName>
     <label>cardiac overdriver</label>
-    <description>An artificial organ hooked up to the sinoatrial node. Can be installed in either an organic or a bionic heart. It enhances myocardial strength, and it can be stimulated into overworking the heart via a biogel nerve-link, massively boosting the body's capabilities. However, overuse can tax the heart, causing pain and decreased long-term functionality.</description>
+    <description>An artificial organ hooked up to the sinoatrial node. Can be installed in either an organic or a bionic heart. It enhances myocardial strength, and it can be stimulated into overworking the heart via a biogel nerve-link, massively boosting the body's capabilities. However, overuse can tax the heart, causing pain, decreased long-term functionality, and possibly even heart attacks.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCardiacOverdriver</RecipeDef></descriptionHyperlinks>
     <costList>
       <Gold>2</Gold>

@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--You can have a Royalty armor gland AND one of these at the same time, don't worry-->
+
+  <!-- electroflash skin -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ElectroflashSkin</defName>
+    <label>electroflash skin</label>
+    <labelNoun>an electroflash skin layer</labelNoun>
+    <description>An installed electroflash skin layer. Protects against the negative effects of EMPs (though they will still break shields) and can be activated to emit an EMP.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ElectroflashSkin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ElectroflashSkin</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_EMPDischarge</li>
+    </abilities>
+    <stages>
+      <li>
+		<damageFactors>
+		  <EMP>0</EMP>
+		</damageFactors>
+	  </li>
+    </stages>
+    <modExtensions>
+      <li Class="HautsFramework.NoEMPReaction" />
+    </modExtensions>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ElectroflashSkin</defName>
+    <label>electroflash skin</label>
+    <description>This bionic skin layer contains thousands of microcapacitors. A mental command sent through the biogel nerve-link can discharge the capacitors into a single focused point, emitting an electromagnetic pulse.\n\nIt also acts as protection against electromagnetic pulses.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallElectroflashSkin</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallElectroflashSkin</defName>
+    <label>install electroflash skin</label>
+    <description>Install an electroflash skin layer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ElectroflashSkin</ThingDef>
+      <HediffDef>HVB_ElectroflashSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing electroflash skin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ElectroflashSkin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ElectroflashSkin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ElectroflashSkin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveElectroflashSkin</defName>
+    <label>remove electroflash skin</label>
+    <description>Remove electroflash skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ElectroflashSkin</ThingDef>
+      <HediffDef>HVB_ElectroflashSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing electroflash skin.</jobString>
+    <removesHediff>HVB_ElectroflashSkin</removesHediff>
+  </RecipeDef>
+
+  <!-- hostile environment skin -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_HostileEnvironmentSkin</defName>
+    <label>hostile environment skin</label>
+    <labelNoun>a hostile environment skin</labelNoun>
+    <description>An installed hostile environment skin.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HostileEnvironmentSkin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HostileEnvironmentSkin</spawnThingOnRemoved>
+    <stages>
+      <li>
+		<statOffsets>
+		  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+		  <ToxicResistance>0.25</ToxicResistance>
+		  <ComfyTemperatureMax>9</ComfyTemperatureMax>
+		  <ComfyTemperatureMin>-9</ComfyTemperatureMin>
+		  <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
+		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.25</Mashed_Ashlands_AshResistance>
+		  <Radiation MayRequire="Dubwise.Rimatomics">-0.25</Radiation>
+		</statOffsets>
+      </li>
+    </stages>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_HostileEnvironmentSkin</defName>
+    <label>hostile environment skin</label>
+    <description>This set of artificial skin layers protect the host from most environmental dangers. It retains its own memory of pathogenic agents, derived from the body's own immune record as well as information obtained by encounters with novel agents, and uses this to train macrophages as they are being produced, boosting immunity. Its membrane acts as a filter for toxic particles, safely suspending them in extracellular vesicles until they can be destroyed by the body's own immune system. It can even redistribute energy from metabolic pathways to chase away cold or limit damage from ambient heat.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHostileEnvironmentSkin</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <Silver>20</Silver>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_SurvivalAdaptations</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallHostileEnvironmentSkin</defName>
+    <label>install hostile environment skin</label>
+    <description>Install a hostile environment skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HostileEnvironmentSkin</ThingDef>
+      <HediffDef>HVB_HostileEnvironmentSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hostile environment skin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HostileEnvironmentSkin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HostileEnvironmentSkin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HostileEnvironmentSkin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveHostileEnvironmentSkin</defName>
+    <label>remove hostile environment skin</label>
+    <description>Remove hostile environment skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HostileEnvironmentSkin</ThingDef>
+      <HediffDef>HVB_HostileEnvironmentSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing hostile environment skin.</jobString>
+    <removesHediff>HVB_HostileEnvironmentSkin</removesHediff>
+  </RecipeDef>
+  
+  <!-- spikeskin -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_Spikeskin</defName>
+    <label>spikeskin</label>
+    <labelNoun>a spikeskin layer</labelNoun>
+    <description>An installed spikeskin layer. Grants additional sharp damage to any melee attack, and almost always deals retaliatory sharp damage to melee attackers.</description>
+    <descriptionHyperlinks><ThingDef>HVB_Spikeskin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_Spikeskin</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+		<statOffsets>
+		  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.025</ArmorRating_Blunt>
+		  <Hauts_MeleeArmorPenetration>0.1</Hauts_MeleeArmorPenetration>
+		  <WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
+		  <PawnBeauty>-1</PawnBeauty>
+		  <Hauts_ApparelWearRateFactor>0.1</Hauts_ApparelWearRateFactor>
+		</statOffsets>
+		<statFactors>
+		  <CarryingCapacity>0.9</CarryingCapacity>
+		</statFactors>
+	  </li>
+    </stages>
+	<comps>
+      <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
+		<extraDamages>
+          <li>
+            <def>Stab</def>
+            <amount>3</amount>
+            <chance>1</chance>
+          </li>
+		</extraDamages>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<cellRange>1.5</cellRange>
+      </li>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffBySpendingSeverity">
+        <severityToTrigger>1</severityToTrigger>
+		<hediffGiven>HVB_SpikegrowthThorns</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>false</showProgressInTooltip>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>100</severityPerDay>
+      </li>
+	</comps>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+	<HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_SpikegrowthThorns</defName>
+		<label>bionic spike thorns</label>
+		<description>Deals 2 damage to melee attackers. Caused by a spikeskin bionic. If that bionic is removed, these thorns will fall out after a short while.</description>
+		<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+		  <li><becomeVisible>false</becomeVisible></li>
+		</stages>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_DamageRetaliation">
+			<priority>90001</priority>
+			<range>1.42</range>
+			<chanceToDoDamage>0.9</chanceToDoDamage>
+			<retaliationDamageDef>Stab</retaliationDamageDef>
+			<baseRetaliationDamage>2</baseRetaliationDamage>
+			<damageScaleWithDamage>false</damageScaleWithDamage>
+			<onlyRetaliateVsInstigator>true</onlyRetaliateVsInstigator>
+			<friendlyFire>true</friendlyFire>
+		  </li>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		</comps>
+	</HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_Spikeskin</defName>
+    <label>spikeskin</label>
+    <description>This bionic skin layer has haphazardly placed nodules which extrude sharp ferro-keratinous spikes. The spikes can be used to inflict additional wounds on melee combatants, and anyone attacking the host in close range is likely to catch themselves on a spike or two. Though the spikes aren't very long, they nevertheless get in the way of some of the more dextrous and delicate movements.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeskin</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallSpikeskin</defName>
+    <label>install spikeskin</label>
+    <description>Install a spikeskin layer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Spikeskin</ThingDef>
+      <HediffDef>HVB_Spikeskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing spikeskin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_Spikeskin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_Spikeskin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Spikeskin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSpikeskin</defName>
+    <label>remove spikeskin</label>
+    <description>Remove spikeskin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Spikeskin</ThingDef>
+      <HediffDef>HVB_Spikeskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing spikeskin.</jobString>
+    <removesHediff>HVB_Spikeskin</removesHediff>
+  </RecipeDef>
+
+  <!-- mechanityrant circuitskin -->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantCircuitskin</defName>
+    <label>mechanityrant circuitskin</label>
+    <labelNoun>a mechanityrant circuitskin</labelNoun>
+    <description>An installed mechanityrant circuitskin.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantCircuitskin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantCircuitskin</spawnThingOnRemoved>
+    <stages>
+      <li>
+		<statOffsets>
+          <MechBandwidth>12</MechBandwidth>
+		</statOffsets>
+		<statFactors>
+		  <PainShockThreshold>0.75</PainShockThreshold>
+		  <IncomingDamageFactor>1.2</IncomingDamageFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantCircuitskin</defName>
+    <label>mechanityrant circuitskin</label>
+    <description>This artificial skin layer is composed of metallic circuit sheets constrained within an inert biopolymer layer, which serve to boost the bandwidth of any installed mechlink. Unfortunately, circuitskin must be installed between dermis and hypodermis, and the smooth, inert biopolymer that protects it from biochemical corrosion also weakens the connection between the two layers, making the skin more susceptible to damage.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantCircuitskin</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>450</MarketValue>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>HighMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallMechanityrantCircuitskin</defName>
+    <label>install mechanityrant circuitskin</label>
+    <description>Install a mechanityrant circuitskin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantCircuitskin</ThingDef>
+      <HediffDef>HVB_MechanityrantCircuitskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant circuitskin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantCircuitskin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantCircuitskin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantCircuitskin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveMechanityrantCircuitskin</defName>
+    <label>remove mechanityrant circuitskin</label>
+    <description>Remove mechanityrant circuitskin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantCircuitskin</ThingDef>
+      <HediffDef>HVB_MechanityrantCircuitskin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mechanityrant circuitskin.</jobString>
+    <removesHediff>HVB_MechanityrantCircuitskin</removesHediff>
+  </RecipeDef>
+	  
+  <!--cryptoflash skin-->
+  <ThingDef ParentName="UnfinishedBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+    <defName>HVB_UnfinishedCryptoBionic</defName>
+    <label>unfinished crypto bionic</label>
+    <description>An unfinished crypto bionic.</description>
+    <statBases>
+      <Flammability>0</Flammability>
+	  <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Unfinished/UnfinishedHealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(153,221,255)</color>
+    </graphicData>
+    <stuffCategories Inherit="false" />
+  </ThingDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+    <defName>HVB_CryptoflashSkin</defName>
+	<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+    <label>cryptoflash skin</label>
+    <labelNoun>a cryptoflash skin layer</labelNoun>
+    <description>An installed cryptoflash skin layer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CryptoflashSkin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CryptoflashSkin</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+		  <ComfyTemperatureMax>24</ComfyTemperatureMax>
+		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+          <ArmorRating_Heat>0.6</ArmorRating_Heat>
+        </statOffsets>
+        <totalBleedFactor>0.2</totalBleedFactor>
+		<damageFactors>
+		  <Frostbite>0.7</Frostbite>
+		  <FSFFrostbite MayRequire="FrozenSnowFox.MorePsycastPowers">0.7</FSFFrostbite>
+		  <OTCCryo MayRequire="ObsidiaExpansion.Core">0.7</OTCCryo>
+		  <Burn>0.7</Burn>
+		  <VQE_CryptoCut>0.7</VQE_CryptoCut>
+		</damageFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
+		<extraDamages>
+          <li>
+            <def>VQE_CryptoCut</def>
+            <amount>0.15</amount>
+            <chance>1</chance>
+          </li>
+		</extraDamages>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<damageScaling>true</damageScaling>
+		<appliedViaPsycasts>false</appliedViaPsycasts>
+		<entropyCostScaling>false</entropyCostScaling>
+		<cellRange>1.42</cellRange>
+		<canAffectMechs>false</canAffectMechs>
+      </li>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffBySpendingSeverity">
+        <severityToTrigger>1</severityToTrigger>
+		<hediffGiven>HVB_CryptoflashRetaliation</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>false</showProgressInTooltip>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>100</severityPerDay>
+      </li>
+    </comps>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+	<HediffDef ParentName="HVT_TraitHediffBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+		<defName>HVB_CryptoflashRetaliation</defName>
+		<label>bionic cryptoflash retaliation</label>
+		<description>Inflicts crypto slowdown on melee attackers. Caused by a cryptoflash skin bionic. If that bionic is removed, this effect will fade after a short while.</description>
+		<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+		  <li><becomeVisible>false</becomeVisible></li>
+		</stages>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_DamageRetaliation">
+			<priority>-1</priority>
+			<range>1.42</range>
+			<hitInstigatorRegardlessOfRange>false</hitInstigatorRegardlessOfRange>
+			<onlyRetaliateVsInstigator>true</onlyRetaliateVsInstigator>
+			<friendlyFire>true</friendlyFire>
+			<chanceToInflictHediff>1</chanceToInflictHediff>
+			<hediff>VQE_CryptoSlowdown</hediff>
+			<baseHediffSeverity>0.025</baseHediffSeverity>
+			<hediffScaleWithDamage>true</hediffScaleWithDamage>
+			<hediffScaleWithBodySize>true</hediffScaleWithBodySize>
+			<visualEffect>WaterMist</visualEffect>
+			<vfxCooldownTicks>60</vfxCooldownTicks>
+		  </li>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		</comps>
+	</HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+    <defName>HVB_CryptoflashSkin</defName>
+    <label>cryptoflash skin</label>
+    <description>This bionic organ grows capillary-like structures that spread throughout the dermis, each filled with cryptogenic precursor mixture. Minute amounts of this mixture are transformed into cryptosleep fluid in response to high temperatures, but the growths can also be ruptured manually, causing melee attacks to splash victims with cryptosleep fluid.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCryptoflashSkin</RecipeDef></descriptionHyperlinks>
+	<techLevel>Ultra</techLevel>
+	<recipeMaker>
+		<unfinishedThingDef>HVB_UnfinishedCryptoBionic</unfinishedThingDef>
+		<recipeUsers Inherit="False">
+			<li>VQE_AncientCryptoforge</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>7</Crafting>
+		</skillRequirements>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>22500</workAmount>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Smith</soundWorking>
+	</recipeMaker>
+	<tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>3345</MarketValue>
+	  <WorkToMake>22500</WorkToMake>
+	  <Flammability>0</Flammability>
+	  <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+	<costList>
+		<Plasteel>65</Plasteel>
+		<ComponentSpacer>5</ComponentSpacer>
+		<Gold>6</Gold>
+	</costList>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(153,221,255)</color>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+    </graphicData>
+    <thingSetMakerTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+    <defName>HVB_InstallCryptoflashSkin</defName>
+    <label>install cryptoflash skin</label>
+    <description>Install a cryptoflash skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CryptoflashSkin</ThingDef>
+      <HediffDef>HVB_CryptoflashSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cryptoflash skin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CryptoflashSkin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CryptoflashSkin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CryptoflashSkin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="vanillaquestsexpanded.cryptoforge">
+    <defName>HVB_RemoveCryptoflashSkin</defName>
+    <label>remove cryptoflash skin</label>
+    <description>Remove cryptoflash skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CryptoflashSkin</ThingDef>
+      <HediffDef>HVB_CryptoflashSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cryptoflash skin.</jobString>
+    <removesHediff>HVB_CryptoflashSkin</removesHediff>
+  </RecipeDef>
+  
+  
+  <!-- aquadynamic biojacket -->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="pathfinding.framework">
+    <defName>HVB_AquadynamicBiojacket</defName>
+    <label>aquadynamic biojacket</label>
+    <labelNoun>an aquadynamic biojacket</labelNoun>
+    <description>An installed aquadynamic biojacket. Enables amphibious movement and prevents wetness from impacting mood.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AquadynamicBiojacket</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AquadynamicBiojacket</spawnThingOnRemoved>
+    <tags><li>HVB_SecondSkin</li></tags>
+    <stages>
+      <li>
+		<statOffsets>
+		  <MoveSpeed>0.3</MoveSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+    <modExtensions>
+      <li Class="PathfindingFramework.MovementExtension">
+        <movementDef>PF_Movement_Amphibious</movementDef>
+      </li>
+    </modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="pathfinding.framework">
+    <defName>HVB_AquadynamicBiojacket</defName>
+    <label>aquadynamic biojacket</label>
+    <description>This set of artificial skin layers reactively change shape depending on the ambient medium - in a substance as viscous and adherent as water, it changes its profile to enable rapid aquadynamic movement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAquadynamicBiojacket</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="pathfinding.framework">
+    <defName>HVB_InstallAquadynamicBiojacket</defName>
+    <label>install aquadynamic biojacket</label>
+    <description>Install an aquadynamic biojacket.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AquadynamicBiojacket</ThingDef>
+      <HediffDef>HVB_AquadynamicBiojacket</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing aquadynamic biojacket.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AquadynamicBiojacket</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AquadynamicBiojacket</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AquadynamicBiojacket</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="pathfinding.framework">
+    <defName>HVB_RemoveAquadynamicBiojacket</defName>
+    <label>remove aquadynamic biojacket</label>
+    <description>Remove aquadynamic biojacket.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AquadynamicBiojacket</ThingDef>
+      <HediffDef>HVB_AquadynamicBiojacket</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing aquadynamic biojacket.</jobString>
+    <removesHediff>HVB_AquadynamicBiojacket</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+  <!--uncraftable-->
+  
+  <!-- retro-reflection skin -->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+    <defName>HVB_RetroReflectionSkin</defName>
+    <label>retro-reflection skin</label>
+    <labelNoun>a retro-reflection skin</labelNoun>
+    <description>An installed retro-reflection skin. Can be activated for short-term invisibility.</description>
+    <descriptionHyperlinks><ThingDef>HVB_RetroReflectionSkin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_RetroReflectionSkin</spawnThingOnRemoved>
+    <stages>
+      <li>
+		<statFactors>
+		  <HuntingStealth>0.25</HuntingStealth>
+		  <Hauts_PersonalCaravanVisibilityFactor>0.2</Hauts_PersonalCaravanVisibilityFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_RetroReflectiveCloak</li>
+        </abilityDefs>
+      </li>
+    </comps>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+    <defName>HVB_RetroReflectionSkin</defName>
+    <label>retro-reflection skin</label>
+    <description>This artificial skin uses a triple-layered honeycomb of digital chromatophores to lens light away from the body and adjust color gradients, reducing visual profile.\n\nThough not fully on most of the time, it can be briefly fully engaged to temporarily render the host invisible.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallRetroReflectionSkin</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1850</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>ImplantEmpireRoyal</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ImplantEmpireRoyal</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantEmpireRoyal</li>
+      <li>HVB_Horaxian</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallRetroReflectionSkin</defName>
+    <label>install retro-reflection skin</label>
+    <description>Install a retro-reflection skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RetroReflectionSkin</ThingDef>
+      <HediffDef>HVB_RetroReflectionSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing retro-reflection skin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RetroReflectionSkin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RetroReflectionSkin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RetroReflectionSkin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveRetroReflectionSkin</defName>
+    <label>remove retro-reflection skin</label>
+    <description>Remove retro-reflection skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RetroReflectionSkin</ThingDef>
+      <HediffDef>HVB_RetroReflectionSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing retro-reflection skin.</jobString>
+    <removesHediff>HVB_RetroReflectionSkin</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequireAnyOf="Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">
+		<defName>HVB_RetroReflectiveCloaking</defName>
+		<label>retro-reflective cloaking</label>
+		<description>Invisibility achieved through the use of multiple layers of digital chromatophores embedded in the skin. Due to the ridiculous computational complexity required to maintain the effect, it can't be sustained indefinitely.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+		  <li Class="HediffCompProperties_Invisibility">
+			<visibleToPlayer>true</visibleToPlayer>
+		  </li>
+		  <li Class="HediffCompProperties_Disappears">
+			<showRemainingTime>True</showRemainingTime>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+	  
+</Defs>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Pathfinding Framework</li>
+		</mods>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThoughtDef[defName="SoakingWet"]/nullifyingHediffs</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThoughtDef[defName="SoakingWet"]</xpath>
+				<value>
+					<nullifyingHediffs>
+						<li>HVB_AquadynamicBiojacket</li>
+					</nullifyingHediffs>
+				</value>
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThoughtDef[defName="SoakingWet"]/nullifyingHediffs</xpath>
+				<value>
+					<li>HVB_AquadynamicBiojacket</li>
+				</value>
+			</match>
+		</match>
+	</Operation>
+</Patch>

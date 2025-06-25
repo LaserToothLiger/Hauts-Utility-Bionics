@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--Gold-->
+  <HediffDef ParentName="HVB_Kintsugi">
+    <defName>HVB_GoldKintsugi</defName>
+    <label>gold scar kintsugi</label>
+    <description>This scar has been artfully imbued with gold-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>0.4</PawnBeauty>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar">
+    <defName>HVB_LacquerScarWithGold</defName>
+    <label>lacquer scar with gold</label>
+    <description>Imbue a scar with gold-dust lacquer, enhancing the beauty of the subject. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_GoldKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with gold.</jobString>
+    <addsHediff>HVB_GoldKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>1</count><!--since gold is "small", this translates to 10 gold in-game-->
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Jade-->
+  <HediffDef ParentName="HVB_Kintsugi">
+    <defName>HVB_JadeKintsugi</defName>
+    <label>jade scar kintsugi</label>
+    <description>This scar has been artfully imbued with jade-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>0.2</PawnBeauty>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar">
+    <defName>HVB_LacquerScarWithJade</defName>
+    <label>lacquer scar with jade</label>
+    <description>Imbue a scar with jade-dust lacquer, enhancing the beauty of the subject. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_JadeKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with jade.</jobString>
+    <addsHediff>HVB_JadeKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Jade</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Plasteel-->
+  <HediffDef ParentName="HVB_Kintsugi">
+    <defName>HVB_PlasteelKintsugi</defName>
+    <label>plasteel scar kintsugi</label>
+    <description>This scar has been imbued with a tough plasteel-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar">
+    <defName>HVB_LacquerScarWithPlasteel</defName>
+    <label>lacquer scar with plasteel</label>
+    <description>Imbue a scar with surprisingly tough plasteel-dust lacquer. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_PlasteelKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with plasteel.</jobString>
+    <addsHediff>HVB_PlasteelKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Silver-->
+  <HediffDef ParentName="HVB_Kintsugi">
+    <defName>HVB_SilverKintsugi</defName>
+    <label>silver scar kintsugi</label>
+    <description>This scar has been artfully imbued with silver-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>0.1</PawnBeauty>
+          <ImmunityGainSpeed>0.04</ImmunityGainSpeed>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar">
+    <defName>HVB_LacquerScarWithSilver</defName>
+    <label>lacquer scar with silver</label>
+    <description>Imbue a scar with silver-dust lacquer, enhancing the beauty and immunity gain of the subject. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_SilverKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with silver.</jobString>
+    <addsHediff>HVB_SilverKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Uranium-->
+  <HediffDef ParentName="HVB_Kintsugi">
+    <defName>HVB_UraniumKintsugi</defName>
+    <label>uranium scar kintsugi</label>
+    <description>This scar has been imbued with a tough uranium-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar">
+    <defName>HVB_LacquerScarWithUranium</defName>
+    <label>lacquer scar with uranium</label>
+    <description>Imbue a scar with surprisingly tough uranium-dust lacquer. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_UraniumKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with uranium.</jobString>
+    <addsHediff>HVB_UraniumKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Bioferrite-->
+  <HediffDef ParentName="HVB_Kintsugi" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_BioferriteKintsugi</defName>
+    <label>bioferrite scar kintsugi</label>
+    <description>This scar has been imbued with a tough but flammable bioferrite lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.01</ArmorRating_Blunt>
+		  <Flammability>0.01</Flammability>
+		  <InjuryHealingFactor>0.05</InjuryHealingFactor>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_LacquerScarWithBioferrite</defName>
+    <label>lacquer scar with bioferrite</label>
+    <description>Imbue a scar with tough but flammable bioferrite-dust lacquer, which has minor regenerative properties. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_BioferriteKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with bioferrite.</jobString>
+    <addsHediff>HVB_BioferriteKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Bioferrite</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Eltex-->
+  <HediffDef ParentName="HVB_Kintsugi" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_EltexKintsugi</defName>
+    <label>eltex scar kintsugi</label>
+    <description>This scar has been imbued with a psychically-active eltex-dust lacquer.</description>
+    <stages>
+      <li>
+        <statOffsets>
+          <PsychicEntropyRecoveryRate>0.04</PsychicEntropyRecoveryRate>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_LacquerScarWithEltex</defName>
+    <label>lacquer scar with eltex</label>
+    <description>Imbue a scar with eltex-dust lacquer, which assists in neural heat dissipation. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_EltexKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with eltex.</jobString>
+    <addsHediff>HVB_EltexKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+  <!--Kaleidos-->
+  <HediffDef ParentName="HVB_Kintsugi" MayRequire="quad.forsakens">
+    <defName>HVB_KaleidosKintsugi</defName>
+    <label>kaleidos scar kintsugi</label>
+    <description>This scar has been imbued with a lacquer refined from a large quantity of kaleidos crystal.</description>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.01</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.03</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.03</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.06</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.03</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.09</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.09</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.04</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.12</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.12</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_InlayScar" MayRequire="quad.forsakens">
+    <defName>HVB_LacquerScarWithKaleidos</defName>
+    <label>lacquer scar with kaleidos</label>
+    <description>Imbue a scar with a lacquer refined from kaleidos crystals, which inflict an effect similar to a constant, low-grade dose of vitamin f. The larger the scar, the better the effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_KaleidosKintsugi</HediffDef></descriptionHyperlinks>
+    <jobString>Lacquering scar with kaleidos crystal.</jobString>
+    <addsHediff>HVB_KaleidosKintsugi</addsHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>FO_KaleidosCrystal</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+  
+</Defs>

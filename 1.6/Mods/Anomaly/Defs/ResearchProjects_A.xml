@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>HVB_VoidshardBionics</defName>
+    <label>voidshard bionics</label>
+    <description>Modify archotech bionics by implanting shards into them, causing their potency to improve based on the current anomalous activity level. There may be unforseen, long-lasting consequences to this process.</description>
+    <tab>Anomaly</tab>
+    <prerequisites>
+      <li>EntityContainment</li>
+      <li>BioferriteShaping</li>
+    </prerequisites>
+    <knowledgeCost>35</knowledgeCost>
+    <knowledgeCategory>Basic</knowledgeCategory>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>7.00</researchViewY>
+    <discoveredLetterTitle>About: voidshard homonculi</discoveredLetterTitle>
+    <discoveredLetterText>Now that your colonists understand how to create their own voidshard bionics, they are now capable of taking apart voidshard homonculi. This surgical operation will irreversibly destroy the homunculus, but will extract some of its bionics in their original archotech forms. It will likely be dangerous.</discoveredLetterText>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->voidshard bionics</li>
+
+        <li>subject_story->experimented with the corruption of archotech artifacts by exposing them to void-sourced infrastructure</li>
+        <li>subject_story->performed autopsies on recovered bodies from the Cults of Horax, taking special note of their odd bionics</li>
+        <li>subject_story->felt an indescribable compulsion to shove dark archotech into their own implants</li>
+        <li>subject_story->attempted to curry favor with an enigmatic being by forcibly upgrading transhumans with its technology</li>
+
+        <li>subject_gerund->improving archotech bionics with dark archotechnology</li>
+
+        <li>subject_gerund->corrupting archotech bionics</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+</Defs>

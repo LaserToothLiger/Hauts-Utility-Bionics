@@ -8,6 +8,9 @@
     <descriptionHyperlinks><ThingDef>HVB_BansheeCords</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_BansheeCords</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <addedPartProps>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
     <abilities>
       <li>HVB_BionicBansheeWail</li>
     </abilities>
@@ -85,7 +88,9 @@
     <description>An installed techno-larynx.</description>
     <descriptionHyperlinks><ThingDef>HVB_TechnoLarynx</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_TechnoLarynx</spawnThingOnRemoved>
-	<tags><li>HVB_Neck</li></tags>
+    <addedPartProps>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
     <stages>
       <li>
         <capMods>
@@ -167,6 +172,9 @@
     <descriptionHyperlinks><ThingDef>HVB_ExotrachealSprayXylem</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ExotrachealSprayXylem</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <addedPartProps>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
     <stages>
       <li>
         <statOffsets>
@@ -251,6 +259,9 @@
     <descriptionHyperlinks><ThingDef>HVB_DryadPheromoneGland</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_DryadPheromoneGland</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <addedPartProps>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
     <stages>
       <li>
         <statOffsets>
@@ -334,6 +345,9 @@
     <descriptionHyperlinks><ThingDef>HVB_BionicNeckGills</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_BionicNeckGills</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <addedPartProps>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
     <minSeverity>0.001</minSeverity>
     <initialSeverity>0.001</initialSeverity>
     <maxSeverity>1.0</maxSeverity>

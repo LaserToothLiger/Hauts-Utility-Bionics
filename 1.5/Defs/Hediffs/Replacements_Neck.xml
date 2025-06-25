@@ -304,6 +304,7 @@
     <labelNoun>a tone modulator</labelNoun>
     <description>An installed tone modulator. Affects Command abilities, as well as abilities dependent on social interaction.</description>
     <descriptionHyperlinks><ThingDef>HVB_ToneModulator</ThingDef></descriptionHyperlinks>
+	<tags><li>HVB_Neck</li></tags>
     <spawnThingOnRemoved>HVB_ToneModulator</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
     <stages>

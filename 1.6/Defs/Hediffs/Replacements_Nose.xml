@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--aromatic facade-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AromaticFacade</defName>
+    <label>aromatic facade</label>
+    <labelNoun>an aromatic facade</labelNoun>
+    <description>An installed aromatic facade. No matter the circumstance, it falsely perceives pleasant smells, enhancing mood.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AromaticFacade</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AromaticFacade</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <ToxicEnvironmentResistance>0.4</ToxicEnvironmentResistance>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
+		  <AnimalGatherYield>-0.04</AnimalGatherYield>
+		  <PlantHarvestYield>-0.04</PlantHarvestYield>
+		  <DrugSynthesisSpeed>-0.15</DrugSynthesisSpeed>
+		  <FoodPoisonChance>0.1</FoodPoisonChance>
+		  <MedicalTendQuality>-0.1</MedicalTendQuality>
+		  <TrainAnimalChance>-0.1</TrainAnimalChance>
+		  <TameAnimalChance>-0.06</TameAnimalChance>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_AromaticFacade</defName>
+    <label>aromatic facade</label>
+    <description>This artificial nose reactively exudes barriers of a synthetic mucus to harmlessly absorb toxic particles from the environment, conferring a measure of protection from ambient toxicity. The nose is hardcoded to always register the mucus' scent as pleasant, resulting in elevated mood.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAromaticFacade</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_BionicSensors</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallAromaticFacade</defName>
+    <label>install aromatic facade</label>
+    <description>Install an aromatic facade.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AromaticFacade</ThingDef>
+      <HediffDef>HVB_AromaticFacade</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing aromatic facade.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AromaticFacade</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AromaticFacade</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AromaticFacade</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveAromaticFacade</defName>
+    <label>remove aromatic facade</label>
+    <description>Remove aromatic facade.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AromaticFacade</ThingDef>
+      <HediffDef>HVB_AromaticFacade</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing aromatic facade.</jobString>
+    <removesHediff>HVB_AromaticFacade</removesHediff>
+  </RecipeDef>
+  
+  <!--inhaling nose-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_InhalingNose</defName>
+    <label>inhaling nose</label>
+    <labelNoun>an inhaling nose</labelNoun>
+    <description>An installed inhaling nose. Its increased airflow comes with an increased susceptibility to unpleasant smells while in dirty environments.</description>
+    <descriptionHyperlinks><ThingDef>HVB_InhalingNose</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_InhalingNose</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.10</P42_AllergicSensitivity>
+		</statOffsets>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_InhalingNose</defName>
+    <label>inhaling nose</label>
+    <description>This artificial nose uses dynamic pressure control in each nostril to enhance vital capacity. Unfortunately, this increased air intake also greatly enhances sensitivity to olfactory irritants; this gets worse in dirtier rooms or more disease-prone environments.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallInhalingNose</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallInhalingNose</defName>
+    <label>install inhaling nose</label>
+    <description>Install an inhaling nose.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InhalingNose</ThingDef>
+      <HediffDef>HVB_InhalingNose</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing inhaling nose.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_InhalingNose</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_InhalingNose</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_InhalingNose</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveInhalingNose</defName>
+    <label>remove inhaling nose</label>
+    <description>Remove inhaling nose.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InhalingNose</ThingDef>
+      <HediffDef>HVB_InhalingNose</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing inhaling nose.</jobString>
+    <removesHediff>HVB_InhalingNose</removesHediff>
+  </RecipeDef>
+  
+  <!--medi-analyzer-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_MediAnalyzer</defName>
+    <label>medi-analyzer</label>
+    <labelNoun>a medi-analyzer</labelNoun>
+    <description>An installed medi-analyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MediAnalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MediAnalyzer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <MedicalTendQuality>0.35</MedicalTendQuality>
+		  <MedicalTendSpeed>0.3</MedicalTendSpeed>
+		  <MedicalSurgerySuccessChance>0.07</MedicalSurgerySuccessChance>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_MediAnalyzer</defName>
+    <label>medi-analyzer</label>
+    <description>This artificial nose enhances the sense of smell, with a focus towards health-related scents. A multi-layered ultrafine absorption mesh detects compounds in the air. A microprocessor formats the readings into an olfactory nerve signal to send to the brain through a nerve-link interface. Altogether, this enables the user to determine the nature and extent of injuries, sicknesses, and other health conditions from practically just a sniff.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMediAnalyzer</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>10</Plasteel>
+      <Neutroamine>3</Neutroamine>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>640</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallMediAnalyzer</defName>
+    <label>install medi-analyzer</label>
+    <description>Install a medi-analyzer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MediAnalyzer</ThingDef>
+      <HediffDef>HVB_MediAnalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing medi-analyzer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MediAnalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MediAnalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MediAnalyzer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMediAnalyzer</defName>
+    <label>remove medi-analyzer</label>
+    <description>Remove medi-analyzer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MediAnalyzer</ThingDef>
+      <HediffDef>HVB_MediAnalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing medi-analyzer.</jobString>
+    <removesHediff>HVB_MediAnalyzer</removesHediff>
+  </RecipeDef>
+  
+  <!--spoor translator-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_SpoorTranslator</defName>
+    <label>spoor translator</label>
+    <labelNoun>a spoor translator</labelNoun>
+    <description>An installed spoor translator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SpoorTranslator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SpoorTranslator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <BondAnimalChanceFactor>0.15</BondAnimalChanceFactor>
+		  <TameAnimalChance>0.15</TameAnimalChance>
+		  <TrainAnimalChance>0.2</TrainAnimalChance>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_SpoorTranslator</defName>
+    <label>spoor translator</label>
+    <description>This artificial nose enhances the sense of smell, with a focus on animal-generated odors. A multi-layered ultrafine absorption mesh detects compounds in the air. A microprocessor formats the readings into an olfactory nerve signal to send to the brain through a nerve-link interface. The result is that the user can better understand animals’ moods and activities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSpoorTranslator</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>10</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallSpoorTranslator</defName>
+    <label>install spoor translator</label>
+    <description>Install a spoor translator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SpoorTranslator</ThingDef>
+      <HediffDef>HVB_SpoorTranslator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing spoor translator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SpoorTranslator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SpoorTranslator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SpoorTranslator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSpoorTranslator</defName>
+    <label>remove spoor translator</label>
+    <description>Remove spoor translator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SpoorTranslator</ThingDef>
+      <HediffDef>HVB_SpoorTranslator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing spoor translator.</jobString>
+    <removesHediff>HVB_SpoorTranslator</removesHediff>
+  </RecipeDef>
+  
+  <!--nasal spray projector-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_NasalSprayProjector</defName>
+    <label>nasal spray projector</label>
+    <labelNoun>a nasal spray projector</labelNoun>
+    <description>An installed nasal spray projector. Improves the range and cooldown of spray and spew abilities.</description>
+    <descriptionHyperlinks><ThingDef>HVB_NasalSprayProjector</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_NasalSprayProjector</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<stages>
+	  <li>
+        <statOffsets>
+          <Hauts_SpewRangeFactor>0.45</Hauts_SpewRangeFactor>
+        </statOffsets>
+	  </li>
+	</stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.45</increasedCooldownRecovery>
+		<affectedDMEs>
+		  <li Class="HautsFramework.Hauts_SpewAbility" />
+		</affectedDMEs>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_NasalSprayProjector</defName>
+    <label>nasal spray projector</label>
+    <description>This artificial nose improves the frequency at which spray or spew abilities can be employed. To do so, it increases the pressure during expectoration, reduces the muscular strain involved, and helps generate the chemicals necessary to use such abilities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallNasalSprayProjector</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_SprayAbility</li></techHediffsTags>
+    <statBases>
+      <MarketValue>390</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallNasalSprayProjector</defName>
+    <label>install nasal spray projector</label>
+    <description>Install a nasal spray projector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NasalSprayProjector</ThingDef>
+      <HediffDef>HVB_NasalSprayProjector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing nasal spray projector.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_NasalSprayProjector</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_NasalSprayProjector</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_NasalSprayProjector</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveNasalSprayProjector</defName>
+    <label>remove nasal spray projector</label>
+    <description>Remove nasal spray projector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NasalSprayProjector</ThingDef>
+      <HediffDef>HVB_NasalSprayProjector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing nasal spray projector.</jobString>
+    <removesHediff>HVB_NasalSprayProjector</removesHediff>
+  </RecipeDef>
+  
+  <!--sinus hemogen reservoir-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_SinusHemogenReservoir</defName>
+    <label>sinus hemogen reservoir</label>
+    <labelNoun>a sinus hemogen reservoir</labelNoun>
+    <description>An installed sinus hemogen reservoir.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SinusHemogenReservoir</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SinusHemogenReservoir</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<stages>
+	  <li>
+		<statOffsets>
+		  <PawnBeauty>-0.5</PawnBeauty>
+		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">0.3</EBSG_HemogenMaxOffset>
+		</statOffsets>
+	  </li>
+	</stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<maxResourceOffsets>
+			<li>
+				<key>hemogen</key>
+				<value>0.3</value>
+			</li>
+		</maxResourceOffsets>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_SinusHemogenReservoir</defName>
+    <label>sinus hemogen reservoir</label>
+    <description>This artificial nose contains reservoirs that can safely store additional hemogen. Even while empty, these reservoirs bulge to either side of the nostrils, rendering the face grotesque.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSinusHemogenReservoir</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>390</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallSinusHemogenReservoir</defName>
+    <label>install sinus hemogen reservoir</label>
+    <description>Install a sinus hemogen reservoir.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SinusHemogenReservoir</ThingDef>
+      <HediffDef>HVB_SinusHemogenReservoir</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing sinus hemogen reservoir.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SinusHemogenReservoir</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SinusHemogenReservoir</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SinusHemogenReservoir</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveSinusHemogenReservoir</defName>
+    <label>remove sinus hemogen reservoir</label>
+    <description>Remove sinus hemogen reservoir.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SinusHemogenReservoir</ThingDef>
+      <HediffDef>HVB_SinusHemogenReservoir</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing sinus hemogen reservoir.</jobString>
+    <removesHediff>HVB_SinusHemogenReservoir</removesHediff>
+  </RecipeDef>
+  
+  <!--bioferrite analyzer-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_BioferriteAnalyzer</defName>
+    <label>bioferrite analyzer</label>
+    <labelNoun>a bioferrite analyzer</labelNoun>
+    <description>An installed bioferrite analyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BioferriteAnalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BioferriteAnalyzer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<stages>
+	  <li>
+		<statOffsets>
+		  <EntityStudyRate>0.1</EntityStudyRate>
+		  <StudyEfficiency>0.1</StudyEfficiency>
+		  <ActivitySuppressionRate>0.06</ActivitySuppressionRate>
+		  <Hauts_EntityDamageFactor>0.15</Hauts_EntityDamageFactor>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_BioferriteAnalyzer</defName>
+    <label>bioferrite analyzer</label>
+    <description>This artificial nose is especially well-suited to sensing bioferrite polymers and deriving meaning from their conformations. It enables one to better understand the behaviors and conditions of unnatural entities, though it is not precise enough to detect larval metalhorrors.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBioferriteAnalyzer</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+	  <Bioferrite>25</Bioferrite>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_BionicSensors</li>
+	    <li>BioferriteShaping</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>640</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_InstallBioferriteAnalyzer</defName>
+    <label>install bioferrite analyzer</label>
+    <description>Install a bioferrite analyzer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BioferriteAnalyzer</ThingDef>
+      <HediffDef>HVB_BioferriteAnalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bioferrite analyzer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BioferriteAnalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BioferriteAnalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BioferriteAnalyzer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVB_RemoveBioferriteAnalyzer</defName>
+    <label>remove bioferrite analyzer</label>
+    <description>Remove bioferrite analyzer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BioferriteAnalyzer</ThingDef>
+      <HediffDef>HVB_BioferriteAnalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bioferrite analyzer.</jobString>
+    <removesHediff>HVB_BioferriteAnalyzer</removesHediff>
+  </RecipeDef>
+  
+</Defs>

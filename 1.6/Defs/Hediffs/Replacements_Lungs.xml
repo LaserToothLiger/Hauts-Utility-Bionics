@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--programmable lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ProgrammableLung</defName>
+    <label>programmable lung</label>
+    <labelNoun>a programmable lung</labelNoun>
+    <description>An installed programmable lung. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.03</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.06</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.09</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.15</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.18</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.21</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.27</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.33</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>0.39</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>0.42</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>0.45</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>0.51</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>0.54</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>0.57</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ProgrammableLung</defName>
+    <label>programmable lung</label>
+    <description>A bionic lung with various filters, programmable breathing routines, specifiable positive and negative pressure boundaries, and shapeable bronchioles. Hosts with no particular intellectual acumen will not find this much better than a natural lung; however, notably intellectually skilled hosts can program it to surpass the efficacy of regular bionic lungs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProgrammableLung</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>1</Gold>
+      <Plasteel>5</Plasteel>
+      <Uranium>5</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_ProgrammableBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallProgrammableLung</defName>
+    <label>install programmable lung</label>
+    <description>Install a programmable lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLung</ThingDef>
+      <HediffDef>HVB_ProgrammableLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing programmable lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProgrammableLung</addsHediff>
+  </RecipeDef>
+  
+  
+						<!--uncraftable-->
+  <!--archotech apeliotan lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechApeliotanLung</defName>
+    <label>archotech apeliotan lung</label>
+    <labelNoun>an archotech apeliotan lung</labelNoun>
+    <description>An installed archotech apeliotan lung. Improves the breathing of anyone nearby, except for mechanoids.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechApeliotanLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechApeliotanLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AuraHediff">
+		<range>2.9</range>
+		<hediffs>
+		  <li>HVB_HighOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>true</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<affectsMechs>false</affectsMechs>
+		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid><!--so tiny this is almost always more efficient-->
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechApeliotanLung</defName>
+    <label>archotech apeliotan lung</label>
+    <description>An artificial lung built by an archotech. Every exhalation is accompanied by a flux in the atomic composition of the surrounding air, enhancing its quality and making it particularly breathable without altering its flammability.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechApeliotanLung</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3700</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechApeliotanLung</defName>
+    <label>install archotech apeliotan lung</label>
+    <description>Install an archotech apeliotan lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechApeliotanLung</ThingDef>
+      <HediffDef>HVB_ArchotechApeliotanLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech apeliotan lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechApeliotanLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechApeliotanLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechApeliotanLung</addsHediff>
+  </RecipeDef>
+	  <HediffDef>
+		<defName>HVB_HighOxygen</defName>
+		<label>apeliotan air</label>
+		<description>A nearby archotech apeliotan lung is enhancing the ambient breathable air.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.8, 1.0, 0.98)</defaultLabelColor>
+		<initialSeverity>0.1001</initialSeverity>
+		<maxSeverity>1.001</maxSeverity>
+		<stages>
+		  <li>
+			<minSeverity>0.001</minSeverity>
+			<capMods><li><capacity>Breathing</capacity><postFactor>1.1</postFactor></li></capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.15</minSeverity>
+			<capMods><li><capacity>Breathing</capacity><postFactor>1.2</postFactor></li></capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.3</minSeverity>
+			<capMods><li><capacity>Breathing</capacity><postFactor>1.3</postFactor></li></capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.45</minSeverity>
+			<capMods><li><capacity>Breathing</capacity><postFactor>1.4</postFactor></li></capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.6</minSeverity>
+			<capMods><li><capacity>Breathing</capacity><postFactor>1.5</postFactor></li><li><capacity>Consciousness</capacity><offset>0.1</offset></li></capMods>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-24</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+	  
+  <!--archotech breathtaker-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechBreathTaker</defName>
+    <label>archotech breathtaker</label>
+    <labelNoun>an archotech breathtaker</labelNoun>
+    <description>An installed archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (except for mechanoids).</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechBreathTaker</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+          <Flammability>0</Flammability>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_BreathtakerAura">
+		<range>2.9</range>
+		<hediffs>
+		  <li>HVB_LowOxygen</li>
+		</hediffs>
+		<color>0.8,1.0,0.98,1</color>
+		<affectsAllies>true</affectsAllies>
+		<affectsSelf>false</affectsSelf>
+		<affectsHostiles>true</affectsHostiles>
+		<affectsMechs>false</affectsMechs>
+		<affectsOthersInCaravan>false</affectsOthersInCaravan>
+		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ToggleBreathtaker</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechBreathTaker</defName>
+    <label>archotech breathtaker</label>
+    <description>An artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This makes it difficult for anyone nearby to breathe, and has the nice side effect of lowering their flammability.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechBreathTaker</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+	  <MarketValue>3700</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechBreathTaker</defName>
+    <label>install archotech breathtaker</label>
+    <description>Install an archotech breathtaker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechBreathTaker</ThingDef>
+      <HediffDef>HVB_ArchotechBreathTaker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech breathtaker.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechBreathTaker</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechBreathTaker</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechBreathTaker</addsHediff>
+  </RecipeDef>
+	  <HediffDef>
+		<defName>HVB_LowOxygen</defName>
+		<label>struggling to breathe</label>
+		<description>A nearby archotech breathtaker is lowering the ambient breathable air. At least this effect also makes it harder to catch fire!</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.9, 0.3, 0.3)</defaultLabelColor>
+		<initialSeverity>0.1001</initialSeverity>
+		<maxSeverity>2.501</maxSeverity>
+		<stages>
+		  <li>
+			<minSeverity>0.001</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0.875</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.1</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.8</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0.75</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.2</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.7</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0.5</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.3</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.6</postFactor>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.4</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.5</postFactor>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.5</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.4</postFactor>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.6</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.3</postFactor>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.8</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.7</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.2</postFactor>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.8</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.8</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.2</postFactor>
+				<setMax>0.2</setMax>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.8</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>0.9</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.2</postFactor>
+				<setMax>0.1</setMax>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.7</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>1.0</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.1</postFactor>
+				<setMax>0.05</setMax>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.7</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>1.3</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.04</postFactor>
+				<setMax>0.02</setMax>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.7</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		  <li>
+			<minSeverity>1.7</minSeverity>
+			<capMods>
+			  <li>
+				<capacity>Breathing</capacity>
+				<postFactor>0.01</postFactor>
+				<setMax>0.01</setMax>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.6</postFactor>
+			  </li>
+			</capMods>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-24</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+	  
+  <!--archotech programmable lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechProgrammableLung</defName>
+    <label>archotech programmable lung</label>
+    <labelNoun>an archotech programmable lung</labelNoun>
+    <description>An installed archotech programmable lung. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgrammableLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgrammableLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.08</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.16</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.32</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.56</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.64</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.72</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.88</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.96</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>1.04</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>1.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>1.28</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>1.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>1.44</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>1.52</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>1.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechProgrammableLung</defName>
+    <label>archotech programmable lung</label>
+    <description>An artificial lung built by an archotech. It appears to be an ordinary lung, but is entirely composed out of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the lung as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of “regular” archotech lungs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechProgrammableLung</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>2800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechProgrammableLung</defName>
+    <label>install archotech programmable lung</label>
+    <description>Install an archotech programmable lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLung</ThingDef>
+      <HediffDef>HVB_ArchotechProgrammableLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech programmable lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechProgrammableLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechProgrammableLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechProgrammableLung</addsHediff>
+  </RecipeDef>
+  
+</Defs>

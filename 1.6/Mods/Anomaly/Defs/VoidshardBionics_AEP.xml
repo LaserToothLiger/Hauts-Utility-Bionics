@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--brain melder-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_VoidshardMelder</defName>
+    <label>voidshard melder</label>
+    <labelNoun>a voidshard melder</labelNoun>
+    <description>An installed dark archotech brain melder implant. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechBrainMelder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechBrainMelder</spawnThingOnRemoved>
+    <allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+		<painFactor>0.2</painFactor>
+		<partEfficiencyOffset>3</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>10</MeleeDodgeChance><GlobalLearningFactor>10</GlobalLearningFactor><ResearchSpeed>1</ResearchSpeed></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<painFactor>0.16</painFactor>
+		<partEfficiencyOffset>3.2</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>11</MeleeDodgeChance><GlobalLearningFactor>11</GlobalLearningFactor><ResearchSpeed>1.25</ResearchSpeed></statOffsets>
+		<regeneration>1</regeneration>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<painFactor>0.12</painFactor>
+		<partEfficiencyOffset>3.4</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>12</MeleeDodgeChance><GlobalLearningFactor>12</GlobalLearningFactor><ResearchSpeed>1.5</ResearchSpeed></statOffsets>
+		<regeneration>2</regeneration>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<painFactor>0.08</painFactor>
+		<partEfficiencyOffset>3.6</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>13</MeleeDodgeChance><GlobalLearningFactor>13</GlobalLearningFactor><ResearchSpeed>1.75</ResearchSpeed></statOffsets>
+		<regeneration>3</regeneration>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<painFactor>0.04</painFactor>
+		<partEfficiencyOffset>3.8</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>14</MeleeDodgeChance><GlobalLearningFactor>14</GlobalLearningFactor><ResearchSpeed>2</ResearchSpeed></statOffsets>
+		<regeneration>4</regeneration>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard melder has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_InstallVoidshardMelder</defName>
+    <label>upgrade archotech brain melder with shards</label>
+    <description>Alter an archotech brain melder by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechBrainMelder</ThingDef>
+      <HediffDef>HVB_VoidshardMelder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech brain melder with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardMelder</addsHediff>
+	<removesHediff>ArchotechBrainMelder</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_RemoveVoidshardMelder</defName>
+    <label>remove voidshard melder</label>
+    <description>Remove voidshard melder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechBrainMelder</ThingDef>
+      <HediffDef>HVB_VoidshardMelder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard melder.</jobString>
+    <removesHediff>HVB_VoidshardMelder</removesHediff>
+  </RecipeDef>
+  
+  <!--membrane-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_VoidshardMembrane</defName>
+    <label>voidshard membrane</label>
+    <labelNoun>a voidshard membrane</labelNoun>
+    <description>An installed dark archotech membrane. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechMembrane</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechMembrane</spawnThingOnRemoved>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+		<partEfficiencyOffset>2</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>10</MeleeDodgeChance><ArmorRating_Sharp>10</ArmorRating_Sharp><ArmorRating_Blunt>10</ArmorRating_Blunt><ArmorRating_Heat>10</ArmorRating_Heat><GeneralLaborSpeed>10</GeneralLaborSpeed></statOffsets>
+		<disablesNeeds><li>Comfort</li></disablesNeeds>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>2.2</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>11</MeleeDodgeChance><ArmorRating_Sharp>10</ArmorRating_Sharp><ArmorRating_Blunt>10</ArmorRating_Blunt><ArmorRating_Heat>10</ArmorRating_Heat><GeneralLaborSpeed>11</GeneralLaborSpeed></statOffsets>
+		<disablesNeeds><li>Comfort</li></disablesNeeds>
+		<statFactors><IncomingDamageFactor>0.9</IncomingDamageFactor></statFactors>
+		<regeneration>1</regeneration>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>2.4</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>12</MeleeDodgeChance><ArmorRating_Sharp>10</ArmorRating_Sharp><ArmorRating_Blunt>10</ArmorRating_Blunt><ArmorRating_Heat>10</ArmorRating_Heat><GeneralLaborSpeed>12</GeneralLaborSpeed></statOffsets>
+		<disablesNeeds><li>Comfort</li></disablesNeeds>
+		<statFactors><IncomingDamageFactor>0.8</IncomingDamageFactor></statFactors>
+		<regeneration>2</regeneration>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>2.6</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>13</MeleeDodgeChance><ArmorRating_Sharp>10</ArmorRating_Sharp><ArmorRating_Blunt>10</ArmorRating_Blunt><ArmorRating_Heat>10</ArmorRating_Heat><GeneralLaborSpeed>13</GeneralLaborSpeed></statOffsets>
+		<disablesNeeds><li>Comfort</li></disablesNeeds>
+		<statFactors><IncomingDamageFactor>0.7</IncomingDamageFactor></statFactors>
+		<regeneration>3</regeneration>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>2.8</partEfficiencyOffset>
+		<statOffsets><MeleeDodgeChance>14</MeleeDodgeChance><ArmorRating_Sharp>10</ArmorRating_Sharp><ArmorRating_Blunt>10</ArmorRating_Blunt><ArmorRating_Heat>10</ArmorRating_Heat><GeneralLaborSpeed>14</GeneralLaborSpeed></statOffsets>
+		<disablesNeeds><li>Comfort</li></disablesNeeds>
+		<statFactors><IncomingDamageFactor>0.6</IncomingDamageFactor></statFactors>
+		<regeneration>4</regeneration>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard membrane has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_InstallVoidshardMembrane</defName>
+    <label>upgrade archotech membrane with shards</label>
+    <description>Alter an archotech membrane by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechMembrane</ThingDef>
+      <HediffDef>HVB_VoidshardMembrane</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech membrane with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardMembrane</addsHediff>
+	<removesHediff>ArchotechMembrane</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_RemoveVoidshardMembrane</defName>
+    <label>remove voidshard membrane</label>
+    <description>Remove voidshard membrane.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechMembrane</ThingDef>
+      <HediffDef>HVB_VoidshardMembrane</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard membrane.</jobString>
+    <removesHediff>HVB_VoidshardMembrane</removesHediff>
+  </RecipeDef>
+  
+  <!--death claw-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_VoidshardDeathClaw</defName>
+    <label>voidshard death claw</label>
+    <labelNoun>a voidshard death claw</labelNoun>
+	<description>An installed dark archotech death claw. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechDeathClaw</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechDeathClaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <isGoodWeapon>true</isGoodWeapon>
+      <solid>true</solid>
+      <partEfficiency>1.7</partEfficiency>
+    </addedPartProps>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.1</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.1</Hauts_MeleeArmorPenetration></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.2</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.2</Hauts_MeleeArmorPenetration></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.3</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.3</Hauts_MeleeArmorPenetration></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.4</MeleeDamageFactor><Hauts_MeleeArmorPenetration>0.4</Hauts_MeleeArmorPenetration></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard death claw has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>Scratch</li>
+            </capacities>
+            <power>30.0</power>
+            <cooldownTime>0.5</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_InstallVoidshardDeathClaw</defName>
+    <label>upgrade archotech death claw with shards</label>
+    <description>Alter an archotech death claw by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechDeathClaw</ThingDef>
+      <HediffDef>HVB_VoidshardDeathClaw</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech death claw with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardDeathClaw</addsHediff>
+	<removesHediff>ArchotechDeathClaw</removesHediff>
+  </RecipeDef>
+  
+  <!--obliterator-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_VoidshardObliterator</defName>
+    <label>voidshard obliterator</label>
+    <labelNoun>a voidshard obliterator</labelNoun>
+    <description>An installed dark archotech obliterator. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechObliterator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechObliterator</spawnThingOnRemoved>
+    <addedPartProps>
+      <isGoodWeapon>true</isGoodWeapon>
+      <solid>true</solid>
+      <partEfficiency>1.7</partEfficiency>
+    </addedPartProps>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.1</MeleeDamageFactor><MeleeHitChance>1</MeleeHitChance></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.2</MeleeDamageFactor><MeleeHitChance>2</MeleeHitChance></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.3</MeleeDamageFactor><MeleeHitChance>3</MeleeHitChance></statOffsets>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <statOffsets><MeleeDamageFactor>0.4</MeleeDamageFactor><MeleeHitChance>4</MeleeHitChance></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard obliterator has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>8.2</power>
+            <cooldownTime>0.01</cooldownTime>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_InstallVoidshardObliterator</defName>
+    <label>upgrade archotech obliterator with shards</label>
+    <description>Alter an archotech obliterator by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechObliterator</ThingDef>
+      <HediffDef>HVB_VoidshardObliterator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech obliterator with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardObliterator</addsHediff>
+	<removesHediff>ArchotechObliterator</removesHediff>
+  </RecipeDef>
+  
+  <!--pelvis-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_VoidshardPelvis</defName>
+    <label>voidshard pelvis</label>
+    <labelNoun>a voidshard pelvis</labelNoun>
+    <description>An installed dark archotech pelvis. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechPelvis</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechPelvis</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.7</partEfficiency>
+    </addedPartProps>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard pelvis has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_InstallVoidshardPelvis</defName>
+    <label>upgrade archotech pelvis with shards</label>
+    <description>Alter an archotech pelvis by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ArchotechPelvis</ThingDef>
+      <HediffDef>HVB_VoidshardPelvis</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech pelvis with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Pelvis</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardPelvis</addsHediff>
+	<removesHediff>ArchotechPelvis</removesHediff>
+  </RecipeDef>
+  
+</Defs>

@@ -2,7 +2,7 @@
 <Defs>
   
   <!-- retro-reflection skin -->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_VoidshardCloak</defName>
     <label>voidshard cloak</label>
     <labelNoun>a voidshard cloak</labelNoun>
@@ -77,7 +77,7 @@
     </comps>
     <tags><li>HVB_SecondSkin</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase">
     <defName>HVB_InstallVoidshardCloak</defName>
     <label>upgrade retro-reflection skin with revenant vertebrae</label>
     <description>Alter retro-reflective skin by merging it with a shards from a dark archotech and a set of revenant vertebrae. The host will have the invisibility-granting abilities of both implants, and their cooldowns will be shorter based on the current anomalous activity level.</description>
@@ -106,7 +106,7 @@
     <addsHediff>HVB_VoidshardCloak</addsHediff>
 	<removesHediff>HVB_RetroReflectionSkin</removesHediff>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
     <defName>HVB_RemoveVoidshardCloak</defName>
     <label>remove voidshard cloak</label>
     <description>Remove voidshard cloak.</description>

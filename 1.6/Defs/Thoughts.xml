@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThoughtDef>
+    <defName>HVB_CognoCensorship</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>bionic censorship</label>
+        <description>That f$*#%hit thing in my brain keeps stopping me from being %@$king rude when I want to be. Let me insult others, d***it!</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>HVB_RadioSurfingMood</defName> <!--ridin' on the waves of super sonic-->
+    <workerClass>HautsBionics.ThoughtWorker_RadioSurfingEar</workerClass>
+    <hediff>HVB_RadioSurferEar</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>bionic radio surfing</label>
+        <description>There's so much exciting stuff to listen to on the radio!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>HVB_AromaticFacadeMood</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVB_AromaticFacade</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>everything smells great</label>
+        <description>My bionic nose makes everything smell great!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVB_GreatInhalation</defName>
+    <thoughtClass>HautsBionics.Thought_GreatInhalation</thoughtClass>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVB_InhalingNose</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>augmetic olfaction</label>
+        <description>I can smell everything. Eugh.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>HVB_InternalMasseuseMood</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVB_InternalMasseuse</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>bionic massage</label>
+        <description>Aaah... that's more like it!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_OldSpice</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsBionics.ThoughtWorker_TheNoseKnows</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+	<hediff>HVB_InternalPerfumist</hediff>
+    <stages>
+      <li>
+        <label>perfumed</label>
+        <baseOpinionOffset>5</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>HVB_ResocBliss</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVB_NeuralResocialization</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>resoc bliss</label>
+        <description>Fake memories and severe restructuring of this individual’s subconscious engender a state of bliss.</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_ResocLoyalty</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsFramework.ThoughtWorker_OfSameFaction</workerClass>
+    <hediff>HVB_NeuralResocialization</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>resoc faction loyalty</label>
+        <baseOpinionOffset>300</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

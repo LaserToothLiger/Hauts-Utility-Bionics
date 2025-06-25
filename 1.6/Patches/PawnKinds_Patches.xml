@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional"><!--breachers can have breach-boosting bionics-->
+		<xpath>/Defs/PawnKindDef[isGoodBreacher="true"]/techHediffsTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[isGoodBreacher="true"]</xpath>
+			<value>
+				<techHediffsTags>
+					<li>HVB_Breach</li>
+				</techHediffsTags>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[isGoodBreacher="true"]/techHediffsTags</xpath>
+			<value>
+				<li>HVB_Breach</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional"><!--traders cannot have talk-impairing bionics-->
+		<xpath>/Defs/PawnKindDef[trader="true"]/techHediffsDisallowTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[trader="true"]</xpath>
+			<value>
+				<techHediffsDisallowTags>
+					<li>HVB_DontTalk</li>
+				</techHediffsDisallowTags>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[trader="true"]/techHediffsDisallowTags</xpath>
+			<value>
+				<li>HVB_DontTalk</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional"><!--ancients are typically transhumanists, and even if not they come from a more technologically advanced time, so they get the Neural Supercharger-->
+		<xpath>/Defs/PawnKindDef[defName="AncientSoldier"]/techHediffsTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[defName="AncientSoldier"]</xpath>
+			<value>
+				<techHediffsTags>
+					<li>HVB_Ancients</li>
+				</techHediffsTags>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/PawnKindDef[defName="AncientSoldier"]/techHediffsTags</xpath>
+			<value>
+				<li>HVB_Ancients</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod"><!--impids would have gotten the spray ability tech hediffs, but they're tribal, so... wouldn't make sense to have 'em. We're here to give mechanitors the mechanityrant bionics...-->
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsTags</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]</xpath>
+						<value>
+							<techHediffsTags>
+								<li>HVB_Mechanityrant</li>
+							</techHediffsTags>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsTags</xpath>
+						<value>
+							<li>HVB_Mechanityrant</li>
+						</value>
+					</match>
+				</li><!--...and sanguophages hemogen bionics; however, since they can leap already, they don't need pouncing legs-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Sanguophage"]/techHediffsTags</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Sanguophage"]</xpath>
+						<value>
+							<techHediffsTags>
+								<li>HVB_Hemogen</li>
+							</techHediffsTags>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Sanguophage"]/techHediffsTags</xpath>
+						<value>
+							<li>HVB_Hemogen</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Sanguophage"]/techHediffsDisallowTags</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Sanguophage"]</xpath>
+						<value>
+							<techHediffsDisallowTags>
+								<li>HVB_ImAlreadyLeaper</li>
+							</techHediffsDisallowTags>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Sanguophage"]/techHediffsDisallowTags</xpath>
+						<value>
+							<li>HVB_ImAlreadyLeaper</li>
+						</value>
+					</match>
+				</li><!--mechanitors can IN THEORY generate with 1000~2000 silver of artificial body parts from the Simple, Advanced, and/or AdvancedWeapon categories... but they won't. This is bc they have a 0% chance to spawn with
+						any random "tech hediffs", and while every pawnKind implicitly has a max of 1 tech hediff unless stated otherwise... well, mechanitors are forced to have one already, in the form of the mechlink!
+							So, we give them a 12% chance for bonus tech hediffs, +1 max tech hediff, AND +500 silver to spend on artificial body parts to make up for the cost of the mechlink.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsChance</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]</xpath>
+						<value><techHediffsChance>0.12</techHediffsChance></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsChance</xpath>
+						<value><techHediffsChance>0.12</techHediffsChance></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsMaxAmount</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]</xpath>
+						<value><techHediffsMaxAmount>2</techHediffsMaxAmount></value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsMaxAmount</xpath>
+						<value><techHediffsMaxAmount>2</techHediffsMaxAmount></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsMoney</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]</xpath>
+						<value><techHediffsMoney>1500~2500</techHediffsMoney></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/PawnKindDef[defName="Mechanitor"]/techHediffsMoney</xpath>
+						<value><techHediffsMoney>1500~2500</techHediffsMoney></value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod"><!--for players who have Anomaly but not Royalty, there needs to be a way for retro-reflection skin to spawn. so, they spawn on Horaxian cultists. Invisible raiders are fun I swear, just play gud-->
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]/techHediffsTags</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]</xpath>
+						<value>
+							<techHediffsTags>
+								<li>HVB_Horaxian</li>
+							</techHediffsTags>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]/techHediffsTags</xpath>
+						<value>
+							<li>HVB_Horaxian</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]/techHediffsChance</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]</xpath>
+						<value>
+							<techHediffsChance>0.03</techHediffsChance>
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]/techHediffsMoney</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@ParentName="HoraxianBase"]</xpath>
+						<value>
+							<techHediffsMoney>1029~1900</techHediffsMoney>
+						</value>
+					</nomatch>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<!--
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+			<value>
+				<recipes>
+					<li>HVB_ImplantExplosiveDevice</li>
+				</recipes>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+			<value>
+				<li>HVB_ImplantExplosiveDevice</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+			<value>
+				<recipes>
+					<li>HVB_RemoveIED</li>
+				</recipes>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+			<value>
+				<li>HVB_RemoveIED</li>
+			</value>
+		</match>
+	</Operation>-->
+</Patch>

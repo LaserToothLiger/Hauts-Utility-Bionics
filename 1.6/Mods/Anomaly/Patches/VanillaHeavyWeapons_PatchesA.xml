@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Weapons Expanded - Heavy Weapons</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef/modExtensions/li[@Class="HeavyWeapons.HeavyWeapon"]/supportedTraits[li="Tough"]</xpath>
+					<value>
+						<li>HVB_HomunculusTrait</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

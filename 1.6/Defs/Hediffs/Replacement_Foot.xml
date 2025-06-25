@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--warlock's foot-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksFoot</defName>
+    <label>warlock's foot</label>
+    <labelNoun>a warlock's foot</labelNoun>
+    <description>An installed warlock's foot. This blocky eltex nub is a barely functional replacement for a foot - instead, its main use is to guide the host's background thought processes, boosting connectivity to the psychic field and passively generating psyfocus over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksFoot</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksFoot</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.22</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.05</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksFoot</defName>
+    <label>warlock's foot</label>
+    <description>A barely functional stump replacing a foot, engraved with patterns similar to those found on the exterior of some archotech constructions. It subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into the biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksFoot</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksFoot</defName>
+    <label>install warlock's foot</label>
+    <description>Install a warlock's foot.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksFoot</ThingDef>
+      <HediffDef>HVB_WarlocksFoot</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's foot.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksFoot</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksFoot</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksFoot</addsHediff>
+  </RecipeDef>
+  <!--<RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveWarlocksFoot</defName>
+    <label>remove warlock's foot</label>
+    <description>Remove warlock's foot.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksFoot</ThingDef>
+      <HediffDef>HVB_WarlocksFoot</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing warlock's foot.</jobString>
+    <removesHediff>HVB_WarlocksFoot</removesHediff>
+  </RecipeDef>-->
+</Defs>

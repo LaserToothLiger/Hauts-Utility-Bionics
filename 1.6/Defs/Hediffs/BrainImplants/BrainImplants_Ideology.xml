@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--belief booster-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_BeliefBooster</defName>
+    <label>belief booster</label>
+    <labelNoun>a belief booster</labelNoun>
+    <description>An installed belief booster implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BeliefBooster</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BeliefBooster</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets><Hauts_IdeoThoughtFactor>0.6</Hauts_IdeoThoughtFactor></statOffsets>
+		<statFactors><CertaintyLossFactor>0.75</CertaintyLossFactor></statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_BeliefBooster</defName>
+    <label>belief booster</label>
+    <description>A belief booster implant. This simple device can be implanted in a brain to strengthen the social and emotional impact of the host's ideoligious convictions.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBeliefBooster</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>180</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallBeliefBooster</defName>
+    <label>install belief booster</label>
+    <description>Install a belief booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BeliefBooster</ThingDef>
+      <HediffDef>HVB_BeliefBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing belief booster.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BeliefBooster</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BeliefBooster</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BeliefBooster</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveBeliefBooster</defName>
+    <label>remove belief booster</label>
+    <description>Remove belief booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BeliefBooster</ThingDef>
+      <HediffDef>HVB_BeliefBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing belief booster.</jobString>
+    <removesHediff>HVB_BeliefBooster</removesHediff>
+  </RecipeDef>
+  
+  <!--dogma driver-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DogmaDriver</defName>
+    <label>dogma driver</label>
+    <labelNoun>a dogma driver</labelNoun>
+    <description>An installed dogma driver implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DogmaDriver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DogmaDriver</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Hauts_IdeoThoughtFactor>0.25</Hauts_IdeoThoughtFactor>
+		  <Hauts_IdeoAbilityDurationSelf>0.25</Hauts_IdeoAbilityDurationSelf>
+		</statOffsets>
+		<statFactors><CertaintyLossFactor>0.8</CertaintyLossFactor></statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DogmaDriver</defName>
+    <label>dogma driver</label>
+    <description>A dogma driver implant. This simple device can be implanted in a brain to increase susceptibility to ideoligiously-caused behavioral triggers, such as those used by ideoligious leaders, moral guides, and specialists.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDogmaDriver</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>450</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallDogmaDriver</defName>
+    <label>install dogma driver</label>
+    <description>Install a dogma driver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DogmaDriver</ThingDef>
+      <HediffDef>HVB_DogmaDriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dogma driver.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DogmaDriver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DogmaDriver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DogmaDriver</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveDogmaDriver</defName>
+    <label>remove dogma driver</label>
+    <description>Remove dogma driver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DogmaDriver</ThingDef>
+      <HediffDef>HVB_DogmaDriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing dogma driver.</jobString>
+    <removesHediff>HVB_DogmaDriver</removesHediff>
+  </RecipeDef>
+  
+  <!--preaching prompter-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_PreachingPrompter</defName>
+    <label>preaching prompter</label>
+    <labelNoun>a preaching prompter</labelNoun>
+    <description>An installed preaching prompter implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PreachingPrompter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PreachingPrompter</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+			<ConversionPower>0.1</ConversionPower>
+			<SocialIdeoSpreadFrequencyFactor>4</SocialIdeoSpreadFrequencyFactor>
+		</statOffsets>
+		<statFactors><CertaintyLossFactor>0.8</CertaintyLossFactor></statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_PreachingPrompter</defName>
+    <label>preaching prompter</label>
+    <description>A preaching prompter implant. This simple device stimulates faith and social activity in the brain in tandem, effectively boosting the frequency and potency of one's proselytization attempts.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPreachingPrompter</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>180</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallPreachingPrompter</defName>
+    <label>install preaching prompter</label>
+    <description>Install a preaching prompter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PreachingPrompter</ThingDef>
+      <HediffDef>HVB_PreachingPrompter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing preaching prompter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PreachingPrompter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PreachingPrompter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PreachingPrompter</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemovePreachingPrompter</defName>
+    <label>remove preaching prompter</label>
+    <description>Remove preaching prompter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PreachingPrompter</ThingDef>
+      <HediffDef>HVB_PreachingPrompter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing preaching prompter.</jobString>
+    <removesHediff>HVB_PreachingPrompter</removesHediff>
+  </RecipeDef>
+  
+		<!--neurotheologic work driver-->
+  <HediffDef Name="HVB_NeurotheologyHediffBase" ParentName="ImplantHediffBase" Abstract="True" MayRequire="Ludeon.RimWorld.Ideology">
+    <hediffClass>Hediff_Level</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+  </HediffDef>
+  
+  <!--theologic work driver-->
+  <HediffDef ParentName="HVB_NeurotheologyHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <hediffClass>HautsBionics_Ideology.Hediff_WorkDriver</hediffClass>
+    <defName>HVB_TheologicWorkDriver</defName>
+    <label>neurotheologic work driver</label>
+    <labelNoun>a neurotheologic work driver</labelNoun>
+    <description>An installed neurotheologic work driver implant. Prevents the host from being affected by the Work Drive ability, but passively boosts work speed.\n\nCan be installed up to three times.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TheologicWorkDriver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TheologicWorkDriver</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets><WorkSpeedGlobal>0.15</WorkSpeedGlobal></statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <statOffsets><WorkSpeedGlobal>0.3</WorkSpeedGlobal></statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <statOffsets><WorkSpeedGlobal>0.45</WorkSpeedGlobal></statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_TheologicWorkDriver</defName>
+    <label>neurotheologic work driver</label>
+    <description>A neurotheologic work driver implant. This device induces a state of increased productivity, by stimulating the same regions of the brain affected by an ideoligious Work Drive.\n\nCan be installed up to three times; the surgery required to install it is so simple it can't fail.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTheologicWorkDriver</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>770</MarketValue>
+      <WorkToMake>10000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisites Inherit="False">
+		<li>HVB_BrainInterfacing</li>
+		<li>HVB_Neurotheology</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallTheologicWorkDriver</defName>
+    <label>install theologic work driver</label>
+    <description>Install a theologic work driver.</description>
+    <!--<researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>-->
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TheologicWorkDriver</ThingDef>
+      <HediffDef>HVB_TheologicWorkDriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing theologic work driver.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TheologicWorkDriver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TheologicWorkDriver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TheologicWorkDriver</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveTheologicWorkDriver</defName>
+    <label>remove theologic work driver</label>
+    <description>Remove theologic work driver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TheologicWorkDriver</ThingDef>
+      <HediffDef>HVB_TheologicWorkDriver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing theologic work driver.</jobString>
+    <removesHediff>HVB_TheologicWorkDriver</removesHediff>
+  </RecipeDef>
+  
+  <!--dryadqueen interface-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DryadqueenInterface</defName>
+    <label>dryadqueen interface</label>
+    <labelNoun>a dryadqueen interface</labelNoun>
+    <description>An installed dryadqueen interface implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DryadqueenInterface</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DryadqueenInterface</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <Hauts_MaxDryadFactor>0.25</Hauts_MaxDryadFactor>
+        </statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <createHediff>BrainShock</createHediff>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_DryadqueenInterface</defName>
+    <label>dryadqueen interface</label>
+    <description>A brain implant that provides sensitivity to dryadic communications. It induces minor behavioral modifications emulative of a dryadqueen, ensuring dryads connected via a gauranlen tree to feel more comfortable around the host.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDryadqueenInterface</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>400</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+    <costList>
+      <ComponentIndustrial>3</ComponentIndustrial>
+	  <GauranlenSeed>1</GauranlenSeed>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallDryadqueenInterface</defName>
+    <label>install dryadqueen interface</label>
+    <description>Install a dryadqueen interface.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DryadqueenInterface</ThingDef>
+      <HediffDef>HVB_DryadqueenInterface</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dryadqueen interface.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DryadqueenInterface</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DryadqueenInterface</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DryadqueenInterface</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveDryadqueenInterface</defName>
+    <label>remove dryadqueen interface</label>
+    <description>Remove dryadqueen interface.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DryadqueenInterface</ThingDef>
+      <HediffDef>HVB_DryadqueenInterface</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing dryadqueen interface.</jobString>
+    <removesHediff>HVB_DryadqueenInterface</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech worship drive-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <hediffClass>HautsBionics_Ideology.Hediff_ArchoWorship</hediffClass>
+    <defName>HVB_ArchotechWorshipDrive</defName>
+    <label>archotech worship drive</label>
+    <labelNoun>an archotech worship drive</labelNoun>
+    <description>An installed archotech worship drive. IA! IA!</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechWorshipDrive</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechWorshipDrive</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_ArchoConvert</li>
+    </abilities>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ConversionPower>0.20</ConversionPower>
+        </statOffsets>
+        <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ArchotechWorshipDrive</defName>
+    <label>archotech worship drive</label>
+    <description>A brain implant that, in addition to enhancing consciousness, compels the host to endlessly glorify and extol the archotechs. Hosts are incapable of believing in any non-archist ideoligion, and gain psychic assistance from this implant when attempting to convert others. As with any other work of the archotechs, the reasons for this device's construction are inscrutable.\n\nOnce implanted, the worship drive seemingly dissolves, preventing surgical removal.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechWorshipDrive</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1900</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallArchotechWorshipDrive</defName>
+    <label>install archotech worship drive</label>
+    <description>Install an archotech worship drive.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechWorshipDrive</ThingDef>
+      <HediffDef>HVB_ArchotechWorshipDrive</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech worship drive.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechWorshipDrive</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechWorshipDrive</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechWorshipDrive</addsHediff>
+  </RecipeDef>
+  
+</Defs>

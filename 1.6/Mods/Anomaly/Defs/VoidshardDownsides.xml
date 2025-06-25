@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--nothing-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideNothing</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <!--corruption, paralytic-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideCorruptor</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Corruptor">
+        <corruptionMtbDays>50</corruptionMtbDays>
+		<mtbLossPerExtraSeverity>1</mtbLossPerExtraSeverity>
+		<hediff>HVB_VoidshardCorruption</hediff>
+      </li>
+    </comps>
+  </HediffDef>
+	  <HediffDef ParentName="InfectionBase">
+		<defName>HVB_VoidshardCorruption</defName>
+		<label>paralytic corruption</label>
+		<description>A buildup of corrupted, malfunctioning archites which harm healthy tissues. Without treatment, this condition will eventually result in death. This particular variant causes gradual loss of strength.
+	\nThough this condition was caused by a voidshard bionic, removing the bionic will not have any effect on the progression of this disease - the archites have already disseminated throughout the body.</description>
+		<makesSickThought>true</makesSickThought>
+		<lethalSeverity>1</lethalSeverity>
+		<tendable>true</tendable>
+		<comps>
+		  <li Class="HediffCompProperties_TendDuration">
+			<baseTendDurationHours>7</baseTendDurationHours>
+			<severityPerDayTended>-0.53</severityPerDayTended>
+		  </li>
+		  <li Class="HediffCompProperties_Immunizable">
+			<severityPerDayNotImmune>0.84</severityPerDayNotImmune>
+			<immunityPerDaySick>0.6441</immunityPerDaySick>
+			<severityPerDayImmune>-0.70</severityPerDayImmune>
+			<immunityPerDayNotSick>-0.40</immunityPerDayNotSick>
+		  </li>
+		  <li Class="HediffCompProperties_Discoverable">
+			<sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+		  </li>
+		</comps>
+		<stages>
+		  <li>
+			<label>minor</label>
+			<painOffset>0.05</painOffset>
+		  </li> 
+		  <li>
+			<minSeverity>0.33</minSeverity>
+			<label>major</label>
+			<painOffset>0.08</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>-0.05</offset>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.95</postFactor>
+			  </li>
+			  <li>
+				<capacity>Manipulation</capacity>
+				<postFactor>0.95</postFactor>
+			  </li>
+			</capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.78</minSeverity>
+			<label>extreme</label>
+			<lifeThreatening>true</lifeThreatening>
+			<painOffset>0.12</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>-0.1</offset>
+			  </li>
+			  <li>
+				<capacity>Moving</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			  <li>
+				<capacity>Manipulation</capacity>
+				<postFactor>0.9</postFactor>
+			  </li>
+			  <li>
+				<capacity>Breathing</capacity>
+				<offset>-0.05</offset>
+			  </li>
+			</capMods>
+		  </li>
+		  <li>
+			<minSeverity>0.87</minSeverity>
+			<label>extreme</label>
+			<lifeThreatening>true</lifeThreatening>
+			<painOffset>0.85</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<setMax>0.1</setMax>
+			  </li>
+			  <li>
+				<capacity>Breathing</capacity>
+				<offset>-0.1</offset>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+	  </HediffDef>
+  
+  <!--corruption, cerebral-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideCorruptor2</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Corruptor">
+        <corruptionMtbDays>50</corruptionMtbDays>
+		<mtbLossPerExtraSeverity>1</mtbLossPerExtraSeverity>
+		<hediff>HVB_VoidshardCorruption2</hediff>
+      </li>
+    </comps>
+  </HediffDef>
+	  <HediffDef ParentName="InfectionBase">
+		<defName>HVB_VoidshardCorruption2</defName>
+		<label>cerebral corruption</label>
+		<description>A buildup of corrupted, malfunctioning archites which harm healthy tissues. Without treatment, this condition will eventually result in death. This particular variant influences cognition and behavior.
+	\nThough this condition was caused by a voidshard bionic, removing the bionic will not have any effect on the progression of this disease - the archites have already disseminated throughout the body.</description>
+		<makesSickThought>true</makesSickThought>
+		<lethalSeverity>1</lethalSeverity>
+		<tendable>true</tendable>
+		<comps>
+		  <li Class="HediffCompProperties_TendDuration">
+			<baseTendDurationHours>7</baseTendDurationHours>
+			<severityPerDayTended>-0.53</severityPerDayTended>
+		  </li>
+		  <li Class="HediffCompProperties_Immunizable">
+			<severityPerDayNotImmune>0.84</severityPerDayNotImmune>
+			<immunityPerDaySick>0.6441</immunityPerDaySick>
+			<severityPerDayImmune>-0.70</severityPerDayImmune>
+			<immunityPerDayNotSick>-0.40</immunityPerDayNotSick>
+		  </li>
+		  <li Class="HediffCompProperties_Discoverable">
+			<sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+		  </li>
+		</comps>
+		<stages>
+		  <li>
+			<label>minor</label>
+			<painOffset>0.05</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>-0.02</offset>
+			  </li>
+			</capMods>
+		  </li> 
+		  <li>
+			<minSeverity>0.33</minSeverity>
+			<label>major</label>
+			<painOffset>0.08</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>-0.05</offset>
+			  </li>
+			</capMods>
+			<statOffsets>
+			  <MentalBreakThreshold>0.2</MentalBreakThreshold>
+			  <PainShockThreshold>-0.1</PainShockThreshold>
+			</statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>0.78</minSeverity>
+			<label>extreme</label>
+			<lifeThreatening>true</lifeThreatening>
+			<painOffset>0.12</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>-0.1</offset>
+			  </li>
+			</capMods>
+			<statOffsets>
+			  <MentalBreakThreshold>0.4</MentalBreakThreshold>
+			  <PainShockThreshold>-0.2</PainShockThreshold>
+			</statOffsets>
+			<mentalStateGivers>
+			  <li>
+				<mentalState>WanderConfused</mentalState>
+				<mtbDays>2</mtbDays>
+			  </li>
+			</mentalStateGivers>
+		  </li>
+		  <li>
+			<minSeverity>0.87</minSeverity>
+			<label>extreme</label>
+			<lifeThreatening>true</lifeThreatening>
+			<painOffset>0.85</painOffset>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<setMax>0.1</setMax>
+			  </li>
+			  <li>
+				<capacity>Breathing</capacity>
+				<offset>-0.05</offset>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+	  </HediffDef>
+  
+  <!--incubation-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideIncubator</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Incubator">
+        <letterLabel>Incubating entity released</letterLabel>
+        <letterText>As {PAWN_nameDef} died, the vile influence of {PAWN_possessive} implanted voidshard technology revealed itself. A horrific entity was subtly incubating within {PAWN_objective}, but it has now emerged!</letterText>
+		<possiblePawnKinds><!--the values are the amount of voidshards inflicting this downside required for that kind of entity to be choosable-->
+		  <li><key>Metalhorror</key><value>1</value></li>
+		  <li><key>Sightstealer</key><value>1</value></li>
+		  <li><key>Toughspike</key><value>1</value></li>
+		  <li><key>Trispike</key><value>1</value></li>
+		  <li><key>Devourer</key><value>3</value></li>
+		  <li><key>Bulbfreak</key><value>3</value></li>
+		  <li><key>Revenant</key><value>4</value></li>
+		  <li><key>Nociosphere</key><value>7</value></li>
+		</possiblePawnKinds>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <!--insinuation-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideInsinuator</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsFramework.HediffCompProperties_GiveThoughtsRandomly">
+        <mtbDays>8</mtbDays>
+		<mtbLossPerExtraSeverity>0.3</mtbLossPerExtraSeverity>
+		<mtbLossSeverityCap>10</mtbLossSeverityCap>
+		<thoughtDefs>
+          <li>HVB_SubversiveThought</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+  </HediffDef>
+	  <ThoughtDef>
+		<defName>HVB_SubversiveThought</defName>
+		<thoughtClass>HautsBionics_Anomaly.Thought_Subversion</thoughtClass>
+		<durationDays>3</durationDays>
+		<stackLimit>13</stackLimit>
+		<validWhileDespawned>true</validWhileDespawned>
+		<nullifyingTraits>
+		  <li>HVB_HomunculusTrait</li>
+		</nullifyingTraits>
+		<stages>
+		  <li>
+			<label>Whispers of the void</label>
+			<description>Strange sensations play out in a curious pattern, a suggestive pattern... they bid me to do terrible things.</description>
+			<baseMoodEffect>-7</baseMoodEffect>
+		  </li>
+		</stages>
+	  </ThoughtDef>
+  
+</Defs>

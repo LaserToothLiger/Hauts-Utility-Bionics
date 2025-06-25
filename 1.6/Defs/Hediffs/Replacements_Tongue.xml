@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--so in order to make these installable in bionic jaws, they need to actually be add-ons. This is so convoluted folks-->
+  
+  <!--eloquence tongue-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_EloquenceTongue</defName>
+    <label>eloquence tongue</label>
+    <labelNoun>an eloquence tongue</labelNoun>
+    <description>An installed eloquence tongue.</description>
+    <descriptionHyperlinks><ThingDef>HVB_EloquenceTongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_EloquenceTongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+          <ArrestSuccessChance>0.15</ArrestSuccessChance>
+          <NegotiationAbility>0.15</NegotiationAbility>
+          <SocialImpact>0.055</SocialImpact>
+          <TradePriceImprovement>0.03</TradePriceImprovement>
+          <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.175</ConversionPower>
+          <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.045</SuppressionPower>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_EloquenceTongue</defName>
+    <label>eloquence tongue</label>
+    <description>This artificial tongue has been optimized to ensure clear speech and enhanced command of tone, pitch, and other elements essential to effective vocal communication.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallEloquenceTongue</RecipeDef></descriptionHyperlinks>
+    <costList>
+	  <BionicTongue>1</BionicTongue>
+      <Silver>50</Silver>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+	<tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase">
+    <defName>HVB_InstallEloquenceTongue</defName>
+    <label>install eloquence tongue</label>
+    <description>Install an eloquence tongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EloquenceTongue</ThingDef>
+      <HediffDef>HVB_EloquenceTongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing eloquence tongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_EloquenceTongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_EloquenceTongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_EloquenceTongue</addsHediff>
+  </RecipeDef>
+
+  <!--prehensile tongue-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_PrehensileTongue</defName>
+    <label>prehensile tongue</label>
+    <labelNoun>a prehensile tongue</labelNoun>
+    <description>An installed prehensile tongue.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PrehensileTongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PrehensileTongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_PrehensileTongue</defName>
+    <label>prehensile tongue</label>
+    <description>An artificial tongue composed of compressible soft robotic tissues. Microfluid piping controlled by a biogel nerve-link allows for stiffening, slackening, extension, contraction, and bending in three dimensions. It is almost like a third arm; it's just smaller and comes out of one's mouth instead.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPrehensileTongue</RecipeDef></descriptionHyperlinks>
+    <costList>
+	  <BionicTongue>1</BionicTongue>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_DigestionAugmentation</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase">
+    <defName>HVB_InstallPrehensileTongue</defName>
+    <label>install prehensile tongue</label>
+    <description>Install a prehensile tongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PrehensileTongue</ThingDef>
+      <HediffDef>HVB_PrehensileTongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prehensile tongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PrehensileTongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PrehensileTongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PrehensileTongue</addsHediff>
+  </RecipeDef>
+  
+  <!--programmable tongue-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ProgrammableTongue</defName>
+    <label>programmable tongue</label>
+    <labelNoun>a programmable tongue</labelNoun>
+    <description>An installed programmable tongue. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableTongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableTongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.01</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.02</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.02</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.04</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.03</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.06</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.04</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.08</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.05</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.1</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.06</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.12</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.07</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.14</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.08</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.16</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.09</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.18</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.1</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.2</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.11</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.22</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.12</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.24</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.13</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.26</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.14</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.28</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.15</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.3</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.16</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.32</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.17</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.34</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.18</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.36</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.19</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.38</offset></li>
+		</capMods>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<capMods>
+		  <li><capacity>Talking</capacity><offset>0.2</offset></li>
+		  <li><capacity>Eating</capacity><offset>0.4</offset></li>
+		</capMods>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ProgrammableTongue</defName>
+    <label>programmable tongue</label>
+    <description>A bionic tongue with extreme customizability. Users can render specific internal or surface-level regions stiff, or shape them into odd structures by distorting the jointed nanotubules underlying its structure.Hosts with no particular intellectual acumen will not find this much better than a natural tongue; however, notably intellectually skilled hosts can program it to surpass the efficacy of regular bionic tongues.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProgrammableTongue</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>1</Gold>
+      <Plasteel>5</Plasteel>
+      <Uranium>5</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_ProgrammableBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase">
+    <defName>HVB_InstallProgrammableTongue</defName>
+    <label>install programmable tongue</label>
+    <description>Install a programmable tongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableTongue</ThingDef>
+      <HediffDef>HVB_ProgrammableTongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing programmable tongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableTongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableTongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProgrammableTongue</addsHediff>
+  </RecipeDef>
+  
+  <!--Warlock's tongue-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksTongue</defName>
+    <label>warlock's tongue</label>
+    <labelNoun>a warlock's tongue</labelNoun>
+    <description>An installed warlock's tongue. This is a barely functional replacement for a tongue - instead, its main use is to guide the host's background thought processes, boosting connectivity to the psychic field and passively generating psyfocus over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksTongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksTongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.1</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.03</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.02</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.12</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksTongue</defName>
+    <label>warlock's tongue</label>
+    <description>A barely functional bionic tongue inlaid with patterns similar to those found on the exterior of some archotech constructions. It subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into the biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksTongue</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>1</Jade>
+      <BionicTongue>1</BionicTongue>
+    </costList>
+	<statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>655</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksTongue</defName>
+    <label>install warlock's tongue</label>
+    <description>Install a warlock's tongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksTongue</ThingDef>
+      <HediffDef>HVB_WarlocksTongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's tongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksTongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksTongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksTongue</addsHediff>
+  </RecipeDef>
+  
+  <!--firefoam tongue-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_FirefoamTongue</defName>
+    <label>firefoam tongue</label>
+    <labelNoun>a firefoam tongue</labelNoun>
+    <description>An installed firefoam tongue.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FirefoamTongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FirefoamTongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicFoamSpit</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+          <Flammability>-0.1</Flammability>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_FirefoamTongue</defName>
+    <label>firefoam tongue</label>
+    <description>This artificial tongue produces and stores small quantities of firefoam precursor chemicals. A deliberate command sent through its biogel nerve-link can mix the chemicals and open a pressurized, directed aperture with which to expel the resultant firefoam, allowing one to "spit" an extinguishing blast over long distances.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFirefoamTongue</RecipeDef></descriptionHyperlinks>
+    <costList>
+	  <BionicTongue>1</BionicTongue>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>Bionics</li>
+		<li>Firefoam</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallFirefoamTongue</defName>
+    <label>install firefoam tongue</label>
+    <description>Install a firefoam tongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamTongue</ThingDef>
+      <HediffDef>HVB_FirefoamTongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firefoam tongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FirefoamTongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FirefoamTongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FirefoamTongue</addsHediff>
+  </RecipeDef>
+
+</Defs>

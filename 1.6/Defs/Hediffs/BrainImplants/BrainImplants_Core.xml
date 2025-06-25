@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--Cognobox implants, starting w berserker-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CognoBerserker</defName>
+    <label>cogno-berserker</label>
+    <labelNoun>a cogno-berserker</labelNoun>
+    <description>An installed cogno-berserker implant. Grants movement and attack speed on taking damage.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoBerserker</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoBerserker</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_GainRageWhenHit">
+		<hediff>HVB_CognoBerserking</hediff>
+		<severityGain>1</severityGain>
+		<setDurationTo>2500</setDurationTo>
+	  </li>
+    </comps>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CognoBerserker</defName>
+    <label>cogno-berserker</label>
+    <description>A brain implant that monitors behavior for sudden and severe shifts. On detecting a mental break, it begins stimulating nocireceptors to cause increasing pain. Once this knocks out the host, it can then proceed to induce a coma during which enable recalibration of the host's mental processes. This coma will expire approximately four horus after the keeper stops inducing pain.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoBerserker</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>950</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCognoBerserker</defName>
+    <label>install cogno-berserker</label>
+    <description>Install a cogno-berserker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoBerserker</ThingDef>
+      <HediffDef>HVB_CognoBerserker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-berserker.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoBerserker</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoBerserker</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoBerserker</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCognoBerserker</defName>
+    <label>remove cogno-berserker</label>
+    <description>Remove cogno-berserker.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoBerserker</ThingDef>
+      <HediffDef>HVB_CognoBerserker</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-berserker.</jobString>
+    <removesHediff>HVB_CognoBerserker</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="DiseaseBase">
+		<defName>HVB_CognoBerserking</defName>
+		<label>artificial rage</label>
+		<description>A temporary state of enhanced physical performance induced by a cogno-berserker implant.</description>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>10</maxSeverity>
+		<stages>
+		  <li>
+			<capMods><li><capacity>Moving</capacity><offset>0.05</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.075</MeleeCooldownFactor><AimingDelayFactor>-0.075</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>1.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.1</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.15</MeleeCooldownFactor><AimingDelayFactor>-0.15</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>2.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.14</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.225</MeleeCooldownFactor><AimingDelayFactor>-0.225</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>3.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.18</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.3</MeleeCooldownFactor><AimingDelayFactor>-0.3</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>4.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.21</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.375</MeleeCooldownFactor><AimingDelayFactor>-0.375</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>5.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.24</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.45</MeleeCooldownFactor><AimingDelayFactor>-0.45</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>6.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.26</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.525</MeleeCooldownFactor><AimingDelayFactor>-0.525</AimingDelayFactor></statOffsets>
+		  </li>
+		  <li>
+			<minSeverity>7.001</minSeverity>
+			<capMods><li><capacity>Moving</capacity><offset>0.28</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.6</MeleeCooldownFactor><AimingDelayFactor>-0.6</AimingDelayFactor></statOffsets>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>2500</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+	  
+  <!--censor-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CognoCensor</defName>
+    <label>cogno-censor</label>
+    <labelNoun>a cogno-censor</labelNoun>
+    <description>An installed cogno-censor implant. Prevents the host from slighting or insulting others, instead worsening the host's mood whenever such a social interaction would be made.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoCensor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoCensor</spawnThingOnRemoved>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CognoCensor</defName>
+    <label>cogno-censor</label>
+    <description>A brain implant that detects targeted aggression and activity in Broca's area. When both of these kinds of neural activity flare, it disrupts the synapses to produce a transient state of aphasia, preventing the host from coherently formulating or uttering slights or insults. While this disruption does not cause permanent physiological damage, it is known to frustrate hosts and cause negative changes in mood.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoCensor</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>545</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCognoCensor</defName>
+    <label>install cogno-censor</label>
+    <description>Install a cogno-censor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoCensor</ThingDef>
+      <HediffDef>HVB_CognoCensor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-censor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoCensor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoCensor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoCensor</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCognoCensor</defName>
+    <label>remove cogno-censor</label>
+    <description>Remove cogno-censor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoCensor</ThingDef>
+      <HediffDef>HVB_CognoCensor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-censor.</jobString>
+    <removesHediff>HVB_CognoCensor</removesHediff>
+  </RecipeDef>
+  
+  <!--straitjacket-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CognoStraitjacket</defName>
+    <label>cogno-straitjacket</label>
+    <labelNoun>a cogno-straitjacket</labelNoun>
+    <hediffClass>HautsBionics.Hediff_SanityKeeper</hediffClass><!--multiplies its pain by [(its current severity) - 1]-->
+    <description>An installed cogno-straitjacket implant. Causes increasing pain while social fighting or in the throes of a mental break; once the host is incapacitated, it also induces a short-term coma. The coma will expire approximately four hours after the keeper stops inducing pain.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoStraitjacket</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoStraitjacket</spawnThingOnRemoved>
+	<minSeverity>1</minSeverity>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>999</maxSeverity>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDuringSpecificMentalStates">
+		<anyMentalState>true</anyMentalState>
+		<severityPerTickInState>0.00016</severityPerTickInState>
+		<!--<severityOtherwise>1</severityOtherwise>-->
+		<severityPerTickOtherwise>-0.00008</severityPerTickOtherwise>
+	  </li>
+    </comps>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CognoStraitjacket</defName>
+    <label>cogno-straitjacket</label>
+    <description>A brain implant that monitors behavior for sudden and severe shifts. On detecting a mental break, it begins stimulating nocireceptors to cause increasing pain. Once this knocks out the host, it can then proceed to induce a coma during which enable recalibration of the host's mental processes. This coma will expire approximately four horus after the keeper stops inducing pain.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoStraitjacket</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>545</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCognoStraitjacket</defName>
+    <label>install cogno-straitjacket</label>
+    <description>Install a cogno-straitjacket.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoStraitjacket</ThingDef>
+      <HediffDef>HVB_CognoStraitjacket</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-straitjacket.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoStraitjacket</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoStraitjacket</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoStraitjacket</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCognoStraitjacket</defName>
+    <label>remove cogno-straitjacket</label>
+    <description>Remove cogno-straitjacket.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoStraitjacket</ThingDef>
+      <HediffDef>HVB_CognoStraitjacket</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-straitjacket.</jobString>
+    <removesHediff>HVB_CognoStraitjacket</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="DiseaseBase">
+		<defName>HVB_CognoStraitjacketComa</defName>
+		<label>cogno-straitjacket coma</label>
+		<labelNoun>an artificial coma</labelNoun>
+		<description>A temporary, benign coma induced by a cogno-straitjacket implant.</description>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>9000~11000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+		  <li>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<setMax>0.1</setMax>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+	  </HediffDef>
+	  
+  <!--preserver-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="EBSG.Framework">
+    <defName>HVB_CognoPreserver</defName>
+    <label>cogno-preserver</label>
+    <labelNoun>a cogno-preserver</labelNoun>
+    <description>An installed cogno-preserver implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoPreserver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoPreserver</spawnThingOnRemoved>
+    <stages>
+      <li>
+		<statFactors>
+		  <EBSG_SkillLossRate>0.7</EBSG_SkillLossRate>
+		</statFactors>
+      </li>
+    </stages>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="EBSG.Framework">
+    <defName>HVB_CognoPreserver</defName>
+    <label>cogno-preserver</label>
+    <description>A brain implant which uses high-density data storage to routinely store copies of technical knowledge. By routinely transmitting modulated versions of this knowledge to the organic brain, it can slow the gradual loss of technical skills.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoPreserver</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Gold>10</Gold>
+      <ComponentSpacer>7</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_InstallCognoPreserver</defName>
+    <label>install cogno-preserver</label>
+    <description>Install a cogno-preserver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoPreserver</ThingDef>
+      <HediffDef>HVB_CognoPreserver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-preserver.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoPreserver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoPreserver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoPreserver</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_RemoveCognoPreserver</defName>
+    <label>remove cogno-preserver</label>
+    <description>Remove cogno-preserver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoPreserver</ThingDef>
+      <HediffDef>HVB_CognoPreserver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-preserver.</jobString>
+    <removesHediff>HVB_CognoPreserver</removesHediff>
+  </RecipeDef>
+	  
+  
+  
+  
+						<!--uncraftable-->
+  <!--autotrainers
+  Yeah, I did try making them via def implication with the def generator, but I hit a snag with generating the recipes procedurally. It malfunctions when trying to make ingredient filters and fixed ingredient filters
+  and I just don't have the patience 2 figure that out. w/e-->
+
+  <ThingDef Name="HVB_AutotrainerBase" ParentName="BodyPartBase" Abstract="True">
+    <techLevel>Ultra</techLevel>
+    <thingCategories>
+      <li>BodyPartsProsthetic</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(154,124,104)</color>
+    </graphicData>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+    </thingSetMakerTags>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+	<statBases>
+      <MarketValue>1500</MarketValue>
+    </statBases>
+  </ThingDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AnimalsAutotrainer</defName>
+    <label>animals autotrainer</label>
+    <labelNoun>an animals autotrainer</labelNoun>
+    <description>An installed animals autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AnimalsAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AnimalsAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Animals</li></affectedSkills>
+		<!--<statMultiplier>GlobalLearningFactor</statMultiplier>-->
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_AnimalsAutotrainer</defName>
+    <label>animals autotrainer</label>
+    <description>An ultratech implant which continually trains the animals skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAnimalsAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallAnimalsAutotrainer</defName>
+    <label>install animals autotrainer</label>
+    <description>Install an animals autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AnimalsAutotrainer</ThingDef>
+      <HediffDef>HVB_AnimalsAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing animals autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AnimalsAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AnimalsAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AnimalsAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveAnimalsAutotrainer</defName>
+    <label>remove animals autotrainer</label>
+    <description>Remove animals autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AnimalsAutotrainer</ThingDef>
+      <HediffDef>HVB_AnimalsAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing animals autotrainer.</jobString>
+    <removesHediff>HVB_AnimalsAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ArtisticAutotrainer</defName>
+    <label>artistic autotrainer</label>
+    <labelNoun>an artistic autotrainer</labelNoun>
+    <description>An installed artistic autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArtisticAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArtisticAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Artistic</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_ArtisticAutotrainer</defName>
+    <label>artistic autotrainer</label>
+    <description>An ultratech implant which continually trains the artistic skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArtisticAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallArtisticAutotrainer</defName>
+    <label>install artistic autotrainer</label>
+    <description>Install an artistic autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArtisticAutotrainer</ThingDef>
+      <HediffDef>HVB_ArtisticAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing artistic autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArtisticAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArtisticAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArtisticAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveArtisticAutotrainer</defName>
+    <label>remove artistic autotrainer</label>
+    <description>Remove artistic autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArtisticAutotrainer</ThingDef>
+      <HediffDef>HVB_ArtisticAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing artistic autotrainer.</jobString>
+    <removesHediff>HVB_ArtisticAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ConstructionAutotrainer</defName>
+    <label>construction autotrainer</label>
+    <labelNoun>a construction autotrainer</labelNoun>
+    <description>An installed construction autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ConstructionAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ConstructionAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Construction</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_ConstructionAutotrainer</defName>
+    <label>construction autotrainer</label>
+    <description>An ultratech implant which continually trains the construction skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallConstructionAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallConstructionAutotrainer</defName>
+    <label>install construction autotrainer</label>
+    <description>Install an construction autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ConstructionAutotrainer</ThingDef>
+      <HediffDef>HVB_ConstructionAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing construction autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ConstructionAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ConstructionAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ConstructionAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveConstructionAutotrainer</defName>
+    <label>remove construction autotrainer</label>
+    <description>Remove construction autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ConstructionAutotrainer</ThingDef>
+      <HediffDef>HVB_ConstructionAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing construction autotrainer.</jobString>
+    <removesHediff>HVB_ConstructionAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CookingAutotrainer</defName>
+    <label>cooking autotrainer</label>
+    <labelNoun>a cooking autotrainer</labelNoun>
+    <description>An installed cooking autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CookingAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CookingAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Cooking</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_CookingAutotrainer</defName>
+    <label>cooking autotrainer</label>
+    <description>An ultratech implant which continually trains the cooking skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCookingAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCookingAutotrainer</defName>
+    <label>install cooking autotrainer</label>
+    <description>Install an cooking autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CookingAutotrainer</ThingDef>
+      <HediffDef>HVB_CookingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cooking autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CookingAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CookingAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CookingAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCookingAutotrainer</defName>
+    <label>remove cooking autotrainer</label>
+    <description>Remove cooking autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CookingAutotrainer</ThingDef>
+      <HediffDef>HVB_CookingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cooking autotrainer.</jobString>
+    <removesHediff>HVB_CookingAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CraftingAutotrainer</defName>
+    <label>crafting autotrainer</label>
+    <labelNoun>a crafting autotrainer</labelNoun>
+    <description>An installed crafting autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CraftingAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CraftingAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Crafting</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_CraftingAutotrainer</defName>
+    <label>crafting autotrainer</label>
+    <description>An ultratech implant which continually trains the crafting skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCraftingAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCraftingAutotrainer</defName>
+    <label>install crafting autotrainer</label>
+    <description>Install an crafting autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CraftingAutotrainer</ThingDef>
+      <HediffDef>HVB_CraftingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing crafting autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CraftingAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CraftingAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CraftingAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCraftingAutotrainer</defName>
+    <label>remove crafting autotrainer</label>
+    <description>Remove crafting autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CraftingAutotrainer</ThingDef>
+      <HediffDef>HVB_CraftingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing crafting autotrainer.</jobString>
+    <removesHediff>HVB_CraftingAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_IntellectualAutotrainer</defName>
+    <label>intellectual autotrainer</label>
+    <labelNoun>an intellectual autotrainer</labelNoun>
+    <description>An installed intellectual autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_IntellectualAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_IntellectualAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Intellectual</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_IntellectualAutotrainer</defName>
+    <label>intellectual autotrainer</label>
+    <description>An ultratech implant which continually trains the intellectual skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallIntellectualAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallIntellectualAutotrainer</defName>
+    <label>install intellectual autotrainer</label>
+    <description>Install an intellectual autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_IntellectualAutotrainer</ThingDef>
+      <HediffDef>HVB_IntellectualAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing intellectual autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_IntellectualAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_IntellectualAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_IntellectualAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveIntellectualAutotrainer</defName>
+    <label>remove intellectual autotrainer</label>
+    <description>Remove intellectual autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_IntellectualAutotrainer</ThingDef>
+      <HediffDef>HVB_IntellectualAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing intellectual autotrainer.</jobString>
+    <removesHediff>HVB_IntellectualAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MedicalAutotrainer</defName>
+    <label>medical autotrainer</label>
+    <labelNoun>a medical autotrainer</labelNoun>
+    <description>An installed medical autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MedicalAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MedicalAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Medicine</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_MedicalAutotrainer</defName>
+    <label>medical autotrainer</label>
+    <description>An ultratech implant which continually trains the medical skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMedicalAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMedicalAutotrainer</defName>
+    <label>install medical autotrainer</label>
+    <description>Install an medical autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MedicalAutotrainer</ThingDef>
+      <HediffDef>HVB_MedicalAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing medical autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MedicalAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MedicalAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MedicalAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMedicalAutotrainer</defName>
+    <label>remove medical autotrainer</label>
+    <description>Remove medical autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MedicalAutotrainer</ThingDef>
+      <HediffDef>HVB_MedicalAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing medical autotrainer.</jobString>
+    <removesHediff>HVB_MedicalAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MeleeAutotrainer</defName>
+    <label>melee autotrainer</label>
+    <labelNoun>a melee autotrainer</labelNoun>
+    <description>An installed melee autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MeleeAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MeleeAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Melee</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_MeleeAutotrainer</defName>
+    <label>melee autotrainer</label>
+    <description>An ultratech implant which continually trains the melee skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMeleeAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMeleeAutotrainer</defName>
+    <label>install melee autotrainer</label>
+    <description>Install an melee autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MeleeAutotrainer</ThingDef>
+      <HediffDef>HVB_MeleeAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing melee autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MeleeAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MeleeAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MeleeAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMeleeAutotrainer</defName>
+    <label>remove melee autotrainer</label>
+    <description>Remove melee autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MeleeAutotrainer</ThingDef>
+      <HediffDef>HVB_MeleeAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing melee autotrainer.</jobString>
+    <removesHediff>HVB_MeleeAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MiningAutotrainer</defName>
+    <label>mining autotrainer</label>
+    <labelNoun>a mining autotrainer</labelNoun>
+    <description>An installed mining autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MiningAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MiningAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Mining</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_MiningAutotrainer</defName>
+    <label>mining autotrainer</label>
+    <description>An ultratech implant which continually trains the mining skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMiningAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMiningAutotrainer</defName>
+    <label>install mining autotrainer</label>
+    <description>Install an mining autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MiningAutotrainer</ThingDef>
+      <HediffDef>HVB_MiningAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mining autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MiningAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MiningAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MiningAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMiningAutotrainer</defName>
+    <label>remove mining autotrainer</label>
+    <description>Remove mining autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MiningAutotrainer</ThingDef>
+      <HediffDef>HVB_MiningAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mining autotrainer.</jobString>
+    <removesHediff>HVB_MiningAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PlantsAutotrainer</defName>
+    <label>plants autotrainer</label>
+    <labelNoun>a plants autotrainer</labelNoun>
+    <description>An installed plants autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PlantsAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PlantsAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Plants</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_PlantsAutotrainer</defName>
+    <label>plants autotrainer</label>
+    <description>An ultratech implant which continually trains the plants skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPlantsAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallPlantsAutotrainer</defName>
+    <label>install plants autotrainer</label>
+    <description>Install an plants autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PlantsAutotrainer</ThingDef>
+      <HediffDef>HVB_PlantsAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing plants autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PlantsAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PlantsAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PlantsAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemovePlantsAutotrainer</defName>
+    <label>remove plants autotrainer</label>
+    <description>Remove plants autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PlantsAutotrainer</ThingDef>
+      <HediffDef>HVB_PlantsAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing plants autotrainer.</jobString>
+    <removesHediff>HVB_PlantsAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ShootingAutotrainer</defName>
+    <label>shooting autotrainer</label>
+    <labelNoun>a shooting autotrainer</labelNoun>
+    <description>An installed shooting autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ShootingAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ShootingAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Shooting</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_ShootingAutotrainer</defName>
+    <label>shooting autotrainer</label>
+    <description>An ultratech implant which continually trains the shooting skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallShootingAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallShootingAutotrainer</defName>
+    <label>install shooting autotrainer</label>
+    <description>Install an shooting autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShootingAutotrainer</ThingDef>
+      <HediffDef>HVB_ShootingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing shooting autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ShootingAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ShootingAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ShootingAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveShootingAutotrainer</defName>
+    <label>remove shooting autotrainer</label>
+    <description>Remove shooting autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShootingAutotrainer</ThingDef>
+      <HediffDef>HVB_ShootingAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing shooting autotrainer.</jobString>
+    <removesHediff>HVB_ShootingAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_SocialAutotrainer</defName>
+    <label>social autotrainer</label>
+    <labelNoun>a social autotrainer</labelNoun>
+    <description>An installed social autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SocialAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SocialAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Social</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase">
+    <defName>HVB_SocialAutotrainer</defName>
+    <label>social autotrainer</label>
+    <description>An ultratech implant which continually trains the social skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSocialAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallSocialAutotrainer</defName>
+    <label>install social autotrainer</label>
+    <description>Install an social autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SocialAutotrainer</ThingDef>
+      <HediffDef>HVB_SocialAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing social autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SocialAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SocialAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SocialAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSocialAutotrainer</defName>
+    <label>remove social autotrainer</label>
+    <description>Remove social autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SocialAutotrainer</ThingDef>
+      <HediffDef>HVB_SocialAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing social autotrainer.</jobString>
+    <removesHediff>HVB_SocialAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="tyinplop.ToughnessSkillMod">
+    <defName>HVB_ToughnessAutotrainer</defName>
+    <label>toughness autotrainer</label>
+    <labelNoun>a toughness autotrainer</labelNoun>
+    <description>An installed toughness autotrainer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ToughnessAutotrainer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ToughnessAutotrainer</spawnThingOnRemoved>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>150</ticks>
+		<skillAdjustment>1</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills><li>Toughness</li></affectedSkills>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="HVB_AutotrainerBase" MayRequire="tyinplop.ToughnessSkillMod">
+    <defName>HVB_ToughnessAutotrainer</defName>
+    <label>toughness autotrainer</label>
+    <description>An ultratech implant which continually trains the toughness skill. Unlike a single-use mechanite skilltrainer, the autotrainer passively generates experience over time by routinely enforcing a pre-templated neural pattern.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallToughnessAutotrainer</RecipeDef></descriptionHyperlinks>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="tyinplop.ToughnessSkillMod">
+    <defName>HVB_InstallToughnessAutotrainer</defName>
+    <label>install toughness autotrainer</label>
+    <description>Install a toughness autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ToughnessAutotrainer</ThingDef>
+      <HediffDef>HVB_ToughnessAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing toughness autotrainer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ToughnessAutotrainer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ToughnessAutotrainer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ToughnessAutotrainer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="tyinplop.ToughnessSkillMod">
+    <defName>HVB_RemoveToughnessAutotrainer</defName>
+    <label>remove toughness autotrainer</label>
+    <description>Remove toughness autotrainer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ToughnessAutotrainer</ThingDef>
+      <HediffDef>HVB_ToughnessAutotrainer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing toughness autotrainer.</jobString>
+    <removesHediff>HVB_ToughnessAutotrainer</removesHediff>
+  </RecipeDef>
+  
+  <!--archotech skill hoarder-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="EBSG.Framework">
+    <defName>HVB_ArchotechSkillHoarder</defName>
+    <label>archotech skill hoarder</label>
+    <labelNoun>an archotech skill hoarder</labelNoun>
+    <description>An installed archotech skill hoarder.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSkillHoarder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSkillHoarder</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+		<statFactors>
+		  <EBSG_SkillLossRate>0.1</EBSG_SkillLossRate>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="EBSG.Framework">
+    <defName>HVB_ArchotechSkillHoarder</defName>
+    <label>archotech skill hoarder</label>
+    <description>A brain implant which greatly slows the loss of technical knowledge by means utterly unknown to mortal minds.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechSkillHoarder</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4500</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_InstallArchotechSkillHoarder</defName>
+    <label>install archotech skill hoarder</label>
+    <description>Install an archotech skill hoarder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSkillHoarder</ThingDef>
+      <HediffDef>HVB_ArchotechSkillHoarder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech skill hoarder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechSkillHoarder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechSkillHoarder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechSkillHoarder</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="EBSG.Framework">
+    <defName>HVB_RemoveArchotechSkillHoarder</defName>
+    <label>remove archotech skill hoarder</label>
+    <description>Remove archotech skill hoarder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSkillHoarder</ThingDef>
+      <HediffDef>HVB_ArchotechSkillHoarder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech skill hoarder.</jobString>
+    <removesHediff>HVB_ArchotechSkillHoarder</removesHediff>
+  </RecipeDef>
+  
+</Defs>

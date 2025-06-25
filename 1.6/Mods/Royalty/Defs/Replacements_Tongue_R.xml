@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+						<!--uncraftable-->
+  <!--eltex silvertongue-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_EltexSilvertongue</defName>
+    <hediffClass>HautsBionics_Royalty.Hediff_Silvertongue</hediffClass>
+    <label>eltex silvertongue</label>
+    <labelNoun>an eltex silvertongue</labelNoun>
+    <description>An installed eltex silvertongue. Refunds up to 35% of the psyfocus cost of any word psycast.</description>
+    <descriptionHyperlinks><ThingDef>HVB_EltexSilvertongue</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_EltexSilvertongue</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_EltexSilvertongue</defName>
+    <label>eltex silvertongue</label>
+    <description>This artificial tongue assists in embedding psychic suggestion into verbal communications. It will refund up to 35% of the psyfocus cost of any word psycast.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallEltexSilvertongue</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddTongueBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallEltexSilvertongue</defName>
+    <label>install eltex silvertongue</label>
+    <description>Install an eltex silvertongue.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EltexSilvertongue</ThingDef>
+      <HediffDef>HVB_EltexSilvertongue</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing eltex silvertongue.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_EltexSilvertongue</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_EltexSilvertongue</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tongue</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_EltexSilvertongue</addsHediff>
+  </RecipeDef>
+
+</Defs>

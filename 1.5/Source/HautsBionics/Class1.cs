@@ -1917,7 +1917,6 @@ namespace HautsBionics
         public float radius;
         public float minSevToTrigger;
         public List<DamageDef> respondTo;
-        public List<ThingDef> detectTo;
         public DamageDef damageType;
         public ThingDef postBurstSpawn;
     }
@@ -1943,12 +1942,18 @@ namespace HautsBionics
             base.CompPostTick(ref severityAdjustment);
             if (this.Pawn.IsHashIntervalTick(250)) 
             {
-                foreach (ThingDef t in this.Props.detectTo)
+                Pawn p = this.Pawn;
+                Room room = p.Position.GetRoom(p.Map);
+                foreach (IntVec3 intVec in GenRadial.RadialCellsAround(p.Position, this.Props.radius, true))
                 {
-                    if (GenClosest.ClosestThingReachable(this.Pawn.Position, this.Pawn.Map, ThingRequest.ForDef(t), PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false, false, false), this.Props.radius, null, null, 0, -1, false, RegionType.Set_Passable, false) != null)
+                    if (intVec.InBounds(p.Map) && !intVec.Fogged(p.Map))
                     {
-                        this.DetonateCheck();
-                        break;
+                        Room room2 = intVec.GetRoom(p.Map);
+                        if (room2 != null && room == room2 && FireUtility.NumFiresAt(intVec, p.Map) > 0)
+                        {
+                            this.DetonateCheck();
+                            break;
+                        }
                     }
                 }
             }

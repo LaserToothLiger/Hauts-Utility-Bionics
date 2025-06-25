@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--didactic assistant-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_DidacticAssistant</defName>
+    <label>didactic assistant</label>
+    <labelNoun>a didactic assistant</labelNoun>
+    <description>An installed didactic assistant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_DidacticAssistant</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_DidacticAssistant</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <Hauts_InstructiveAbility>0.8</Hauts_InstructiveAbility>
+		  <GlobalLearningFactor>0.1</GlobalLearningFactor>
+        </statOffsets>
+		<statFactors>
+		  <EBSG_SkillLossRate MayRequire="EBSG.Framework">0.95</EBSG_SkillLossRate>
+		</statFactors>
+	  </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_DidacticAssistant</defName>
+    <label>didactic assistant</label>
+    <description>This brain implant applies natural language enhancement to linguistic information patterns, enabling the host to convey technical information in a clearer manner. This improves both one's ability to teach and to learn.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDidacticAssistant</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <costList>
+	  <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallDidacticAssistant</defName>
+    <label>install didactic assistant</label>
+    <description>Install a didactic assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DidacticAssistant</ThingDef>
+      <HediffDef>HVB_DidacticAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing didactic assistant.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_DidacticAssistant</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_DidacticAssistant</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_DidacticAssistant</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveDidacticAssistant</defName>
+    <label>remove didactic assistant</label>
+    <description>Remove didactic assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_DidacticAssistant</ThingDef>
+      <HediffDef>HVB_DidacticAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing didactic assistant.</jobString>
+    <removesHediff>HVB_DidacticAssistant</removesHediff>
+  </RecipeDef>
+  
+  <!--attention splitter-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_AttentionSplitter</defName>
+    <label>attention splitter</label>
+    <labelNoun>an attention splitter</labelNoun>
+    <description>An installed attention splitter.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AttentionSplitter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AttentionSplitter</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <MechControlGroups>5</MechControlGroups>
+        </statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <createHediff>BrainShock</createHediff>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_AttentionSplitter</defName>
+    <label>attention splitter</label>
+    <description>This brain implant augments a mechanitor's ability to simultaneously process multiple streams of mechanoid consciousnesses.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAttentionSplitter</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>765</MarketValue>
+    </statBases>
+    <costList>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HighMechtech</researchPrerequisite>
+    </recipeMaker>
+    <thingCategories>
+      <li>BodyPartsMechtech</li>
+    </thingCategories>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallAttentionSplitter</defName>
+    <label>install attention splitter</label>
+    <description>Install an attention splitter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AttentionSplitter</ThingDef>
+      <HediffDef>HVB_AttentionSplitter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing attention splitter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AttentionSplitter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AttentionSplitter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AttentionSplitter</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveAttentionSplitter</defName>
+    <label>remove attention splitter</label>
+    <description>Remove attention splitter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AttentionSplitter</ThingDef>
+      <HediffDef>HVB_AttentionSplitter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing attention splitter.</jobString>
+    <removesHediff>HVB_AttentionSplitter</removesHediff>
+  </RecipeDef>
+  
+</Defs>

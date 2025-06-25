@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--bard's respirator-->
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BardsRespirator</defName>
+    <label>bard's respirator</label>
+    <description>An artificial organ that can serve as either a throat or lung replacement. It enhances vocal capability due to its sealable additional air cavities. The compartments can be filled with several deep breaths, or by breathing normally over a longer period of time; they can be tapped into at a preferred pace to enable protracted vocalization without having to pause for breath, or possibly to create sounds that are only feasible with this temporary extra vital capacity.</description>
+    <descriptionHyperlinks>
+		<RecipeDef>HVB_InstallBardsLung</RecipeDef>
+		<RecipeDef>HVB_InstallBardsThroat</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+  </ThingDef>
+  <!--bard's lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_BardsLung</defName>
+    <label>bard's lung</label>
+    <labelNoun>a bard's lung</labelNoun>
+    <description>An installed bard's lung.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BardsRespirator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BardsRespirator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.3</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallBardsLung</defName>
+    <label>install bard's lung</label>
+    <description>Install a bard's lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BardsRespirator</ThingDef>
+      <HediffDef>HVB_BardsLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bard's lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BardsRespirator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BardsRespirator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BardsLung</addsHediff>
+  </RecipeDef>
+  <!--bard's throat-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BardsThroat</defName>
+    <label>bard's throat</label>
+    <labelNoun>a bard's throat</labelNoun>
+    <description>An installed bard's throat.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BardsRespirator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BardsRespirator</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.025</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallBardsThroat</defName>
+    <label>install bard's throat</label>
+    <description>Install a bard's throat.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BardsRespirator</ThingDef>
+      <HediffDef>HVB_BardsThroat</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bard's throat.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BardsRespirator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BardsRespirator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_BardsThroat</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveBardsThroat</defName>
+    <label>remove bard's throat</label>
+    <description>Remove bard's throat.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BardsRespirator</ThingDef>
+      <HediffDef>HVB_BardsThroat</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bard's throat.</jobString>
+    <removesHediff>HVB_BardsThroat</removesHediff>
+  </RecipeDef>
+  
+  <!--sensory respirator-->
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_SensoryRespirator</defName>
+    <label>sensory respirator</label>
+    <description>An artificial organ that can serve as either a throat or lung replacement. Its airways are threaded with chemical receptors. Analysis of inhaled chemicals, performed just as much by the brain as by the organ's micro-computers, can grant increased perception of pathogenic agents, edibility, animal health, and chemical purity and volatility.</description>
+    <descriptionHyperlinks>
+		<RecipeDef>HVB_InstallSensoryLung</RecipeDef>
+		<RecipeDef>HVB_InstallSensoryPharynx</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+  </ThingDef>
+  <!--sensory lung-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_SensoryLung</defName>
+    <label>sensory lung</label>
+    <labelNoun>a sensory lung</labelNoun>
+    <description>An installed sensory lung.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SensoryRespirator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SensoryRespirator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <AnimalGatherYield>0.04</AnimalGatherYield>
+		  <PlantHarvestYield>0.04</PlantHarvestYield>
+		  <DrugSynthesisSpeed>0.15</DrugSynthesisSpeed>
+		  <FoodPoisonChance>-0.1</FoodPoisonChance>
+		  <MedicalTendQuality>0.1</MedicalTendQuality>
+		  <TrainAnimalChance>0.1</TrainAnimalChance>
+		  <TameAnimalChance>0.06</TameAnimalChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallSensoryLung</defName>
+    <label>install sensory lung</label>
+    <description>Install a sensory lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SensoryRespirator</ThingDef>
+      <HediffDef>HVB_SensoryLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing sensory lung.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SensoryRespirator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SensoryRespirator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SensoryLung</addsHediff>
+  </RecipeDef>
+  <!--sensory throat-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_SensoryPharynx</defName>
+    <label>sensory pharynx</label>
+    <labelNoun>a sensory pharynx</labelNoun>
+    <description>An installed sensory pharynx.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SensoryRespirator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SensoryRespirator</spawnThingOnRemoved>
+	<tags><li>HVB_Neck</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+		  <AnimalGatherYield>0.04</AnimalGatherYield>
+		  <PlantHarvestYield>0.04</PlantHarvestYield>
+		  <DrugSynthesisSpeed>0.15</DrugSynthesisSpeed>
+		  <FoodPoisonChance>-0.1</FoodPoisonChance>
+		  <MedicalTendQuality>0.1</MedicalTendQuality>
+		  <TrainAnimalChance>0.1</TrainAnimalChance>
+		  <TameAnimalChance>0.06</TameAnimalChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallSensoryPharynx</defName>
+    <label>install sensory pharynx</label>
+    <description>Install a sensory pharynx.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SensoryRespirator</ThingDef>
+      <HediffDef>HVB_SensoryPharynx</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing sensory pharynx.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SensoryRespirator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SensoryRespirator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+	<incompatibleWithHediffTags><li>HVB_Neck</li></incompatibleWithHediffTags>
+    <addsHediff>HVB_SensoryPharynx</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSensoryPharynx</defName>
+    <label>remove sensory pharynx</label>
+    <description>Remove sensory pharynx.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SensoryRespirator</ThingDef>
+      <HediffDef>HVB_SensoryPharynx</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing sensory pharynx.</jobString>
+    <removesHediff>HVB_SensoryPharynx</removesHediff>
+  </RecipeDef>
+  
+  <!--respiratory spray projector-->
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RespiratorySprayProjector</defName>
+    <label>respiratory spray projector</label>
+    <description>An artificial organ improving the frequency at which spray or spew abilities can be employed. To do so, it absorbs aerial particulates that could be used to build those abilities' requisite chemicals and passes them to the relevant organs. It also reduces the strain of using these abilities by expressing an extreme expectoration force during their use which even other bionics would struggle to safely perform.</description>
+    <descriptionHyperlinks>
+		<RecipeDef>HVB_InstallPneumaticSprayProjector</RecipeDef>
+		<RecipeDef>HVB_InstallPharyngealSprayProjector</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_SprayAbility</li></techHediffsTags>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+  </ThingDef>
+  <!--pneumatic spray projector-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_PneumaticSprayProjector</defName>
+    <label>pneumatic spray projector</label>
+    <labelNoun>a pneumatic spray projector</labelNoun>
+    <description>An installed pneumatic spray projector. Improves the range and cooldown of spray and spew abilities.</description>
+    <descriptionHyperlinks><ThingDef>HVB_RespiratorySprayProjector</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_RespiratorySprayProjector</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_SpewRangeFactor>0.9</Hauts_SpewRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.9</increasedCooldownRecovery>
+		<affectedDMEs>
+		  <li Class="HautsFramework.Hauts_SpewAbility" />
+		</affectedDMEs>
+	  </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallPneumaticSprayProjector</defName>
+    <label>install pneumatic spray projector</label>
+    <description>Install a pneumatic spray projector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RespiratorySprayProjector</ThingDef>
+      <HediffDef>HVB_PneumaticSprayProjector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing pneumatic spray projector.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RespiratorySprayProjector</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RespiratorySprayProjector</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PneumaticSprayProjector</addsHediff>
+  </RecipeDef>
+  <!--pharyngeal spray projector is found in AddOns_Neck.xml. It's an add-on because otherwise you'd almost never take it over one of the other neck replacements-->
+  
+</Defs>

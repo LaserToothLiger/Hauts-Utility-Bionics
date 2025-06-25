@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+  <!--Personal skipgate generator-->
+  <AbilityDef>
+    <defName>HVB_PersonalSkip</defName>
+    <label>personal skip</label>
+    <description>Teleport to a desired position not too far away.</description>
+    <category>Skip</category>
+    <iconPath>UI/Abilities/Skip</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <statBases>
+      <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <warmupSound>PsycastCastLoop</warmupSound>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+	<cooldownPerCharge>true</cooldownPerCharge>
+    <writeCombatLog>True</writeCombatLog>
+	<charges>24</charges>
+    <showPsycastEffects>False</showPsycastEffects>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.25</warmupTime>
+      <range>19.9</range>
+      <requireLineOfSight>True</requireLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class = "HautsFramework.CompProperties_AbilityTeleportSelf">
+        <compClass>HautsFramework.CompAbilityEffect_TeleportSelf</compClass>
+        <requiresLineOfSight>True</requiresLineOfSight>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>18~60</stunTicks>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiTargetingDistanceRange">
+        <compClass>HautsFramework.CompAbilityEffect_AiTargetingDistanceRange</compClass>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiUsesToRetreat">
+        <compClass>HautsFramework.CompAbilityEffect_AiUsesToRetreat</compClass>
+		<hpThreshold>0.2</hpThreshold>
+		<mustBeRanged>true</mustBeRanged>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech Expanded Prosthetics - 
+		personal skipgate generator-->
+  <AbilityDef>
+    <defName>HVB_AEP_PersonalSkip</defName>
+    <label>personal skip</label>
+    <description>Teleport to a desired position not too far away.</description>
+    <category>Skip</category>
+    <iconPath>UI/Abilities/Skip</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <statBases>
+      <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <warmupSound>PsycastCastLoop</warmupSound>
+	<cooldownTicksRange>10000</cooldownTicksRange>
+	<cooldownPerCharge>true</cooldownPerCharge>
+    <writeCombatLog>True</writeCombatLog>
+	<charges>24</charges>
+    <showPsycastEffects>False</showPsycastEffects>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.25</warmupTime>
+      <range>19.9</range>
+      <requireLineOfSight>True</requireLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class = "HautsFramework.CompProperties_AbilityTeleportSelf">
+        <compClass>HautsFramework.CompAbilityEffect_TeleportSelf</compClass>
+        <requiresLineOfSight>True</requiresLineOfSight>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>18~60</stunTicks>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiTargetingDistanceRange">
+        <compClass>HautsFramework.CompAbilityEffect_AiTargetingDistanceRange</compClass>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiUsesToRetreat">
+        <compClass>HautsFramework.CompAbilityEffect_AiUsesToRetreat</compClass>
+		<hpThreshold>0.2</hpThreshold>
+		<mustBeRanged>true</mustBeRanged>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+  <!--warlock's hand-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksHand</defName>
+    <label>warlock's hand</label>
+    <labelNoun>a warlock's hand</labelNoun>
+    <description>An installed warlock's hand. This is a barely functional replacement for an hand - instead, its main use is to guide the host's background thought processes, boosting connectivity to the psychic field and passively generating psyfocus over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WarlocksHand</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WarlocksHand</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.1</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.1</MeditationFocusGain>
+		  <Hauts_PsyfocusRegenRate>0.05</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>0.35</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>knuckle</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_WarlocksHand</defName>
+    <label>warlock's hand</label>
+    <description>A glassy, barely functional bionic hand inlaid with patterns similar to those found on the exterior of some archotech constructions. It subtly guides the host's subconscious, passively generating psyfocus and making it easier to consciously cultivate psyfocus. Eltex threads woven into the biogel nerve-link also boost psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWarlocksHand</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>2</Gold>
+      <Jade>20</Jade>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+	<statBases>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_EltexBodyParts</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Warlock</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallWarlocksHand</defName>
+    <label>install warlock's hand</label>
+    <description>Install a warlock's hand.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksHand</ThingDef>
+      <HediffDef>HVB_WarlocksHand</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing warlock's hand.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WarlocksHand</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WarlocksHand</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WarlocksHand</addsHediff>
+  </RecipeDef>
+  <!--<RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveWarlocksHand</defName>
+    <label>remove warlock's hand</label>
+    <description>Remove warlock's hand.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WarlocksHand</ThingDef>
+      <HediffDef>HVB_WarlocksHand</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing warlock's hand.</jobString>
+    <removesHediff>HVB_WarlocksHand</removesHediff>
+  </RecipeDef>-->
+  
+</Defs>

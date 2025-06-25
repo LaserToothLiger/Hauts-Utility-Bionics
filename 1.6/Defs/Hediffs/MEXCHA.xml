@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--stands for Mutually EXClusive Hand Add-ons.-->
+  
+  <!--knuckle cannons-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_KnuckleCannons</defName>
+    <label>knuckle cannons</label>
+    <labelNoun>a set of knuckle cannons</labelNoun>
+    <description>An installed set of knuckle cannons.</description>
+    <descriptionHyperlinks><ThingDef>HVB_KnuckleCannons</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_KnuckleCannons</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_HandTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+			<li>
+			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
+			  <label>knuckle cannons</label>
+			  <hasStandardCommand>true</hasStandardCommand>
+			  <defaultProjectile>Bullet_Shotgun</defaultProjectile>
+			  <warmupTime>5</warmupTime>
+			  <range>12.9</range>
+			  <soundCast>Shot_Shotgun</soundCast>
+			  <soundCastTail>GunTail_Heavy</soundCastTail>
+			  <muzzleFlashScale>9</muzzleFlashScale>
+			  <commandIcon>Weapons/HUB_KnuckleCannons</commandIcon>
+			</li>
+		</verbs>
+		<verbProps>
+			<li>
+			  <label>knuckle cannons</label>
+			  <canBeToggled>true</canBeToggled>
+			  <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
+                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
+					<invisible>true</invisible>
+					<uniqueTargets>false</uniqueTargets>
+              </li>
+            </comps>
+			  <description>Fires four knuckle cannons in a tightly clustered volley. Can be fired while performing other tasks.</description>
+			</li>
+		</verbProps>
+      </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_KnuckleCannons</defName>
+    <label>knuckle cannons</label>
+    <description>A set of miniaturized guns which can be implanted in either an organic or bionic hand. The four barrels rest above each of the hand's metacarpals. A biogel nerve-trigger enables a mental command to fire each one in rapid sequence.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallKnuckleCannons</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>8</Plasteel>
+	  <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags><li>AdvancedWeapon</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallKnuckleCannons</defName>
+    <label>install knuckle cannons</label>
+    <description>Install a set of knuckle cannons.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_KnuckleCannons</ThingDef>
+      <HediffDef>HVB_KnuckleCannons</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing knuckle cannons.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_KnuckleCannons</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_KnuckleCannons</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Arm</li>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_KnuckleCannons</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveKnuckleCannons</defName>
+    <label>remove knuckle cannons</label>
+    <description>Remove knuckle cannons.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_KnuckleCannons</ThingDef>
+      <HediffDef>HVB_KnuckleCannons</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing knuckle cannons.</jobString>
+    <removesHediff>HVB_KnuckleCannons</removesHediff>
+  </RecipeDef>
+  
+  <!--sonic strike palm-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_SonicStrikePalm</defName>
+    <label>sonic strike palm</label>
+    <labelNoun>a sonic strike palm</labelNoun>
+    <description>An installed sonic strike palm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SonicStrikePalm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SonicStrikePalm</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_HandTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_StunOnHit">
+        <stunTicksRange>150~240</stunTicksRange>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<cellRange>1.5</cellRange>
+		<minDmgToTrigger>0</minDmgToTrigger>
+		<canAffectMechs>false</canAffectMechs>
+		<chance>0.12</chance>
+      </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_SonicStrikePalm</defName>
+    <label>sonic strike palm</label>
+    <description>A powerful vibrational thumper embedded in an organic or bionic hand. It can send a sonic pulse through any hit object, which causes a brief flash of discomfort and nausea in struck living beings.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSonicStrikePalm</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>8</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>330</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags><li>AdvancedWeapon</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallSonicStrikePalm</defName>
+    <label>install sonic strike palm</label>
+    <description>Install a sonic strike palm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SonicStrikePalm</ThingDef>
+      <HediffDef>HVB_SonicStrikePalm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing sonic strike palm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SonicStrikePalm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SonicStrikePalm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Arm</li>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SonicStrikePalm</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSonicStrikePalm</defName>
+    <label>remove sonic strike palm</label>
+    <description>Remove sonic strike palm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SonicStrikePalm</ThingDef>
+      <HediffDef>HVB_SonicStrikePalm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing sonic strike palm.</jobString>
+    <removesHediff>HVB_SonicStrikePalm</removesHediff>
+  </RecipeDef>
+  
+  <!--tactile toolkit-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_TactileToolkit</defName>
+    <label>tactile toolkit</label>
+    <labelNoun>a tactile toolkit</labelNoun>
+    <description>An installed tactile toolkit.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TactileToolkit</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TactileToolkit</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_HandTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+	  <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_TactileToolkit</defName>
+    <label>tactile toolkit</label>
+    <description>A set of prehensile general-purpose tools embedded in an organic or bionic hand, controlled in a limited fashion by a biogel nerve-link.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTactileToolkit</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>270</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>Bionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallTactileToolkit</defName>
+    <label>install tactile toolkit</label>
+    <description>Install a tactile toolkit.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TactileToolkit</ThingDef>
+      <HediffDef>HVB_TactileToolkit</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tactile toolkit.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TactileToolkit</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TactileToolkit</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Arm</li>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TactileToolkit</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveTactileToolkit</defName>
+    <label>remove tactile toolkit</label>
+    <description>Remove tactile toolkit.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TactileToolkit</ThingDef>
+      <HediffDef>HVB_TactileToolkit</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing tactile toolkit.</jobString>
+    <removesHediff>HVB_TactileToolkit</removesHediff>
+  </RecipeDef>
+  
+  <!--graser arm cannon-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_GraserArmCannon</defName>
+    <label>graser arm cannon</label>
+    <labelNoun>a graser arm cannon</labelNoun>
+    <description>An installed graser arm cannon.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GraserArmCannon</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GraserArmCannon</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_HandTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <CancerRate>0.4</CancerRate>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+			<li>
+				<verbClass>Verb_ShootBeam</verbClass>
+				<label>graser arm cannon</label>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>1.0</warmupTime>
+				<range>24.9</range>
+				<minRange>3.9</minRange>
+				<beamFullWidthRange>6.9</beamFullWidthRange>
+				<burstShotCount>5</burstShotCount>
+				<beamWidth>6</beamWidth>
+				<ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+				<beamDamageDef>Beam</beamDamageDef>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+				<beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+				<beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+				<beamMaxDeviation>1.5</beamMaxDeviation>
+				<beamCurvature>0.6</beamCurvature>
+				<beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+				<beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+				<beamChanceToStartFire>0.85</beamChanceToStartFire>
+				<beamChanceToAttachFire>0.85</beamChanceToAttachFire>
+				<beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+				<beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+				<beamStartOffset>0.8</beamStartOffset>
+				<beamLineFleckChanceCurve>
+				  <points>
+					<li>(0, 0)</li>
+					<li>(0.65, 0.4)</li>
+					<li>(1, 0.75)</li>
+				  </points>
+				</beamLineFleckChanceCurve>
+				<commandIcon>Weapons/HUB_GraserArmCannon</commandIcon>
+			</li>
+		</verbs>
+		<verbProps>
+			<li>
+			  <label>graser arm cannon</label>
+			  <canBeToggled>true</canBeToggled>
+			  <description>Fires a sweeping high-energy gamma ray laser that pierces thick armor and burns targets.</description>
+			</li>
+		</verbProps>
+      </li>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_GraserArmCannon</defName>
+    <label>graser arm cannon</label>
+    <description>A high-power gamma ray emitter protruding from the wrist of an organic or bionic hand. Activated via a mental command through its biogel nerve-link, it enables one to light a wide swath of land ablaze with a targeted sweep of the arm. Due to the radiation output, it does come with an unfortunate cancer risk.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGraserArmCannon</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <Uranium>10</Uranium>
+	  <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>AdvancedWeapon</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallGraserArmCannon</defName>
+    <label>install graser arm cannon</label>
+    <description>Install a graser arm cannon.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GraserArmCannon</ThingDef>
+      <HediffDef>HVB_GraserArmCannon</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing graser arm cannon.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GraserArmCannon</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GraserArmCannon</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Arm</li>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GraserArmCannon</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveGraserArmCannon</defName>
+    <label>remove graser arm cannon</label>
+    <description>Remove graser arm cannon.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GraserArmCannon</ThingDef>
+      <HediffDef>HVB_GraserArmCannon</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing graser arm cannon.</jobString>
+    <removesHediff>HVB_GraserArmCannon</removesHediff>
+  </RecipeDef>
+  
+  <!--palm interface-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PalmInterface</defName>
+    <label>palm interface</label>
+    <labelNoun>a palm interface</labelNoun>
+    <description>An installed palm interface.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PalmInterface</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PalmInterface</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_HandTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <ResearchSpeed>0.25</ResearchSpeed>
+          <HackingSpeed>0.4</HackingSpeed>
+          <MechFormingSpeed MayRequire="Ludeon.RimWorld.Biotech">0.4</MechFormingSpeed>
+          <SubcoreEncodingSpeed MayRequire="Ludeon.RimWorld.Biotech">0.4</SubcoreEncodingSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_PalmInterface</defName>
+    <label>palm interface</label>
+    <description>A biogel computer linked to the peripheral nervous system through an organic or bionic palm. Spools of data transmission cables can be projected from its surface to directly interface with other computer technology. An onboard large-programming-language classifier intelligence translates mental commands into workable code at the speed of thought, though of course hosts with actual programming knowledge will be able to utilize it better than others.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPalmInterface</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase">
+    <defName>HVB_InstallPalmInterface</defName>
+    <label>install palm interface</label>
+    <description>Install a palm interface.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PalmInterface</ThingDef>
+      <HediffDef>HVB_PalmInterface</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing palm interface.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PalmInterface</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PalmInterface</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Arm</li>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PalmInterface</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemovePalmInterface</defName>
+    <label>remove palm interface</label>
+    <description>Remove palm interface.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PalmInterface</ThingDef>
+      <HediffDef>HVB_PalmInterface</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing palm interface.</jobString>
+    <removesHediff>HVB_PalmInterface</removesHediff>
+  </RecipeDef>
+  
+</Defs>

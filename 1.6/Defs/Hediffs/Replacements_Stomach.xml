@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--generator stomach-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_GeneratorStomach</defName>
+    <label>generator stomach</label>
+    <labelNoun>a generator stomach</labelNoun>
+    <description>An installed generator stomach. Affects abilities granted by other bionics.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GeneratorStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GeneratorStomach</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+        <hungerRateFactor>1.25</hungerRateFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>1</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+	  </li>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>0</maxEnergyOffset>
+        <resetDelayFactor>0.82</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>false</makesShield>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_GeneratorStomach</defName>
+    <label>generator stomach</label>
+    <description>An artificial stomach which siphons metabolic energy from the digestive process to empower other bionics, reducing the cooldowns of bionic abilities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGeneratorStomach</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicStomach>1</BionicStomach>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallGeneratorStomach</defName>
+    <label>install generator stomach</label>
+    <description>Install a generator stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GeneratorStomach</ThingDef>
+      <HediffDef>HVB_GeneratorStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing generator stomach.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GeneratorStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GeneratorStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GeneratorStomach</addsHediff>
+  </RecipeDef>
+
+  <!--gut computing node-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_GutComputingNode</defName>
+    <label>gut computing node</label>
+    <labelNoun>a gut computing node</labelNoun>
+    <description>An installed gut computing node.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GutComputingNode</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GutComputingNode</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>0.1</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <vomit>true</vomit>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_GutComputingNode</defName>
+    <label>gut computing node</label>
+    <description>An artificial stomach which uses metabolic chemicals as a computational substrate. It co-opts the gut-brain axis to communicate with the brain, enhancing the host's conciousness, but also impeding the function of the stomach and causing hormonal imbalances.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGutComputingNode</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>950</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallGutComputingNode</defName>
+    <label>install gut computing node</label>
+    <description>Install a gut computing node.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GutComputingNode</ThingDef>
+      <HediffDef>HVB_GutComputingNode</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gut computing node.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GutComputingNode</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GutComputingNode</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GutComputingNode</addsHediff>
+  </RecipeDef>
+
+  <!--refinery stomach-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_RefineryStomach</defName>
+    <label>refinery stomach</label>
+    <labelNoun>a refinery stomach</labelNoun>
+    <description>An installed refinery stomach. Produces resources with every 3-5 meals worth' of nutrition ingested.</description>
+    <descriptionHyperlinks><ThingDef>HVB_RefineryStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_RefineryStomach</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <maxSeverity>20.001</maxSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnIngestion">
+        <severityPerNutritionIngested>0.9~1.4</severityPerNutritionIngested>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_CreateThingsBySpendingSeverity">
+		<severityToTrigger>4</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Steel</key><value>15</value></li>
+			<li><key>Chemfuel</key><value>12</value></li>
+			<li><key>Cloth</key><value>12</value></li>
+			<li><key>Neutroamine</key><value>1</value></li>
+			<li><key>Uranium</key><value>2</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_RefineryStomach</defName>
+    <label>refinery stomach</label>
+    <description>An artificial stomach which filters and collects valuable but inedible substances from digested food. Once it has accumulated enough material, it gets regurgitated in an aggregate form. It can produce chemfuel, cloth, neutroamine, steel, or uranium.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallRefineryStomach</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicStomach>1</BionicStomach>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_DigestionAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallRefineryStomach</defName>
+    <label>install refinery stomach</label>
+    <description>Install a refinery stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RefineryStomach</ThingDef>
+      <HediffDef>HVB_RefineryStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing refinery stomach.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RefineryStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RefineryStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RefineryStomach</addsHediff>
+  </RecipeDef>
+
+  <!--hemogen-cycling stomach-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenCyclingStomach</defName>
+    <label>hemogen-cycling stomach</label>
+    <labelNoun>a hemogen-cycling stomach</labelNoun>
+    <description>An installed hemogen-cycling stomach.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HemogenCyclingStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HemogenCyclingStomach</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
+		<drainRateFactors>
+			<li>
+				<key>hemogen</key>
+				<value>0.95</value>
+			</li>
+		</drainRateFactors>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenCyclingStomach</defName>
+    <label>hemogen-cycling stomach</label>
+    <description>Unlike the natural stomach of a bloodfeeder, this artificial stomach performs its digestive duties without metabolizing hemogen. This gives hemogen a much longer half-life.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHemogenCyclingStomach</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicStomach>1</BionicStomach>
+      <ComponentSpacer>1</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHemogenCyclingStomach</defName>
+    <label>install hemogen-cycling stomach</label>
+    <description>Install a hemogen-cycling stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HemogenCyclingStomach</ThingDef>
+      <HediffDef>HVB_HemogenCyclingStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hemogen-cycling stomach.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HemogenCyclingStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HemogenCyclingStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HemogenCyclingStomach</addsHediff>
+  </RecipeDef>
+
+  <!--hemogen-burning stomach-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenBurningStomach</defName>
+    <label>hemogen-burning stomach</label>
+    <labelNoun>a hemogen-burning stomach</labelNoun>
+    <description>An installed hemogen-burning stomach. Consumes 20 hemogen/day in order to vastly reduce hunger rate.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HemogenBurningStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HemogenBurningStomach</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <label>no hemogen</label>
+		<makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+      <li>
+        <minSeverity>0.002</minSeverity>
+		<makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+		<hungerRateFactor>0.1</hungerRateFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_HBS">
+		<hemogenDrainPerDay>0.2</hemogenDrainPerDay>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_HemogenBurningStomach</defName>
+    <label>hemogen-burning stomach</label>
+    <description>This artificial stomach preferentially breaks down hemogen in order to meet the body's nutritional needs, vastly reducing the amount of food the host needs each day (provided that the host has any stored hemogen).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHemogenBurningStomach</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicStomach>1</BionicStomach>
+      <ComponentSpacer>4</ComponentSpacer>
+      <HemogenPack>2</HemogenPack>
+    </costList>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Hemogen</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallHemogenBurningStomach</defName>
+    <label>install hemogen-burning stomach</label>
+    <description>Install a hemogen-burning stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HemogenBurningStomach</ThingDef>
+      <HediffDef>HVB_HemogenBurningStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hemogen-burning stomach.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HemogenBurningStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HemogenBurningStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HemogenBurningStomach</addsHediff>
+  </RecipeDef>
+
+
+
+  
+						<!--uncraftable-->
+  <!--archotech refinery stomach-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechRefineryStomach</defName>
+    <label>archotech refinery stomach</label>
+    <labelNoun>an archotech refinery stomach</labelNoun>
+    <description>An installed archotech refinery stomach. Produces valuable resources with every 3-5 meals worth' of nutrition ingested.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechRefineryStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechRefineryStomach</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <maxSeverity>20.001</maxSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnIngestion">
+        <severityPerNutritionIngested>0.9~1.4</severityPerNutritionIngested>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_CreateThingsBySpendingSeverity">
+		<severityToTrigger>4</severityToTrigger>
+		<spawnedThingAndCountPerTrigger>
+			<li><key>Jade</key><value>4</value></li>
+			<li><key>Gold</key><value>3</value></li>
+			<li><key>Plasteel</key><value>3</value></li>
+			<li><key>MedicineUltratech</key><value>1</value></li>
+			<li><key>Luciferium</key><value>1</value></li>
+		</spawnedThingAndCountPerTrigger>
+		<spawnInOwnInventory>true</spawnInOwnInventory>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechRefineryStomach</defName>
+    <label>archotech refinery stomach</label>
+    <description>An artificial stomach created by an archotech. It transmutes trace materials from digested food into useful substances - after enough food has been eaten, it will produce either raw materials (gold, plasteel, or jade) or refined technological substances (glitterworld medicine or luciferium).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechRefineryStomach</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3500</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechRefineryStomach</defName>
+    <label>install archotech refinery stomach</label>
+    <description>Install a archotech refinery stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechRefineryStomach</ThingDef>
+      <HediffDef>HVB_ArchotechRefineryStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech refinery stomach.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechRefineryStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechRefineryStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechRefineryStomach</addsHediff>
+  </RecipeDef>
+  
+</Defs>

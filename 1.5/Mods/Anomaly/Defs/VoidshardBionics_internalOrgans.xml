@@ -59,7 +59,7 @@
 		<shouldSendMessage>true</shouldSendMessage>
 		<preventRisingAsShambler>true</preventRisingAsShambler>
 		<potentialMutation>HVB_BikuraState</potentialMutation>
-		<mutationChance>10.5</mutationChance>
+		<mutationChance>0.5</mutationChance>
 		<mutationSeverity>0.1~1</mutationSeverity>
       </li>
 	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
@@ -768,6 +768,11 @@
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
 	  </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_ToggleBreathtaker</li>
+        </abilityDefs>
+      </li>
     </comps>
   </HediffDef>
   <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
@@ -1087,7 +1092,7 @@
   <!--thinking kidney-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_VoidshardThinkingKidney</defName>
-    <label>voidsahrd thinking kidney</label>
+    <label>voidshard thinking kidney</label>
     <labelNoun>a voidshard thinking kidney</labelNoun>
     <description>An installed dark archotech thinking kidney. Its potency, and the pain it causes, scale with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechThinkingKidney</ThingDef></descriptionHyperlinks>

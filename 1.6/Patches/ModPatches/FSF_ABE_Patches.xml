@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[FSF] Advanced Bionics Expansion</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--archotech body parts to 200% efficiency-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechDeathGlare"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechDeathGlare"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechDeathGlare"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechEcholocator"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechEcholocator"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechEcholocator"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechMarrowheart"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechMarrowheart"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechMarrowheart"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechBreathTaker"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechBreathTaker"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechBreathTaker"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechRefineryStomach"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechRefineryStomach"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechRefineryStomach"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechGrowthStimulator"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechGrowthStimulator"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechGrowthStimulator"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechNeutralizer"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechNeutralizer"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechNeutralizer"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingKidney"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingKidney"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingKidney"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingSpine"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingSpine"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechThinkingSpine"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechUndulatingSpine"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechUndulatingSpine"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechUndulatingSpine"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechTelescopingArm"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechTelescopingArm"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechTelescopingArm"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechShieldBubbler"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechShieldBubbler"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechShieldBubbler"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechEarthshaker"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechEarthshaker"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechEarthshaker"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechGeneratorLeg"]/addedPartProps/partEfficiency</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechGeneratorLeg"]/addedPartProps</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</nomatch>
+					<match Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVB_ArchotechGeneratorLeg"]/addedPartProps/partEfficiency</xpath>
+						<value><partEfficiency>2</partEfficiency></value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_ArchotechAestheticJaw"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechAestheticJaw"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechAestheticJaw"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_EltexSilvertongue"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_EltexSilvertongue"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_EltexSilvertongue"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Anomaly</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=1]</xpath>
+									<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=2]</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=3]</xpath>
+									<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=4]</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg" or defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardEarthshaker"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardThinkingSpine"]/stages/li[minSeverity=5]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardThinkingSpine"]/stages/li[minSeverity=5]</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardThinkingSpine"]/stages/li[minSeverity=5]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.25]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.25]</xpath>
+									<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.25]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.5]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.5]</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.5]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.75]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.75]</xpath>
+									<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=1.75]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=2]</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGeneratorLeg"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Royalty</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=1]</xpath>
+												<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=2]</xpath>
+												<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=3]</xpath>
+												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=4]</xpath>
+												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw" or defName="HVB_VoidshardSilvertongue"]/addedPartProps/partEfficiency</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw" or defName="HVB_VoidshardSilvertongue"]/addedPartProps</xpath>
+												<value><partEfficiency>2</partEfficiency></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardAestheticMaw" or defName="HVB_VoidshardSilvertongue"]/addedPartProps/partEfficiency</xpath>
+												<value><partEfficiency>2</partEfficiency></value>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>More Archotech Implants</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="ArchotechVanometricStomach"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="ArchotechVanometricStomach"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="ArchotechVanometricStomach"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="ArchotechCerebralTurbocharger"]/stages/li/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="ArchotechCerebralTurbocharger"]/stages/li</xpath>
+									<value><partEfficiencyOffset>0.5</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="ArchotechCerebralTurbocharger"]/stages/li/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.5</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Anomaly</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=0.001]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=0.001]</xpath>
+												<value><partEfficiencyOffset>0.5</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=0.001]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.5</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=1]</xpath>
+												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=2]</xpath>
+												<value><partEfficiencyOffset>0.7</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.7</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=3]</xpath>
+												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+											</match>
+										</li>
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=4]</xpath>
+												<value><partEfficiencyOffset>0.9</partEfficiencyOffset></value>
+											</nomatch>
+											<match Class="PatchOperationReplace">
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardTurbocharger"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+												<value><partEfficiencyOffset>0.9</partEfficiencyOffset></value>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

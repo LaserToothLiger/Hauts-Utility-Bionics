@@ -5,6 +5,7 @@
     <packageId>Hautarche.HautsBionics</packageId>
     <supportedVersions>
 		<li>1.5</li>
+		<li>1.6</li>
     </supportedVersions>
 	<description>Provides many new, powerful bionics with which to enhance and specialize your colonists. Some are simple stat boosts, but others have rare or unique functions, like self-firing ranged attacks, passive skill xp gain, charge-based damage negation, activatable combat abilities, resource generation from ingesting food, and more.
 
@@ -12,7 +13,7 @@ With Royalty: generate psyfocus in new ways, make skipgates at further ranges, a
 
 With Ideology: increase the duration of ideo abilities, strengthen ideo moods and opinions, and produce more dryads from connected gauranlen trees. Some memes have unique augments.
 
-With Biotech: empower bloodfeeders, enhance genetic breath weapons, duplicate genomes, or even sacrifice physical health to improve mechanitor stats.
+With Biotech: empower bloodfeeders, enhance genetic breath weapons, duplicate genomes, and sacrifice physical health to improve mechanitor stats.
 
 With Anomaly: further modify ghouls, immunize your colonists from metalhorror infection, and upgrade archotech bionics with the insidious power of the void.
 
@@ -22,7 +23,7 @@ To increase the availability of each type of bionic, the mod options let you inc
 
 See the full descriptions here: https://docs.google.com/document/d/1EZe2Qz7jWTP9hi1ZbJXjx9ABb1gYi2OctJR3SbubEVg/edit?usp=sharing
     </description>
-	<modIconPath IgnoreIfNoMatchingField="True">HautsLogo_Draft0</modIconPath>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/HautsLogo_Draft0</modIconPath>
 	<modDependencies>
         <li>
             <packageId>brrainz.harmony</packageId>

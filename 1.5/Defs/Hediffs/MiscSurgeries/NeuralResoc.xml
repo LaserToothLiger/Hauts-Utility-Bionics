@@ -60,7 +60,7 @@
             <li>ComponentSpacer</li>
           </thingDefs>
         </filter>
-        <count>1</count>
+        <count>2</count>
       </li>
     </ingredients>
     <fixedIngredientFilter>
@@ -76,7 +76,7 @@
 	  <HediffDef>
 		<defName>HVB_BrokenResoc</defName>
 		<label>resocialization backlash</label>
-		<description>A potential side effect of breaking the programming of neural resocialization, resulting in frequent violent episodes.</description>
+		<description>A potential side effect of breaking the programming of neural resocialization, resulting in frequent violent episodes.\n\nCan be cured with a healer mech serum or other effect of similar potency, or by performing another resocialization.</description>
 		<isBad>true</isBad>
 		<everCurableByItem>true</everCurableByItem>
 		<stages>

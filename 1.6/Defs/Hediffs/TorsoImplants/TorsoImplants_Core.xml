@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--bionic ability booster-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BionicAbilityBooster</defName>
+    <label>bionic ability booster</label>
+    <labelNoun>a bionic ability booster</labelNoun>
+    <description>An installed bionic ability booster implant. Affects abilities granted by other bionics.\n\nCan be installed up to three times.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicAbilityBooster</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicAbilityBooster</spawnThingOnRemoved>
+    <hediffClass>Hediff_Level</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+		<statOffsets><VEF_EnergyShieldEnergyMaxFactor>0.05</VEF_EnergyShieldEnergyMaxFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+		<statOffsets><VEF_EnergyShieldEnergyMaxFactor>0.1</VEF_EnergyShieldEnergyMaxFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+		<statOffsets><VEF_EnergyShieldEnergyMaxFactor>0.15</VEF_EnergyShieldEnergyMaxFactor></statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.334</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BionicAbilityBooster</defName>
+    <label>bionic ability booster</label>
+    <description>A bionic ability booster implant. Once implanted, it synchronizes other bionics and their metabolic interactions, allowing them to more quickly recover the resources needed to employ their abilities without harming the host.\n\nCan be installed up to three times; the surgery required to install it is so simple it can't fail.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBionicAbilityBooster</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>10</Steel>
+      <Uranium>10</Uranium>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <techHediffsTags Inherit="False"></techHediffsTags>
+    <statBases>
+      <MarketValue>225</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase">
+    <defName>HVB_InstallBionicAbilityBooster</defName>
+    <label>install bionic ability booster</label>
+    <description>Install a bionic ability booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicAbilityBooster</ThingDef>
+      <HediffDef>HVB_BionicAbilityBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bionic ability booster.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicAbilityBooster</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicAbilityBooster</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BionicAbilityBooster</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase">
+    <defName>HVB_RemoveBionicAbilityBooster</defName>
+    <label>remove bionic ability booster</label>
+    <description>Remove bionic ability booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicAbilityBooster</ThingDef>
+      <HediffDef>HVB_BionicAbilityBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bionic ability booster.</jobString>
+    <removesHediff>HVB_BionicAbilityBooster</removesHediff>
+  </RecipeDef>
+  
+  <!--center mass laminar-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CenterMassLaminar</defName>
+    <label>center mass laminar</label>
+    <labelNoun>a set of center mass laminar</labelNoun>
+    <description>An installed center mass laminar implant. Reduces damage taken to the torso by 20%.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CenterMassLaminar</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CenterMassLaminar</spawnThingOnRemoved>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CenterMassLaminar</defName>
+    <label>center mass laminar</label>
+    <description>Flexible, overlapping rows of ceramo-metallic armor protect the torso from heavy damage.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCenterMassLaminar</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>35</Plasteel>
+      <Uranium>35</Uranium>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>4</Mass>
+      <MarketValue>800</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>Prosthetics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCenterMassLaminar</defName>
+    <label>install center mass laminar</label>
+    <description>Install a set of center mass laminar.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CenterMassLaminar</ThingDef>
+      <HediffDef>HVB_CenterMassLaminar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing center mass laminar.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CenterMassLaminar</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CenterMassLaminar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CenterMassLaminar</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCenterMassLaminar</defName>
+    <label>remove center mass laminar</label>
+    <description>Remove center mass laminar.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CenterMassLaminar</ThingDef>
+      <HediffDef>HVB_CenterMassLaminar</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing center mass laminar.</jobString>
+    <removesHediff>HVB_CenterMassLaminar</removesHediff>
+  </RecipeDef>
+  
+  <!--internal masseuse-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_InternalMasseuse</defName>
+    <label>internal masseuse</label>
+    <labelNoun>an internal masseuse</labelNoun>
+    <description>An installed internal masseuse implant. It provides comfort over time.</description>
+    <descriptionHyperlinks><ThingDef>HVB_InternalMasseuse</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_InternalMasseuse</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <LifespanFactor>0.1</LifespanFactor>
+		  <Hauts_ApparelWearRateFactor>0.1</Hauts_ApparelWearRateFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SatisfiesNeeds">
+		<needsSatisfied>
+			<li><key>Comfort</key><value>0.0025</value></li>
+		</needsSatisfied>
+		<periodicity>250</periodicity>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_InternalMasseuse</defName>
+    <label>internal masseuse</label>
+    <description>This implant produces and controls miniature vibro-gel pads which are attracted to stiff muscles. Once the pads reach such an area, they begin oscillating and deforming as necessary to provide comforting relaxation of the muscles - but only while those muscles are not in active use. This constant massaging effect enhances both comfort and mood; however, it also incrementally increases the wear and tear dealt to clothing the host is wearing.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallInternalMasseuse</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallInternalMasseuse</defName>
+    <label>install internal masseuse</label>
+    <description>Install an internal masseuse.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InternalMasseuse</ThingDef>
+      <HediffDef>HVB_InternalMasseuse</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing internal masseuse.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_InternalMasseuse</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_InternalMasseuse</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_InternalMasseuse</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveInternalMasseuse</defName>
+    <label>remove internal masseuse</label>
+    <description>Remove internal masseuse.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InternalMasseuse</ThingDef>
+      <HediffDef>HVB_InternalMasseuse</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing internal masseuse.</jobString>
+    <removesHediff>HVB_InternalMasseuse</removesHediff>
+  </RecipeDef>
+  
+  <!--mechanite lure-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MechaniteLure</defName>
+    <label>mechanite lure</label>
+    <labelNoun>a mechanite lure</labelNoun>
+    <description>An installed mechanite lure implant. Can be used to infect another person with a mechanite disease.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechaniteLure</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechaniteLure</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_InflictMechaniteDisease</li>
+    </abilities>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_MechaniteLure</defName>
+    <label>mechanite lure</label>
+    <description>An implant which broadcasts mechanite guidance system data packets, so as to lure and trap free-roaming mechanites from the environment. Once enough have been collected, it can discharge these mechanites into a targeted living host.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechaniteLure</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <techHediffsTags><li>HVB_Mechanityrant</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMechaniteLure</defName>
+    <label>install mechanite lure</label>
+    <description>Install a mechanite lure.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechaniteLure</ThingDef>
+      <HediffDef>HVB_MechaniteLure</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanite lure.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechaniteLure</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechaniteLure</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechaniteLure</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMechaniteLure</defName>
+    <label>remove mechanite lure</label>
+    <description>Remove mechanite lure.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechaniteLure</ThingDef>
+      <HediffDef>HVB_MechaniteLure</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing mechanite lure.</jobString>
+    <removesHediff>HVB_MechaniteLure</removesHediff>
+  </RecipeDef>
+  
+  <!--muscle innervator-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_MuscleInnervator</defName>
+    <label>muscle innervator</label>
+    <labelNoun>a muscle innervator</labelNoun>
+    <description>An installed muscle innervator implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MuscleInnervator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MuscleInnervator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDamageFactor>0.4</MeleeDamageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_MuscleInnervator</defName>
+    <label>muscle innervator</label>
+    <description>This bionic gland produces a metabolic cocktail that enhances muscle innervation and guides muscle repair. Hosts exhibit increased explosive strength.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMuscleInnervator</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallMuscleInnervator</defName>
+    <label>install muscle innervator</label>
+    <description>Install a muscle innervator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MuscleInnervator</ThingDef>
+      <HediffDef>HVB_MuscleInnervator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing muscle innervator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MuscleInnervator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MuscleInnervator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MuscleInnervator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveMuscleInnervator</defName>
+    <label>remove muscle innervator</label>
+    <description>Remove muscle innervator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MuscleInnervator</ThingDef>
+      <HediffDef>HVB_MuscleInnervator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing muscle innervator.</jobString>
+    <removesHediff>HVB_MuscleInnervator</removesHediff>
+  </RecipeDef>
+  
+  <!--oilskin gland-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_OilskinGland</defName>
+    <label>oilskin gland</label>
+    <labelNoun>an oilskin gland</labelNoun>
+    <description>An installed oilskin gland implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_OilskinGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_OilskinGland</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Flammability>-0.3</Flammability>
+		  <ToxicEnvironmentResistance>0.25</ToxicEnvironmentResistance>
+		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.2</Mashed_Ashlands_AshResistance>
+		  <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+		  <Hauts_ApparelWearRateFactor>0.22</Hauts_ApparelWearRateFactor>
+        </statOffsets>
+		<statFactors>
+		  <FoodPoisonChance>0.8</FoodPoisonChance>
+		</statFactors>
+		<totalBleedFactor>0.9</totalBleedFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_OilskinGland</defName>
+    <label>oilskin gland</label>
+    <description>This implant modifies the dermis to produce an oily substance which binds toxic particles, repels water, and is non-flammable. However, it also has a mildly corrosive effect on worn apparel.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallOilskinGland</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallOilskinGland</defName>
+    <label>install oilskin gland</label>
+    <description>Install an oilskin gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_OilskinGland</ThingDef>
+      <HediffDef>HVB_OilskinGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing oilskin gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_OilskinGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_OilskinGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_OilskinGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveOilskinGland</defName>
+    <label>remove oilskin gland</label>
+    <description>Remove oilskin gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_OilskinGland</ThingDef>
+      <HediffDef>HVB_OilskinGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing oilskin gland.</jobString>
+    <removesHediff>HVB_OilskinGland</removesHediff>
+  </RecipeDef>
+  
+  <!--tissue hardener-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_TissueHardener</defName>
+    <label>tissue hardener</label>
+    <labelNoun>a tissue hardener</labelNoun>
+    <description>An installed tissue hardener implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TissueHardener</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TissueHardener</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <LifespanFactor>-0.05</LifespanFactor>
+		  <Hauts_ApparelWearRateFactor>0.05</Hauts_ApparelWearRateFactor>
+        </statOffsets>
+		<statFactors>
+		  <IncomingDamageFactor>0.9</IncomingDamageFactor>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TissueHardener</defName>
+    <label>tissue hardener</label>
+    <description>This implant reinforces bodily tissues with ablative mechanite aggregates. This is unhealthy in the long term, and it causes friction and bumping of worn apparel to incur more wear, but it is helpful for surviving harm.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTissueHardener</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallTissueHardener</defName>
+    <label>install tissue hardener</label>
+    <description>Install a tissue hardener.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TissueHardener</ThingDef>
+      <HediffDef>HVB_TissueHardener</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tissue hardener.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TissueHardener</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TissueHardener</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TissueHardener</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveTissueHardener</defName>
+    <label>remove tissue hardener</label>
+    <description>Remove tissue hardener.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TissueHardener</ThingDef>
+      <HediffDef>HVB_TissueHardener</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing tissue hardener.</jobString>
+    <removesHediff>HVB_TissueHardener</removesHediff>
+  </RecipeDef>
+  
+  <!--prosthetic dorsal fin-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_ProstheticDorsalFin</defName>
+    <label>prosthetic dorsal fin</label>
+    <labelNoun>a prosthetic dorsal fin</labelNoun>
+    <description>An installed prosthetic dorsal fin. Not only does it boost swim speed, it makes for a potent slashing weapon.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProstheticDorsalFin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProstheticDorsalFin</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.3</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.3</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.42</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.6</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Fin">
+		<finPower>0.6</finPower>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0</rainCountsFor>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>finblade</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>18</power>
+            <cooldownTime>2.4</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_ProstheticDorsalFin</defName>
+    <label>prosthetic dorsal fin</label>
+    <description>A hydrodynamic fin that protrudes from the back. It's large and sharp enough to be used as a weapon, though any attempt to attack with it is bound to be somewhat slow.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProstheticDorsalFin</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>7</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>500</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallProstheticDorsalFin</defName>
+    <label>install prosthetic dorsal fin</label>
+    <description>Install a prosthetic dorsal fin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProstheticDorsalFin</ThingDef>
+      <HediffDef>HVB_ProstheticDorsalFin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic dorsal fin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProstheticDorsalFin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProstheticDorsalFin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProstheticDorsalFin</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_RemoveProstheticDorsalFin</defName>
+    <label>remove prosthetic dorsal fin</label>
+    <description>Remove prosthetic dorsal fin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProstheticDorsalFin</ThingDef>
+      <HediffDef>HVB_ProstheticDorsalFin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing prosthetic dorsal fin.</jobString>
+    <removesHediff>HVB_ProstheticDorsalFin</removesHediff>
+  </RecipeDef>
+  
+  <!--bionic torso gills-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_BionicTorsoGills</defName>
+    <label>bionic torso gills</label>
+    <labelNoun>bionic torso gills</labelNoun>
+    <description>An installed set of bionic torso gills. Increases breathing marginally while in the rain, or more severely while immersed in water.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicTorsoGills</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicTorsoGills</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <stages>
+      <li>
+		<label>inactive</label>
+	  </li>
+      <li>
+        <minSeverity>0.05</minSeverity>
+        <label>marginal use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.2</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.30</minSeverity>
+        <label>partial use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.4</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.42</minSeverity>
+        <label>full use</label>
+		<capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.40</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.8</ThirstRateMultiplier>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0.051</rainCountsFor>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_BionicTorsoGills</defName>
+    <label>bionic torso gills</label>
+    <description>A set of bionic gills intended to be installed in the torso. After installation, capillaries grow towards the gas-exchanging filaments, enabling the gills to pass oxygen into the blood and carbon dioxide into the air. These gills can even extract marginal bonus oxygen from sufficiently heavy rain.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBionicTorsoGills</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+	  <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallBionicTorsoGills</defName>
+    <label>install bionic torso gills</label>
+    <description>Install a set of bionic torso gills.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicTorsoGills</ThingDef>
+      <HediffDef>HVB_BionicTorsoGills</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bionic torso gills.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicTorsoGills</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicTorsoGills</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BionicTorsoGills</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_RemoveBionicTorsoGills</defName>
+    <label>remove bionic torso gills</label>
+    <description>Remove bionic torso gills.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicTorsoGills</ThingDef>
+      <HediffDef>HVB_BionicTorsoGills</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bionic torso gills.</jobString>
+    <removesHediff>HVB_BionicTorsoGills</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--lazarus seed-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LazarusSeedCharging</defName>
+    <label>lazarus seed (not ready)</label>
+    <labelNoun>a Lazarus seed (not ready)</labelNoun>
+    <description>An installed Lazarus seed implant. Once it detects the clinical death of the host, it begins secreting ultratech mechanites to repair broken-down tissues and kickstart the body back to life. This process takes anywhere from 1 hour to 1 day.\n\nAfter each use, it takes one year for the seed to replenish its mechanites.\n\nIn its depleted state, the seed cannot be extracted.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LazarusSeed</ThingDef></descriptionHyperlinks>
+	<tags><li>HVB_Laz</li></tags>
+    <initialSeverity>60.0</initialSeverity>
+    <maxSeverity>60.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
+		<atOrBelowThisSeverity>0.01</atOrBelowThisSeverity>
+		<alternativeHediff>HVB_LazarusSeed</alternativeHediff>
+	  </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <hediffClass>HautsBionics.Hediff_LazarusSeed</hediffClass>
+    <defName>HVB_LazarusSeed</defName>
+    <label>lazarus seed (ready)</label>
+    <labelNoun>a Lazarus seed (ready)</labelNoun>
+    <description>An installed Lazarus seed implant. Once it detects the clinical death of the host, it begins secreting ultratech mechanites to repair broken-down tissues and kickstart the body back to life. This process takes anywhere from 1 hour to 1 day.\n\nAfter each use, it takes one year for the seed to replenish its mechanites.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LazarusSeed</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LazarusSeed</spawnThingOnRemoved>
+	<tags><li>HVB_Laz</li></tags>
+	<comps>
+      <li Class="HautsFramework.HediffCompProperties_DelayedResurrection">
+        <rareTickDelay>10~240</rareTickDelay><!--rare ticks only occur once every 250 ticks. 10~240 thus means 1hr-1day-->
+		<onDeathMessage>HVB_LazCanRez</onDeathMessage>
+		<onRezMessage>HVB_LazRez</onRezMessage>
+		<shouldTranslateOnDeath>true</shouldTranslateOnDeath>
+		<shouldTranslateOnRez>true</shouldTranslateOnRez>
+		<shouldSendMessage>true</shouldSendMessage>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_LazarusSeed</defName>
+    <label>lazarus seed</label>
+    <description>An implanted organ that generates ultratech mechanites capable of tissue repair and metabolic reignition. Once it detects that the host has died, it releases its stockpiled mechanites to restore the body and kickstart it to life. This process takes anywhere from 1 hour to 1 day, and the seed takes a year to replenish the expended mechanites.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLazarusSeed</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscCoolItems</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLazarusSeed</defName>
+    <label>install lazarus seed</label>
+    <description>Install a lazarus seed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LazarusSeed</ThingDef>
+      <HediffDef>HVB_LazarusSeed</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing lazarus seed.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LazarusSeed</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LazarusSeed</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LazarusSeed</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_Laz</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLazarusSeed</defName>
+    <label>remove Lazarus seed</label>
+    <description>Remove Lazarus seed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LazarusSeed</ThingDef>
+      <HediffDef>HVB_LazarusSeed</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing Lazarus seed.</jobString>
+    <removesHediff>HVB_LazarusSeed</removesHediff>
+  </RecipeDef>
+  
+</Defs>

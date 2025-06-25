@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--programmable limb-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ProgrammableLimb</defName>
+    <label>programmable limb</label>
+    <labelNoun>a programmable limb</labelNoun>
+    <description>An installed programmable limb. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ProgrammableLimb</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.03</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.06</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.09</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.15</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.18</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.21</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.27</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.33</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>0.39</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>0.42</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>0.45</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>0.51</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>0.54</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>0.57</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>programmable limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ProgrammableLimb</defName>
+    <label>programmable limb</label>
+    <description>A bionic limb. As an arm, it sports various miniature articulating and tentacular limbs protruding from hidden compartments, each boasting a different tool; as a leg, the shape of the foot, configuration of the knee(s), and more can all be adjusted on the fly. Hosts with no particular intellectual acumen will not find this much better than a natural limb; however, notably intellectually skilled hosts can program it to surpass the efficacy of regular bionic limbs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallProgrammableLimb</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Gold>1</Gold>
+      <Plasteel>5</Plasteel>
+      <Uranium>5</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_ProgrammableBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallProgrammableLimb</defName>
+    <label>install programmable limb</label>
+    <description>Install a programmable limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ProgrammableLimb</ThingDef>
+      <HediffDef>HVB_ProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing programmable limb.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ProgrammableLimb</addsHediff>
+  </RecipeDef>
+  
+  <!--aquadynamic limb-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="pathfinding.framework">
+    <defName>HVB_EnoughFinsToSwim</defName>
+    <label>amphibious movement unlocked</label>
+    <description>This character has sufficient bionic fins to swim easily.</description>
+	<hediffClass>HautsBionics.Hediff_SwimUnlocked</hediffClass>
+    <stages>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <modExtensions>
+      <li Class="PathfindingFramework.MovementExtension">
+        <movementDef>PF_Movement_Amphibious</movementDef>
+      </li>
+    </modExtensions>
+  </HediffDef>
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_AquadynamicLimb</defName>
+    <label>aquadynamic limb</label>
+    <labelNoun>an aquadynamic limb</labelNoun>
+    <description>An installed aquadynamic limb.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AquadynamicLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AquadynamicLimb</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.3</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.4</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+      <li MayRequire="pathfinding.framework">
+        <minSeverity>0.42</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.6</MoveSpeed>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics.HediffCompProperties_Fin">
+		<finPower>0.5</finPower>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0</rainCountsFor>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>aquadynamic limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+          <li>
+            <label>aquadynamic blade</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>20</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>MeleeHit_Metal_Sharp</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_AquadynamicLimb</defName>
+    <label>aquadynamic limb</label>
+    <description>A bionic arm with a sleek, aquadynamic profile. Bladelike fins further ease movement in water, as well as provide a means of self-defense; when not needed, they retract into a hidden compartment within the limb.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAquadynamicLimb</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1260</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
+    <defName>HVB_InstallAquadynamicLimb</defName>
+    <label>install aquadynamic limb</label>
+    <description>Install an aquadynamic limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AquadynamicLimb</ThingDef>
+      <HediffDef>HVB_AquadynamicLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing aquadynamic limb.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AquadynamicLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AquadynamicLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AquadynamicLimb</addsHediff>
+  </RecipeDef>
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech programmable limb-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechProgrammableLimb</defName>
+    <label>archotech programmable limb</label>
+    <labelNoun>an archotech programmable limb</labelNoun>
+    <description>An installed archotech programmable limb. Its efficacy scales with the Intellectual skill of the user.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgrammableLimb</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgrammableLimb</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+	<stages>
+      <li>
+        <label>0 Int</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1 Int</label>
+		<partEfficiencyOffset>0.08</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2 Int</label>
+		<partEfficiencyOffset>0.16</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3 Int</label>
+		<partEfficiencyOffset>0.24</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <label>4 Int</label>
+		<partEfficiencyOffset>0.32</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <label>5 Int</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <label>6 Int</label>
+		<partEfficiencyOffset>0.48</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>7</minSeverity>
+        <label>7 Int</label>
+		<partEfficiencyOffset>0.56</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>8</minSeverity>
+        <label>8 Int</label>
+		<partEfficiencyOffset>0.64</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>9</minSeverity>
+        <label>9 Int</label>
+		<partEfficiencyOffset>0.72</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>10</minSeverity>
+        <label>10 Int</label>
+		<partEfficiencyOffset>0.8</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>11</minSeverity>
+        <label>11 Int</label>
+		<partEfficiencyOffset>0.88</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>12</minSeverity>
+        <label>12 Int</label>
+		<partEfficiencyOffset>0.96</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>13</minSeverity>
+        <label>13 Int</label>
+		<partEfficiencyOffset>1.04</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>14</minSeverity>
+        <label>14 Int</label>
+		<partEfficiencyOffset>1.12</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>15</minSeverity>
+        <label>15 Int</label>
+		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>16</minSeverity>
+        <label>16 Int</label>
+		<partEfficiencyOffset>1.28</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>17</minSeverity>
+        <label>17 Int</label>
+		<partEfficiencyOffset>1.36</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>18</minSeverity>
+        <label>18 Int</label>
+		<partEfficiencyOffset>1.44</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>19</minSeverity>
+        <label>19 Int</label>
+		<partEfficiencyOffset>1.52</partEfficiencyOffset>
+      </li>
+      <li>
+        <minSeverity>20</minSeverity>
+        <label>20 Int</label>
+		<partEfficiencyOffset>1.6</partEfficiencyOffset>
+      </li>
+	</stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_SkillLevelSeverity">
+		<skills><li>Intellectual</li></skills>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>programmable limb</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechProgrammableLimb</defName>
+    <label>archotech programmable limb</label>
+    <description>An artificial limb built by an archotech. It appears to be an ordinary limb, but it is almost entirely composed of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the limb as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of other archotech limbs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechProgrammableLimb</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>2800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechProgrammableLimb</defName>
+    <label>install archotech programmable limb</label>
+    <description>Install an archotech programmable limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechProgrammableLimb</ThingDef>
+      <HediffDef>HVB_ArchotechProgrammableLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech programmable limb.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechProgrammableLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechProgrammableLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechProgrammableLimb</addsHediff>
+  </RecipeDef>
+  
+</Defs>

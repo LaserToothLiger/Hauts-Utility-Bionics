@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs> <!--despite effectively being replacements, these use ImplantHediffBase because of how replacement works. y'see, when you replace an arm with a bionic arm, the hand and all its fingers get removed too, which is why
+		you can't put gloves or such on a bionic arm, or add a field hand onto a bionic arm. In the same way the arm "contains" the hand, the skull "contains" the brain, so if these were coded like normal replacements,
+			they'd preclude the addition of brain implants. ...Yeah, uh, missing a brain in this way won't kill you, because reasons? Blame Tynan if that didn't make sense to you.
+			To circumvent this, we use HediffCompProperties_MutuallyExclusiveTags.-->
+
+  <!--Hardhead protector-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_HardheadProtector</defName>
+    <label>hardhead protector</label>
+    <labelNoun>a hardhead protector</labelNoun>
+    <description>An installed hardhead protector. Reduces damage taken to the head by 30%.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HardheadProtector</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HardheadProtector</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_HardheadProtector</defName>
+    <label>hardhead protector</label>
+    <description>An artificial skull. Ceramo-metallic plating and ablative foam layers reduce the severity of incoming damage to the head by 30%.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHardheadProtector</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>35</Plasteel>
+      <Uranium>35</Uranium>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <statBases>
+      <Mass>2</Mass>
+      <MarketValue>800</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>Prosthetics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallHardheadProtector</defName>
+    <label>install hardhead protector</label>
+    <description>Install a hardhead protector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HardheadProtector</ThingDef>
+      <HediffDef>HVB_HardheadProtector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hardhead protector.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HardheadProtector</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HardheadProtector</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HardheadProtector</addsHediff>
+  </RecipeDef>
+
+  <!--Panoptes skull-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PanoptesSkull</defName>
+    <label>panoptes skull</label>
+    <labelNoun>a panoptes skull</labelNoun>
+    <description>An installed panoptes skull.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PanoptesSkull</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PanoptesSkull</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <PawnBeauty>-1</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <createHediff>BrainShock</createHediff>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_PanoptesSkull</defName>
+    <label>panoptes skull</label>
+    <description>An artificial skull. It appears to be covered in a thin layer of fuzz - this is actually a protruding mass of artificial nerves that develop into eyespots studding the host's head after installation. These eyespots link to the skull's computational biogel layer, which translates all the incoming visual information into something easily usable by the host.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPanoptesSkull</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <statBases>
+      <Mass>1.5</Mass>
+      <MarketValue>1300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallPanoptesSkull</defName>
+    <label>install panoptes skull</label>
+    <description>Install a panoptes skull.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PanoptesSkull</ThingDef>
+      <HediffDef>HVB_PanoptesSkull</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing panoptes skull.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PanoptesSkull</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PanoptesSkull</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PanoptesSkull</addsHediff>
+  </RecipeDef>
+  
+  <!--Psychic foil barrier-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_PsychicFoilBarrier</defName>
+    <label>psychic foil barrier</label>
+    <labelNoun>a psychic foil barrier</labelNoun>
+    <description>An installed psychic foil barrier.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PsychicFoilBarrier</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PsychicFoilBarrier</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+		  <PsychicSensitivity>-1.4</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_PsychicFoilBarrier</defName>
+    <label>psychic foil barrier</label>
+    <description>A durable ceramo-metallic skull latticed with psychically-absorptive foil. Its ingenious construction severely dampens psychic waves without impacting the brain's connection to the host body.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPsychicFoilBarrier</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+	  <Apparel_PsychicFoilHelmet>1</Apparel_PsychicFoilHelmet>
+    </costList>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <statBases>
+      <Mass>1.5</Mass>
+      <MarketValue>700</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallPsychicFoilBarrier</defName>
+    <label>install psychic foil barrier</label>
+    <description>Install a psychic foil barrier.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsychicFoilBarrier</ThingDef>
+      <HediffDef>HVB_PsychicFoilBarrier</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psychic foil barrier.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PsychicFoilBarrier</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PsychicFoilBarrier</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsychicFoilBarrier</addsHediff>
+  </RecipeDef>
+  
+  <!--Gaucrown-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_Gaucrown</defName>
+    <label>gaucrown</label>
+    <labelNoun>a gaucrown</labelNoun>
+    <description>An installed gaucrown.</description>
+    <descriptionHyperlinks><ThingDef>HVB_Gaucrown</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_Gaucrown</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Hauts_MaxDryadFactor>0.25</Hauts_MaxDryadFactor>
+		  <PruningSpeed>0.25</PruningSpeed>
+		  <PsychicSensitivity>0.15</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_Gaucrown</defName>
+    <label>gaucrown</label>
+    <description>An artificial skull stippled with shavings of psychically-attuned wood. A mass of gauranlen tree cells is integrated into the skull’s biogel nerve-link, accentuating the host’s ability to connect with gauranlen trees and elevating psychic sensitivity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGaucrown</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <WoodLog>20</WoodLog>
+	  <GauranlenSeed>1</GauranlenSeed>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <Mass>1.5</Mass>
+      <MarketValue>800</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallGaucrown</defName>
+    <label>install gaucrown</label>
+    <description>Install a gaucrown.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Gaucrown</ThingDef>
+      <HediffDef>HVB_Gaucrown</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gaucrown.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_Gaucrown</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_Gaucrown</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Gaucrown</addsHediff>
+  </RecipeDef>
+
+</Defs>

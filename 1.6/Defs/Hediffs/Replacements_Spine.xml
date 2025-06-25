@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--bracing spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_BracingSpine</defName>
+    <label>bracing spine</label>
+    <labelNoun>a bracing spine</labelNoun>
+    <description>An installed bracing spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BracingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BracingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		  <RangedCooldownFactor>0.8</RangedCooldownFactor>
+		  <StaggerDurationFactor>0.5</StaggerDurationFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BracingSpine</defName>
+    <label>bracing spine</label>
+    <description>A bionic spine which efficiently disperses force from both the impacts of incoming attacks and the recoil of outgoing attacks.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBracingSpine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2400</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallBracingSpine</defName>
+    <label>install bracing spine</label>
+    <description>Install a bracing spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BracingSpine</ThingDef>
+      <HediffDef>HVB_BracingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bracing spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BracingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BracingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BracingSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--hyperflexible spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_HyperflexibleSpine</defName>
+    <label>hyperflexible spine</label>
+    <labelNoun>a hyperflexible spine</labelNoun>
+    <description>An installed hyperflexible spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_HyperflexibleSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_HyperflexibleSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MeleeDodgeChance>6</MeleeDodgeChance>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.05</postFactor>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_HyperflexibleSpine</defName>
+    <label>hyperflexible spine</label>
+    <description>A bionic spine with incredible flexibility. It enables ranges of whole-body movement far beyond normal capabilities. Coupled with the enhanced transmission speed of motor signals through its biogel nerve bundle, it enables the host to perform impressive yet disturbing-looking dodges, and to unleash rapid, unnaturally fluid sequences of melee strikes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHyperflexibleSpine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2400</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallHyperflexibleSpine</defName>
+    <label>install hyperflexible spine</label>
+    <description>Install a hyperflexible spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HyperflexibleSpine</ThingDef>
+      <HediffDef>HVB_HyperflexibleSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing hyperflexible spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HyperflexibleSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HyperflexibleSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HyperflexibleSpine</addsHediff>
+  </RecipeDef>
+
+  <!--lifeguard spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_LifeguardSpine</defName>
+    <label>lifeguard spine</label>
+    <labelNoun>a lifeguard spine</labelNoun>
+    <description>An installed lifeguard spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LifeguardSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LifeguardSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <InjuryHealingFactor>1</InjuryHealingFactor>
+		  <ImmunityGainSpeed>1</ImmunityGainSpeed>
+        </statOffsets>
+		<statFactors>
+		  <CancerRate MayRequire="Ludeon.RimWorld.Biotech">0.35</CancerRate>
+		  <LifespanFactor>2</LifespanFactor>
+		  <IncomingDamageFactor>0.9</IncomingDamageFactor>
+		  <DeathrestEffectivenessFactor MayRequire="Ludeon.RimWorld.Biotech,lts.I">1.2</DeathrestEffectivenessFactor>
+		</statFactors>
+		<!--<painFactor>0.35</painFactor>-->
+		<makeImmuneTo>
+		  <li>WoundInfection</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_LifeguardSpine</defName>
+    <label>lifeguard spine</label>
+    <description>A bionic spine which manufactures medical mechanites adaptively programmed to rectify issues observed by a digital twin of the host's biological systems. These mechanites guide the immune system's recognition of harmful agents, as well as stimulate localized tissue repair according to a dynamic spatio-temporal model of optimal wound healing. Combined, these functions prevent wound infections altogether.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLifeguardSpine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+	  <MedicineUltratech>2</MedicineUltratech>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2620</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallLifeguardSpine</defName>
+    <label>install lifeguard spine</label>
+    <description>Install a lifeguard spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LifeguardSpine</ThingDef>
+      <HediffDef>HVB_LifeguardSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing lifeguard spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LifeguardSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LifeguardSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LifeguardSpine</addsHediff>
+  </RecipeDef>
+    
+  <!--load-bearing spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_LoadBearingSpine</defName>
+    <label>load-bearing spine</label>
+    <labelNoun>a load-bearing spine</labelNoun>
+    <description>An installed load-bearing spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_LoadBearingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_LoadBearingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+		  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+		  <RestFallRateFactor>0.8</RestFallRateFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_LoadBearingSpine</defName>
+    <label>load-bearing spine</label>
+    <description>A bionic spine reinforced with additional plasteel and self-repairing lattice-dust matrices in each disc. A specific mental command can be issued to lock the spine in a specific configuration, using a plasteel mesh-web to elegantly support its weight. This spine can handle much more weight than normal, and it alleviates some of the day-to-day energy expenditure usually involved in motion and standing upright.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallLoadBearingSpine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2200</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallLoadBearingSpine</defName>
+    <label>install load-bearing spine</label>
+    <description>Install a load-bearing spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_LoadBearingSpine</ThingDef>
+      <HediffDef>HVB_LoadBearingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing load-bearing spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_LoadBearingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_LoadBearingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LoadBearingSpine</addsHediff>
+  </RecipeDef>
+
+  <!--mechanityrant vertebral link-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantVertebralLink</defName>
+    <label>mechanityrant vertebral link</label>
+    <labelNoun>a mechanityrant vertebral link</labelNoun>
+    <description>An installed mechanityrant vertebral link.</description>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantVertebralLink</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_MechanityrantVertebralLink</spawnThingOnRemoved>
+    <hediffClass>Hediff_Level</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <levelIsQuantity>true</levelIsQuantity>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <partEfficiencyOffset>-0.1</partEfficiencyOffset>
+        <statOffsets>
+          <MechBandwidth>4</MechBandwidth>
+          <MechControlGroups>1</MechControlGroups>
+		  <Hauts_MechCommandRange>3</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.12</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <partEfficiencyOffset>-0.25</partEfficiencyOffset>
+        <statOffsets>
+          <MechBandwidth>8</MechBandwidth>
+          <MechControlGroups>2</MechControlGroups>
+		  <Hauts_MechCommandRange>6</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.24</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <partEfficiencyOffset>-0.4</partEfficiencyOffset>
+        <statOffsets>
+          <MechBandwidth>12</MechBandwidth>
+          <MechControlGroups>3</MechControlGroups>
+		  <Hauts_MechCommandRange>9</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.36</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_MechanityrantVertebralLink</defName>
+    <label>mechanityrant vertebral link</label>
+    <description>A spinal replacement which siphons some of the psycho-computational power involved in transmissions between upper and lower motor neurons into boosting mechanitor control. Mechanitors with vertebral links feel as if they partially inhabit - and can directly experience the perspectives and actions of - their mechanoids.\n\nVertebral links can be installed up to three times, with each installation increasing the effects linearly.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantVertebralLink</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+	  <Steel>100</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>1535</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+	<tradeability>Buyable</tradeability>
+    <techHediffsTags Inherit="False"><li>HVB_Mechanityrant</li></techHediffsTags>
+    <thingCategories><li>BodyPartsMechtech</li></thingCategories>
+    <recipeMaker><researchPrerequisite>StandardMechtech</researchPrerequisite></recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <!--the first time around, it replaces the spine. But you can KEEP stacking this thing, up to two more times. That's a unique behavior, hence this unique worker class-->
+	<workerClass>HautsBionics.Recipe_InstallArtificialLevellingBodyPart</workerClass>
+    <defName>HVB_InstallMechanityrantVertebralLink</defName>
+    <label>install mechanityrant vertebral link</label>
+    <description>Install a mechanityrant vertebral link.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MechanityrantVertebralLink</ThingDef>
+      <HediffDef>HVB_MechanityrantVertebralLink</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mechanityrant vertebral link.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MechanityrantVertebralLink</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MechanityrantVertebralLink</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MechanityrantVertebralLink</addsHediff>
+  </RecipeDef>
+
+  <!--dryadspine-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_Dryadspine</defName>
+    <label>dryadspine</label>
+    <labelNoun>a dryadspine</labelNoun>
+    <description>An installed dryadspine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_Dryadspine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_Dryadspine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <Hauts_MaxDryadFactor>0.5</Hauts_MaxDryadFactor>
+		  <PruningSpeed>0.45</PruningSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_Dryadspine</defName>
+    <label>dryadspine</label>
+    <description>A bionic spine with integrated psychically-attuned gauranlen tree woody tissues. It generates a distortion in the psychic field that encourages exodendritic activity in dryads from linked gauranlen trees, and enhances connectivity with those trees as well.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallDryadspine</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+      <WoodLog>20</WoodLog>
+	  <GauranlenSeed>1</GauranlenSeed>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2400</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallDryadspine</defName>
+    <label>install dryadspine</label>
+    <description>Install a dryadspine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Dryadspine</ThingDef>
+      <HediffDef>HVB_Dryadspine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing dryadspine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_Dryadspine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_Dryadspine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Dryadspine</addsHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--Archotech thinking spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechThinkingSpine</defName>
+    <label>archotech thinking spine</label>
+    <labelNoun>an archotech thinking spine</labelNoun>
+    <description>An installed archotech thinking spine.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechThinkingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechThinkingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <postFactor>1.1</postFactor>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <PsychicSensitivity>0.1</PsychicSensitivity>
+		</statOffsets>
+      </li>
+	</stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechThinkingSpine</defName>
+    <label>archotech thinking spine</label>
+    <description>An artificial spine created by an archotech. The segments of this spinal cord are connected by interwoven strands of an organo-metallic substance which somehow enhance the host's thought processes.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechThinkingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechThinkingSpine</defName>
+    <label>install archotech thinking spine</label>
+    <description>Install an archotech thinking spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechThinkingSpine</ThingDef>
+      <HediffDef>HVB_ArchotechThinkingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech thinking spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechThinkingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechThinkingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechThinkingSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech undulating spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechUndulatingSpine</defName>
+    <label>archotech undulating spine</label>
+    <labelNoun>an archotech undulating spine</labelNoun>
+    <description>An installed archotech undulating spine. Due to its levitation-granting properties, it nullifies slowdown from different terrain types.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechUndulatingSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechUndulatingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+	<stages>
+      <li>
+        <statOffsets>
+		  <MeleeDodgeChance>4</MeleeDodgeChance>
+		  <MeleeHitChance>4</MeleeHitChance>
+        </statOffsets>
+		<statFactors>
+		  <CrawlSpeed>4</CrawlSpeed>
+		  <PawnTrapSpringChance>0</PawnTrapSpringChance>
+		  <CarryingCapacity>1.1</CarryingCapacity>
+		  <VEF_MassCarryCapacity>1.1</VEF_MassCarryCapacity>
+        </statFactors>
+      </li>
+	</stages>
+    <comps>
+	  <li Class="VEF.AnimalBehaviours.HediffCompProperties_Floating"/>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechUndulatingSpine</defName>
+    <label>archotech undulating spine</label>
+    <description>An artificial spine created by an archotech. Each of its segments contains a miniature vanometric power generator, which expels the created energy as a modulated propulsive field - in other words, it makes its host levitate. This 'levitation field' subtly fluctuates, causing the host to undulate slightly while it is active, hence the spine's name.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechUndulatingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechUndulatingSpine</defName>
+    <label>install archotech undulating spine</label>
+    <description>Install an archotech undulating spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechUndulatingSpine</ThingDef>
+      <HediffDef>HVB_ArchotechUndulatingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech undulating spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechUndulatingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechUndulatingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechUndulatingSpine</addsHediff>
+  </RecipeDef>
+  
+</Defs>
