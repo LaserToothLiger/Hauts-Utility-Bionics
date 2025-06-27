@@ -188,6 +188,14 @@
       <solid>true</solid>
       <partEfficiency>1.50</partEfficiency>
     </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity>
+		</statOffsets>
+      </li>
+    </stages>
     <comps>
 	  <li Class="HautsFramework.HediffCompProperties_AuraHediff">
 		<range>2.9</range>
@@ -201,6 +209,10 @@
 		<affectsMechs>false</affectsMechs>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid><!--so tiny this is almost always more efficient-->
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Apeliotan visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
 	  </li>
     </comps>
   </HediffDef>
@@ -290,7 +302,7 @@
     <defName>HVB_ArchotechBreathTaker</defName>
     <label>archotech breathtaker</label>
     <labelNoun>an archotech breathtaker</labelNoun>
-    <description>An installed archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (except for mechanoids).</description>
+    <description>An installed archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (except for mechanoids). Destroys gases within half that radius.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechBreathTaker</spawnThingOnRemoved>
     <addedPartProps>
@@ -302,6 +314,10 @@
         <statFactors>
           <Flammability>0</Flammability>
         </statFactors>
+		<statOffsets>
+		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
+		</statOffsets>
       </li>
     </stages>
     <comps>
@@ -329,11 +345,11 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_ArchotechBreathTaker</defName>
     <label>archotech breathtaker</label>
-    <description>An artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This makes it difficult for anyone nearby to breathe, and has the nice side effect of lowering their flammability.</description>
+    <description>An artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This destroys nearby gases and makes it difficult for anyone nearby to breathe, but has the nice side effect of lowering their flammability.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechBreathTaker</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <statBases>
-	  <MarketValue>3700</MarketValue>
+	  <MarketValue>4250</MarketValue>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardLowFreq</li>

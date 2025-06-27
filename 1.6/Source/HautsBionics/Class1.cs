@@ -1731,10 +1731,10 @@ namespace HautsBionics
     {
         public HediffCompProperties_BreathtakerAura()
         {
-            this.compClass = typeof(HedifComp_BreathtakerAura);
+            this.compClass = typeof(HediffComp_BreathtakerAura);
         }
     }
-    public class HedifComp_BreathtakerAura : HediffComp_AuraHediff
+    public class HediffComp_BreathtakerAura : HediffComp_AuraHediff
     {
         public override bool ShouldBeActive { 
             get {
@@ -1754,6 +1754,23 @@ namespace HautsBionics
                 }
                 return base.ShouldBeActive;
             } 
+        }
+        public override float HediffSeverity(Pawn p, HediffDef h)
+        {
+            float result = base.HediffSeverity(p, h);
+            return ModsConfig.OdysseyActive ? result *Mathf.Max(1f - p.GetStatValue(StatDefOf.VacuumResistance, true, -1), 0f) : result;
+        }
+        protected override void AffectPawns(Pawn p, List<Pawn> pawns, bool inCaravan = false)
+        {
+            base.AffectPawns(p, pawns, inCaravan);
+            if (this.Pawn.Spawned && this.Pawn.Map.gasGrid != null)
+            {
+                int num = GenRadial.NumCellsInRadius(this.FunctionalRange/2f);
+                for (int i = 0; i < num; i++)
+                {
+                    this.Pawn.Map.gasGrid.SetDirect(this.Pawn.Position + GenRadial.RadialPattern[i], 0, 0, 0, 0);
+                }
+            }
         }
     }
     public class HediffComp_AddOn : HediffComp

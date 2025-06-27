@@ -127,6 +127,10 @@
 		<affectsAllies>true</affectsAllies>
 		<affectsHostiles>false</affectsHostiles>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Mechanityrant aura visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Mechanityrant Cervix aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Mechanityrant Cervix aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
       </li>
     </comps>
   </HediffDef>

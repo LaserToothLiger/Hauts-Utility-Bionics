@@ -917,6 +917,7 @@
       <li>
         <statOffsets>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
+		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </statOffsets>
       </li>
     </stages>
@@ -931,6 +932,10 @@
 		<affectsSelf>false</affectsSelf>
 		<affectsHostiles>true</affectsHostiles>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Advanced Apeliotan visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Advanced Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Advanced Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
 	  </li>
     </comps>
   </HediffDef>
@@ -980,7 +985,7 @@
     <defName>HVB_AEP_ArchotechBreathTaker</defName>
     <label>advanced archotech breathtaker</label>
     <labelNoun>an advanced archotech breathtaker</labelNoun>
-    <description>An installed advanced archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (including mechanoids).</description>
+    <description>An installed advanced archotech breathtaker. Can be toggled to hinder the breathing and movement of anyone nearby (including mechanoids). Destroys gases within half that radius.</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechBreathTaker</spawnThingOnRemoved>
     <addedPartProps>
@@ -991,6 +996,7 @@
       <li>
         <statOffsets>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity>
+		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </statOffsets>
       </li>
     </stages>
@@ -1017,7 +1023,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_AEP_ArchotechBreathTaker</defName>
     <label>advanced archotech breathtaker</label>
-    <description>An advanced artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This makes it difficult for anyone nearby to breathe, and has the nice side effect of lowering their flammability.\n\nThis advanced version's aura has a radius of 6.5 cells (up from 3 cells) and can affect mechanoids.</description>
+    <description>An artificial lung built by an archotech. Instead of relying on airflow through the respiratory system, this lung uses microscopic skipgates to take in nearby air. For reasons not understood by any except presumably the archotech that created it, it can be mentally commanded to skip far more air than is actually necessary to breathe - the rest of it will get teleported somewhere else. This destroys nearby gases and makes it difficult for anyone nearby to breathe, but has the nice side effect of lowering their flammability.\n\nThis advanced version's aura has a radius of 6.5 cells (up from 3 cells) and can affect mechanoids.</description>
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechBreathTaker</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <statBases>

@@ -586,31 +586,31 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
 	  <li>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.2</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.2</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.25</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.25</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance></statOffsets>
       </li>
     </stages>
     <comps>
@@ -650,6 +650,10 @@
 		<mutantsAreEntities>true</mutantsAreEntities>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Void Apeliotan visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Voidshard Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Voidshard Apeliotan Lung aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
 	  </li>
     </comps>
   </HediffDef>
@@ -684,7 +688,7 @@
     <defName>HVB_VoidshardBreathTaker</defName>
     <label>voidshard breathtaker</label>
     <labelNoun>a voidshard breathtaker</labelNoun>
-    <description>An installed dark archotech breathtaker. Anyone nearby (except for mechanoids and unnatural entities) will quickly find their breathing and movement hindered. Its potency, and the radius of its aura, scale with the current anomalous activity level.</description>
+    <description>An installed dark archotech breathtaker. Anyone nearby (except for mechanoids and unnatural entities) will quickly find their breathing and movement hindered. Destroys gases within half that radius. Its potency, and the radius of its aura, scale with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechBreathTaker</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechBreathTaker</spawnThingOnRemoved>
     <addedPartProps>
@@ -698,35 +702,35 @@
     <stages>
 	  <li>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance></statOffsets>
       </li>
     </stages>
     <comps>

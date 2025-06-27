@@ -39,6 +39,10 @@
 		<affectsHostiles>false</affectsHostiles>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Forceful wight aura visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Forceful Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Forceful Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
       </li>
     </comps>
   </HediffDef>
@@ -153,6 +157,10 @@
 		<affectsHostiles>false</affectsHostiles>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Motive wight aura visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Motive Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Motive Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
       </li>
     </comps>
   </HediffDef>
@@ -270,6 +278,10 @@
 		<affectsHostiles>false</affectsHostiles>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
+		<canToggleVisualization>true</canToggleVisualization>
+		<visLabel>Rallying wight aura visibility</visLabel>
+		<visTooltip>Adjust the visibility of the Rallying Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Rallying Wight-commander aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
       </li>
     </comps>
   </HediffDef>

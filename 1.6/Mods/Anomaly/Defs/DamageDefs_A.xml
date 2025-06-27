@@ -75,6 +75,9 @@
 	  <explosionRadius>1.49</explosionRadius>
 	  <screenShakeFactor>1</screenShakeFactor>
 	  <explosionChanceToStartFire>0.75</explosionChanceToStartFire>
+      <filth>Filth_BlastMark</filth>
+      <filthCount>1</filthCount>
+      <explosionSpawnsSingleFilth>true</explosionSpawnsSingleFilth>
 	</projectile>
   </ThingDef>
 </Defs>
