@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_WightCommander</defName>
+    <label>wight-commander jaw</label>
+    <description>An artificial jaw enhanced by a shard of a dark archotech's infrastructure. It replaces the ability to speak with a sound-carried psychic waveform that affects the shards inside ghouls. The surgeon that installs this jaw can configure it to make nearby ghouls strike harder, move faster, or heal quicker.</description>
+    <descriptionHyperlinks>
+		<RecipeDef>HVB_InstallForcefulWightCommander</RecipeDef>
+		<RecipeDef>HVB_InstallMotiveWightCommander</RecipeDef>
+		<RecipeDef>HVB_InstallRallyingWightCommander</RecipeDef>
+	</descriptionHyperlinks>
+    <costList>
+      <BionicJaw>1</BionicJaw>
+      <Shard>1</Shard>
+    </costList>
+    <statBases>
+	  <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <thingSetMakerTags Inherit="false" />
+    <tradeTags Inherit="false" />
+    <techHediffsTags Inherit="False"><li>HVB_WightCommander</li><li>HVB_DontTalk</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
   <!--forceful wight-commander-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_ForcefulWightCommander</defName>
     <label>forceful wight-commander</label>
     <labelNoun>a forceful wight-commander</labelNoun>
     <description>An installed forceful wight-commander. Though it cannot be used to vocalize, it emits a complex, eerie tone that stimulates nearby allied ghouls to hit harder.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ForcefulWightCommander</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ForcefulWightCommander</spawnThingOnRemoved>
+    <descriptionHyperlinks><ThingDef>HVB_WightCommander</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WightCommander</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
       <betterThanNatural>true</betterThanNatural>
@@ -46,31 +70,12 @@
       </li>
     </comps>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
-    <defName>HVB_ForcefulWightCommander</defName>
-    <label>forceful wight-commander</label>
-    <description>An artificial jaw enhanced by a shard of a dark archotech's infrastructure. It replaces the ability to speak with a sound-carried psychic waveform that affects the shards inside ghouls. This specific wight-commander variant exhorts them to strike harder.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallForcefulWightCommander</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <BionicJaw>1</BionicJaw>
-      <Shard>1</Shard>
-    </costList>
-    <statBases>
-	  <WorkToMake>9000</WorkToMake>
-    </statBases>
-    <thingSetMakerTags Inherit="false" />
-    <tradeTags Inherit="false" />
-    <techHediffsTags Inherit="False"><li>HVB_WightCommander</li><li>HVB_DontTalk</li></techHediffsTags>
-    <recipeMaker>
-      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
-    </recipeMaker>
-  </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>HVB_InstallForcefulWightCommander</defName>
     <label>install forceful wight-commander</label>
     <description>Install a forceful wight-commander.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ForcefulWightCommander</ThingDef>
+      <ThingDef>HVB_WightCommander</ThingDef>
       <HediffDef>HVB_ForcefulWightCommander</HediffDef>
     </descriptionHyperlinks>
     <jobString>Installing forceful wight-commander.</jobString>
@@ -78,7 +83,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_ForcefulWightCommander</li>
+            <li>HVB_WightCommander</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -87,7 +92,7 @@
 	<mutantBlacklist><li>Ghoul</li></mutantBlacklist>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_ForcefulWightCommander</li>
+        <li>HVB_WightCommander</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
@@ -125,8 +130,8 @@
     <label>motive wight-commander</label>
     <labelNoun>a motive wight-commander</labelNoun>
     <description>An installed motive wight-commander. Though it cannot be used to vocalize, it emits a complex, eerie tone that stimulates nearby allied ghouls to move faster.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MotiveWightCommander</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MotiveWightCommander</spawnThingOnRemoved>
+    <descriptionHyperlinks><ThingDef>HVB_WightCommander</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WightCommander</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
       <betterThanNatural>true</betterThanNatural>
@@ -164,31 +169,12 @@
       </li>
     </comps>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
-    <defName>HVB_MotiveWightCommander</defName>
-    <label>motive wight-commander</label>
-    <description>An artificial jaw enhanced by a shard of a dark archotech's infrastructure. It replaces the ability to speak with a sound-carried psychic waveform that affects the shards inside ghouls. This specific wight-commander variant exhorts them to move faster.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallMotiveWightCommander</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <BionicJaw>1</BionicJaw>
-      <Shard>1</Shard>
-    </costList>
-    <statBases>
-	  <WorkToMake>9000</WorkToMake>
-    </statBases>
-    <thingSetMakerTags Inherit="false" />
-    <tradeTags Inherit="false" />
-    <techHediffsTags Inherit="False"><li>HVB_WightCommander</li><li>HVB_DontTalk</li></techHediffsTags>
-    <recipeMaker>
-      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
-    </recipeMaker>
-  </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>HVB_InstallMotiveWightCommander</defName>
     <label>install motive wight-commander</label>
     <description>Install a motive wight-commander.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_MotiveWightCommander</ThingDef>
+      <ThingDef>HVB_WightCommander</ThingDef>
       <HediffDef>HVB_MotiveWightCommander</HediffDef>
     </descriptionHyperlinks>
     <jobString>Installing motive wight-commander.</jobString>
@@ -196,7 +182,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_MotiveWightCommander</li>
+            <li>HVB_WightCommander</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -205,7 +191,7 @@
 	<mutantBlacklist><li>Ghoul</li></mutantBlacklist>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_MotiveWightCommander</li>
+        <li>HVB_WightCommander</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
@@ -246,8 +232,8 @@
     <label>rallying wight-commander</label>
     <labelNoun>a rallying wight-commander</labelNoun>
     <description>An installed rallying wight-commander. Though it cannot be used to vocalize, it emits a complex, eerie tone that stimulates the regenerative abilities of nearby allied ghouls.</description>
-    <descriptionHyperlinks><ThingDef>HVB_RallyingWightCommander</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_RallyingWightCommander</spawnThingOnRemoved>
+    <descriptionHyperlinks><ThingDef>HVB_WightCommander</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WightCommander</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
       <betterThanNatural>true</betterThanNatural>
@@ -285,31 +271,12 @@
       </li>
     </comps>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
-    <defName>HVB_RallyingWightCommander</defName>
-    <label>rallying wight-commander</label>
-    <description>An artificial jaw enhanced by a shard of a dark archotech's infrastructure. It replaces the ability to speak with a sound-carried psychic waveform that affects the shards inside ghouls. This specific wight-commander variant directs the archotechnological influence that maintains their bodies, causing them to regenerate faster.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallRallyingWightCommander</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <BionicJaw>1</BionicJaw>
-      <Shard>1</Shard>
-    </costList>
-    <statBases>
-	  <WorkToMake>9000</WorkToMake>
-    </statBases>
-    <thingSetMakerTags Inherit="false" />
-    <tradeTags Inherit="false" />
-    <techHediffsTags Inherit="False"><li>HVB_WightCommander</li><li>HVB_DontTalk</li></techHediffsTags>
-    <recipeMaker>
-      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
-    </recipeMaker>
-  </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>HVB_InstallRallyingWightCommander</defName>
     <label>install rallying wight-commander</label>
     <description>Install a rallying wight-commander.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_RallyingWightCommander</ThingDef>
+      <ThingDef>HVB_WightCommander</ThingDef>
       <HediffDef>HVB_RallyingWightCommander</HediffDef>
     </descriptionHyperlinks>
     <jobString>Installing rallying wight-commander.</jobString>
@@ -317,7 +284,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_RallyingWightCommander</li>
+            <li>HVB_WightCommander</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -326,7 +293,7 @@
 	<mutantBlacklist><li>Ghoul</li></mutantBlacklist>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_RallyingWightCommander</li>
+        <li>HVB_WightCommander</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>

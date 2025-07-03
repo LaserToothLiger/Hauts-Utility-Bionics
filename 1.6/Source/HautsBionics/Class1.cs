@@ -1869,27 +1869,28 @@ namespace HautsBionics
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
             base.CompPostTickInterval(ref severityAdjustment, delta);
-            if (this.Pawn.IsHashIntervalTick(250, delta))
+            if (this.Pawn.IsHashIntervalTick(250, delta) && this.Pawn.SpawnedOrAnyParentSpawned)
             {
                 Pawn p = this.Pawn;
-                Room room = p.Position.GetRoom(p.Map);
-                foreach (IntVec3 intVec in GenRadial.RadialCellsAround(p.Position, this.Props.radius, true))
+                if (GenClosest.ClosestThingReachable(this.Pawn.Position, this.Pawn.Map, ThingRequest.ForDef(ThingDefOf.Fire), PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false, false, false, true, false), this.Props.radius, null, null, 0, -1, false, RegionType.Set_Passable, false, false) != null)
                 {
-                    if (intVec.InBounds(p.Map) && !intVec.Fogged(p.Map))
+                    this.DetonateCheck();
+                    return;
+                }
+                Room room = p.Position.GetRoom(p.Map);
+                foreach (Pawn pawn in GenRadial.RadialDistinctThingsAround(p.Position,p.Map,this.Props.radius,true).OfType<Pawn>().Distinct<Pawn>())
+                {
+                    if (pawn.HasAttachment(ThingDefOf.Fire) && pawn.Position.GetRoom(p.Map) == room)
                     {
-                        Room room2 = intVec.GetRoom(p.Map);
-                        if (room2 != null && room == room2 && FireUtility.NumFiresAt(intVec, p.Map) > 0)
-                        {
-                            this.DetonateCheck();
-                            break;
-                        }
+                        this.DetonateCheck();
+                        break;
                     }
                 }
             }
         }
         public void DetonateCheck()
         {
-            if (this.parent.Severity >= this.Props.minSevToTrigger && this.Pawn.SpawnedOrAnyParentSpawned)
+            if (this.parent.Severity >= this.Props.minSevToTrigger)
             {
                 GenExplosion.DoExplosion(this.Pawn.PositionHeld, this.Pawn.MapHeld, this.Props.radius, this.Props.damageType, this.Pawn, -1, -1f, SoundDefOf.Explosion_FirefoamPopper, null, null, null, this.Props.postBurstSpawn, 1f, 3, null, null, 255, true, null, 0f, 0, 0f, false, null, null, null, true, 1f, 0f, true, null, 1f, null, null);
                 this.parent.Severity = this.parent.def.minSeverity;

@@ -95,7 +95,7 @@
     <label>inflict mechanite disease</label>
     <description>Discharges a mass of stored mechanites into the target, inflicting a random mechanite disease. Has a highly variable cooldown. Range scales with mechanitor remote repair distance.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>Things/Item/Special/MechSerumHealer</iconPath>
+    <iconPath>BionicAbilities/HUB_IMD</iconPath>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
     <aiCanUse>true</aiCanUse>
@@ -381,7 +381,7 @@
     <ai_IsIncendiary>true</ai_IsIncendiary>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <range>7.9</range>
+      <range>6.9</range>
       <warmupTime>1</warmupTime>
       <soundCast>Shot_MiniFlameblaster</soundCast>
       <targetParams>
@@ -390,7 +390,7 @@
     </verbProperties>
     <comps>
       <li Class="CompProperties_AbilityFireSpew">
-        <range>7.9</range>
+        <range>6.9</range>
         <lineWidthEnd>3</lineWidthEnd>
         <filthDef>Filth_FlammableBile</filthDef>
         <effecterDef>Fire_Spew</effecterDef>

@@ -349,7 +349,7 @@
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechBreathTaker</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <statBases>
-	  <MarketValue>4250</MarketValue>
+	  <MarketValue>3900</MarketValue>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardLowFreq</li>
@@ -399,7 +399,7 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.9</postFactor>
+				<postFactor>0.95</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -411,7 +411,7 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.8</postFactor>
+				<postFactor>0.9</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -423,7 +423,7 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.7</postFactor>
+				<postFactor>0.85</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -431,43 +431,11 @@
 			</statFactors>
 		  </li>
 		  <li>
-			<minSeverity>0.3</minSeverity>
-			<capMods>
-			  <li>
-				<capacity>Breathing</capacity>
-				<postFactor>0.6</postFactor>
-			  </li>
-			  <li>
-				<capacity>Moving</capacity>
-				<postFactor>0.9</postFactor>
-			  </li>
-			</capMods>
-			<statFactors>
-			  <Flammability>0</Flammability>
-			</statFactors>
-		  </li>
-		  <li>
-			<minSeverity>0.4</minSeverity>
-			<capMods>
-			  <li>
-				<capacity>Breathing</capacity>
-				<postFactor>0.5</postFactor>
-			  </li>
-			  <li>
-				<capacity>Moving</capacity>
-				<postFactor>0.9</postFactor>
-			  </li>
-			</capMods>
-			<statFactors>
-			  <Flammability>0</Flammability>
-			</statFactors>
-		  </li>
-		  <li>
 			<minSeverity>0.5</minSeverity>
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.4</postFactor>
+				<postFactor>0.8</postFactor>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
@@ -475,7 +443,7 @@
 			  </li>
 			</capMods>
 			<statFactors>
-			  <Flammability>0</Flammability>
+			  <Flammability>0.25</Flammability>
 			</statFactors>
 		  </li>
 		  <li>
@@ -483,11 +451,11 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.3</postFactor>
+				<postFactor>0.7</postFactor>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.8</postFactor>
+				<postFactor>0.9</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -499,11 +467,11 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.2</postFactor>
+				<postFactor>0.6</postFactor>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.8</postFactor>
+				<postFactor>0.9</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -515,12 +483,12 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.2</postFactor>
-				<setMax>0.2</setMax>
+				<postFactor>0.5</postFactor>
+				<setMax>0.25</setMax>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.8</postFactor>
+				<postFactor>0.9</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -532,12 +500,12 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.2</postFactor>
-				<setMax>0.1</setMax>
+				<postFactor>0.4</postFactor>
+				<setMax>0.2</setMax>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.7</postFactor>
+				<postFactor>0.85</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -549,12 +517,12 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.1</postFactor>
-				<setMax>0.05</setMax>
+				<postFactor>0.3</postFactor>
+				<setMax>0.15</setMax>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.7</postFactor>
+				<postFactor>0.8</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -566,12 +534,12 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.04</postFactor>
-				<setMax>0.02</setMax>
+				<postFactor>0.2</postFactor>
+				<setMax>0.1</setMax>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.7</postFactor>
+				<postFactor>0.75</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
@@ -583,12 +551,12 @@
 			<capMods>
 			  <li>
 				<capacity>Breathing</capacity>
-				<postFactor>0.01</postFactor>
-				<setMax>0.01</setMax>
+				<postFactor>0.1</postFactor>
+				<setMax>0.1</setMax>
 			  </li>
 			  <li>
 				<capacity>Moving</capacity>
-				<postFactor>0.6</postFactor>
+				<postFactor>0.7</postFactor>
 			  </li>
 			</capMods>
 			<statFactors>
