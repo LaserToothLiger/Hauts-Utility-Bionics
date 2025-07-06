@@ -207,6 +207,92 @@
     <jobString>Removing cogno-censor.</jobString>
     <removesHediff>HVB_CognoCensor</removesHediff>
   </RecipeDef>
+	  
+  <!--interpreter-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CognoInterpreter</defName>
+    <label>cogno-interpreter</label>
+    <labelNoun>a cogno-interpreter</labelNoun>
+    <description>An installed cogno-interpreter implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoInterpreter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoInterpreter</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <ReadingSpeed>0.1</ReadingSpeed>
+		  <HackingSpeed>0.1</HackingSpeed>
+		  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.25</LanguageLearningAbility>
+        </statOffsets>
+	  </li>
+    </stages>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CognoInterpreter</defName>
+    <label>cogno-interpreter</label>
+    <description>A brain implant that assists in the detection of syntactic and conceptual structures in language, as well as with plastic mapping of symbols to definitions. It makes reading easier and can assist in translation, even with machine languages.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoInterpreter</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>545</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCognoInterpreter</defName>
+    <label>install cogno-interpreter</label>
+    <description>Install a cogno-interpreter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoInterpreter</ThingDef>
+      <HediffDef>HVB_CognoInterpreter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-interpreter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoInterpreter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoInterpreter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoInterpreter</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCognoInterpreter</defName>
+    <label>remove cogno-interpreter</label>
+    <description>Remove cogno-interpreter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoInterpreter</ThingDef>
+      <HediffDef>HVB_CognoInterpreter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-interpreter.</jobString>
+    <removesHediff>HVB_CognoInterpreter</removesHediff>
+  </RecipeDef>
   
   <!--straitjacket-->
   <HediffDef ParentName="ImplantHediffBase">

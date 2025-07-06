@@ -193,7 +193,7 @@
 				<li>HVB_DownsideIncubator</li>
 			  </downsides>
 		    </li>
-			<li Class="AnimalBehaviours.HediffCompProperties_Resurrect">
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_Resurrect">
 				<livesLeft>1000000</livesLeft>
 			</li>
 		  <li Class="HautsBionics_Anomaly.HediffCompProperties_Incubator">

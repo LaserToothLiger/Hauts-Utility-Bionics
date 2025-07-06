@@ -7,7 +7,7 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">
-					<xpath>/Defs/ThingDef/modExtensions/li[@Class="HeavyWeapons.HeavyWeapon"]/supportedTraits[li="Tough"]</xpath>
+					<xpath>/Defs/ThingDef/modExtensions/li[@Class="VEF.Weapons.HeavyWeapon"]/supportedTraits[li="Tough"]</xpath>
 					<value>
 						<li>HVB_HomunculusTrait</li>
 					</value>

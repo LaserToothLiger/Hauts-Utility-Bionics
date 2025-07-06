@@ -143,7 +143,7 @@
 		<defName>HVB_SingleAcidAttack</defName>
 		<label>primed acid attack</label>
 		<description>When this ghoul lands a blow in melee, acid will spray onto the victim, doing +12 extra damage.</description>
-		<hediffClass>HediffWithComps</hediffClass>
+		<hediffClass>HautsFramework.Hediff_HasExtraOnHitEffects</hediffClass>
 		<initialSeverity>1</initialSeverity>
 		<maxSeverity>1</maxSeverity>
 		<comps>

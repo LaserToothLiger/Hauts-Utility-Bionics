@@ -351,6 +351,7 @@
     <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechBioferriteDestabilizer</spawnThingOnRemoved>
+	<hediffClass>HautsFramework.Hediff_ImplantHasExtraOnHitEffects</hediffClass>
     <minSeverity>0.001</minSeverity>
     <initialSeverity>0.001</initialSeverity>
     <maxSeverity>4.0</maxSeverity>

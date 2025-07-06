@@ -121,6 +121,7 @@
     <labelNoun>a sonic strike palm</labelNoun>
     <description>An installed sonic strike palm.</description>
     <descriptionHyperlinks><ThingDef>HVB_SonicStrikePalm</ThingDef></descriptionHyperlinks>
+	<hediffClass>HautsFramework.Hediff_ImplantHasExtraOnHitEffects</hediffClass>
     <spawnThingOnRemoved>HVB_SonicStrikePalm</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
 	<tags><li>HVB_HandTools</li></tags>
@@ -135,7 +136,7 @@
 		<cellRange>1.5</cellRange>
 		<minDmgToTrigger>0</minDmgToTrigger>
 		<canAffectMechs>false</canAffectMechs>
-		<chance>0.12</chance>
+		<chance>10.12</chance>
       </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>

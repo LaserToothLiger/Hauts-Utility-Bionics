@@ -186,6 +186,7 @@
     <label>spikeskin</label>
     <labelNoun>a spikeskin layer</labelNoun>
     <description>An installed spikeskin layer. Grants additional sharp damage to any melee attack, and almost always deals retaliatory sharp damage to melee attackers.</description>
+	<hediffClass>HautsFramework.Hediff_ImplantHasExtraOnHitEffects</hediffClass>
     <descriptionHyperlinks><ThingDef>HVB_Spikeskin</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_Spikeskin</spawnThingOnRemoved>
 	<minSeverity>0.001</minSeverity>
@@ -422,7 +423,7 @@
   </ThingDef>
   <HediffDef ParentName="ImplantHediffBase" MayRequire="vanillaquestsexpanded.cryptoforge">
     <defName>HVB_CryptoflashSkin</defName>
-	<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+	<hediffClass>HautsFramework.Hediff_ImplantHasExtraOnHitEffects</hediffClass>
     <label>cryptoflash skin</label>
     <labelNoun>a cryptoflash skin layer</labelNoun>
     <description>An installed cryptoflash skin layer.</description>
