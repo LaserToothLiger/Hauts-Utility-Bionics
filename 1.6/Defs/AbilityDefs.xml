@@ -150,7 +150,7 @@
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <hotKey>Misc12</hotKey>
-	<iconPath>Things/Mote/ColonistFleeing</iconPath>
+	<iconPath>BionicAbilities/HUB_COverdrive</iconPath>
     <writeCombatLog>True</writeCombatLog>
 	<cooldownTicksRange>60000</cooldownTicksRange>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -180,8 +180,24 @@
 		<secondHediffSeverity>1</secondHediffSeverity>
 		<secondHediffPart>Heart</secondHediffPart>
       </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>HVB_CardiacPulse</fleckDef>
+      </li>
     </comps>
   </AbilityDef>
+	  <FleckDef ParentName="FleckBase">
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<defName>HVB_CardiacPulse</defName>
+		<solidTime>0.15</solidTime>
+		<fadeOutTime>0.1</fadeOutTime>
+		<growthRate>12</growthRate>
+		<graphicData>
+		  <drawSize>1</drawSize>
+		  <color>(135, 215, 40, 200)</color>
+		  <texPath>BionicAbilities/HUB_COverdrive</texPath>
+		  <shaderType>MoteGlow</shaderType>
+		</graphicData>
+	  </FleckDef>
   
   <!--Pouncing leg-->
   <AbilityDef>
