@@ -355,8 +355,9 @@
       <li>Ghoul</li>
     </techHediffsTags>
     <costList>
-      <Bioferrite>40</Bioferrite>
-	  <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
     </costList>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -443,8 +444,9 @@
       <li>Ghoul</li>
     </techHediffsTags>
     <costList>
-      <Bioferrite>40</Bioferrite>
-	  <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
     </costList>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -528,8 +530,9 @@
       <li>Ghoul</li>
     </techHediffsTags>
     <costList>
-      <Bioferrite>40</Bioferrite>
-	  <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
     </costList>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>

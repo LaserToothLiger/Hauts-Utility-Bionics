@@ -103,7 +103,7 @@
     <recipeMaker>
       <researchPrerequisite>HVB_Neometabolites</researchPrerequisite>
     </recipeMaker>
-    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>HVB_InstallDosageSustainer</defName>

@@ -264,6 +264,7 @@
     <label>spikeskin</label>
     <description>This bionic skin layer has haphazardly placed nodules which extrude sharp ferro-keratinous spikes. The spikes can be used to inflict additional wounds on melee combatants, and anyone attacking the host in close range is likely to catch themselves on a spike or two. Though the spikes aren't very long, they nevertheless get in the way of some of the more dextrous and delicate movements.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeskin</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
     <costList>
       <Plasteel>15</Plasteel>
       <ComponentSpacer>4</ComponentSpacer>
@@ -272,7 +273,6 @@
       <MarketValue>1030</MarketValue>
     </statBases>
     <thingSetMakerTags>
-	  <li>RewardStandardLowFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>

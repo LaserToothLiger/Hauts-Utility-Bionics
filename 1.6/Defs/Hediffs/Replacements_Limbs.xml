@@ -154,6 +154,9 @@
     <statBases>
       <MarketValue>1030</MarketValue>
     </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
     <recipeMaker>
       <researchPrerequisite>HVB_ProgrammableBionics</researchPrerequisite>
     </recipeMaker>

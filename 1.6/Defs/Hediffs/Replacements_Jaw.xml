@@ -37,7 +37,7 @@
 	  <WorkToMake>9000</WorkToMake>
     </statBases>
     <thingSetMakerTags>
-	  <li>RewardStandardMidFreq</li>
+	  <li>RewardStandardLowFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>
@@ -132,7 +132,6 @@
 	  <WorkToMake>9000</WorkToMake>
     </statBases>
     <thingSetMakerTags>
-	  <li>RewardStandardMidFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <techHediffsTags><li>AdvancedWeapon</li><li>HVB_DontTalk</li></techHediffsTags>

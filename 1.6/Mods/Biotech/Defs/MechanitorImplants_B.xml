@@ -220,6 +220,112 @@
     </comps>
   </ThingDef>
   
+  <!--Mechanityrant vertebral link-->
+  <HediffDef>
+    <defName>HVB_MechanityrantVertebralLink</defName>
+    <hediffClass>Hediff_Level</hediffClass>
+    <descriptionHyperlinks><ThingDef>HVB_MechanityrantVertebralLink</ThingDef></descriptionHyperlinks>
+    <label>mechanityrant vertebral link</label>
+    <description>An implant which increases a mechanitor's ability to control their mechanoids, at the expense of lowering the control they have over their own bodies.\n\nThe implant siphons some of the psycho-computational power involved in transmissions between upper and lower motor neurons into boosting mechanitor control. Mechanitors with vertebral links feel as if they partially inhabit - and can directly experience the perspectives and actions of - their mechanoids.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionShort>An implant which reduces the energy usage of a mechanitor's mechs. This can be installed up to 3 times.</descriptionShort>
+    <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <priceImpact>true</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <levelIsQuantity>true</levelIsQuantity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.08</offset>
+		  </li>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>-0.08</offset>
+		  </li>
+		</capMods>
+        <statOffsets>
+          <MechBandwidth>3</MechBandwidth>
+          <MechControlGroups>1</MechControlGroups>
+		  <Hauts_MechCommandRange>3</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.11</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.16</offset>
+		  </li>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>-0.16</offset>
+		  </li>
+		</capMods>
+        <statOffsets>
+          <MechBandwidth>6</MechBandwidth>
+          <MechControlGroups>2</MechControlGroups>
+		  <Hauts_MechCommandRange>6</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.22</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.24</offset>
+		  </li>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>-0.24</offset>
+		  </li>
+		</capMods>
+        <statOffsets>
+          <MechBandwidth>9</MechBandwidth>
+          <MechControlGroups>3</MechControlGroups>
+		  <Hauts_MechCommandRange>9</Hauts_MechCommandRange>
+          <WorkSpeedGlobalOffsetMech>0.33</WorkSpeedGlobalOffsetMech>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="MechanitorImplantCraftableBase">
+    <defName>HVB_MechanityrantVertebralLink</defName>
+    <label>mechanityrant vertebral link</label>
+    <description>An implant which increases a mechanitor's ability to control their mechanoids, at the expense of lowering the control they have over their own bodies.\n\nThe implant siphons some of the psycho-computational power involved in transmissions between upper and lower motor neurons into boosting mechanitor control. Mechanitors with vertebral links feel as if they partially inhabit - and can directly experience the perspectives and actions of - their mechanoids.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+    <descriptionHyperlinks><HediffDef>HVB_MechanityrantVertebralLink</HediffDef></descriptionHyperlinks>
+    <costList>
+      <PowerfocusChip>1</PowerfocusChip>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HighMechtech</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MaxInstallCount>3</MaxInstallCount>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUsableImplant</compClass>
+        <useJob>UseItem</useJob>
+        <useLabel>Implant {0_label}</useLabel>
+        <userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+      </li>
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>HVB_MechanityrantVertebralLink</hediffDef>
+        <bodyPart>Torso</bodyPart>
+        <canUpgrade>true</canUpgrade>
+      </li>
+    </comps>
+  </ThingDef>
+  
 						<!--uncraftable-->
   <!--archotech mechaqueen. KACHOW-->
   <HediffDef ParentName="ImplantHediffBase">

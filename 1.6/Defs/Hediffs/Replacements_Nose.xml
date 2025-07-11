@@ -131,7 +131,6 @@
     <statBases>
       <MarketValue>300</MarketValue>
     </statBases>
-    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>HVB_InstallInhalingNose</defName>

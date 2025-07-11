@@ -435,7 +435,6 @@
       <MarketValue>1030</MarketValue>
     </statBases>
     <thingSetMakerTags>
-	  <li>RewardStandardLowFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>
@@ -516,7 +515,6 @@
       <MarketValue>1030</MarketValue>
     </statBases>
     <thingSetMakerTags>
-	  <li>RewardStandardMidFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>

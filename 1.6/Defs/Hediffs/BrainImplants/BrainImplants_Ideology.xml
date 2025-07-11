@@ -398,7 +398,7 @@
     <recipeMaker>
       <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
     </recipeMaker>
-    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
     <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
     <costList>
       <ComponentIndustrial>3</ComponentIndustrial>
