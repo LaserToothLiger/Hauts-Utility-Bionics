@@ -31,7 +31,7 @@
 					</mods>
 					<match Class="PatchOperationSequence">
 						<operations>
-							<!--le sigh. this is necessary to eliminate a bug where the mechanityrant cervix aura does not scale off of Signal Boosters-->
+							<!--le sigh. this is necessary to eliminate a bug where the mechanityrant collar aura does not scale off of Signal Boosters-->
 							<li Class="PatchOperationConditional">
 								<xpath>/Defs/HediffDef[defName="SignalBoosterImplant"]/stages/li[minSeverity=1]/statOffsets/MechRemoteControlDistanceOffset</xpath>
 								<nomatch Class="PatchOperationAdd">

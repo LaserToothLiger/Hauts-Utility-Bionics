@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <!--psychic levitator
+  <!--psychic levitator-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I">
     <defName>HVB_VoidshardLevitatorII</defName>
     <label>voidshard psychic levitator</label>
@@ -105,7 +105,7 @@
     </descriptionHyperlinks>
     <jobString>Removing voidshard levitator.</jobString>
     <removesHediff>HVB_VoidshardLevitatorII</removesHediff>
-  </RecipeDef>-->
+  </RecipeDef>
   
   <!--archotech womb-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I,Ludeon.RimWorld.Biotech">

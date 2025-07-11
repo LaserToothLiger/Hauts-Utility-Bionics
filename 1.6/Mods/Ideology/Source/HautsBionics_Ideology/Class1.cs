@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -149,6 +150,75 @@ namespace HautsBionics_Ideology
             {
                 this.TryGetComp<HediffComp_GetsPermanent>().IsPermanent = true;
             }
+        }
+    }
+    public class ThoughtWorker_Precept_ScarKintsugi_Social : ThoughtWorker_Precept_Social
+    {
+        protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
+        {
+            int num = 0;
+            foreach (Precept precept in p.Ideo.PreceptsListForReading)
+            {
+                num = Mathf.Max(num, precept.def.requiredScars);
+            }
+            if (num == 0)
+            {
+                return ThoughtState.Inactive;
+            }
+            return this.CountKintsugis(p) < num ? ThoughtState.Inactive : ThoughtState.ActiveAtStage(0);
+        }
+        public int CountKintsugis(Pawn pawn)
+		{
+			int num = 0;
+			using (List<Hediff>.Enumerator enumerator = pawn.health.hediffSet.hediffs.GetEnumerator())
+			{
+				while (enumerator.MoveNext())
+				{
+					if (enumerator.Current is Hediff_ScarKintsugi)
+					{
+						num++;
+					}
+				}
+			}
+			return num;
+		}
+	}
+    public class ThoughtWorker_Precept_ScarKintsugi : ThoughtWorker_Precept
+    {
+        protected override ThoughtState ShouldHaveThought(Pawn p)
+        {
+            if (!p.IsColonist)
+            {
+                return false;
+            }
+            if (this.CountKintsugis(p) >= p.ideo.Ideo.RequiredScars)
+            {
+                return this.ProcessedState(0, p);
+            }
+            return false;
+        }
+        private ThoughtState ProcessedState(int index, Pawn p)
+        {
+            if (this.def.stages[index].baseMoodEffect < 0f && this.def.minExpectationForNegativeThought != null && p.MapHeld != null && ExpectationsUtility.CurrentExpectationFor(p.MapHeld).order < this.def.minExpectationForNegativeThought.order)
+            {
+                return false;
+            }
+            return ThoughtState.ActiveAtStage(index);
+        }
+        public int CountKintsugis(Pawn pawn)
+        {
+            int num = 0;
+            using (List<Hediff>.Enumerator enumerator = pawn.health.hediffSet.hediffs.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    if (enumerator.Current is Hediff_ScarKintsugi)
+                    {
+                        num++;
+                    }
+                }
+            }
+            return num;
         }
     }
     public class Hediff_WorkDriver : Hediff_Level

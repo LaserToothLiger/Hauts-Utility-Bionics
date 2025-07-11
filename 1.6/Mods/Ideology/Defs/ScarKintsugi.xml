@@ -6,6 +6,7 @@
     <defName>HVB_GoldKintsugi</defName>
     <label>gold scar kintsugi</label>
     <description>This scar has been artfully imbued with gold-dust lacquer.</description>
+    <defaultLabelColor>(255,235,122)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -39,6 +40,7 @@
     <defName>HVB_JadeKintsugi</defName>
     <label>jade scar kintsugi</label>
     <description>This scar has been artfully imbued with jade-dust lacquer.</description>
+    <defaultLabelColor>(85,118,69)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -72,6 +74,7 @@
     <defName>HVB_PlasteelKintsugi</defName>
     <label>plasteel scar kintsugi</label>
     <description>This scar has been imbued with a tough plasteel-dust lacquer.</description>
+    <defaultLabelColor>(160,178,181)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -106,6 +109,7 @@
     <defName>HVB_SilverKintsugi</defName>
     <label>silver scar kintsugi</label>
     <description>This scar has been artfully imbued with silver-dust lacquer.</description>
+    <defaultLabelColor>(180,173,150)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -140,6 +144,7 @@
     <defName>HVB_UraniumKintsugi</defName>
     <label>uranium scar kintsugi</label>
     <description>This scar has been imbued with a tough uranium-dust lacquer.</description>
+    <defaultLabelColor>(100,100,100)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -174,6 +179,7 @@
     <defName>HVB_BioferriteKintsugi</defName>
     <label>bioferrite scar kintsugi</label>
     <description>This scar has been imbued with a tough but flammable bioferrite lacquer.</description>
+    <defaultLabelColor>(100, 80, 80)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -210,6 +216,7 @@
     <defName>HVB_EltexKintsugi</defName>
     <label>eltex scar kintsugi</label>
     <description>This scar has been imbued with a psychically-active eltex-dust lacquer.</description>
+    <defaultLabelColor>(174, 211, 208)</defaultLabelColor>
     <stages>
       <li>
         <statOffsets>
@@ -243,6 +250,7 @@
     <defName>HVB_KaleidosKintsugi</defName>
     <label>kaleidos scar kintsugi</label>
     <description>This scar has been imbued with a lacquer refined from a large quantity of kaleidos crystal.</description>
+    <defaultLabelColor>(34, 111, 209)</defaultLabelColor>
     <stages>
       <li>
         <minSeverity>0.001</minSeverity>

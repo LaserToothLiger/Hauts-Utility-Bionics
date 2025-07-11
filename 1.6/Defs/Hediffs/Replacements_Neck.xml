@@ -84,12 +84,12 @@
     <removesHediff>HVB_UltraconductiveCervix</removesHediff>
   </RecipeDef>
   
-  <!--mechanityrant cervix-->
+  <!--mechanityrant collar-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_MechanityrantCervix</defName>
-    <label>mechanityrant cervix</label>
-    <labelNoun>a mechanityrant cervix</labelNoun>
-    <description>An installed mechanityrant cervix. Broadcasts a mechanoid-coordinating signal with a range equal to half the mechanitor's mech command range.</description>
+    <label>mechanityrant collar</label>
+    <labelNoun>a mechanityrant collar</labelNoun>
+    <description>An installed mechanityrant collar. Broadcasts a mechanoid-coordinating signal with a range equal to half the mechanitor's mech command range.</description>
     <descriptionHyperlinks><ThingDef>HVB_MechanityrantCervix</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_MechanityrantCervix</spawnThingOnRemoved>
 	<tags><li>HVB_Neck</li></tags>
@@ -129,14 +129,14 @@
 		<mote>Hauts_DefaultAuraGraphic</mote>
 		<canToggleVisualization>true</canToggleVisualization>
 		<visLabel>Mechanityrant aura visibility</visLabel>
-		<visTooltip>Adjust the visibility of the Mechanityrant Cervix aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
-		<visTooltipFantasy>Adjust the visibility of the Mechanityrant Cervix aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
+		<visTooltip>Adjust the visibility of the Mechanityrant Collar aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltip>
+		<visTooltipFantasy>Adjust the visibility of the Mechanityrant Collar aura. This does not affect its function.\n\nIf this pawn stops being player-controlled, the aura's visibility will reset to unconditional visibility.</visTooltipFantasy>
       </li>
     </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_MechanityrantCervix</defName>
-    <label>mechanityrant cervix</label>
+    <label>mechanityrant collar</label>
     <description>Mechanitor-enhancing machinery which largely replaces the larynx and shrinks the esophagus. It enables subvocal command of mechanoids, and projects a coordinating effect across half the mechanitor's direct control range.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantCervix</RecipeDef></descriptionHyperlinks>
     <costList>
@@ -153,13 +153,13 @@
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_InstallMechanityrantCervix</defName>
-    <label>install mechanityrant cervix</label>
-    <description>Install a mechanityrant cervix.</description>
+    <label>install mechanityrant collar</label>
+    <description>Install a mechanityrant collar.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_MechanityrantCervix</ThingDef>
       <HediffDef>HVB_MechanityrantCervix</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing mechanityrant cervix.</jobString>
+    <jobString>Installing mechanityrant collar.</jobString>
     <ingredients>
       <li>
         <filter>
@@ -183,19 +183,19 @@
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_RemoveMechanityrantCervix</defName>
-    <label>remove mechanityrant cervix</label>
-    <description>Remove mechanityrant cervix.</description>
+    <label>remove mechanityrant collar</label>
+    <description>Remove mechanityrant collar.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_MechanityrantCervix</ThingDef>
       <HediffDef>HVB_MechanityrantCervix</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Removing mechanityrant cervix.</jobString>
+    <jobString>Removing mechanityrant collar.</jobString>
     <removesHediff>HVB_MechanityrantCervix</removesHediff>
   </RecipeDef>
 	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
 		<defName>HVB_MTCervixBuff</defName>
 		<label>mechanityrant coordination aura</label>
-		<description>A nearby mechanityrant cervix is coordinating this mechanoid.</description>
+		<description>A nearby mechanityrant collar is coordinating this mechanoid.</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<defaultLabelColor>(1, 0.3, 0.1)</defaultLabelColor>
 		<initialSeverity>0.1001</initialSeverity>
