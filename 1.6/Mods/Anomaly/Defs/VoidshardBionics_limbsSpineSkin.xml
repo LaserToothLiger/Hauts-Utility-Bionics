@@ -492,7 +492,7 @@
     <defName>HVB_VoidshardUndulatingSpine</defName>
     <label>voidshard undulating spine</label>
     <labelNoun>a voidshard undulating spine</labelNoun>
-    <description>An installed dark archotech spine. Its potency scales with the current anomalous activity level.</description>
+    <description>An installed dark archotech spine that enables its host to somehow move through solid obstacles. Its potency scales with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechUndulatingSpine</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechUndulatingSpine</spawnThingOnRemoved>
     <addedPartProps>
@@ -538,7 +538,7 @@
       </li>
     </stages>
     <comps>
-	  <li Class="VEF.AnimalBehaviours.HediffCompProperties_Floating"/>
+	  <!--<li Class="VEF.AnimalBehaviours.HediffCompProperties_Floating"/>-->
       <li Class="HediffCompProperties">
         <compClass>VEF.Hediffs.HediffComp_Phasing</compClass>
       </li>
