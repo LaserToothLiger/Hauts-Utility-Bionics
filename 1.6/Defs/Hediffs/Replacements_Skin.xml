@@ -104,6 +104,7 @@
 		  <ComfyTemperatureMax>9</ComfyTemperatureMax>
 		  <ComfyTemperatureMin>-9</ComfyTemperatureMin>
 		  <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.25</VacuumResistance>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
 		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.25</Mashed_Ashlands_AshResistance>
 		  <Radiation MayRequire="Dubwise.Rimatomics">-0.25</Radiation>
