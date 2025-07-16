@@ -874,7 +874,7 @@ namespace HautsBionics
         {
             this.compClass = typeof(CompAbilityEffect_MrFantastic);
         }
-        public Color color;
+        public ThingDef customMote;
     }
     public class CompAbilityEffect_MrFantastic : CompAbilityEffect
     {
@@ -925,7 +925,7 @@ namespace HautsBionics
         }
         private void DoLink(Thing other, Thing flyer, IntVec3 destination, Map map, int ticksToDisappear)
         {
-            GrabFlyer gFlyer = GrabFlyer.MakeFlyer(HVBDefOf.HVB_GrabFlyer, flyer, other, this.Props.color, destination, null, null, false, null, null, default(LocalTargetInfo));
+            GrabFlyer gFlyer = GrabFlyer.MakeFlyer(HVBDefOf.HVB_GrabFlyer, flyer, other, this.Props.customMote, destination, null, null, false, null, null, default(LocalTargetInfo));
             GenSpawn.Spawn(gFlyer, destination, map, WipeMode.Vanish);
         }
     }
@@ -1081,6 +1081,16 @@ namespace HautsBionics
             }
             FleckMaker.ThrowDustPuff(this.DestinationPos + Gen.RandomHorizontalVector(0.5f), base.Map, 2f);
         }
+        protected override void Tick()
+        {
+            base.Tick();
+            ThingDef thingDef = this.moteDef ?? ThingDefOf.Mote_PsychicLinkLine;
+            if (this.mote == null || this.mote.Destroyed)
+            {
+                this.mote = MoteMaker.MakeInteractionOverlay(thingDef, this, this.other);
+            }
+            this.mote.Maintain();
+        }
         protected override void TickInterval(int delta)
         {
             if (this.flightEffecter == null && this.flightEffecterDef != null)
@@ -1140,7 +1150,6 @@ namespace HautsBionics
         }
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            GenDraw.DrawLineBetween(this.other.TrueCenter(), this.DrawPos, AltitudeLayer.Conduits.AltitudeFor(), this.Rope, 0.25f);
             this.DrawShadow(this.groundPos, this.effectiveHeight);
             if (this.CarriedThing != null && this.FlyingPawn != null)
             {
@@ -1160,7 +1169,7 @@ namespace HautsBionics
             matrix4x.SetTRS(drawLoc, Quaternion.identity, vector);
             Graphics.DrawMesh(MeshPool.plane10, matrix4x, shadowMaterial, 0);
         }
-        public static GrabFlyer MakeFlyer(ThingDef flyingDef, Thing thing, Thing other, Color color, IntVec3 destCell, EffecterDef flightEffecterDef, SoundDef landingSound, bool flyWithCarriedThing = false, Vector3? overrideStartVec = null, RimWorld.Ability triggeringAbility = null, LocalTargetInfo target = default(LocalTargetInfo))
+        public static GrabFlyer MakeFlyer(ThingDef flyingDef, Thing thing, Thing other, ThingDef customMote, IntVec3 destCell, EffecterDef flightEffecterDef, SoundDef landingSound, bool flyWithCarriedThing = false, Vector3? overrideStartVec = null, RimWorld.Ability triggeringAbility = null, LocalTargetInfo target = default(LocalTargetInfo))
         {
             GrabFlyer pawnFlyer = (GrabFlyer)ThingMaker.MakeThing(flyingDef, null);
             pawnFlyer.startVec = overrideStartVec ?? thing.TrueCenter();
@@ -1172,8 +1181,8 @@ namespace HautsBionics
             pawnFlyer.triggeringAbility = ((triggeringAbility != null) ? triggeringAbility.def : null);
             pawnFlyer.target = target;
             pawnFlyer.other = other;
-            pawnFlyer.ropeColor = color;
-            pawnFlyer.Rope.color = pawnFlyer.ropeColor;
+            ThingDef thingDef = customMote ?? ThingDefOf.Mote_PsychicLinkLine;
+            pawnFlyer.moteDef = thingDef;
             if (thing is Pawn pawn)
             {
                 pawnFlyer.pawnWasDrafted = pawn.Drafted;
@@ -1220,12 +1229,12 @@ namespace HautsBionics
             base.ExposeData();
             Scribe_Values.Look<Vector3>(ref this.startVec, "startVec", default(Vector3), false);
             Scribe_Values.Look<IntVec3>(ref this.destCell, "destCell", default(IntVec3), false);
-            Scribe_Values.Look<Color>(ref this.ropeColor, "ropeColor", new Color(155f,165f,148f), false);
             Scribe_Values.Look<float>(ref this.flightDistance, "flightDistance", 0f, false);
             Scribe_Values.Look<bool>(ref this.pawnWasDrafted, "pawnWasDrafted", false, false);
             Scribe_Values.Look<bool>(ref this.pawnCanFireAtWill, "pawnCanFireAtWill", true, false);
             Scribe_Values.Look<int>(ref this.ticksFlightTime, "ticksFlightTime", 0, false);
             Scribe_Values.Look<int>(ref this.ticksFlying, "ticksFlying", 0, false);
+            Scribe_Defs.Look<ThingDef>(ref this.moteDef, "moteDef");
             Scribe_Defs.Look<EffecterDef>(ref this.flightEffecterDef, "flightEffecterDef");
             Scribe_Defs.Look<SoundDef>(ref this.soundLanding, "soundLanding");
             Scribe_Defs.Look<RimWorld.AbilityDef>(ref this.triggeringAbility, "triggeringAbility");
@@ -1235,7 +1244,8 @@ namespace HautsBionics
             Scribe_Deep.Look<JobQueue>(ref this.jobQueue, "jobQueue", Array.Empty<object>());
             Scribe_TargetInfo.Look(ref this.target, "target");
         }
-        private Material Rope = MaterialPool.MatFrom("UI/Overlays/Rope", ShaderDatabase.SolidColor, GenColor.FromBytes(99, 70, 41, 255));
+        public MoteDualAttached mote;
+        public ThingDef moteDef;
         private ThingOwner<Thing> innerContainer;
         protected Vector3 startVec;
         private IntVec3 destCell;
@@ -1249,7 +1259,6 @@ namespace HautsBionics
         protected SoundDef soundLanding;
         private Thing carriedThing;
         public Thing other;
-        public Color ropeColor;
         private LocalTargetInfo target;
         private RimWorld.AbilityDef triggeringAbility;
         private Effecter flightEffecter;

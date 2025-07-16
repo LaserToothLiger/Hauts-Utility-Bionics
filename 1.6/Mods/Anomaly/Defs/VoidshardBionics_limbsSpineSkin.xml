@@ -266,10 +266,28 @@
 		<comps>
 		  <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
 			<compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-			<color>155,40,40</color>
+			<customMote>HVB_GraspLineVoid</customMote>
 		  </li>
 		</comps>
 	  </AbilityDef>
+	  <ThingDef ParentName="MoteBase">
+		<defName>HVB_GraspLineVoid</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<mote>
+		  <fadeInTime>0.1</fadeInTime>
+		  <fadeOutTime>0.1</fadeOutTime>
+		  <solidTime>999999</solidTime>
+		  <needsMaintenance>True</needsMaintenance>
+		  <rotateTowardsTarget>True</rotateTowardsTarget>
+		  <scaleToConnectTargets>True</scaleToConnectTargets>
+		</mote>
+		<graphicData>
+		  <texPath>BionicAbilities/HUB_GraspLine</texPath>
+		  <color>(0.6078, 0.1569, 0.1569, 1)</color>
+		  <drawSize>(0.42,1)</drawSize>
+		</graphicData>
+	  </ThingDef>
   
   <!--shield bubbler-->
   <HediffDef ParentName="AddedBodyPartBase">

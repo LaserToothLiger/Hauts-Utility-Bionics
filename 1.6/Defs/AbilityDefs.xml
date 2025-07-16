@@ -415,7 +415,7 @@
     </comps>
   </AbilityDef>
   
-  <!--Archotech extensible arm-->
+  <!--Archotech telescoping arm-->
   <AbilityDef>
     <defName>HVB_BionicYank</defName>
     <label>bionic lasso</label>
@@ -450,7 +450,7 @@
     <comps>
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-        <color>155,165,148</color>
+		<customMote>HVB_GraspLine</customMote>
       </li>
     </comps>
   </AbilityDef>
@@ -461,7 +461,7 @@
 		<pawnFlyer>
 		  <flightDurationMin>0.5</flightDurationMin>
 		  <flightSpeed>12</flightSpeed>
-		  <workerClass>PawnFlyerWorker</workerClass>
+		  <workerClass>HautsBionics.GrabFlyerWorker</workerClass>
 		  <heightFactor>0.25</heightFactor>
 		  <progressCurve>
 			<points>
@@ -471,6 +471,24 @@
 			</points>
 		  </progressCurve>
 		</pawnFlyer>
+	  </ThingDef>
+	  <ThingDef ParentName="MoteBase">
+		<defName>HVB_GraspLine</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<mote>
+		  <fadeInTime>0.1</fadeInTime>
+		  <fadeOutTime>0.1</fadeOutTime>
+		  <solidTime>999999</solidTime>
+		  <needsMaintenance>True</needsMaintenance>
+		  <rotateTowardsTarget>True</rotateTowardsTarget>
+		  <scaleToConnectTargets>True</scaleToConnectTargets>
+		</mote>
+		<graphicData>
+		  <texPath>BionicAbilities/HUB_GraspLine</texPath>
+		  <color>(0.75, 0.81, 0.7, 1)</color>
+		  <drawSize>(0.42,1)</drawSize>
+		</graphicData>
 	  </ThingDef>
   
   <!--Archotech shield bubbler-->
