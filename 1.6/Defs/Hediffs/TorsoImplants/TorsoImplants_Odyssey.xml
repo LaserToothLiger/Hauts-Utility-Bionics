@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--vacuumfoam gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_VacuumfoamGland</defName>
+    <label>vacuumfoam gland</label>
+    <labelNoun>an installed vacuumfoam gland</labelNoun>
+    <description>An installed vacuumfoam gland implant. Grants rapidly increasing vacuum resistance while in vacuum, at the expense of also hindering move speed. The foam slowly decays once back in an atmosphere.</description>
+    <descriptionHyperlinks><ThingDef>HVB_VacuumfoamGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_VacuumfoamGland</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+		  <VacuumResistance>1</VacuumResistance>
+		  <MoveSpeed>-1.5</MoveSpeed>
+          <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+        </statOffsets>
+		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HautsFramework.HediffCompProperties_VacuumSeverity">
+        <perTickInVacuum>0.01</perTickInVacuum>
+		<perTickNotInVacuum>-0.001</perTickNotInVacuum>
+		<vacuumThreshold>0.1</vacuumThreshold>
+		<freezeAtVacuumImmunityInVacuum>true</freezeAtVacuumImmunityInVacuum>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_VacuumfoamGland</defName>
+    <label>vacuumfoam gland</label>
+    <description>This artificial organ secretes a protective layer of foam through the sweat pores when exposed to the vacuum of space, protecting the host at the expense of hampering its movements. Foam production stops - and existing foam begins to slough off - when the host is placed back into a non-vacuum environment.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallVacuumfoamGland</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_SurvivalAdaptations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallVacuumfoamGland</defName>
+    <label>install vacuumfoam gland</label>
+    <description>Install a vacuumfoam gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_VacuumfoamGland</ThingDef>
+      <HediffDef>HVB_VacuumfoamGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing vacuumfoam gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_VacuumfoamGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_VacuumfoamGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_VacuumfoamGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveVacuumfoamGland</defName>
+    <label>remove vacuumfoam gland</label>
+    <description>Remove vacuumfoam gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_VacuumfoamGland</ThingDef>
+      <HediffDef>HVB_VacuumfoamGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing vacuumfoam gland.</jobString>
+    <removesHediff>HVB_VacuumfoamGland</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech graviton shield-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonShielder</defName>
+    <label>archotech graviton shielder</label>
+    <labelNoun>an archotech graviton shielder</labelNoun>
+    <description>An installed archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs and does not prevent the host from using ranged attacks.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonShielder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonShielder</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>1.01</maxSeverity>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>333.33</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_GravitonShield</bionicShieldDef>
+		<makesShield>true</makesShield>
+		<minSeverityToGenerate>1</minSeverityToGenerate>
+      </li>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonShielder</defName>
+    <label>archotech graviton shielder</label>
+    <description>An implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but does not regenerate.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonShielder</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechGravitonShielder</defName>
+    <label>install archotech graviton shielder</label>
+    <description>Install a archotech graviton shielder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonShielder</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonShielder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech graviton shielder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGravitonShielder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGravitonShielder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGravitonShielder</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveArchotechGravitonShielder</defName>
+    <label>remove archotech graviton shielder</label>
+    <description>Remove archotech graviton shielder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonShielder</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonShielder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech graviton shielder.</jobString>
+    <removesHediff>HVB_ArchotechGravitonShielder</removesHediff>
+  </RecipeDef>
+
+</Defs>

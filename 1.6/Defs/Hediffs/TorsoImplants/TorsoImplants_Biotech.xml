@@ -79,6 +79,7 @@
       <li>Torso</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_HealingInfertilizer</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_HInf</li></incompatibleWithHediffTags>
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_RemoveHealingInfertilizer</defName>

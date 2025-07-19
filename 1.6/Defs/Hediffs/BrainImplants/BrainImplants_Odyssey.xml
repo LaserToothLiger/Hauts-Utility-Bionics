@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--gravitometric lobe-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitometricLobe</defName>
+    <label>gravitometric lobe</label>
+    <labelNoun>a gravitometric lobe</labelNoun>
+	<hediffClass>HautsBionics.Hediff_ImplantGravNausea</hediffClass>
+    <description>An installed gravitometric lobe. Causes grav nausea upon gravship landing.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GravitometricLobe</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GravitometricLobe</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <PilotingAbility>0.3</PilotingAbility>
+        </statOffsets>
+		<statFactors>
+		  <StaggerDurationFactor>0.9</StaggerDurationFactor>
+		</statFactors>
+	  </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitometricLobe</defName>
+    <label>gravitometric lobe</label>
+    <description>This brain implant synthesizes proprioception and other useful sensory information to detect minute shifts in gravitational direction or magnitude. While it makes piloting easier, it also becomes overstimulated by the flux of a gravship's landing process, inducing nausea at the end of every trip.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGravitometricLobe</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <costList>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallGravitometricLobe</defName>
+    <label>install gravitometric lobe</label>
+    <description>Install a gravitometric lobe.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GravitometricLobe</ThingDef>
+      <HediffDef>HVB_GravitometricLobe</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gravitometric lobe.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GravitometricLobe</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GravitometricLobe</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GravitometricLobe</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveGravitometricLobe</defName>
+    <label>remove gravitometric lobe</label>
+    <description>Remove gravitometric lobe.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GravitometricLobe</ThingDef>
+      <HediffDef>HVB_GravitometricLobe</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing gravitometric lobe.</jobString>
+    <removesHediff>HVB_GravitometricLobe</removesHediff>
+  </RecipeDef>
+  
+  <!--archotech gravitonmind-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonmind</defName>
+    <label>archotech gravitonmind</label>
+    <labelNoun>an archotech gravitonmind</labelNoun>
+    <description>An installed archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonmind</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.002</maxSeverity>
+    <stages>
+	  <li>
+	    <label>inactive</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>0.002</minSeverity>
+        <label>energized</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+		<statFactors>
+		  <VEF_NegativeThoughtDurationFactor>0.5</VEF_NegativeThoughtDurationFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+		<showDaysToRecover>true</showDaysToRecover>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonmind</defName>
+    <label>archotech gravitonmind</label>
+    <description>A brain implant which is essentially smart enough to be its own mind. However, it is only active within 5 days of exposure to gravitic flux - such as that created by a gravship in flight.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonmind</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3250</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechGravitonmind</defName>
+    <label>install archotech gravitonmind</label>
+    <description>Install an archotech gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech gravitonmind.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGravitonmind</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGravitonmind</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGravitonmind</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveArchotechGravitonmind</defName>
+    <label>remove archotech gravitonmind</label>
+    <description>Remove archotech gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech gravitonmind.</jobString>
+    <removesHediff>HVB_ArchotechGravitonmind</removesHediff>
+  </RecipeDef>
+  
+</Defs>

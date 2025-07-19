@@ -190,39 +190,30 @@
 			</operations>
 		</match>
 	</Operation>
-	<!--
-	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
-		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
-			<value>
-				<recipes>
-					<li>HVB_ImplantExplosiveDevice</li>
-				</recipes>
-			</value>
-		</nomatch>
-		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
-			<value>
-				<li>HVB_ImplantExplosiveDevice</li>
-			</value>
+	<Operation Class="PatchOperationFindMod"><!--only pawns that live in space need space-based bionics...-->
+		<mods>
+			<li>Odyssey</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PawnKindDef[@Name="TradersGuildBase"]/techHediffsTags</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@Name="TradersGuildBase"]</xpath>
+						<value>
+							<techHediffsTags>
+								<li>HVB_SpaceBionic</li>
+							</techHediffsTags>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PawnKindDef[@Name="TradersGuildBase"]/techHediffsTags</xpath>
+						<value>
+							<li>HVB_SpaceBionic</li>
+						</value>
+					</match>
+				</li>
+			</operations>
 		</match>
 	</Operation>
-	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
-		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
-			<value>
-				<recipes>
-					<li>HVB_RemoveIED</li>
-				</recipes>
-			</value>
-		</nomatch>
-		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
-			<value>
-				<li>HVB_RemoveIED</li>
-			</value>
-		</match>
-	</Operation>-->
 </Patch>

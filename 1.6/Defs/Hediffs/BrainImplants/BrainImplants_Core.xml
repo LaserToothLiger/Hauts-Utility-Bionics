@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <!--Satlink first-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_Satlink</defName>
+    <label>satlink</label>
+    <labelNoun>a satlink</labelNoun>
+    <description>An installed satlink implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_Satlink</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_Satlink</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <CaravanBonusSpeedFactor>0.1</CaravanBonusSpeedFactor>
+		  <Hauts_SurveySpeed>0.15</Hauts_SurveySpeed>
+        </statOffsets>
+	  </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_Satlink</defName>
+    <label>satlink</label>
+    <description>A brain implant that reads data from orbital satellites to establish useful maps of the planetary surface and crust. For the host's neurological safety, it has a limited bandwidth and only processes fractions of that data at a time.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSatlink</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>710</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallSatlink</defName>
+    <label>install satlink</label>
+    <description>Install a satlink.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Satlink</ThingDef>
+      <HediffDef>HVB_Satlink</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing satlink.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_Satlink</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_Satlink</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_Satlink</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveSatlink</defName>
+    <label>remove satlink</label>
+    <description>Remove satlink.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_Satlink</ThingDef>
+      <HediffDef>HVB_Satlink</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing satlink.</jobString>
+    <removesHediff>HVB_Satlink</removesHediff>
+  </RecipeDef>
+  
   <!--Cognobox implants, starting w berserker-->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_CognoBerserker</defName>

@@ -372,6 +372,87 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_Dryadspine</addsHediff>
   </RecipeDef>
+
+  <!--graviton spine-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitonSpine</defName>
+    <label>graviton spine</label>
+    <labelNoun>a graviton spine</labelNoun>
+    <description>An installed graviton spine. Gains part efficiency for 5 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GravitonSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GravitonSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.002</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>0.002</minSeverity>
+        <label>energized</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+		<showDaysToRecover>true</showDaysToRecover>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitonSpine</defName>
+    <label>graviton spine</label>
+    <description>A bionic spine threaded with gravlite conduits. When subjected to the gravitic flux produced by a gravship's flight, the spine enters a state of optimum performance for five days.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGravitonSpine</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <costList>
+      <BionicSpine>1</BionicSpine>
+      <GravlitePanel>3</GravlitePanel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>AdvancedGravtech</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>2400</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallGravitonSpine</defName>
+    <label>install graviton spine</label>
+    <description>Install a graviton spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GravitonSpine</ThingDef>
+      <HediffDef>HVB_GravitonSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing graviton spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GravitonSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GravitonSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GravitonSpine</addsHediff>
+  </RecipeDef>
   
   
   
@@ -517,6 +598,81 @@
       <li>Spine</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_ArchotechUndulatingSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--Archotech graviton spine-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonSpine</defName>
+    <label>archotech graviton spine</label>
+    <labelNoun>an archotech graviton spine</labelNoun>
+    <description>An installed archotech graviton spine. Gains part efficiency for 5 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.002</maxSeverity>
+    <stages>
+	  <li>
+	    <label>inactive</label>
+      </li>
+	  <li>
+        <minSeverity>0.002</minSeverity>
+        <label>energized</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+		<showDaysToRecover>true</showDaysToRecover>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonSpine</defName>
+    <label>archotech graviton spine</label>
+    <description>An artificial spine created by an archotech. The spine's ability to transmit and process signals is somehow greatly enhanced by exposure to gravitic flux - such as that produced by a gravship in flight.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechGravitonSpine</defName>
+    <label>install archotech graviton spine</label>
+    <description>Install an archotech graviton spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonSpine</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech graviton spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGravitonSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGravitonSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGravitonSpine</addsHediff>
   </RecipeDef>
   
 </Defs>

@@ -374,4 +374,89 @@
     <removesHediff>HVB_PlantarVibrosensor</removesHediff>
   </RecipeDef>
   
+  <!--sonic fish bait-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_SonicFishBait</defName>
+    <label>sonic fish bait</label>
+    <labelNoun>a sonic fish bait</labelNoun>
+    <description>An installed sonic fish bait.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SonicFishBait</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SonicFishBait</spawnThingOnRemoved>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<tags><li>HVB_FootTools</li></tags>
+    <addedPartProps>
+      <solid>false</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <FishingSpeed>0.15</FishingSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_SonicFishBait</defName>
+    <label>sonic fish bait</label>
+    <description>A multi-focal sound impeller attached to the inside and outside of the foot. When stuck into water, it can produce a directional, modulated tone that lures most breeds of edible fish into a less reactive state, making them easier to catch.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSonicFishBait</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>250</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>Fishing</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags><li>HVB_Caravaneer</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallSonicFishBait</defName>
+    <label>install sonic fish bait</label>
+    <description>Install a sonic fish bait.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SonicFishBait</ThingDef>
+      <HediffDef>HVB_SonicFishBait</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing sonic fish bait.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SonicFishBait</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SonicFishBait</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+      <li>Foot</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SonicFishBait</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_FootTools</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveSonicFishBait</defName>
+    <label>remove sonic fish bait</label>
+    <description>Remove sonic fish bait.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SonicFishBait</ThingDef>
+      <HediffDef>HVB_SonicFishBait</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing sonic fish bait.</jobString>
+    <removesHediff>HVB_SonicFishBait</removesHediff>
+  </RecipeDef>
+  
 </Defs>

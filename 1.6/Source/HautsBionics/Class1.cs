@@ -55,6 +55,12 @@ namespace HautsBionics
             harmony.Patch(methodInfo,
                           postfix: new HarmonyMethod(patchType, nameof(HVB_LandingEffectsPostfix)));
             methodInfo = typeof(AbilityPawnFlyer).GetMethod("LandingEffects", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (ModsConfig.OdysseyActive)
+            {
+                MethodInfo methodInfoO1 = typeof(WorldComponent_GravshipController).GetMethod("LandingEnded", BindingFlags.NonPublic | BindingFlags.Instance);
+                harmony.Patch(methodInfoO1,
+                              prefix: new HarmonyMethod(patchType, nameof(HVBLandingEndedPrefix)));
+            }
             Log.Message("HVB_Initialize".Translate().CapitalizeFirst());
         }
         internal static object GetInstanceField(Type type, object instance, string fieldName)
@@ -312,6 +318,31 @@ namespace HautsBionics
         public static void HVB_LandingEffectsPostfix(PawnFlyer __instance)
         {
             HVBUtility.HVB_LandingEffects(__instance);
+        }
+        public static void HVBLandingEndedPrefix(WorldComponent_GravshipController __instance)
+        {
+            Gravship gship = GetInstanceField(typeof(WorldComponent_GravshipController), __instance, "gravship") as Gravship;
+            if (gship != null)
+            {
+                List<Pawn> toAddTo = new List<Pawn>();
+                foreach (Pawn pawn in gship.Pawns)
+                {
+                    foreach (Hediff h in pawn.health.hediffSet.hediffs)
+                    {
+                        if (h is Hediff_ImplantGravNausea)
+                        {
+                            toAddTo.Add(pawn);
+                        }
+                        if (h.def.HasModExtension<GravitonPart>()) {
+                            h.Severity = h.def.maxSeverity;
+                        }
+                    }
+                }
+                foreach (Pawn p in toAddTo)
+                {
+                    p.health.AddHediff(HediffDefOf.GravNausea, null, null, null);
+                }
+            }
         }
     }
     [DefOf]
@@ -1642,6 +1673,7 @@ namespace HautsBionics
         public float maxEnergyOffset;
         public HediffDef bionicShieldDef;
         public bool makesShield;
+        public float minSeverityToGenerate = -1f;
     }
     public class HediffComp_ShieldGenerator : HediffComp
     {
@@ -1657,7 +1689,7 @@ namespace HautsBionics
             base.CompPostPostAdd(dinfo);
             if (this.Props.bionicShieldDef != null)
             {
-                if (this.Props.makesShield && !this.Pawn.health.hediffSet.HasHediff(this.Props.bionicShieldDef))
+                if (this.Props.makesShield && !this.Pawn.health.hediffSet.HasHediff(this.Props.bionicShieldDef) && this.parent.Severity >= this.Props.minSeverityToGenerate)
                 {
                     Hediff hediff = HediffMaker.MakeHediff(this.Props.bionicShieldDef, this.Pawn, null);
                     this.Pawn.health.AddHediff(hediff);
@@ -1676,7 +1708,7 @@ namespace HautsBionics
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
             base.CompPostTickInterval(ref severityAdjustment, delta);
-            if (this.Pawn.IsHashIntervalTick(120, delta) && this.Props.bionicShieldDef != null && this.Props.makesShield && !this.Pawn.health.hediffSet.HasHediff(this.Props.bionicShieldDef))
+            if (this.Pawn.IsHashIntervalTick(120, delta) && this.Props.bionicShieldDef != null && this.Props.makesShield && !this.Pawn.health.hediffSet.HasHediff(this.Props.bionicShieldDef) && this.parent.Severity >= this.Props.minSeverityToGenerate)
             {
                 Hediff shield = HediffMaker.MakeHediff(this.Props.bionicShieldDef, this.Pawn, null);
                 this.Pawn.health.AddHediff(shield);
@@ -1734,6 +1766,16 @@ namespace HautsBionics
                     this.Pawn.health.AddHediff(hediff);
                 }
             }
+        }
+    }
+    public class Hediff_ImplantGravNausea : Hediff_Implant
+    {
+
+    }
+    public class GravitonPart : DefModExtension
+    {
+        public GravitonPart()
+        {
         }
     }
     public class HediffCompProperties_BreathtakerAura : HediffCompProperties_AuraHediff

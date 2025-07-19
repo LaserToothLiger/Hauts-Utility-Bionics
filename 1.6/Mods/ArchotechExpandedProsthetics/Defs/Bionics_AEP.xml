@@ -709,6 +709,89 @@
     <removesHediff>HVB_AEP_ArchotechTruelife</removesHediff>
   </RecipeDef>
   
+  <!--archotech gravitonmind-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonmind</defName>
+    <label>advanced archotech gravitonmind</label>
+    <labelNoun>an advanced archotech gravitonmind</labelNoun>
+    <description>An installed advanced archotech gravitonmind. Grants bonus consciousness for 4 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonmind</spawnThingOnRemoved>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.002</maxSeverity>
+    <stages>
+	  <li>
+	    <label>inactive</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>0.002</minSeverity>
+        <label>energized</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+		<statFactors>
+		  <VEF_NegativeThoughtDurationFactor>0.1</VEF_NegativeThoughtDurationFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+		<showDaysToRecover>true</showDaysToRecover>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonmind</defName>
+    <label>advanced archotech gravitonmind</label>
+    <description>An advanced brain implant which is more than smart enough to be its own mind. However, it is only active within 4 days of exposure to gravitic flux - such as that created by a gravship in flight.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGravitonmind</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_InstallArchotechGravitonmind</defName>
+    <label>install advanced archotech gravitonmind</label>
+    <description>Install an advanced archotech gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech gravitonmind.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGravitonmind</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGravitonmind</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGravitonmind</addsHediff>
+  </RecipeDef>
+  
   <!--archotech dryadic resonator-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
     <defName>HVB_AEP_ArchotechDryadicResonator</defName>
@@ -839,6 +922,83 @@
       <li>Torso</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_AEP_ArchotechBioferriteDestabilizer</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech graviton shielder-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonShielder</defName>
+    <label>advanced archotech graviton shielder</label>
+    <labelNoun>an archotech graviton shielder</labelNoun>
+    <description>An installed advanced archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs and does not prevent the host from using ranged attacks.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGravitonShielder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonShielder</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>1.01</maxSeverity>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>1000</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>0</energyRegenOffset>
+        <bionicShieldDef>HVB_GravitonShield</bionicShieldDef>
+		<makesShield>true</makesShield>
+		<minSeverityToGenerate>1</minSeverityToGenerate>
+      </li>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonShielder</defName>
+    <label>advanced archotech graviton shielder</label>
+    <description>An advanced implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but does not regenerate.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGravitonShielder</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>10000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_InstallArchotechGravitonShielder</defName>
+    <label>install advanced archotech graviton shielder</label>
+    <description>Install an advanced archotech graviton shielder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonShielder</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonShielder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech graviton shielder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGravitonShielder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGravitonShielder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGravitonShielder</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_RemoveArchotechGravitonShielder</defName>
+    <label>remove advanced archotech graviton shielder</label>
+    <description>Remove advanced archotech graviton shielder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonShielder</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonShielder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech graviton shielder.</jobString>
+    <removesHediff>HVB_AEP_ArchotechGravitonShielder</removesHediff>
   </RecipeDef>
   
   <!--archotech marrowheart-->
@@ -1732,6 +1892,78 @@
     <addsHediff>HVB_AEP_ArchotechUndulatingSpine</addsHediff>
   </RecipeDef>
   
+  <!--Archotech graviton spine-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonSpine</defName>
+    <label>advanced archotech graviton spine</label>
+    <labelNoun>an advanced archotech graviton spine</labelNoun>
+    <description>An installed advanced archotech graviton spine. Gains part efficiency for 5 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGravitonSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.002</maxSeverity>
+    <stages>
+	  <li>
+	    <label>inactive</label>
+      </li>
+	  <li>
+        <minSeverity>0.002</minSeverity>
+        <label>energized</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-1</severityPerDay>
+		<showDaysToRecover>true</showDaysToRecover>
+	  </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonSpine</defName>
+    <label>advanced archotech graviton spine</label>
+    <description>An advanced artificial spine created by an archotech. The spine's ability to transmit and process signals is somehow greatly enhanced by exposure to gravitic flux - such as that produced by a gravship in flight.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGravitonSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_InstallArchotechGravitonSpine</defName>
+    <label>install advanced archotech graviton spine</label>
+    <description>Install an advanced archotech graviton spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonSpine</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech graviton spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGravitonSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGravitonSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGravitonSpine</addsHediff>
+  </RecipeDef>
+  
   <!--archotech telescoping arm-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_AEP_ArchotechTelescopingArm</defName>
@@ -1836,7 +2068,7 @@
     <comps>
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-        <color>155,165,148</color>
+		<customMote>HVB_GraspLine</customMote>
       </li>
     </comps>
   </AbilityDef>
