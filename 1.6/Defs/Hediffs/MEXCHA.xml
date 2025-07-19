@@ -573,7 +573,10 @@
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>
-      <researchPrerequisite>Fishing</researchPrerequisite>
+      <researchPrerequisites>
+	    <li>Fishing</li>
+	    <li>Bionics</li>
+      </researchPrerequisites>
     </recipeMaker>
     <techHediffsTags><li>AdvancedWeapon</li></techHediffsTags>
   </ThingDef>

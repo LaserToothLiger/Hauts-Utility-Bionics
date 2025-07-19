@@ -412,7 +412,10 @@
       <MarketValue>250</MarketValue>
     </statBases>
     <recipeMaker>
-      <researchPrerequisite>Fishing</researchPrerequisite>
+      <researchPrerequisites>
+	    <li>Fishing</li>
+	    <li>Bionics</li>
+      </researchPrerequisites>
     </recipeMaker>
     <techHediffsTags><li>HVB_Caravaneer</li></techHediffsTags>
   </ThingDef>
