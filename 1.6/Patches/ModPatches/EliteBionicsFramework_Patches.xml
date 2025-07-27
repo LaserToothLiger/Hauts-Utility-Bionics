@@ -76,7 +76,7 @@
 						<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
 					</match>
 				</li>
-				<!--the epic EYES and lows of EYE school football-->
+				<!--the epic EYES and lows of EYE school football. Addendum 2025-07-18: when was this funny? When -->
 				<li Class="PatchOperationConditional">
 					<xpath>/Defs/HediffDef[defName="HVB_BalefulEye"]/comps</xpath>
 					<nomatch Class="PatchOperationAdd">
@@ -1534,29 +1534,60 @@
 						</operations>
 					</match>
 				</li>
-				<!--mods now. start with VFE Vikings
 				<li Class="PatchOperationFindMod">
 					<mods>
-						<li>Vanilla Factions Expanded - Vikings</li>
+						<li>Odyssey</li>
 					</mods>
 					<match Class="PatchOperationSequence">
 						<operations>
+							<!--graviton spines of both kinds-->
 							<li Class="PatchOperationConditional">
-								<xpath>/Defs/HediffDef[defName="HVB_CryptoflashSkin"]/comps</xpath>
+								<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/comps</xpath>
 								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_CryptoflashSkin"]</xpath>
-									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.1</scaleAdjustment></li></comps></value>
+									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]</xpath>
+									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
 								</nomatch>
 								<match Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_CryptoflashSkin"]/comps</xpath>
-									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.1</scaleAdjustment></li></value>
+									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/comps</xpath>
+									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/comps</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]</xpath>
+									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></comps></value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/comps</xpath>
+									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<!--+100%-->
+										<li Class="PatchOperationConditional">
+											<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]/comps</xpath>
+											<nomatch Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]</xpath>
+												<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></comps></value>
+											</nomatch>
+											<match Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]/comps</xpath>
+												<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
+											</match>
+										</li>
+									</operations>
 								</match>
 							</li>
 						</operations>
 					</match>
 				</li>
-				nvm circa 1.5 let's start with Pathfinding Framework-->
-				<!--Pathfinding Framework-->
+				<!--mods now. start with Pathfinding Framework-->
 				<li Class="PatchOperationFindMod">
 					<mods>
 						<li>Pathfinding Framework</li>

@@ -388,6 +388,26 @@
 				</li>
 				<li Class="PatchOperationFindMod">
 					<mods>
+						<li>Odyssey</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
 						<li>More Archotech Implants</li>
 					</mods>
 					<match Class="PatchOperationSequence">
