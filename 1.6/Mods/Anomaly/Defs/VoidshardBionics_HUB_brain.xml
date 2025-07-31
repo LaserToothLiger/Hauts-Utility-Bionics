@@ -988,6 +988,114 @@
     </skillRequirements>
   </RecipeDef>
   
+  <!--what walks on four legs in the morning, two at noon, and three in the evening?
+  gravitonmind-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_VoidshardGravitonmind</defName>
+    <label>voidshard gravitonmind</label>
+    <labelNoun>a voidshard gravitonmind</labelNoun>
+    <description>An installed dark archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonmind</spawnThingOnRemoved>
+    <allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.05</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.11</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.17</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.23</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+        <capMods><li><capacity>Consciousness</capacity><offset>0.29</offset></li></capMods>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard gravitonmind has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+    </comps>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_ArchoBrain</hediff>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallVoidshardGravitonmind</defName>
+    <label>upgrade archotech gravitonmind with shards</label>
+    <description>Alter an archotech gravitonmind by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. The boost it gains from flying on a gravship does not become more potent, but its regular function improves.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_VoidshardGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech gravitonmind with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardGravitonmind</addsHediff>
+	<removesHediff>HVB_ArchotechGravitonmind</removesHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveVoidshardGravitonmind</defName>
+    <label>remove voidshard gravitonmind</label>
+    <description>Remove voidshard gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_VoidshardGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing voidshard gravitonmind.</jobString>
+    <removesHediff>HVB_VoidshardGravitonmind</removesHediff>
+    <skillRequirements>
+      <Medicine>15</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+  
   <!--NILLA PSYCASTS EXPANDED
 	heat substitute-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="VanillaExpanded.VPsycastsE">

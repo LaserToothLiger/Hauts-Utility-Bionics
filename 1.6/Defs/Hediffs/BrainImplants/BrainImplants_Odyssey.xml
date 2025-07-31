@@ -88,12 +88,8 @@
     <description>An installed archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechGravitonmind</spawnThingOnRemoved>
-    <minSeverity>0.001</minSeverity>
-    <initialSeverity>0.001</initialSeverity>
-    <maxSeverity>5.002</maxSeverity>
     <stages>
 	  <li>
-	    <label>inactive</label>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
@@ -101,27 +97,12 @@
           </li>
         </capMods>
       </li>
-	  <li>
-        <minSeverity>0.002</minSeverity>
-        <label>energized</label>
-        <capMods>
-          <li>
-            <capacity>Consciousness</capacity>
-            <offset>0.2</offset>
-          </li>
-        </capMods>
-		<statFactors>
-		  <VEF_NegativeThoughtDurationFactor>0.5</VEF_NegativeThoughtDurationFactor>
-		</statFactors>
-      </li>
     </stages>
-    <comps>
-	  <li Class="HediffCompProperties_SeverityPerDay">
-		<severityPerDay>-1</severityPerDay>
-		<showDaysToRecover>true</showDaysToRecover>
-	  </li>
-	</comps>
-	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_ArchoBrain</hediff>
+		</li>
+	</modExtensions>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_ArchotechGravitonmind</defName>
@@ -177,5 +158,29 @@
     <jobString>Removing archotech gravitonmind.</jobString>
     <removesHediff>HVB_ArchotechGravitonmind</removesHediff>
   </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravitonPartEfficiency_ArchoBrain</defName>
+		<label>archo-gravitic empowerment</label>
+		<description>A temporary state of improved efficiency.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>5</initialSeverity>
+		<maxSeverity>5</maxSeverity>
+		<stages>
+		  <li>
+			<partEfficiencyOffset>0.15</partEfficiencyOffset>
+			<statFactors>
+			  <VEF_NegativeThoughtDurationFactor>0.5</VEF_NegativeThoughtDurationFactor>
+			</statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
   
 </Defs>

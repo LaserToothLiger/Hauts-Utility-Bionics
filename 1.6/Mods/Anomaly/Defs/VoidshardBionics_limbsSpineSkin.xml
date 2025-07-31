@@ -616,6 +616,147 @@
 	<removesHediff>HVB_ArchotechUndulatingSpine</removesHediff>
   </RecipeDef>
   
+  <!--archotech graviton spine-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_VoidshardGravitonSpine</defName>
+    <label>voidshard graviton spine</label>
+    <labelNoun>a voidshard graviton spine</labelNoun>
+    <description>An installed dark archotech spine. Gains part efficiency for 5 days after flying on a gravship. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.0</maxSeverity>
+    <stages>
+      <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>5</minSeverity>
+        <label>disrupted</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>5</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard graviton spine has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideInsinuator</li>
+		</downsides>
+	  </li>
+    </comps>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_Voidshard</hediff>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallVoidshardGravitonSpine</defName>
+    <label>upgrade archotech graviton spine with shards</label>
+    <description>Alter an archotech graviton spine by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonSpine</ThingDef>
+      <HediffDef>HVB_VoidshardGravitonSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech graviton spine with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardGravitonSpine</addsHediff>
+	<removesHediff>HVB_ArchotechGravitonSpine</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravitonPartEfficiency_Voidshard</defName>
+		<label>archo-gravitic empowerment</label>
+		<description>A temporary state of improved efficiency.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<stages>
+		  <li>
+			<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		  </li>
+		  <li>
+			<minSeverity>1</minSeverity>
+			<label>level 1</label>
+			<partEfficiencyOffset>0.45</partEfficiencyOffset>
+		  </li>
+		  <li>
+			<minSeverity>2</minSeverity>
+			<label>level 2</label>
+			<partEfficiencyOffset>0.5</partEfficiencyOffset>
+		  </li>
+		  <li>
+			<minSeverity>3</minSeverity>
+			<label>level 3</label>
+			<partEfficiencyOffset>0.55</partEfficiencyOffset>
+		  </li>
+		  <li>
+			<minSeverity>4</minSeverity>
+			<label>embraced</label>
+			<partEfficiencyOffset>0.6</partEfficiencyOffset>
+		  </li>
+		  <li>
+			<minSeverity>5</minSeverity>
+			<label>disrupted</label>
+			<partEfficiencyOffset>0.5</partEfficiencyOffset>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>300000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
   <!--archotech earthshaker-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_VoidshardEarthshaker</defName>

@@ -204,7 +204,7 @@
     <defName>HVB_BionicPounce</defName>
     <label>bionic pounce</label>
     <description>Leap through the air to the target point.</description>
-    <iconPath>Things/Special/DropPod</iconPath>
+    <iconPath>BionicAbilities/HUB_Pounce</iconPath>
     <aiCanUse>true</aiCanUse>
     <cooldownTicksRange>60000</cooldownTicksRange>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>

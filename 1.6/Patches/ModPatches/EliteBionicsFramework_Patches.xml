@@ -1407,6 +1407,22 @@
 							</li>
 							<li Class="PatchOperationFindMod">
 								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationConditional">
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
+									<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]</xpath>
+										<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></comps></value>
+									</nomatch>
+									<match Class="PatchOperationAdd">
+										<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
+										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
+									</match>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
 									<li>[FSF] Advanced Bionics Expansion</li>
 								</mods>
 								<match Class="PatchOperationSequence">

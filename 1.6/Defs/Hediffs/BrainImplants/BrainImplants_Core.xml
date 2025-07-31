@@ -101,7 +101,7 @@
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_CognoBerserker</defName>
     <label>cogno-berserker</label>
-    <description>A brain implant that monitors behavior for sudden and severe shifts. On detecting a mental break, it begins stimulating nocireceptors to cause increasing pain. Once this knocks out the host, it can then proceed to induce a coma during which enable recalibration of the host's mental processes. This coma will expire approximately four horus after the keeper stops inducing pain.</description>
+    <description>A brain implant that can improve neurotransmission speed and reliability by means too dangerous to use for prolonged periods. Therefore, it only - and automatically - activates when its host is injured, and may therefore need its aid the most.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCognoBerserker</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>950</MarketValue>
@@ -381,7 +381,7 @@
     <label>cogno-straitjacket</label>
     <labelNoun>a cogno-straitjacket</labelNoun>
     <hediffClass>HautsBionics.Hediff_SanityKeeper</hediffClass><!--multiplies its pain by [(its current severity) - 1]-->
-    <description>An installed cogno-straitjacket implant. Causes increasing pain while social fighting or in the throes of a mental break; once the host is incapacitated, it also induces a short-term coma. The coma will expire approximately four hours after the keeper stops inducing pain.</description>
+    <description>An installed cogno-straitjacket implant. Causes increasing pain while social fighting or in the throes of a mental break; once the host is incapacitated, it also induces a short-term coma. The coma will expire approximately four hours after the cogno-straitjacket stops inducing pain.</description>
     <descriptionHyperlinks><ThingDef>HVB_CognoStraitjacket</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_CognoStraitjacket</spawnThingOnRemoved>
 	<minSeverity>1</minSeverity>
@@ -400,7 +400,7 @@
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_CognoStraitjacket</defName>
     <label>cogno-straitjacket</label>
-    <description>A brain implant that monitors behavior for sudden and severe shifts. On detecting a mental break, it begins stimulating nocireceptors to cause increasing pain. Once this knocks out the host, it can then proceed to induce a coma during which enable recalibration of the host's mental processes. This coma will expire approximately four horus after the keeper stops inducing pain.</description>
+    <description>A brain implant that monitors behavior for sudden and severe shifts. On detecting a mental break, it begins stimulating nocireceptors to cause increasing pain. Once this knocks out the host, it can then proceed to induce a coma during which enable recalibration of the host's mental processes. This coma will expire approximately four horus after the cogno-straitjacket stops inducing pain.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCognoStraitjacket</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>545</MarketValue>

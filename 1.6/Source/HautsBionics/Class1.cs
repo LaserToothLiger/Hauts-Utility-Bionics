@@ -327,14 +327,22 @@ namespace HautsBionics
                 List<Pawn> toAddTo = new List<Pawn>();
                 foreach (Pawn pawn in gship.Pawns)
                 {
-                    foreach (Hediff h in pawn.health.hediffSet.hediffs)
+                    for (int i = pawn.health.hediffSet.hediffs.Count - 1; i >= 0; i--)
                     {
+                        Hediff h = pawn.health.hediffSet.hediffs[i];
                         if (h is Hediff_ImplantGravNausea)
                         {
                             toAddTo.Add(pawn);
                         }
-                        if (h.def.HasModExtension<GravitonPart>()) {
-                            h.Severity = h.def.maxSeverity;
+                        GravitonPart gp = h.def.GetModExtension<GravitonPart>();
+                        if (gp != null) {
+                            if (gp.hediff != null)
+                            {
+                                Hediff hediff = HediffMaker.MakeHediff(gp.hediff, pawn, h.Part);
+                                pawn.health.AddHediff(hediff, h.Part);
+                            } else {
+                                h.Severity = h.def.maxSeverity;
+                            }
                         }
                     }
                 }
@@ -1777,6 +1785,7 @@ namespace HautsBionics
         public GravitonPart()
         {
         }
+        public HediffDef hediff;
     }
     public class HediffCompProperties_BreathtakerAura : HediffCompProperties_AuraHediff
     {

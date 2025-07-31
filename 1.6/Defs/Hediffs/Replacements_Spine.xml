@@ -386,25 +386,11 @@
       <partEfficiency>1.25</partEfficiency>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
-    <minSeverity>0.001</minSeverity>
-    <initialSeverity>0.001</initialSeverity>
-    <maxSeverity>5.002</maxSeverity>
-    <stages>
-	  <li>
-      </li>
-	  <li>
-        <minSeverity>0.002</minSeverity>
-        <label>energized</label>
-		<partEfficiencyOffset>0.2</partEfficiencyOffset>
-      </li>
-    </stages>
-    <comps>
-	  <li Class="HediffCompProperties_SeverityPerDay">
-		<severityPerDay>-1</severityPerDay>
-		<showDaysToRecover>true</showDaysToRecover>
-	  </li>
-	</comps>
-	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_Bionic</hediff>
+		</li>
+	</modExtensions>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_GravitonSpine</defName>
@@ -453,6 +439,27 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_GravitonSpine</addsHediff>
   </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravitonPartEfficiency_Bionic</defName>
+		<label>gravitic empowerment</label>
+		<description>A temporary state of improved efficiency.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>5</initialSeverity>
+		<maxSeverity>5</maxSeverity>
+		<stages>
+		  <li>
+			<partEfficiencyOffset>0.2</partEfficiencyOffset>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
   
   
   
@@ -612,26 +619,11 @@
       <solid>true</solid>
 	  <partEfficiency>1.5</partEfficiency>
     </addedPartProps>
-    <minSeverity>0.001</minSeverity>
-    <initialSeverity>0.001</initialSeverity>
-    <maxSeverity>5.002</maxSeverity>
-    <stages>
-	  <li>
-	    <label>inactive</label>
-      </li>
-	  <li>
-        <minSeverity>0.002</minSeverity>
-        <label>energized</label>
-		<partEfficiencyOffset>0.4</partEfficiencyOffset>
-      </li>
-    </stages>
-    <comps>
-	  <li Class="HediffCompProperties_SeverityPerDay">
-		<severityPerDay>-1</severityPerDay>
-		<showDaysToRecover>true</showDaysToRecover>
-	  </li>
-	</comps>
-	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_Archotech</hediff>
+		</li>
+	</modExtensions>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_ArchotechGravitonSpine</defName>
@@ -674,5 +666,26 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_ArchotechGravitonSpine</addsHediff>
   </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravitonPartEfficiency_Archotech</defName>
+		<label>archo-gravitic empowerment</label>
+		<description>A temporary state of improved efficiency.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>5</initialSeverity>
+		<maxSeverity>5</maxSeverity>
+		<stages>
+		  <li>
+			<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
   
 </Defs>
