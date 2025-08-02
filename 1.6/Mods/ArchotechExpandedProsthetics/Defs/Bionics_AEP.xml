@@ -1001,6 +1001,75 @@
     <removesHediff>HVB_AEP_ArchotechGravitonShielder</removesHediff>
   </RecipeDef>
   
+  <!--archotech graviton refresher-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonRefresher</defName>
+    <label>advanced archotech graviton refresher</label>
+    <labelNoun>an advanced archotech graviton refresher</labelNoun>
+    <description>An installed advanced archotech graviton refresher implant. Upon exposure to the gravitic flux of a gravship in flight, it lowers all ability cooldowns by 5 days.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonRefresher</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonRefresher</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>1.01</maxSeverity>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_AbilityRefresher">
+        <lowerAllCooldownsBy>300000</lowerAllCooldownsBy>
+      </li>
+	</comps>
+	<modExtensions><li Class="HautsBionics.GravitonPart" /></modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonRefresher</defName>
+    <label>advanced archotech graviton refresher</label>
+    <description>An advanced implanted organ which absorbs graviton emissions while flying on a gravship to do ... something ... that defies all attempt at explanation by human minds, partially refreshing the cooldowns of all of the host's abilities.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonRefresher</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_InstallArchotechGravitonRefresher</defName>
+    <label>install advanced archotech graviton refresher</label>
+    <description>Install an advanced archotech graviton refresher.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonRefresher</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonRefresher</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech graviton refresher.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGravitonRefresher</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGravitonRefresher</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGravitonRefresher</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_RemoveArchotechGravitonRefresher</defName>
+    <label>remove advanced archotech graviton refresher</label>
+    <description>Remove advanced archotech graviton refresher.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonRefresher</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonRefresher</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech graviton refresher.</jobString>
+    <removesHediff>HVB_AEP_ArchotechGravitonRefresher</removesHediff>
+  </RecipeDef>
+  
   <!--archotech marrowheart-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_AEP_ArchotechMarrowheart</defName>

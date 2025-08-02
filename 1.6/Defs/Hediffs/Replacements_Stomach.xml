@@ -476,7 +476,7 @@
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>HVB_InstallArchotechRefineryStomach</defName>
     <label>install archotech refinery stomach</label>
-    <description>Install a archotech refinery stomach.</description>
+    <description>Install an archotech refinery stomach.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchotechRefineryStomach</ThingDef>
       <HediffDef>HVB_ArchotechRefineryStomach</HediffDef>

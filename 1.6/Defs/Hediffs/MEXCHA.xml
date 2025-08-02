@@ -136,7 +136,7 @@
 		<cellRange>1.5</cellRange>
 		<minDmgToTrigger>0</minDmgToTrigger>
 		<canAffectMechs>false</canAffectMechs>
-		<chance>10.12</chance>
+		<chance>0.12</chance>
       </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>

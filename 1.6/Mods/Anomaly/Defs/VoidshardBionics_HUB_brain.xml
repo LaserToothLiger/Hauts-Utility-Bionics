@@ -990,7 +990,7 @@
   
   <!--what walks on four legs in the morning, two at noon, and three in the evening?
   gravitonmind-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_VoidshardGravitonmind</defName>
     <label>voidshard gravitonmind</label>
     <labelNoun>a voidshard gravitonmind</labelNoun>
@@ -1056,7 +1056,7 @@
 		</li>
 	</modExtensions>
   </HediffDef>
-  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_InstallVoidshardGravitonmind</defName>
     <label>upgrade archotech gravitonmind with shards</label>
     <description>Alter an archotech gravitonmind by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. The boost it gains from flying on a gravship does not become more potent, but its regular function improves.</description>
@@ -1081,7 +1081,7 @@
     <addsHediff>HVB_VoidshardGravitonmind</addsHediff>
 	<removesHediff>HVB_ArchotechGravitonmind</removesHediff>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_RemoveVoidshardGravitonmind</defName>
     <label>remove voidshard gravitonmind</label>
     <description>Remove voidshard gravitonmind.</description>
