@@ -333,7 +333,7 @@
     <defName>HVB_BileSpray</defName>
     <label>bionic bile spray</label>
     <description>Spray a corrosive solvent all over the target area. It coats anything hit, causing chemical burns.</description>
-    <iconPath>UI/Abilities/AcidSpray</iconPath>
+    <iconPath>BionicAbilities/HUB_BileSpray</iconPath>
     <cooldownTicksRange>10000</cooldownTicksRange>
     <aiCanUse>true</aiCanUse>
     <displayOrder>301</displayOrder>

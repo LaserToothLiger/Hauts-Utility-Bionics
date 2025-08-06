@@ -31,6 +31,7 @@
 		<reactsToOther>false</reactsToOther><!--only reacts to ranged and explosive damage, just like a normal shield-->
 		<shouldUseIncomingDamageFactor>false</shouldUseIncomingDamageFactor>
 		<noCostIfInvincible>false</noCostIfInvincible>
+		<reactsToShieldBypassers>false</reactsToShieldBypassers>
 	  </li>
 	  <li Class="HautsFramework.HediffCompProperties_MoteConditionalShield">
 		<mote>Hauts_DefaultShieldGraphic</mote>
@@ -70,6 +71,7 @@
 		<reactsToOther>false</reactsToOther><!--only reacts to ranged and explosive damage, just like a normal shield-->
 		<shouldUseIncomingDamageFactor>false</shouldUseIncomingDamageFactor>
 		<noCostIfInvincible>false</noCostIfInvincible>
+		<reactsToShieldBypassers>false</reactsToShieldBypassers>
 	  </li>
 	  <li Class="HautsFramework.HediffCompProperties_MoteConditionalShield">
 		<mote>Hauts_DefaultShieldGraphic</mote>
@@ -115,6 +117,7 @@
 		<reactsToOther>false</reactsToOther><!--only reacts to ranged and explosive damage, just like a normal shield-->
 		<shouldUseIncomingDamageFactor>false</shouldUseIncomingDamageFactor>
 		<noCostIfInvincible>false</noCostIfInvincible>
+		<reactsToShieldBypassers>false</reactsToShieldBypassers>
 	  </li>
 	  <li Class="HautsFramework.HediffCompProperties_MoteConditionalShield">
 		<mote>HVB_PurpleShieldGraphic</mote>
