@@ -99,13 +99,13 @@
 					<match Class="PatchOperationSequence">
 						<operations>
 							<li Class="PatchOperationConditional">
-								<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/addedPartProps/partEfficiency</xpath>
+								<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/addedPartProps/partEfficiency</xpath>
 								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/addedPartProps</xpath>
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/addedPartProps</xpath>
 									<value><partEfficiency>1.5</partEfficiency></value>
 								</nomatch>
 								<match Class="PatchOperationReplace">
-									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/addedPartProps/partEfficiency</xpath>
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/addedPartProps/partEfficiency</xpath>
 									<value><partEfficiency>1.5</partEfficiency></value>
 								</match>
 							</li>

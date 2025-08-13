@@ -373,37 +373,53 @@
     <addsHediff>HVB_Dryadspine</addsHediff>
   </RecipeDef>
 
-  <!--graviton spine-->
+  <!--starlight spine-->
   <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
-    <defName>HVB_GravitonSpine</defName>
-    <label>graviton spine</label>
-    <labelNoun>a graviton spine</labelNoun>
-    <description>An installed graviton spine. Gains part efficiency for 5 days after flying on a gravship.</description>
-    <descriptionHyperlinks><ThingDef>HVB_GravitonSpine</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_GravitonSpine</spawnThingOnRemoved>
+    <defName>HVB_StarlightSpine</defName>
+    <label>starlight spine</label>
+    <labelNoun>a starlight spine</labelNoun>
+    <description>An installed starlight spine. Functions better beyond the atmosphere.</description>
+    <descriptionHyperlinks><ThingDef>HVB_StarlightSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_StarlightSpine</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.001</maxSeverity>
     <addedPartProps>
       <solid>true</solid>
       <partEfficiency>1.25</partEfficiency>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
-	<modExtensions>
-		<li Class="HautsBionics.GravitonPart">
-		  <hediff>HVB_GravitonPartEfficiency_Bionic</hediff>
-		</li>
-	</modExtensions>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+	  </li>
+	  <li>
+        <minSeverity>1.001</minSeverity>
+		<partEfficiencyOffset>0.125</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity">
+		<defaultSeverity>0.001</defaultSeverity>
+		<setToInLayer>
+			<li><key>Orbit</key><value>1.001</value></li>
+		</setToInLayer>
+	  </li>
+    </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
-    <defName>HVB_GravitonSpine</defName>
-    <label>graviton spine</label>
-    <description>A bionic spine threaded with gravlite conduits. When subjected to the gravitic flux produced by a gravship's flight, the spine enters a state of optimum performance for five days.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallGravitonSpine</RecipeDef></descriptionHyperlinks>
+    <defName>HVB_StarlightSpine</defName>
+    <label>starlight spine</label>
+    <description>A bionic spine threaded with gravlite conduits. Specialized polymers in its nervegel cabling are supercharged by forms of stellar radiation which are not present within Earth-type atmospheres. Thus, while the host is out beyond the atmosphere, this spine exhibits increased signal transmission speed and fidelity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallStarlightSpine</RecipeDef></descriptionHyperlinks>
     <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
     <costList>
       <BionicSpine>1</BionicSpine>
-      <GravlitePanel>3</GravlitePanel>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <recipeMaker>
-      <researchPrerequisite>AdvancedGravtech</researchPrerequisite>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
     </recipeMaker>
     <statBases>
       <MarketValue>2400</MarketValue>
@@ -411,19 +427,19 @@
     </statBases>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
-    <defName>HVB_InstallGravitonSpine</defName>
-    <label>install graviton spine</label>
-    <description>Install a graviton spine.</description>
+    <defName>HVB_InstallStarlightSpine</defName>
+    <label>install starlight spine</label>
+    <description>Install a starlight spine.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_GravitonSpine</ThingDef>
-      <HediffDef>HVB_GravitonSpine</HediffDef>
+      <ThingDef>HVB_StarlightSpine</ThingDef>
+      <HediffDef>HVB_StarlightSpine</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing graviton spine.</jobString>
+    <jobString>Installing starlight spine.</jobString>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_GravitonSpine</li>
+            <li>HVB_StarlightSpine</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -431,35 +447,14 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_GravitonSpine</li>
+        <li>HVB_StarlightSpine</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Spine</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>HVB_GravitonSpine</addsHediff>
+    <addsHediff>HVB_StarlightSpine</addsHediff>
   </RecipeDef>
-	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
-		<defName>HVB_GravitonPartEfficiency_Bionic</defName>
-		<label>gravitic empowerment</label>
-		<description>A temporary state of improved efficiency.</description>
-		<hediffClass>HediffWithComps</hediffClass>
-		<isBad>false</isBad>
-		<initialSeverity>5</initialSeverity>
-		<maxSeverity>5</maxSeverity>
-		<stages>
-		  <li>
-			<partEfficiencyOffset>0.2</partEfficiencyOffset>
-		  </li>
-		</stages>
-		<comps>
-		  <li Class="HediffCompProperties_SeverityPerDay">
-			<severityPerDay>-1</severityPerDay>
-			<showDaysToRecover>true</showDaysToRecover>
-		  </li>
-		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
-		</comps>
-	  </HediffDef>
   
   
   

@@ -1556,15 +1556,27 @@
 					</mods>
 					<match Class="PatchOperationSequence">
 						<operations>
-							<!--graviton spines of both kinds-->
+							<!--skull.-->
 							<li Class="PatchOperationConditional">
-								<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/comps</xpath>
+								<xpath>/Defs/HediffDef[defName="HVB_StarlightSkull"]/comps</xpath>
 								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]</xpath>
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSkull"]</xpath>
 									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
 								</nomatch>
 								<match Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_GravitonSpine"]/comps</xpath>
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSkull"]/comps</xpath>
+									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
+								</match>
+							</li>
+							<!--spines of both kinds-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]</xpath>
+									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps</xpath>
 									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
 								</match>
 							</li>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Deep Orbit</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSkull"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>Orbit2</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>Orbit2</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarpowerGland"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>Orbit2</key><value>1.001</value></li></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

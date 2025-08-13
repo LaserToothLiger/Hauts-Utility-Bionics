@@ -11,7 +11,7 @@
     <spawnThingOnRemoved>HVB_ArchotechTruelife</spawnThingOnRemoved>
 	<minSeverity>0.001</minSeverity>
 	<initialSeverity>0.001</initialSeverity>
-	<maxSeverity>60</maxSeverity>
+	<maxSeverity>36</maxSeverity>
     <stages>
       <li>
         <label>recharging</label>
@@ -20,7 +20,7 @@
         </statOffsets>
       </li>
 	  <li>
-        <minSeverity>60</minSeverity>
+        <minSeverity>36</minSeverity>
 		<label>ready</label>
 		<statOffsets>
           <Hauts_EntityDamageFactor>0.25</Hauts_EntityDamageFactor>

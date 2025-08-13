@@ -467,6 +467,17 @@
 									<value><partEfficiency>2</partEfficiency></value>
 								</match>
 							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_GravitonPartEfficiency_Archotech"]/stages/li/partEfficiencyOffset</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_GravitonPartEfficiency_Archotech"]/stages/li</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_GravitonPartEfficiency_Archotech"]/stages/li/partEfficiencyOffset</xpath>
+									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</match>
+							</li>
 						</operations>
 					</match>
 				</li>

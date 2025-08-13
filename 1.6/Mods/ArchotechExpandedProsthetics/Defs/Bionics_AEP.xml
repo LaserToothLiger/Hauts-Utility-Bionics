@@ -736,7 +736,7 @@
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <offset>0.5</offset>
+            <offset>1</offset>
           </li>
         </capMods>
 		<statFactors>
@@ -1983,7 +1983,7 @@
 	  <li>
         <minSeverity>0.002</minSeverity>
         <label>energized</label>
-		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		<partEfficiencyOffset>1.6</partEfficiencyOffset>
       </li>
     </stages>
     <comps>

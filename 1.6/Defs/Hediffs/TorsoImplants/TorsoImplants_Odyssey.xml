@@ -1,6 +1,165 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
+  <!--psilocap filter-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_PsilocapFilter</defName>
+    <label>psilocap filter</label>
+    <labelNoun>a psilocap filter</labelNoun>
+    <description>An installed psilocap filter implant. Prevents psilocap ingestion from causing catatonia.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PsilocapFilter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PsilocapFilter</spawnThingOnRemoved>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_PsilocapFilter</defName>
+    <label>psilocap filter</label>
+    <description>This implant binds additional chemicals to ingested psilocap, preventing its active ingredient from achieving a sufficiently high local concentration to cause catatonia.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPsilocapFilter</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>8</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>535</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_RespiratoryAugmentation</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallPsilocapFilter</defName>
+    <label>install psilocap filter</label>
+    <description>Install a psilocap filter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsilocapFilter</ThingDef>
+      <HediffDef>HVB_PsilocapFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psilocap filter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PsilocapFilter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PsilocapFilter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsilocapFilter</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemovePsilocapFilter</defName>
+    <label>remove psilocap filter</label>
+    <description>Remove psilocap filter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsilocapFilter</ThingDef>
+      <HediffDef>HVB_PsilocapFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing psilocap filter.</jobString>
+    <removesHediff>HVB_PsilocapFilter</removesHediff>
+  </RecipeDef>
+  
+  <!--starpower gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_StarpowerGland</defName>
+    <label>starpower gland</label>
+    <labelNoun>a starpower gland</labelNoun>
+    <description>An installed starpower gland implant. Enhances melee damage and move speed while beyond the atmosphere.</description>
+    <descriptionHyperlinks><ThingDef>HVB_StarpowerGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_StarpowerGland</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.001</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+	  </li>
+	  <li>
+        <minSeverity>1.001</minSeverity>
+        <statOffsets>
+		  <MeleeDamageFactor>0.25</MeleeDamageFactor>
+		  <MoveSpeed>0.25</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity">
+		<defaultSeverity>0.001</defaultSeverity>
+		<setToInLayer>
+			<li><key>Orbit</key><value>1.001</value></li>
+		</setToInLayer>
+	  </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_StarpowerGland</defName>
+    <label>starpower gland</label>
+    <description>This bionic gland absorbs forms of stellar radiation which are not present within Earth-like atmospheres, and therefore only functions once in space. It channels this energy into synthetic flex-fibers interwoven into the myelin of the body's muscles, increasing the host's explosive strength.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallStarpowerGland</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallStarpowerGland</defName>
+    <label>install starpower gland</label>
+    <description>Install a starpower gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_StarpowerGland</ThingDef>
+      <HediffDef>HVB_StarpowerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing starpower gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_StarpowerGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_StarpowerGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_StarpowerGland</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveStarpowerGland</defName>
+    <label>remove starpower gland</label>
+    <description>Remove starpower gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_StarpowerGland</ThingDef>
+      <HediffDef>HVB_StarpowerGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing starpower gland.</jobString>
+    <removesHediff>HVB_StarpowerGland</removesHediff>
+  </RecipeDef>
+  
   <!--vacuumfoam gland-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_VacuumfoamGland</defName>

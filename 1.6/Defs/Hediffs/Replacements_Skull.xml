@@ -292,5 +292,93 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_Gaucrown</addsHediff>
   </RecipeDef>
+  
+  <!--starlight skull-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_StarlightSkull</defName>
+    <label>starlight skull</label>
+    <labelNoun>a starlight skull</labelNoun>
+    <description>An installed starlight skull. While beyond the atmosphere, it enhances consciousness.</description>
+    <descriptionHyperlinks><ThingDef>HVB_StarlightSkull</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_StarlightSkull</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+	<minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.001</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+	  </li>
+	  <li>
+        <minSeverity>1.001</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity">
+		<defaultSeverity>0.001</defaultSeverity>
+		<setToInLayer>
+			<li><key>Orbit</key><value>1.001</value></li>
+		</setToInLayer>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_StarlightSkull</defName>
+    <label>starlight skull</label>
+    <description>An artificial skull with functions that only activate while in space. It outermost layer absorbs forms of stellar radiation not present within Earth-like atmospheres; its internal machinery then channels this energy into artificial neural pathways which enhance cognition.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallStarlightSkull</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <statBases>
+      <Mass>1.5</Mass>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallStarlightSkull</defName>
+    <label>install starlight skull</label>
+    <description>Install a starlight skull.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_StarlightSkull</ThingDef>
+      <HediffDef>HVB_StarlightSkull</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing starlight skull.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_StarlightSkull</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_StarlightSkull</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_StarlightSkull</addsHediff>
+  </RecipeDef>
 
 </Defs>

@@ -168,7 +168,7 @@
 		<maxSeverity>5</maxSeverity>
 		<stages>
 		  <li>
-			<partEfficiencyOffset>0.15</partEfficiencyOffset>
+			<partEfficiencyOffset>0.25</partEfficiencyOffset>
 			<statFactors>
 			  <VEF_NegativeThoughtDurationFactor>0.5</VEF_NegativeThoughtDurationFactor>
 			</statFactors>

@@ -60,6 +60,9 @@ namespace HautsBionics
                 MethodInfo methodInfoO1 = typeof(WorldComponent_GravshipController).GetMethod("LandingEnded", BindingFlags.NonPublic | BindingFlags.Instance);
                 harmony.Patch(methodInfoO1,
                               prefix: new HarmonyMethod(patchType, nameof(HVBLandingEndedPrefix)));
+                MethodInfo methodInfoO2 = typeof(IngestionOutcomeDoer_Psilocap).GetMethod("DoIngestionOutcomeSpecial", BindingFlags.NonPublic | BindingFlags.Instance);
+                harmony.Patch(methodInfoO2,
+                              prefix: new HarmonyMethod(patchType, nameof(HVB_DoIngestionOutcomeSpecialPrefix)));
             }
             Log.Message("HVB_Initialize".Translate().CapitalizeFirst());
         }
@@ -352,6 +355,18 @@ namespace HautsBionics
                 }
             }
         }
+        public static bool HVB_DoIngestionOutcomeSpecialPrefix(IngestionOutcomeDoer_Psilocap __instance, Pawn pawn, Thing ingested)
+        {
+            if (pawn.health.hediffSet.HasHediff(HVBDefOf.HVB_PsilocapFilter))
+            {
+                if (Rand.Value < __instance.chanceInspiration)
+                {
+                    pawn.mindState.inspirationHandler.TryStartInspiration(InspirationDefOf.Inspired_Creativity, "LetterInspirationBeginPsilocap".Translate(), true);
+                }
+                return false;
+            }
+            return true;
+        }
     }
     [DefOf]
     public static class HVBDefOf
@@ -384,6 +399,8 @@ namespace HautsBionics
         public static HediffDef HVB_Gaucrown;
         [MayRequireRoyalty]
         public static HediffDef HVB_EltexSilvertongue;
+        [MayRequireOdyssey]
+        public static HediffDef HVB_PsilocapFilter;
 
         public static RecipeDef HVB_PerformPsychicTrepanation;
         public static RecipeDef HVB_InstallTrachealIntubation;

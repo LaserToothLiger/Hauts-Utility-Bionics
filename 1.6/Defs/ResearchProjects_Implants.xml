@@ -180,7 +180,7 @@
     <label>respiratory augments</label>
     <description>Craft bionics that improve air intake and speech.</description>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <baseCost>1400</baseCost>
+    <baseCost>900</baseCost>
     <researchViewX>2.80</researchViewX>
     <researchViewY>2.10</researchViewY>
     <generalRules>
@@ -202,6 +202,7 @@
     <label>strength optimizations</label>
     <description>Craft bionics that enhance physical strength, whether that means enhancing muscular performance, or supercharging critical organs at the expense of metabolic efficiency.</description>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <baseCost>1800</baseCost>
     <researchViewX>2.80</researchViewX>
     <researchViewY>3.10</researchViewY>
     <generalRules>
@@ -222,6 +223,7 @@
     <label>digestion augments</label>
     <description>Craft bionics that enhance the functioning of the digestive system.</description>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <baseCost>1800</baseCost>
     <researchViewX>2.80</researchViewX>
     <researchViewY>4.10</researchViewY>
     <generalRules>
@@ -242,6 +244,7 @@
     <label>mobility aids</label>
     <description>Craft bionics with the express purpose of enhancing movement speed.</description>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <baseCost>1800</baseCost>
     <researchViewX>2.80</researchViewX>
     <researchViewY>5.10</researchViewY>
     <generalRules>
