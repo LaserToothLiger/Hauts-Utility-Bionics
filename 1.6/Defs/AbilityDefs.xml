@@ -43,6 +43,8 @@
 		<baseRadius>2.5</baseRadius>
         <maxRadius>40</maxRadius>
 		<sound>Pawn_Mech_Scyther_Death</sound>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>25</clamorRadius>
       </li>
     </comps>
   </AbilityDef>
@@ -85,6 +87,8 @@
 		<baseRadius>1.5</baseRadius>
         <maxRadius>40</maxRadius>
 		<sound>Explosion_EMP</sound>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
       </li>
     </comps>
   </AbilityDef>
@@ -214,7 +218,7 @@
       <label>jump</label>
       <violent>false</violent>
       <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
-      <warmupTime>0.5</warmupTime>
+      <warmupTime>0.2</warmupTime>
       <range>12</range>
       <requireLineOfSight>true</requireLineOfSight>
       <soundCast>Pawn_Melee_BigBash_HitBuilding</soundCast>
@@ -530,6 +534,8 @@
       <li Class = "CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
         <hediffDef>HVB_ProjectedShield</hediffDef>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
       </li>
     </comps>
   </AbilityDef>

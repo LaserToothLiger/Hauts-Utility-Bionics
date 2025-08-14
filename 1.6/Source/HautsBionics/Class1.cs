@@ -811,7 +811,7 @@ namespace HautsBionics
                     return true;
                 }
             }
-            return ((target.Pawn != null && target.Pawn.RaceProps.IsMechanoid) || target.Thing is Building_Turret) && base.AICanTargetNow(target);
+            return ((target.Pawn != null && HautsUtility.ReactsToEMP(target.Pawn)) || target.Thing is Building_Turret) && base.AICanTargetNow(target);
         }
     }
     public class CompProperties_AbilityInflictMechanites : CompProperties_AbilityAiScansForTargets

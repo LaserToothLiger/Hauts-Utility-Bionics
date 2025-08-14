@@ -420,6 +420,7 @@
 		<canAffectAnimals>false</canAffectAnimals>
 		<canAffectHumanlikes>false</canAffectHumanlikes>
 		<canAffectMechs>false</canAffectMechs>
+		<canAffectDrones>false</canAffectDrones>
 		<canAffectEntities>true</canAffectEntities>
 		<canAffectMutants>true</canAffectMutants>
       </li>
@@ -743,6 +744,7 @@
 		<affectsSelf>false</affectsSelf>
 		<affectsHostiles>true</affectsHostiles>
 		<affectsMechs>false</affectsMechs>
+		<affectsDrones>false</affectsDrones>
 		<affectsEntities>false</affectsEntities>
 		<mutantsAreEntities>true</mutantsAreEntities>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
@@ -863,6 +865,7 @@
 		<affectsSelf>false</affectsSelf>
 		<affectsHostiles>true</affectsHostiles>
 		<affectsMechs>false</affectsMechs>
+		<affectsDrones>false</affectsDrones>
 		<affectsEntities>false</affectsEntities>
 		<mutantsAreEntities>true</mutantsAreEntities>
 		<affectsOthersInCaravan>false</affectsOthersInCaravan>

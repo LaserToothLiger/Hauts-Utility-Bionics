@@ -207,6 +207,7 @@
 		<affectsSelf>true</affectsSelf>
 		<affectsHostiles>true</affectsHostiles>
 		<affectsMechs>false</affectsMechs>
+		<affectsDrones>false</affectsDrones>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid><!--so tiny this is almost always more efficient-->
 		<mote>Hauts_DefaultAuraGraphic</mote>
 		<canToggleVisualization>true</canToggleVisualization>
@@ -331,6 +332,7 @@
 		<affectsSelf>false</affectsSelf>
 		<affectsHostiles>true</affectsHostiles>
 		<affectsMechs>false</affectsMechs>
+		<affectsDrones>false</affectsDrones>
 		<affectsOthersInCaravan>false</affectsOthersInCaravan>
 		<scanByPawnListerNotByGrid>false</scanByPawnListerNotByGrid>
 		<mote>Hauts_DefaultAuraGraphic</mote>
