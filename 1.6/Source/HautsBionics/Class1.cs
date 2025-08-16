@@ -985,6 +985,25 @@ namespace HautsBionics
             GenSpawn.Spawn(gFlyer, destination, map, WipeMode.Vanish);
         }
     }
+    public class CompAbilityEffect_Firefoamer : CompAbilityEffect_AiScansForTargets
+    {
+        public override bool AdditionalQualifiers(Thing thing)
+        {
+            if (thing is Fire && thing.Spawned)
+            {
+                List<Thing> things = thing.Position.GetThingList(thing.Map);
+                foreach (Thing t in things)
+                {
+                    if (this.parent.pawn.HostileTo(t))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+    }
     public class GrabFlyer : Thing, IThingHolder
     {
         public Thing FlyingThing

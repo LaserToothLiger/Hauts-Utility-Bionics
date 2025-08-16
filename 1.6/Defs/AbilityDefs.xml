@@ -307,6 +307,7 @@
     <description>Spit out a rapidly expanding mass of thick fire-retardant foam. The foam will cover a small area and extinguish any fire it touches.</description>
     <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
     <cooldownTicksRange>30000</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
     <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
     <hostile>false</hostile>
     <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
@@ -325,6 +326,9 @@
         <projectileDef>Proj_Foam_Ability</projectileDef>
         <numCellsToHit>9</numCellsToHit>
         <sprayEffecter>FoamSpray_Directional</sprayEffecter>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiScansForTargets">
+        <compClass>HautsBionics.CompAbilityEffect_Firefoamer</compClass>
       </li>
     </comps>
 	<modExtensions>
