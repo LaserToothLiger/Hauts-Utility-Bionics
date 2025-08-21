@@ -331,7 +331,7 @@
     <stages>
       <li>
         <statOffsets>
-		  <MeleeDamageFactor>0.4</MeleeDamageFactor>
+		  <MeleeDamageFactor>0.25</MeleeDamageFactor>
         </statOffsets>
       </li>
     </stages>
@@ -343,11 +343,11 @@
     <descriptionHyperlinks><RecipeDef>HVB_InstallMuscleInnervator</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>
-      <Plasteel>15</Plasteel>
-      <ComponentSpacer>4</ComponentSpacer>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>1030</MarketValue>
+      <MarketValue>835</MarketValue>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardMidFreq</li>
