@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
+  <!--firefoam spitter-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_FirefoamSpitter</defName>
+    <label>firefoam spitter</label>
+    <labelNoun>a firefoam spitter</labelNoun>
+    <description>An installed firefoam spitter implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FirefoamSpitter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FirefoamSpitter</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicFoamSpit</li>
+    </abilities>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_FirefoamSpitter</defName>
+    <label>firefoam spitter</label>
+    <description>An implant which synthesizes a small, compact dose of firefoam. It can be piped into the throat and then spit out via a mental command to its biogel nerve-link.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFirefoamSpitter</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>10</Plasteel>
+      <Chemfuel>125</Chemfuel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>800</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>Firefoam</li>
+		<li>Bionics</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallFirefoamSpitter</defName>
+    <label>install firefoam spitter</label>
+    <description>Install a firefoam spitter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamSpitter</ThingDef>
+      <HediffDef>HVB_FirefoamSpitter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firefoam spitter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FirefoamSpitter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FirefoamSpitter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FirefoamSpitter</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveFirefoamSpitter</defName>
+    <label>remove firefoam spitter</label>
+    <description>Remove firefoam spitter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamSpitter</ThingDef>
+      <HediffDef>HVB_FirefoamSpitter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing firefoam spitter.</jobString>
+    <removesHediff>HVB_FirefoamSpitter</removesHediff>
+  </RecipeDef>
+  
   <!--healing infertilizer-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HealingInfertilizer</defName>

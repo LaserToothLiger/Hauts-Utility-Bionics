@@ -1027,17 +1027,6 @@
 								</match>
 							</li>
 							<li Class="PatchOperationConditional">
-								<xpath>/Defs/HediffDef[defName="HVB_FirefoamTongue"]/comps</xpath>
-								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_FirefoamTongue"]</xpath>
-									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
-								</nomatch>
-								<match Class="PatchOperationAdd">
-									<xpath>/Defs/HediffDef[defName="HVB_FirefoamTongue"]/comps</xpath>
-									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
-								</match>
-							</li>
-							<li Class="PatchOperationConditional">
 								<xpath>/Defs/HediffDef[defName="HVB_OralSprayProjector"]/comps</xpath>
 								<nomatch Class="PatchOperationAdd">
 									<xpath>/Defs/HediffDef[defName="HVB_OralSprayProjector"]</xpath>
