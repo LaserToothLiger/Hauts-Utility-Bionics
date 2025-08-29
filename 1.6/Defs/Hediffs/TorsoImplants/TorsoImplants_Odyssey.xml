@@ -67,12 +67,12 @@
     <removesHediff>HVB_PsilocapFilter</removesHediff>
   </RecipeDef>
   
-  <!--starpower gland-->
+  <!--starlight ability booster-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_StarpowerGland</defName>
-    <label>starpower gland</label>
-    <labelNoun>a starpower gland</labelNoun>
-    <description>An installed starpower gland implant. While beyond the atmosphere, enhances melee damage and move speed, but also tires the body quicker.</description>
+    <label>starlight ability booster</label>
+    <labelNoun>a starlight ability booster</labelNoun>
+    <description>An installed starlight ability booster implant. While beyond the atmosphere, empowers other bionics, causing their abilities' cooldowns to recover faster.</description>
     <descriptionHyperlinks><ThingDef>HVB_StarpowerGland</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_StarpowerGland</spawnThingOnRemoved>
 	<minSeverity>0.001</minSeverity>
@@ -81,14 +81,11 @@
     <stages>
       <li>
         <minSeverity>0.001</minSeverity>
+		<label>inactive</label>
 	  </li>
 	  <li>
         <minSeverity>1.001</minSeverity>
-        <statOffsets>
-		  <MeleeDamageFactor>0.25</MeleeDamageFactor>
-		  <MoveSpeed>0.25</MoveSpeed>
-		  <RestFallRateFactor>0.15</RestFallRateFactor>
-        </statOffsets>
+		<label>active</label>
       </li>
     </stages>
     <comps>
@@ -98,12 +95,17 @@
 			<li><key>Orbit</key><value>1.001</value></li>
 		</setToInLayer>
 	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.5</increasedCooldownRecovery>
+		<affectsAllBionicAbilities>true</affectsAllBionicAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+	  </li>
     </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_StarpowerGland</defName>
-    <label>starpower gland</label>
-    <description>This bionic gland absorbs forms of stellar radiation which are not present within Earth-like atmospheres, and therefore only functions once in space. It channels this energy into synthetic flex-fibers interwoven into the myelin of the body's muscles, increasing the host's explosive strength. However, this takes a toll on the body, resulting in more need for rest even if very little strenuous activity is taken.</description>
+    <label>starlight ability booster</label>
+    <description>This bionic gland absorbs forms of stellar radiation which are not present within Earth-like atmospheres, and therefore only functions once in space. It channels this energy into other bionics to make their abilities' cooldowns recover faster.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallStarpowerGland</RecipeDef></descriptionHyperlinks>
     <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
     <costList>
@@ -113,22 +115,16 @@
     <statBases>
       <MarketValue>1030</MarketValue>
     </statBases>
-    <thingSetMakerTags>
-      <li>HVB_MiscCoolItems</li>
-	</thingSetMakerTags>
-    <recipeMaker>
-      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
-    </recipeMaker>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_InstallStarpowerGland</defName>
-    <label>install starpower gland</label>
-    <description>Install a starpower gland.</description>
+    <label>install starlight ability booster</label>
+    <description>Install a starlight ability booster.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_StarpowerGland</ThingDef>
       <HediffDef>HVB_StarpowerGland</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing starpower gland.</jobString>
+    <jobString>Installing starlight ability booster.</jobString>
     <ingredients>
       <li>
         <filter>
@@ -151,13 +147,13 @@
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_RemoveStarpowerGland</defName>
-    <label>remove starpower gland</label>
-    <description>Remove starpower gland.</description>
+    <label>remove starlight ability booster</label>
+    <description>Remove starlight ability booster.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_StarpowerGland</ThingDef>
       <HediffDef>HVB_StarpowerGland</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Removing starpower gland.</jobString>
+    <jobString>Removing starlight ability booster.</jobString>
     <removesHediff>HVB_StarpowerGland</removesHediff>
   </RecipeDef>
   
@@ -194,15 +190,15 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_VacuumfoamGland</defName>
     <label>vacuumfoam gland</label>
-    <description>This artificial organ secretes a protective layer of foam through the sweat pores when exposed to the vacuum of space, protecting the host at the expense of hampering its movements. Foam production stops - and existing foam begins to slough off - when the host is placed back into a non-vacuum environment.</description>
+    <description>This artificial organ secretes a protective layer of foam through the sweat pores when exposed to the vacuum of space, protecting the host at the expense of hampering its movements. Foam production stops - and existing foam begins to slough off - when the host is placed back into a non-vacuum environment.\n\n(The initial stats displayed are those of the maximum foam output.)</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallVacuumfoamGland</RecipeDef></descriptionHyperlinks>
     <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
     <costList>
-      <Plasteel>15</Plasteel>
-      <ComponentSpacer>4</ComponentSpacer>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>1030</MarketValue>
+      <MarketValue>830</MarketValue>
     </statBases>
     <thingSetMakerTags><li>HVB_MiscCoolItems</li><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <recipeMaker>

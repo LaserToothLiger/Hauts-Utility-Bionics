@@ -109,6 +109,7 @@
 		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.25</Mashed_Ashlands_AshResistance>
 		  <Radiation MayRequire="Dubwise.Rimatomics">-0.25</Radiation>
 		</statOffsets>
+        <preventVacuumBurns>true</preventVacuumBurns>
       </li>
     </stages>
     <tags><li>HVB_SecondSkin</li></tags>
@@ -592,6 +593,104 @@
     </descriptionHyperlinks>
     <jobString>Removing cryptoflash skin.</jobString>
     <removesHediff>HVB_CryptoflashSkin</removesHediff>
+  </RecipeDef>
+
+  <!-- starlight skin -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_StarlightSkin</defName>
+    <label>starlight skin</label>
+    <labelNoun>a starlight skin</labelNoun>
+    <description>An installed starlight skin. While beyond the atmosphere, it greatly reduces the need for sleep.</description>
+    <descriptionHyperlinks><ThingDef>HVB_StarlightSkin</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_StarlightSkin</spawnThingOnRemoved>
+	<minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.001</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+		<statOffsets>
+		  <RestFallRateFactor>-0.5</RestFallRateFactor>
+		  <Radiation MayRequire="Dubwise.Rimatomics">-0.25</Radiation>
+		</statOffsets>
+	  </li>
+	  <li>
+        <minSeverity>1.001</minSeverity>
+		<statOffsets>
+		  <RestFallRateFactor>-0.5</RestFallRateFactor>
+		  <Radiation MayRequire="Dubwise.Rimatomics">-0.25</Radiation>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity">
+		<defaultSeverity>0.001</defaultSeverity>
+		<setToInLayer>
+			<li><key>Orbit</key><value>1.001</value></li>
+		</setToInLayer>
+	  </li>
+    </comps>
+    <tags><li>HVB_SecondSkin</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_StarlightSkin</defName>
+    <label>starlight skin</label>
+    <description>This artificial skin layer absorbs forms of stellar radiation which are not present within Earth-like atmospheres, and therefore only functions once in space. It distributes this energy throughout the body to alleviate physical fatigue, allowing the host to go far longer without rest.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallStarlightSkin</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallStarlightSkin</defName>
+    <label>install starlight skin</label>
+    <description>Install a starlight skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_StarlightSkin</ThingDef>
+      <HediffDef>HVB_StarlightSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing starlight skin.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_StarlightSkin</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_StarlightSkin</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_StarlightSkin</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_SecondSkin</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveStarlightSkin</defName>
+    <label>remove starlight skin</label>
+    <description>Remove starlight skin.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_StarlightSkin</ThingDef>
+      <HediffDef>HVB_StarlightSkin</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing starlight skin.</jobString>
+    <removesHediff>HVB_StarlightSkin</removesHediff>
   </RecipeDef>
   
   

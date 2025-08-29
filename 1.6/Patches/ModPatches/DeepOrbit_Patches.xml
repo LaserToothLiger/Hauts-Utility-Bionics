@@ -11,6 +11,10 @@
 					<value><li><key>Orbit2</key><value>1.001</value></li></value>
 				</li>
 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSkin"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>Orbit2</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
 					<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
 					<value><li><key>Orbit2</key><value>1.001</value></li></value>
 				</li>
