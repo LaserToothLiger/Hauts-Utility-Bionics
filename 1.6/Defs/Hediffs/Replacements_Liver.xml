@@ -17,6 +17,12 @@
     <stages>
       <li>
         <hungerRateFactor>0.82</hungerRateFactor>
+        <capMods>
+          <li>
+            <capacity>Metabolism</capacity>
+            <offset>0.12</offset>
+          </li>
+        </capMods>
       </li>
     </stages>
   </HediffDef>
@@ -151,7 +157,7 @@
       <li>
         <statOffsets>
 		  <MeleeDamageFactor>0.25</MeleeDamageFactor>
-		  <MoveSpeed>0.2</MoveSpeed>
+		  <MoveSpeed>0.15</MoveSpeed>
 		  <VEF_BodySize_Offset>0.2</VEF_BodySize_Offset>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.15</P42_AllergicSensitivity>
         </statOffsets>
@@ -168,10 +174,11 @@
     <descriptionHyperlinks><RecipeDef>HVB_InstallGrowthStimulator</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>15</Plasteel>
-      <ComponentSpacer>5</ComponentSpacer>
+      <Neutroamine>10</Neutroamine>
+      <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>1260</MarketValue>
+      <MarketValue>1600</MarketValue>
     </statBases>
     <recipeMaker>
       <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
@@ -438,7 +445,7 @@
       <li>
         <statOffsets>
 		  <MeleeDamageFactor>1.25</MeleeDamageFactor>
-		  <MoveSpeed>0.5</MoveSpeed>
+		  <MoveSpeed>0.4</MoveSpeed>
 		  <VEF_BodySize_Offset>1</VEF_BodySize_Offset>
         </statOffsets>
 		<statFactors>

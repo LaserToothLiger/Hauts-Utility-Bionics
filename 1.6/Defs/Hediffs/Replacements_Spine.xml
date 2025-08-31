@@ -171,7 +171,7 @@
         </statOffsets>
 		<statFactors>
 		  <CancerRate MayRequire="Ludeon.RimWorld.Biotech">0.35</CancerRate>
-		  <LifespanFactor>2</LifespanFactor>
+		  <LifespanFactor>2.5</LifespanFactor>
 		  <IncomingDamageFactor>0.9</IncomingDamageFactor>
 		  <DeathrestEffectivenessFactor MayRequire="Ludeon.RimWorld.Biotech,lts.I">1.2</DeathrestEffectivenessFactor>
 		</statFactors>

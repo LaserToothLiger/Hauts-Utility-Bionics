@@ -22,6 +22,9 @@
             <offset>0.05</offset>
           </li>
         </capMods>
+		<statOffsets>
+		  <InjuryHealingFactor>0.1</InjuryHealingFactor>
+		</statOffsets>
         <totalBleedFactor>0.1</totalBleedFactor>
       </li>
     </stages>
@@ -77,10 +80,14 @@
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_CleanHeart</defName>
     <label>clean heart</label>
+    <hediffClass>HautsBionics.Hediff_CleanHeart</hediffClass>
     <labelNoun>a clean heart</labelNoun>
-    <description>An installed clean heart.</description>
+    <description>An installed clean heart. When its charge is full, it will negate the next overdose.</description>
     <descriptionHyperlinks><ThingDef>HVB_CleanHeart</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_CleanHeart</spawnThingOnRemoved>
+	<initialSeverity>0.001</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>12</maxSeverity>
     <addedPartProps>
       <solid>true</solid>
       <partEfficiency>1.25</partEfficiency>
@@ -102,11 +109,16 @@
 		</statOffsets>
       </li>
     </stages>
+	<comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>1</severityPerDay>
+	  </li>
+	</comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_CleanHeart</defName>
     <label>clean heart</label>
-    <description>An artificial heart which catches toxic particles and foreign cells via a filter in its pulmonary artery. Caught material is stored in compacted mucus pellets, and a biogel nerve-link stimulates the host to cough once enough have built up, expelling them.</description>
+    <description>An artificial heart which catches toxic particles and foreign cells via a filter in its pulmonary artery. Caught material is stored in compacted mucus pellets, and a biogel nerve-link stimulates the host to cough once enough have built up, expelling them.\n\nIt also produces a specialized hunter cell that detects and neutralizes drug overdoses as they occur. However, since these cells expend themselves in the effort, this effect can only occur once every 12 days.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCleanHeart</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicHeart>1</BionicHeart>
@@ -232,7 +244,7 @@
     <defName>HVB_TemperedHeart</defName>
     <label>tempered heart</label>
     <labelNoun>a tempered heart</labelNoun>
-    <description>An installed tempered heart.</description>
+    <description>An installed tempered heart. Has a 15% chance to instantly end any mental break.</description>
     <descriptionHyperlinks><ThingDef>HVB_TemperedHeart</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_TemperedHeart</spawnThingOnRemoved>
     <addedPartProps>
@@ -247,13 +259,14 @@
           <PainShockThreshold>0.05</PainShockThreshold>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
         </statOffsets>
+        <!--<painFactor>0</painFactor>-->
       </li>
     </stages>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_TemperedHeart</defName>
     <label>tempered heart</label>
-    <description>An artificial heart with auxiliary chambers for synthesizing small molecules with painkilling and calming effects. In times of physical or mental stress, the heart begins seeding these small molecules into the bloodstream. The synthesis chambers read the host's immunological memory to ensure that the produced molecules are not targeted by leukocytes.</description>
+    <description>An artificial heart with auxiliary chambers for synthesizing small molecules with painkilling and calming effects. In times of physical or mental stress, the heart begins seeding these small molecules into the bloodstream. The synthesis chambers read the host's immunological memory to ensure that the produced molecules are not targeted by leukocytes.\n\nWhen its biogel nerve-link reads sudden and jarring shifts in behavior, it rapidly releases an adjusted mixture of these small molecules, inducing a sort of neurobehavioral system shock that has a 15% chance to instantly end any mental break.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallTemperedHeart</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicHeart>1</BionicHeart>

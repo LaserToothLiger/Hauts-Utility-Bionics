@@ -465,7 +465,7 @@
 	  <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>1800</MarketValue>
+      <MarketValue>1600</MarketValue>
     </statBases>
     <thingSetMakerTags>
       <li>HVB_MiscCoolItems</li>

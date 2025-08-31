@@ -1105,35 +1105,35 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
 	  <li>
-        <statOffsets><MeleeDamageFactor>1.25</MeleeDamageFactor><MoveSpeed>0.5</MoveSpeed><VEF_BodySize_Offset>1</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+        <statOffsets><MeleeDamageFactor>1.25</MeleeDamageFactor><MoveSpeed>0.4</MoveSpeed><VEF_BodySize_Offset>1</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
 		<statFactors><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity></statFactors>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
-        <statOffsets><MeleeDamageFactor>1.35</MeleeDamageFactor><MoveSpeed>0.54</MoveSpeed><VEF_BodySize_Offset>1.05</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+        <statOffsets><MeleeDamageFactor>1.35</MeleeDamageFactor><MoveSpeed>0.44</MoveSpeed><VEF_BodySize_Offset>1.05</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
 		<statFactors><VEF_MassCarryCapacity>2.1</VEF_MassCarryCapacity></statFactors>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
-        <statOffsets><MeleeDamageFactor>1.45</MeleeDamageFactor><MoveSpeed>0.58</MoveSpeed><VEF_BodySize_Offset>1.10</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+        <statOffsets><MeleeDamageFactor>1.45</MeleeDamageFactor><MoveSpeed>0.48</MoveSpeed><VEF_BodySize_Offset>1.10</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
 		<statFactors><VEF_MassCarryCapacity>2.2</VEF_MassCarryCapacity></statFactors>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
-        <statOffsets><MeleeDamageFactor>1.55</MeleeDamageFactor><MoveSpeed>0.62</MoveSpeed><VEF_BodySize_Offset>1.15</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+        <statOffsets><MeleeDamageFactor>1.55</MeleeDamageFactor><MoveSpeed>0.52</MoveSpeed><VEF_BodySize_Offset>1.15</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
 		<statFactors><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity></statFactors>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.5</partEfficiencyOffset>
-        <statOffsets><MeleeDamageFactor>1.65</MeleeDamageFactor><MoveSpeed>0.66</MoveSpeed><VEF_BodySize_Offset>1.2</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
+        <statOffsets><MeleeDamageFactor>1.65</MeleeDamageFactor><MoveSpeed>0.56</MoveSpeed><VEF_BodySize_Offset>1.2</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
 		<statFactors><VEF_MassCarryCapacity>2.4</VEF_MassCarryCapacity></statFactors>
       </li>
     </stages>

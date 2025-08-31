@@ -3,6 +3,7 @@
 <!--Initialization-->
 <HVB_Initialize>[Hauts' Utility Bionics] active.</HVB_Initialize>
 <!--Notifications-->
+<HVB_HeartClean>{PAWN_nameDef} began to experience an overdose, but {PAWN_possessive} clean heart bionic neutralized it before it could get serious.</HVB_HeartClean>
 <HVB_LazCanRez>A lazarus seed has begun its work on {PAWN_nameDef}. After somewhere between an hour to a day, it will restore {PAWN_objective} to life.</HVB_LazCanRez>
 <HVB_LazRez>The lazarus seed has restored {PAWN_nameDef} to life!</HVB_LazRez>
 <HVB_ResocBroke>Due to the extreme stress experienced by {PAWN_nameDef}, {PAWN_possessive} neural resocialization has broken down. Check {PAWN_possessive} health tab to see if this has caused any damage.</HVB_ResocBroke>

@@ -1469,7 +1469,7 @@
       <li>
         <statOffsets>
 		  <MeleeDamageFactor>3.5</MeleeDamageFactor>
-		  <MoveSpeed>1.5</MoveSpeed>
+		  <MoveSpeed>1.2</MoveSpeed>
 		  <VEF_BodySize_Offset>2.25</VEF_BodySize_Offset>
         </statOffsets>
 		<statFactors>

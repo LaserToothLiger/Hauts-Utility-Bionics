@@ -291,12 +291,23 @@ namespace HautsBionics
         public static void HVB_TryStartMentalStatePostfix(ref bool __result, MentalStateHandler __instance, MentalStateDef stateDef)
         {
             Pawn pawn = GetInstanceField(typeof(MentalStateHandler), __instance, "pawn") as Pawn;
-            if (__result && stateDef != MentalStateDefOf.PanicFlee && Rand.Value <= 0.1f && pawn.health.hediffSet.HasHediff(HVBDefOf.HVB_NeuralResocialization))
+            if (__result && stateDef != MentalStateDefOf.PanicFlee)
             {
-                pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HVBDefOf.HVB_NeuralResocialization));
-                if (PawnUtility.ShouldSendNotificationAbout(pawn))
+                if (stateDef != MentalStateDefOf.SocialFighting && Rand.Chance(0.15f) && pawn.health.hediffSet.HasHediff(HVBDefOf.HVB_TemperedHeart))
                 {
-                    Messages.Message("HVB_ResocBroke".Translate().CapitalizeFirst().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true).Resolve(), pawn, MessageTypeDefOf.NegativeHealthEvent, true);
+                    if (pawn.MentalState != null)
+                    {
+                        pawn.MentalState.RecoverFromState();
+                        return;
+                    }
+                }
+                if (Rand.Value <= 0.1f && pawn.health.hediffSet.HasHediff(HVBDefOf.HVB_NeuralResocialization))
+                {
+                    pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HVBDefOf.HVB_NeuralResocialization));
+                    if (PawnUtility.ShouldSendNotificationAbout(pawn))
+                    {
+                        Messages.Message("HVB_ResocBroke".Translate().CapitalizeFirst().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true).Resolve(), pawn, MessageTypeDefOf.NegativeHealthEvent, true);
+                    }
                 }
             }
         }
@@ -386,6 +397,7 @@ namespace HautsBionics
         public static HediffDef HVB_CognoStraitjacketComa;
         public static HediffDef HVB_PurifierJaw;
         public static HediffDef HVB_CenterMassLaminar;
+        public static HediffDef HVB_TemperedHeart;
         public static HediffDef HVB_LazarusSeedCharging;
         public static HediffDef HVB_LazarusSeed;
         public static HediffDef HVB_RefineryStomach;
@@ -1396,6 +1408,31 @@ namespace HautsBionics
             Hediff hediff = HediffMaker.MakeHediff(HVBDefOf.HVB_LazarusSeedCharging, this.pawn, this.Part);
             this.pawn.health.AddHediff(hediff, this.Part);
             this.pawn.health.RemoveHediff(this);
+        }
+    }
+    public class Hediff_CleanHeart : Hediff_AddedPart
+    {
+        public override string Label { 
+            get {
+                return base.Label + " (" + this.Severity.ToStringByStyle(ToStringStyle.FloatOne) + "/" + this.def.maxSeverity + ")";
+            } 
+        }
+        public override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if (this.pawn.IsHashIntervalTick(200, delta) && this.Severity == this.def.maxSeverity)
+            {
+                foreach (Hediff h in this.pawn.health.hediffSet.hediffs)
+                {
+                    if (h.def == HediffDefOf.DrugOverdose)
+                    {
+                        this.pawn.health.RemoveHediff(h);
+                        this.Severity = this.def.minSeverity;
+                        Messages.Message("HVB_HeartClean".Translate().CapitalizeFirst().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true).Resolve(), pawn, MessageTypeDefOf.PositiveEvent, true);
+                        break;
+                    }
+                }
+            }
         }
     }
     public class Hediff_DosageSustainer : Hediff_AddedPart
