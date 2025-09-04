@@ -89,9 +89,7 @@ namespace HautsBionics_Biotech
                 {
                     this.DropXenogerm();
                     didDrop = true;
-                }
-                else if (this.parent.pawn.genes.Endogenes.Count > 0)
-                {
+                } else if (this.parent.pawn.genes.Endogenes.Count > 0) {
                     this.DropEndogerm();
                     didDrop = true;
                 }

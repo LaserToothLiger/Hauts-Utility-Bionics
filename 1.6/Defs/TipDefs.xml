@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TipSetDef>
+    <defName>HVB_Tipset</defName>
+    <tips>
+      <li TKey="HVB_MarrowSubs">Marrow substitutes are easy to craft, and installation is quick, painless, and risk-free. This makes them ideal for satisfying Body Modders and Transhumanists.</li>
+      <li TKey="HVB_Smartbodies">Craftable "programmable" bionics gain effect based on Intellectual skill. They become better than normal bionics by level 9, and better than archotech ones by level 17.</li>
+      <li TKey="HVB_GastroNeutroamine">Bionic refinery stomachs produce certain resources by consuming enough food. If you're having trouble finding neutroamine, fill a refinery stomach with surplus meals.</li>
+      <li TKey="HVB_BewareOfCyborg">Various bionic abilities can be used by non-player characters. Check the health tabs of technologically advanced enemies to avoid nasty surprises!</li>
+      <li TKey="HVB_Shieldpower">Certain bionics generate shields or reinforce existing bionic shields. Unlike regular shield belts, they don't disable the use of ranged weapons.</li>
+      <li TKey="HVB_WarlocksPact" MayRequire="Ludeon.RimWorld.Royalty">A psycaster can become stronger by replacing their body parts with warlock bionics or undergoing trepanation - but this will come at the expense of their physical health.</li>
+      <li TKey="HVB_GauBionics" MayRequire="Ludeon.RimWorld.Ideology">Gauranlen seeds spawn more frequently if your colony has Tree Connection believers. Seeds can be used to plant new gauranlen trees, or to craft bionics that enhance the dryad count of connected trees.</li>
+      <li TKey="HVB_BattleBrotha" MayRequire="Ludeon.RimWorld.Biotech">Progenoid glands will generate complete copies of a person's endogenes or xenogenes - except for their archite genes. A rare archotech equivalent is required to also copy archite genes.</li>
+      <li TKey="HVB_BFD" MayRequire="Ludeon.RimWorld.Anomaly">Bioferrite destabilizers will stop metalhorror infection - by combusting inside the host. It will hurt, but better injured than infected.</li>
+    </tips>
+  </TipSetDef>
+
+</Defs>

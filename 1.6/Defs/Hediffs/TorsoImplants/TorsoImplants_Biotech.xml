@@ -571,12 +571,16 @@
     <removesHediff>HVB_ProgenoidGland</removesHediff>
   </RecipeDef>
   
-  <!--archonic progenoid gland-->
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech progenoid gland-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_ArchicProgenoidGlandCharging</defName>
-    <label>archonic progenoid gland (not ready)</label>
-    <labelNoun>an archonic progenoid gland (not ready)</labelNoun>
-    <description>An installed archonic progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
+    <label>archotech progenoid gland (not ready)</label>
+    <labelNoun>an archotech progenoid gland (not ready)</labelNoun>
+    <description>An installed archotech progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchicProgenoidGland</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchicProgenoidGland</spawnThingOnRemoved>
 	<tags><li>HVB_progenoid</li></tags>
@@ -585,7 +589,7 @@
     <comps>
 	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
 		<severityPerComplexity>4</severityPerComplexity>
-		<severityPerArchites>4</severityPerArchites>
+		<severityPerArchites>3</severityPerArchites>
 		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
 	  </li>
       <li Class="HediffCompProperties_SeverityPerDay">
@@ -600,9 +604,9 @@
   </HediffDef>
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_ArchicProgenoidGland</defName>
-    <label>archonic progenoid gland (ready)</label>
-    <labelNoun>an archonic progenoid gland (ready)</labelNoun>
-    <description>An installed archonic progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, is ready to be extracted from this gland.</description>
+    <label>archotech progenoid gland (ready)</label>
+    <labelNoun>an archotech progenoid gland (ready)</labelNoun>
+    <description>An installed archotech progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, is ready to be extracted from this gland.</description>
     <descriptionHyperlinks>
 	  <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
 	  <RecipeDef>HVB_HarvestArchicProgenoidGlandEndo</RecipeDef>
@@ -615,7 +619,7 @@
     <comps>
 	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
 		<severityPerComplexity>4</severityPerComplexity>
-		<severityPerArchites>4</severityPerArchites>
+		<severityPerArchites>3</severityPerArchites>
 		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
 		<transformsToWhenHarvested>HVB_ArchicProgenoidGlandCharging</transformsToWhenHarvested>
 		<dropXenogermOnDeath>true</dropXenogermOnDeath>
@@ -624,44 +628,27 @@
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_ArchicProgenoidGland</defName>
-    <label>archonic progenoid gland</label>
+    <label>archotech progenoid gland</label>
     <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome, including any archite genes, via a process very similar to cellular mitosis. The amount of time required for the germ cells to achieve a critical stable population scales directly with the complexity and archite cost of the host genome. Once ready, the germ cells can be harvested via surgical extraction.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchicProgenoidGland</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <ArchiteCapsule>4</ArchiteCapsule>
-      <HVB_ProgenoidGland>1</HVB_ProgenoidGland>
-    </costList>
-    <recipeMaker>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-      <skillRequirements>
-        <Crafting>12</Crafting>
-      </skillRequirements>
-      <researchPrerequisite>HVB_ProgenoidGlands</researchPrerequisite>
-      <recipeUsers>
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <displayPriority>300</displayPriority>
-    </recipeMaker>
+	<tradeability>Sellable</tradeability>
     <statBases>
       <MarketValue>4200</MarketValue>
     </statBases>
     <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
       <li>HVB_MiscHighValue</li>
 	</thingSetMakerTags>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_InstallArchicProgenoidGland</defName>
-    <label>install archonic progenoid gland</label>
-    <description>Install an archonic progenoid gland.</description>
+    <label>install archotech progenoid gland</label>
+    <description>Install an archotech progenoid gland.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
       <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing archonic progenoid gland.</jobString>
+    <jobString>Installing archotech progenoid gland.</jobString>
     <ingredients>
       <li>
         <filter>
@@ -686,35 +673,35 @@
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_RemoveArchicProgenoidGland</defName>
-    <label>remove archonic progenoid gland</label>
-    <description>Remove archonic progenoid gland.</description>
+    <label>remove archotech progenoid gland</label>
+    <description>Remove archotech progenoid gland.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
       <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Removing archonic progenoid gland.</jobString>
+    <jobString>Removing archotech progenoid gland.</jobString>
     <removesHediff>HVB_ArchicProgenoidGlandCharging</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidEndo" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HarvestArchicProgenoidGlandEndo</defName>
-    <label>harvest endogenes from archonic progenoid gland</label>
-    <description>Harvest endogenes from an archonic progenoid gland.</description>
+    <label>harvest endogenes from archotech progenoid gland</label>
+    <description>Harvest endogenes from an archotech progenoid gland.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
       <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Harvesting endogenes from an archonic progenoid gland.</jobString>
+    <jobString>Harvesting endogenes from an archotech progenoid gland.</jobString>
     <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HarvestArchicProgenoidGlandXeno</defName>
-    <label>harvest xenogenes from archonic progenoid gland</label>
-    <description>Harvest xenogenes from an archonic progenoid gland.</description>
+    <label>harvest xenogenes from archotech progenoid gland</label>
+    <description>Harvest xenogenes from an archotech progenoid gland.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
       <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Harvesting xenogenes from an archonic progenoid gland.</jobString>
+    <jobString>Harvesting xenogenes from an archotech progenoid gland.</jobString>
     <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
   </RecipeDef>
   

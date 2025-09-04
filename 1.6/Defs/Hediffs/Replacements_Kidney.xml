@@ -353,6 +353,7 @@
     <fixedIngredientFilter>
       <thingDefs>
         <li>HVB_AssistiveKidney</li>
+        <li>HemogenPack</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
