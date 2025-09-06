@@ -596,7 +596,7 @@
   </RecipeDef>
 
   <!-- starlight skin -->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_StarlightSkin</defName>
     <label>starlight skin</label>
     <labelNoun>a starlight skin</labelNoun>
@@ -632,7 +632,7 @@
     </comps>
     <tags><li>HVB_SecondSkin</li></tags>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_StarlightSkin</defName>
     <label>starlight skin</label>
     <description>This artificial skin layer absorbs forms of stellar radiation which are not present within Earth-like atmospheres, and therefore only functions once in space. It distributes this energy throughout the body to alleviate physical fatigue, allowing the host to go far longer without rest.</description>
@@ -649,7 +649,7 @@
       <researchPrerequisite>HVB_StrengthOptimizations</researchPrerequisite>
     </recipeMaker>
   </ThingDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_InstallStarlightSkin</defName>
     <label>install starlight skin</label>
     <description>Install a starlight skin.</description>
@@ -681,7 +681,7 @@
       <li>HVB_SecondSkin</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_RemoveStarlightSkin</defName>
     <label>remove starlight skin</label>
     <description>Remove starlight skin.</description>

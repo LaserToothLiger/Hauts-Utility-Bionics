@@ -2,7 +2,7 @@
 <Defs>
   
   <!--firefoam spitter-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_FirefoamSpitter</defName>
     <label>firefoam spitter</label>
     <labelNoun>a firefoam spitter</labelNoun>
@@ -13,7 +13,7 @@
       <li>HVB_BionicFoamSpit</li>
     </abilities>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_FirefoamSpitter</defName>
     <label>firefoam spitter</label>
     <description>An implant which synthesizes a small, compact dose of firefoam. It can be piped into the throat and then spit out via a mental command to its biogel nerve-link.</description>
@@ -36,7 +36,7 @@
 	  <li>RewardStandardMidFreq</li>
 	</thingSetMakerTags>
   </ThingDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_InstallFirefoamSpitter</defName>
     <label>install firefoam spitter</label>
     <description>Install a firefoam spitter.</description>
@@ -65,7 +65,7 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_FirefoamSpitter</addsHediff>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_RemoveFirefoamSpitter</defName>
     <label>remove firefoam spitter</label>
     <description>Remove firefoam spitter.</description>
