@@ -198,14 +198,13 @@
       <li>
 		<statOffsets>
 		  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
-          <ArmorRating_Blunt>0.025</ArmorRating_Blunt>
+          <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
 		  <Hauts_MeleeArmorPenetration>0.1</Hauts_MeleeArmorPenetration>
-		  <WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
 		  <PawnBeauty>-1</PawnBeauty>
 		  <Hauts_ApparelWearRateFactor>0.1</Hauts_ApparelWearRateFactor>
 		</statOffsets>
 		<statFactors>
-		  <CarryingCapacity>0.9</CarryingCapacity>
+		  <CarryingCapacity>0.95</CarryingCapacity>
 		</statFactors>
 	  </li>
     </stages>
@@ -264,7 +263,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_Spikeskin</defName>
     <label>spikeskin</label>
-    <description>This bionic skin layer has haphazardly placed nodules which extrude sharp ferro-keratinous spikes. The spikes can be used to inflict additional wounds on melee combatants, and anyone attacking the host in close range is likely to catch themselves on a spike or two. Though the spikes aren't very long, they nevertheless get in the way of some of the more dextrous and delicate movements.</description>
+    <description>This bionic skin layer has haphazardly placed nodules which extrude sharp ferro-keratinous spikes. The spikes can be used to inflict additional wounds on melee combatants, and anyone attacking the host in close range is likely to catch themselves on a spike or two.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeskin</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>

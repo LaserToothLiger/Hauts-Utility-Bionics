@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
+  <!--gravitometric lobe-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitometricLobe</defName>
+    <label>gravitometric lobe</label>
+    <labelNoun>a gravitometric lobe</labelNoun>
+	<hediffClass>HautsBionics.Hediff_ImplantGravNausea</hediffClass>
+    <description>An installed gravitometric lobe. Causes grav nausea upon gravship landing.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GravitometricLobe</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GravitometricLobe</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <PilotingAbility>0.3</PilotingAbility>
+        </statOffsets>
+		<statFactors>
+		  <StaggerDurationFactor>0.9</StaggerDurationFactor>
+		</statFactors>
+	  </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_GravitometricLobe</defName>
+    <label>gravitometric lobe</label>
+    <description>Attached to the enteric nervous system, this implant synthesizes proprioception and other useful sensory information to detect minute shifts in gravitational direction or magnitude. While it makes piloting easier, it also becomes overstimulated by the flux of a gravship's landing process, inducing nausea at the end of every trip.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGravitometricLobe</RecipeDef></descriptionHyperlinks>
+    <techHediffsTags Inherit="False"><li>HVB_SpaceBionic</li></techHediffsTags>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BionicSensors</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags><li>HVB_MiscCoolItems</li></thingSetMakerTags>
+    <costList>
+	  <Plasteel>5</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallGravitometricLobe</defName>
+    <label>install gravitometric lobe</label>
+    <description>Install a gravitometric lobe.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GravitometricLobe</ThingDef>
+      <HediffDef>HVB_GravitometricLobe</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing gravitometric lobe.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GravitometricLobe</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GravitometricLobe</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GravitometricLobe</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveGravitometricLobe</defName>
+    <label>remove gravitometric lobe</label>
+    <description>Remove gravitometric lobe.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GravitometricLobe</ThingDef>
+      <HediffDef>HVB_GravitometricLobe</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing gravitometric lobe.</jobString>
+    <removesHediff>HVB_GravitometricLobe</removesHediff>
+  </RecipeDef>
+  
   <!--psilocap filter-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_PsilocapFilter</defName>

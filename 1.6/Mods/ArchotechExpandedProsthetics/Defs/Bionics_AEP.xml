@@ -1796,7 +1796,7 @@
     <description>An advanced artificial limb built by an archotech. It appears to be an ordinary limb, but it is almost entirely composed of archites - microscopic machines beyond human understanding. The host can mentally command the archites, reshaping the limb as the situation demands. More intellectually skilled hosts can even create programmed forms that surpass the efficacy of other advanced archotech limbs.\n\nThis advanced version grants +30% part efficiency per Intellectual skill (up from +8%).</description>
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechProgrammableLimb</RecipeDef></descriptionHyperlinks>
     <statBases>
-	  <MarketValue>2800</MarketValue>
+	  <MarketValue>20000</MarketValue>
     </statBases>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
