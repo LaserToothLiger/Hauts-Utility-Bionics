@@ -2236,176 +2236,6 @@
     <removesHediff>HVB_RightExtraArchotechProgrammableLimb</removesHediff>
   </RecipeDef>
   
-  <!--extra archotech telescoping arm-->
-  <HediffDef ParentName="ImplantHediffBase">
-    <defName>HVB_LeftExtraArchotechTelescopingArm</defName>
-    <label>extra archotech telescoping arm (left)</label>
-    <labelNoun>an extra archotech telescoping arm (left)</labelNoun>
-    <description>An installed extra archotech telescoping arm.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
-    <abilities>
-      <li>HVB_BionicYank</li>
-    </abilities>
-    <stages>
-	  <li>
-		<statFactors>
-		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
-		</statFactors>
-		<capMods>
-          <li>
-            <capacity>Manipulation</capacity>
-            <offset>0.5</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-	<comps>
-      <li Class="HediffCompProperties_VerbGiver">
-        <tools>
-          <li>
-            <label>fist</label>
-            <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>12</power>
-            <cooldownTime>2</cooldownTime>
-            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
-            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
-          </li>
-        </tools>
-      </li>
-    </comps>
-	<duplicationAllowed>false</duplicationAllowed>
-	<tags><li>ExtraLeftArm</li></tags>
-  </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>HVB_InstallLeftExtraArchotechTelescopingArm</defName>
-    <label>install extra archotech telescoping arm (left)</label>
-    <description>Install an extra archotech telescoping arm (left).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing extra archotech telescoping arm (left).</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_ArchotechTelescopingArm</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_ArchotechTelescopingArm</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Torso</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_LeftExtraArchotechTelescopingArm</addsHediff>
-	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
-	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
-  </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
-    <defName>HVB_RemoveLeftExtraArchotechTelescopingArm</defName>
-    <label>remove extra archotech telescoping arm (left)</label>
-    <description>Remove extra archotech telescoping arm (left).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Removing extra archotech telescoping arm (left).</jobString>
-    <removesHediff>HVB_LeftExtraArchotechTelescopingArm</removesHediff>
-  </RecipeDef>
-  <HediffDef ParentName="ImplantHediffBase">
-    <defName>HVB_RightExtraArchotechTelescopingArm</defName>
-    <label>extra archotech telescoping arm (right)</label>
-    <labelNoun>an extra archotech telescoping arm (right)</labelNoun>
-    <description>An installed extra archotech telescoping arm.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
-    <abilities>
-      <li>HVB_BionicYank</li>
-    </abilities>
-    <stages>
-	  <li>
-		<statFactors>
-		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
-		</statFactors>
-		<capMods>
-          <li>
-            <capacity>Manipulation</capacity>
-            <offset>0.5</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-	<comps>
-      <li Class="HediffCompProperties_VerbGiver">
-        <tools>
-          <li>
-            <label>fist</label>
-            <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>12</power>
-            <cooldownTime>2</cooldownTime>
-            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
-            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
-          </li>
-        </tools>
-      </li>
-    </comps>
-	<duplicationAllowed>false</duplicationAllowed>
-	<tags><li>ExtraRightArm</li></tags>
-  </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>HVB_InstallRightExtraArchotechTelescopingArm</defName>
-    <label>install extra archotech telescoping arm (right)</label>
-    <description>Install an extra archotech telescoping arm (right).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing extra archotech telescoping arm (right).</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_ArchotechTelescopingArm</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_ArchotechTelescopingArm</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Torso</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_RightExtraArchotechTelescopingArm</addsHediff>
-	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
-	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
-  </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
-    <defName>HVB_RemoveRightExtraArchotechTelescopingArm</defName>
-    <label>remove extra archotech telescoping arm (right)</label>
-    <description>Remove extra archotech telescoping arm (right).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Removing extra archotech telescoping arm (right).</jobString>
-    <removesHediff>HVB_RightExtraArchotechTelescopingArm</removesHediff>
-  </RecipeDef>
-  
   <!--extra archotech shield bubbler-->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_LeftExtraArchotechShieldBubbler</defName>
@@ -2584,6 +2414,346 @@
     </descriptionHyperlinks>
     <jobString>Removing extra archotech shield bubbler (right).</jobString>
     <removesHediff>HVB_RightExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  
+  <!--extra archotech telescoping arm-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_LeftExtraArchotechTelescopingArm</defName>
+    <label>extra archotech telescoping arm (left)</label>
+    <labelNoun>an extra archotech telescoping arm (left)</labelNoun>
+    <description>An installed extra archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftExtraArchotechTelescopingArm</defName>
+    <label>install extra archotech telescoping arm (left)</label>
+    <description>Install an extra archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech telescoping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (left)</label>
+    <description>Remove extra archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech telescoping arm (left).</jobString>
+    <removesHediff>HVB_LeftExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_RightExtraArchotechTelescopingArm</defName>
+    <label>extra archotech telescoping arm (right)</label>
+    <labelNoun>an extra archotech telescoping arm (right)</labelNoun>
+    <description>An installed extra archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightExtraArchotechTelescopingArm</defName>
+    <label>install extra archotech telescoping arm (right)</label>
+    <description>Install an extra archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech telescoping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (right)</label>
+    <description>Remove extra archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech telescoping arm (right).</jobString>
+    <removesHediff>HVB_RightExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra archotech sentience catalyzer-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_LeftExtraArchotechSentienceCatalyzer</defName>
+    <label>extra archotech sentience catalyzer (left)</label>
+    <labelNoun>an extra archotech sentience catalyzer (left)</labelNoun>
+    <description>An installed extra archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_CatalyzeSentience</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallLeftExtraArchotechSentienceCatalyzer</defName>
+    <label>install extra archotech sentience catalyzer (left)</label>
+    <description>Install an extra archotech sentience catalyzer (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech sentience catalyzer (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechSentienceCatalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechSentienceCatalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftExtraArchotechSentienceCatalyzer</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveLeftExtraArchotechSentienceCatalyzer</defName>
+    <label>remove extra archotech sentience catalyzer (left)</label>
+    <description>Remove extra archotech sentience catalyzer (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_LeftExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech sentience catalyzer (left).</jobString>
+    <removesHediff>HVB_LeftExtraArchotechSentienceCatalyzer</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RightExtraArchotechSentienceCatalyzer</defName>
+    <label>extra archotech sentience catalyzer (right)</label>
+    <labelNoun>an extra archotech sentience catalyzer (right)</labelNoun>
+    <description>An installed extra archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_CatalyzeSentience</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallRightExtraArchotechSentienceCatalyzer</defName>
+    <label>install extra archotech sentience catalyzer (right)</label>
+    <description>Install an extra archotech sentience catalyzer (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra archotech sentience catalyzer (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechSentienceCatalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechSentienceCatalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightExtraArchotechSentienceCatalyzer</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveRightExtraArchotechSentienceCatalyzer</defName>
+    <label>remove extra archotech sentience catalyzer (right)</label>
+    <description>Remove extra archotech sentience catalyzer (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_RightExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra archotech sentience catalyzer (right).</jobString>
+    <removesHediff>HVB_RightExtraArchotechSentienceCatalyzer</removesHediff>
   </RecipeDef>
   
   <!--Archotech Expanded Prosthetics:
@@ -2977,176 +3147,6 @@
     <removesHediff>HVB_AEP_RightExtraArchotechProgrammableLimb</removesHediff>
   </RecipeDef>
   
-  <!--extra adv archotech telescoping arm-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_LeftExtraArchotechTelescopingArm</defName>
-    <label>extra advanced archotech telescoping arm (left)</label>
-    <labelNoun>an extra advanced archotech telescoping arm (left)</labelNoun>
-    <description>An installed extra advanced archotech telescoping arm.</description>
-    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
-    <abilities>
-      <li>HVB_AEP_BionicYank</li>
-    </abilities>
-    <stages>
-	  <li>
-		<statFactors>
-		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
-		</statFactors>
-		<capMods>
-          <li>
-            <capacity>Manipulation</capacity>
-            <offset>3</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-	<comps>
-      <li Class="HediffCompProperties_VerbGiver">
-        <tools>
-          <li>
-            <label>fist</label>
-            <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>12</power>
-            <cooldownTime>2</cooldownTime>
-            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
-            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
-          </li>
-        </tools>
-      </li>
-    </comps>
-	<duplicationAllowed>false</duplicationAllowed>
-	<tags><li>ExtraLeftArm</li></tags>
-  </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_InstallLeftExtraArchotechTelescopingArm</defName>
-    <label>install extra advanced archotech telescoping arm (left)</label>
-    <description>Install an extra advanced archotech telescoping arm (left).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing extra advanced archotech telescoping arm (left).</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_AEP_ArchotechTelescopingArm</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_AEP_ArchotechTelescopingArm</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Torso</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</addsHediff>
-	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
-	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
-  </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_RemoveLeftExtraArchotechTelescopingArm</defName>
-    <label>remove extra archotech telescoping arm (left)</label>
-    <description>Remove extra advanced archotech telescoping arm (left).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Removing extra advanced archotech telescoping arm (left).</jobString>
-    <removesHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</removesHediff>
-  </RecipeDef>
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_RightExtraArchotechTelescopingArm</defName>
-    <label>extra advanced archotech telescoping arm (right)</label>
-    <labelNoun>an extra advanced archotech telescoping arm (right)</labelNoun>
-    <description>An installed extra advanced archotech telescoping arm.</description>
-    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
-    <abilities>
-      <li>HVB_AEP_BionicYank</li>
-    </abilities>
-    <stages>
-	  <li>
-		<statFactors>
-		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
-		</statFactors>
-		<capMods>
-          <li>
-            <capacity>Manipulation</capacity>
-            <offset>3</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-	<comps>
-      <li Class="HediffCompProperties_VerbGiver">
-        <tools>
-          <li>
-            <label>fist</label>
-            <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>12</power>
-            <cooldownTime>2</cooldownTime>
-            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
-            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
-          </li>
-        </tools>
-      </li>
-    </comps>
-	<duplicationAllowed>false</duplicationAllowed>
-	<tags><li>ExtraRightArm</li></tags>
-  </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_InstallRightExtraArchotechTelescopingArm</defName>
-    <label>install extra advanced archotech telescoping arm (right)</label>
-    <description>Install an extra advanced archotech telescoping arm (right).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing extra advanced archotech telescoping arm (right).</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_AEP_ArchotechTelescopingArm</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_AEP_ArchotechTelescopingArm</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Torso</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_AEP_RightExtraArchotechTelescopingArm</addsHediff>
-	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
-	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
-  </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
-    <defName>HVB_AEP_RemoveRightExtraArchotechTelescopingArm</defName>
-    <label>remove extra advanced archotech telescoping arm (right)</label>
-    <description>Remove extra advanced archotech telescoping arm (right).</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
-      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Removing extra advanced archotech telescoping arm (right).</jobString>
-    <removesHediff>HVB_AEP_RightExtraArchotechTelescopingArm</removesHediff>
-  </RecipeDef>
-  
   <!--extra adv archotech shield bubbler-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
     <defName>HVB_AEP_LeftExtraArchotechShieldBubbler</defName>
@@ -3325,6 +3325,176 @@
     </descriptionHyperlinks>
     <jobString>Removing extra advanced archotech shield bubbler (right).</jobString>
     <removesHediff>HVB_AEP_RightExtraArchotechShieldBubbler</removesHediff>
+  </RecipeDef>
+  
+  <!--extra adv archotech telescoping arm-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_LeftExtraArchotechTelescopingArm</defName>
+    <label>extra advanced archotech telescoping arm (left)</label>
+    <labelNoun>an extra advanced archotech telescoping arm (left)</labelNoun>
+    <description>An installed extra advanced archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallLeftExtraArchotechTelescopingArm</defName>
+    <label>install extra advanced archotech telescoping arm (left)</label>
+    <description>Install an extra advanced archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech telescoping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveLeftExtraArchotechTelescopingArm</defName>
+    <label>remove extra archotech telescoping arm (left)</label>
+    <description>Remove extra advanced archotech telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech telescoping arm (left).</jobString>
+    <removesHediff>HVB_AEP_LeftExtraArchotechTelescopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RightExtraArchotechTelescopingArm</defName>
+    <label>extra advanced archotech telescoping arm (right)</label>
+    <labelNoun>an extra advanced archotech telescoping arm (right)</labelNoun>
+    <description>An installed extra advanced archotech telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_BionicYank</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallRightExtraArchotechTelescopingArm</defName>
+    <label>install extra advanced archotech telescoping arm (right)</label>
+    <description>Install an extra advanced archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech telescoping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechTelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechTelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_RightExtraArchotechTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveRightExtraArchotechTelescopingArm</defName>
+    <label>remove extra advanced archotech telescoping arm (right)</label>
+    <description>Remove extra advanced archotech telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechTelescopingArm</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech telescoping arm (right).</jobString>
+    <removesHediff>HVB_AEP_RightExtraArchotechTelescopingArm</removesHediff>
   </RecipeDef>
   
 </Defs>

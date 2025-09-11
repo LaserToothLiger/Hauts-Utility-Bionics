@@ -462,6 +462,70 @@ namespace HautsBionics_Anomaly
             }
         }
     }
+    public class CompProperties_AbilityAbsorbSentience : CompProperties_AbilityEffectWithDuration
+    {
+        public HediffDef hediffToSelf;
+        public float baseSeverityToAdd;
+        public float bonusSeverityIfIntermediate;
+        public float bonusSeverityIfAdvanced;
+        public float bonusSeverityIfHadSentienceCatalyst;
+    }
+    public class CompAbilityEffect_AbsorbSentience : CompAbilityEffect_WithDuration
+    {
+        public new CompProperties_AbilityAbsorbSentience Props
+        {
+            get
+            {
+                return (CompProperties_AbilityAbsorbSentience)this.props;
+            }
+        }
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            return base.CanApplyOn(target, dest) && target.Pawn != null && (target.Pawn.Downed || target.Pawn.Faction == this.parent.pawn.Faction);
+        }
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            float severityToGain = this.Props.baseSeverityToAdd;
+            Pawn occupant = target.Pawn;
+            if (occupant != null)
+            {
+                TrainabilityDef td = TrainableUtility.GetTrainability(occupant);
+                if (td != null)
+                {
+                    if (td == TrainabilityDefOf.Advanced)
+                    {
+                        severityToGain += this.Props.bonusSeverityIfAdvanced;
+                    } else if (td == TrainabilityDefOf.Intermediate) {
+                        severityToGain += this.Props.bonusSeverityIfIntermediate;
+                    }
+                    if (ModsConfig.OdysseyActive && occupant.health.hediffSet.HasHediff(HediffDefOf.SentienceCatalyst))
+                    {
+                        severityToGain += this.Props.bonusSeverityIfHadSentienceCatalyst;
+                    }
+                }
+                DamageInfo damageInfo = new DamageInfo(DamageDefOf.ExecutionCut, 9999f, 999f, -1f, null, occupant.health.hediffSet.GetBrain(), null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true, false);
+                damageInfo.SetIgnoreInstantKillProtection(true);
+                damageInfo.SetAllowDamagePropagation(false);
+                occupant.forceNoDeathNotification = true;
+                occupant.TakeDamage(damageInfo);
+                occupant.forceNoDeathNotification = false;
+            }
+            if (occupant.Dead)
+            {
+                Hediff alreadyExisting = this.parent.pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.hediffToSelf);
+                if (alreadyExisting != null)
+                {
+                    alreadyExisting.Severity += severityToGain;
+                } else {
+                    BodyPartRecord bpr = this.parent.pawn.health.hediffSet.GetBrain();
+                    Hediff hediff = HediffMaker.MakeHediff(this.Props.hediffToSelf, this.parent.pawn, bpr);
+                    this.parent.pawn.health.AddHediff(hediff, bpr);
+                    hediff.Severity = severityToGain;
+                }
+            }
+        }
+    }
     public class HediffCompProperties_Voidshard : HediffCompProperties
     {
         public HediffCompProperties_Voidshard()

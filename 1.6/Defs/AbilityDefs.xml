@@ -560,6 +560,8 @@
     <hostile>false</hostile>
 	<cooldownTicksRange>120000</cooldownTicksRange>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <aiCanUse>true</aiCanUse>
     <statBases>
       <Ability_Duration>1000</Ability_Duration>
@@ -568,7 +570,7 @@
       <verbClass>Verb_CastAbilityTouch</verbClass>
       <drawAimPie>False</drawAimPie>
       <range>-1</range>
-      <warmupTime>3.0</warmupTime>
+      <warmupTime>2.0</warmupTime>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>true</canTargetPawns>
@@ -680,6 +682,49 @@
       <li Class = "CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
         <hediffDef>HVB_RetroReflectiveCloaking</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Archotech sentience catalyzer-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_CatalyzeSentience</defName>
+    <label>catalyze sentience</label>
+    <description>Inject mechanites into the targeted animal's neural pathways, enhancing its intelligence as if it had been administered a sentience catalyst.</description>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <iconPath>Things/Item/Special/SentienceCatalyst</iconPath>
+    <warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>15</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>300000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>-1</range>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetHumans>false</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SentienceCatalyst</hediffDef>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
       </li>
     </comps>
   </AbilityDef>

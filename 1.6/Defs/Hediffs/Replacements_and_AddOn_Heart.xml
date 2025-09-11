@@ -627,7 +627,6 @@
 		<maxSeverity>1</maxSeverity>
 		<stages>
 		  <li>
-			<label>overdrive</label>
 			<capMods>
 			  <li>
 				<capacity>BloodPumping</capacity>

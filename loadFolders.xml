@@ -30,6 +30,7 @@
 		<li IfModActive="Rah.RBSEHC">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="Rah.RBSE">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li>
+		<li IfModActive="RedMattis.SapientAnimals">1.6/Mods/BigAndSmall_SapientAnimals</li>
 		<!--<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>-->
 	</v1.6>
 </loadFolders>

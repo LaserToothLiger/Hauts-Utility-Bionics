@@ -361,6 +361,81 @@
   
   
 						<!--uncraftable-->
+  <!--archotech shield bubbler-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ArchotechShieldBubbler</defName>
+    <label>archotech shield bubbler</label>
+    <labelNoun>an archotech shield bubbler</labelNoun>
+    <description>An installed archotech shield bubbler.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechShieldBubbler</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_ProjectBionicShield</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechShieldBubbler</defName>
+    <label>archotech shield bubbler</label>
+    <description>An artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can somehow induce electromagnetic distortions to create projectile-repulsion fields at a distance. Since these fields are not being constantly maintained by a dedicated shield-core, they collapse after a short duration. However, they are quite strong.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechShieldBubbler</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>3900</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallArchotechShieldBubbler</defName>
+    <label>install archotech shield bubbler</label>
+    <description>Install an archotech shield bubbler.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
+      <HediffDef>HVB_ArchotechShieldBubbler</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech shield bubbler.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechShieldBubbler</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechShieldBubbler</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechShieldBubbler</addsHediff>
+  </RecipeDef>
+  
   <!--archotech telescoping arm-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_ArchotechTelescopingArm</defName>
@@ -436,20 +511,20 @@
     <addsHediff>HVB_ArchotechTelescopingArm</addsHediff>
   </RecipeDef>
   
-  <!--archotech shield bubbler-->
-  <HediffDef ParentName="AddedBodyPartBase">
-    <defName>HVB_ArchotechShieldBubbler</defName>
-    <label>archotech shield bubbler</label>
-    <labelNoun>an archotech shield bubbler</labelNoun>
-    <description>An installed archotech shield bubbler.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ArchotechShieldBubbler</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ArchotechShieldBubbler</spawnThingOnRemoved>
+  <!--archotech sentience catalyzer-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechSentienceCatalyzer</defName>
+    <label>archotech sentience catalyzer</label>
+    <labelNoun>an archotech sentience catalyzer</labelNoun>
+    <description>An installed archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
       <partEfficiency>1.50</partEfficiency>
     </addedPartProps>
     <abilities>
-      <li>HVB_ProjectBionicShield</li>
+      <li>HVB_CatalyzeSentience</li>
     </abilities>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
@@ -468,33 +543,33 @@
       </li>
     </comps>
   </HediffDef>
-  <ThingDef ParentName="BodyPartArchotechBase">
-    <defName>HVB_ArchotechShieldBubbler</defName>
-    <label>archotech shield bubbler</label>
-    <description>An artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it can somehow induce electromagnetic distortions to create projectile-repulsion fields at a distance. Since these fields are not being constantly maintained by a dedicated shield-core, they collapse after a short duration. However, they are quite strong.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechShieldBubbler</RecipeDef></descriptionHyperlinks>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechSentienceCatalyzer</defName>
+    <label>archotech sentience catalyzer</label>
+    <description>An artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it produces mechanites capable of enhancing the neural pathways of animals. By simply touching an animal, it can impart the effects of a sentience catalyst.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechSentienceCatalyzer</RecipeDef></descriptionHyperlinks>
     <statBases>
-	  <MarketValue>3900</MarketValue>
+	  <MarketValue>5000</MarketValue>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardLowFreq</li>
       <li>HVB_MiscHighValue</li>
 	</thingSetMakerTags>
   </ThingDef>
-  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
-    <defName>HVB_InstallArchotechShieldBubbler</defName>
-    <label>install archotech shield bubbler</label>
-    <description>Install an archotech shield bubbler.</description>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechSentienceCatalyzer</defName>
+    <label>install archotech sentience catalyzer</label>
+    <description>Install an archotech sentience catalyzer.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ArchotechShieldBubbler</ThingDef>
-      <HediffDef>HVB_ArchotechShieldBubbler</HediffDef>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_ArchotechSentienceCatalyzer</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing archotech shield bubbler.</jobString>
+    <jobString>Installing archotech sentience catalyzer.</jobString>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_ArchotechShieldBubbler</li>
+            <li>HVB_ArchotechSentienceCatalyzer</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -502,13 +577,13 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_ArchotechShieldBubbler</li>
+        <li>HVB_ArchotechSentienceCatalyzer</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Shoulder</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>HVB_ArchotechShieldBubbler</addsHediff>
+    <addsHediff>HVB_ArchotechSentienceCatalyzer</addsHediff>
   </RecipeDef>
   
 </Defs>

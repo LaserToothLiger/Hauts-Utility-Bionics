@@ -390,57 +390,57 @@
 								<match Class="PatchOperationSequence">
 									<operations>
 										<li Class="PatchOperationConditional">
-											<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
 											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]</xpath>
 												<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
 											</nomatch>
 											<match Class="PatchOperationReplace">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=1]/partEfficiencyOffset</xpath>
 												<value><partEfficiencyOffset>0.2</partEfficiencyOffset></value>
 											</match>
 										</li>
 										<li Class="PatchOperationConditional">
-											<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
 											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]</xpath>
 												<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
 											</nomatch>
 											<match Class="PatchOperationReplace">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=2]/partEfficiencyOffset</xpath>
 												<value><partEfficiencyOffset>0.4</partEfficiencyOffset></value>
 											</match>
 										</li>
 										<li Class="PatchOperationConditional">
-											<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
 											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]</xpath>
 												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
 											</nomatch>
 											<match Class="PatchOperationReplace">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=3]/partEfficiencyOffset</xpath>
 												<value><partEfficiencyOffset>0.6</partEfficiencyOffset></value>
 											</match>
 										</li>
 										<li Class="PatchOperationConditional">
-											<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
 											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]</xpath>
 												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
 											</nomatch>
 											<match Class="PatchOperationReplace">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/stages/li[minSeverity=4]/partEfficiencyOffset</xpath>
 												<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
 											</match>
 										</li>
 										<li Class="PatchOperationConditional">
-											<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/addedPartProps/partEfficiency</xpath>
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/addedPartProps/partEfficiency</xpath>
 											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/addedPartProps</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/addedPartProps</xpath>
 												<value><partEfficiency>2</partEfficiency></value>
 											</nomatch>
 											<match Class="PatchOperationReplace">
-												<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/addedPartProps/partEfficiency</xpath>
+												<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/addedPartProps/partEfficiency</xpath>
 												<value><partEfficiency>2</partEfficiency></value>
 											</match>
 										</li>
@@ -476,6 +476,17 @@
 								<match Class="PatchOperationReplace">
 									<xpath>/Defs/HediffDef[defName="HVB_GravitonPartEfficiency_Archotech"]/stages/li/partEfficiencyOffset</xpath>
 									<value><partEfficiencyOffset>0.8</partEfficiencyOffset></value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/addedPartProps/partEfficiency</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/addedPartProps</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
+								</nomatch>
+								<match Class="PatchOperationReplace">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/addedPartProps/partEfficiency</xpath>
+									<value><partEfficiency>2</partEfficiency></value>
 								</match>
 							</li>
 						</operations>

@@ -403,6 +403,183 @@
 	<removesHediff>HVB_ArchotechShieldBubbler</removesHediff>
   </RecipeDef>
   
+  <!--sentience catalyzer-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_VoidshardSentienceAbsorber</defName>
+    <label>voidshard sentience absorber</label>
+    <labelNoun>a voidshard sentience absorber</labelNoun>
+    <description>An installed dark archotech sentience catalyzer. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.50</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_AbsorbSentience</li>
+    </abilities>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>4.0</maxSeverity>
+    <stages>
+      <li>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard sentience absorber has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallVoidshardSentienceAbsorber</defName>
+    <label>upgrade archotech sentience catalyzer with shards</label>
+    <description>Alter an archotech sentience catalyzer by merging it with the shards of a dark archotech. It will no longer be able to enhance the sentience of animals, but can instead kill them to gain a temporary consciousness boost. Its capabilities will also improve in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_VoidshardSentienceAbsorber</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech sentience catalyzer with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardSentienceAbsorber</addsHediff>
+	<removesHediff>HVB_ArchotechSentienceCatalyzer</removesHediff>
+  </RecipeDef>
+	  <AbilityDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_AbsorbSentience</defName>
+		<label>absorb sentience</label>
+		<description>Use corrupted archites to incorporate the targeted animal's neural pathways into one's own neurobiology. This enhances the caster's consciousness for a duration based on the animal's trainability, but kills the animal.</description>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<iconPath>Things/Item/Special/SentienceCatalyst</iconPath>
+		<warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<showWhenDrafted>true</showWhenDrafted>
+		<uiOrder>15</uiOrder>
+		<hostile>true</hostile>
+		<cooldownTicksRange>300000</cooldownTicksRange>
+		<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<verbProperties>
+		  <verbClass>Verb_CastAbility</verbClass>
+		  <drawAimPie>True</drawAimPie>
+		  <range>-1</range>
+		  <warmupTime>2</warmupTime>
+		  <targetParams>
+			<canTargetSelf>false</canTargetSelf>
+			<canTargetPawns>true</canTargetPawns>
+			<canTargetAnimals>true</canTargetAnimals>
+			<canTargetBuildings>false</canTargetBuildings>
+			<canTargetMechs>false</canTargetMechs>
+			<canTargetHumans>false</canTargetHumans>
+		  </targetParams>
+		</verbProperties>
+		<comps>
+		  <li Class="HautsBionics_Anomaly.CompProperties_AbilityAbsorbSentience">
+			<compClass>HautsBionics_Anomaly.CompAbilityEffect_AbsorbSentience</compClass>
+			<hediffToSelf>HVB_SentienceAbsorption</hediffToSelf>
+			<baseSeverityToAdd>1</baseSeverityToAdd>
+			<bonusSeverityIfIntermediate>1</bonusSeverityIfIntermediate>
+			<bonusSeverityIfAdvanced>3</bonusSeverityIfAdvanced>
+			<bonusSeverityIfHadSentienceCatalyst>3</bonusSeverityIfHadSentienceCatalyst>
+			<clamorType>Ability</clamorType>
+			<clamorRadius>10</clamorRadius>
+			<goodwillImpact>-80</goodwillImpact>
+		  </li>
+		</comps>
+	  </AbilityDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_SentienceAbsorption</defName>
+		<label>absorbed sentience</label>
+		<description>A temporary neural enhancement obtained by destroying the mind of one or more animals.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>6000</maxSeverity>
+		<stages>
+		  <li>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<offset>0.2</offset>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
   <!--archotech thinking spine-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_VoidshardThinkingSpine</defName>

@@ -2295,6 +2295,112 @@
 		</comps>
 	  </HediffDef>
   
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="RedMattis.SapientAnimals">
+    <defName>HVB_AEP_ArchotechSentienceCatalyzer</defName>
+    <label>advanced archotech sentience catalyzer</label>
+    <labelNoun>an advanced archotech sentience catalyzer</labelNoun>
+    <description>An installed advanced archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>3</partEfficiency>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_AEP_CatalyzeSapience</li>
+    </abilities>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="RedMattis.SapientAnimals">
+    <defName>HVB_AEP_ArchotechSentienceCatalyzer</defName>
+    <label>advanced archotech sentience catalyzer</label>
+    <description>An advanced artificial arm built by an archotech. In addition to the already superb functions of an archotech arm, it produces mechanites capable of enhancing the neural pathways of animals. By simply touching an animal, it can imbue it with sapience on par with a human.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechSentienceCatalyzer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+	  <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="RedMattis.SapientAnimals">
+    <defName>HVB_AEP_InstallArchotechSentienceCatalyzer</defName>
+    <label>install advanced archotech sentience catalyzer</label>
+    <description>Install an advanced archotech sentience catalyzer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech sentience catalyzer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechSentienceCatalyzer</addsHediff>
+  </RecipeDef>
+	  <AbilityDef MayRequire="RedMattis.SapientAnimals">
+		<defName>HVB_AEP_CatalyzeSapience</defName>
+		<label>catalyze sapience</label>
+		<description>Inject mechanites into the targeted animal's neural pathways, enhancing its intelligence to humanlike levels.</description>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<iconPath>BS_Items/sapienator</iconPath>
+		<warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<showWhenDrafted>true</showWhenDrafted>
+		<uiOrder>15</uiOrder>
+		<hostile>false</hostile>
+		<cooldownTicksRange>300000</cooldownTicksRange>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<verbProperties>
+		  <verbClass>Verb_CastAbility</verbClass>
+		  <drawAimPie>True</drawAimPie>
+		  <range>-1</range>
+		  <warmupTime>2</warmupTime>
+		  <targetParams>
+			<canTargetSelf>false</canTargetSelf>
+			<canTargetPawns>true</canTargetPawns>
+			<canTargetAnimals>true</canTargetAnimals>
+			<canTargetBuildings>false</canTargetBuildings>
+			<canTargetMechs>false</canTargetMechs>
+			<canTargetHumans>false</canTargetHumans>
+		  </targetParams>
+		</verbProperties>
+		<comps>
+		  <li Class="HautsBionics_BigAndSmall.CompProperties_AbilityCogniFi" />
+		</comps>
+	  </AbilityDef>
+  
   <!--archotech earthshaker-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_AEP_ArchotechEarthshaker</defName>

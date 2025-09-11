@@ -1410,13 +1410,13 @@
 									<li>Odyssey</li>
 								</mods>
 								<match Class="PatchOperationConditional">
-									<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
+									<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
 									<nomatch Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]</xpath>
+										<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]</xpath>
 										<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></comps></value>
 									</nomatch>
 									<match Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
+										<xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
 										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
 									</match>
 								</match>
@@ -1600,6 +1600,18 @@
 								</nomatch>
 								<match Class="PatchOperationAdd">
 									<xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]/comps</xpath>
+									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
+								</match>
+							</li>
+							<!--archo arm-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/comps</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]</xpath>
+									<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></comps></value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/comps</xpath>
 									<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>1</scaleAdjustment></li></value>
 								</match>
 							</li>
@@ -1913,6 +1925,22 @@
 									</nomatch>
 									<match Class="PatchOperationAdd">
 										<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechAestheticJaw"]/comps</xpath>
+										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>2</scaleAdjustment></li></value>
+									</match>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Big and Small - Sapient Animals</li>
+								</mods>
+								<match Class="PatchOperationConditional">
+									<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]/comps</xpath>
+									<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]</xpath>
+										<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>2</scaleAdjustment></li></comps></value>
+									</nomatch>
+									<match Class="PatchOperationAdd">
+										<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]/comps</xpath>
 										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>2</scaleAdjustment></li></value>
 									</match>
 								</match>

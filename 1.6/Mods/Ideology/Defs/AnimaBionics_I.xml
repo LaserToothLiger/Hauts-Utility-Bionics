@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--queen dryad-->
+  <HediffDef ParentName="HVB_NeurotheologyHediffBase" MayRequire="Seti.Victor.AnimaBodies">
+    <defName>HVB_QueenDryad</defName>
+    <label>queen dryad</label>
+    <labelNoun>a queen dryad</labelNoun>
+    <description>An installed queen dryad.</description>
+    <descriptionHyperlinks><ThingDef>HVB_QueenDryad</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_QueenDryad</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets><Hauts_MaxDryadFactor>0.25</Hauts_MaxDryadFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <statOffsets><Hauts_MaxDryadFactor>0.5</Hauts_MaxDryadFactor></statOffsets>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <statOffsets><Hauts_MaxDryadFactor>0.75</Hauts_MaxDryadFactor></statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBase" MayRequire="Seti.Victor.AnimaBodies">
+    <defName>HVB_QueenDryad</defName>
+    <label>queen dryad</label>
+    <description>A pygmy dryad queen which houses itself within a human body instead of a gauranlen tree. It is sterile, but its psychic abilities allow it to enhance the connection between its host and queens inside gauranlen trees.\n\nCan be installed up to three times, each enhancing the existing dryad rather than homing new ones; the surgery required to install it is so simple it can't fail.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallQueenDryad</RecipeDef></descriptionHyperlinks>
+	<tradeability>Sellable</tradeability>
+    <costList>
+      <AnimaFiber>40</AnimaFiber>
+      <GauranlenSeed>1</GauranlenSeed>
+    </costList>
+		<!--these properties are almost copied from AnimaImplant ThingDef base. I just don't want to make another directory just for this implant lol-->
+		<techLevel>Neolithic</techLevel>
+		<tradeTags>
+			<li>BodyPart</li>
+		</tradeTags>
+		<thingCategories>
+			<li>BodyPartsBionic</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Item/BodyPart/AnimaBodypart</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.80</drawSize>
+		</graphicData>
+		<statBases>
+			<DeteriorationRate>0</DeteriorationRate>
+			<WorkToMake>3500</WorkToMake>
+			<MarketValue>190</MarketValue>
+		</statBases>
+		<techHediffsTags>
+			<li>Advanced</li>
+		</techHediffsTags>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<unfinishedThingDef>UnfinishedHealthItemAnimic</unfinishedThingDef>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>AnimaImplants</researchPrerequisite>
+			<recipeUsers>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase" MayRequire="Seti.Victor.AnimaBodies">
+    <defName>HVB_InstallQueenDryad</defName>
+    <label>install queen dryad</label>
+    <description>Install a queen dryad.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_QueenDryad</ThingDef>
+      <HediffDef>HVB_QueenDryad</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing queen dryad.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_QueenDryad</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_QueenDryad</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_QueenDryad</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase" MayRequire="Seti.Victor.AnimaBodies">
+    <defName>HVB_RemoveQueenDryad</defName>
+    <label>remove queen dryad</label>
+    <description>Remove queen dryad.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_QueenDryad</ThingDef>
+      <HediffDef>HVB_QueenDryad</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing queen dryad.</jobString>
+    <removesHediff>HVB_QueenDryad</removesHediff>
+  </RecipeDef>
+  
+</Defs>
