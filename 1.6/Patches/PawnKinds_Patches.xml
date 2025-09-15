@@ -81,6 +81,7 @@
 						<value>
 							<techHediffsTags>
 								<li>HVB_Hemogen</li>
+								<li>HVB_Deathrest</li>
 							</techHediffsTags>
 						</value>
 					</nomatch>
@@ -88,6 +89,7 @@
 						<xpath>/Defs/PawnKindDef[defName="Sanguophage"]/techHediffsTags</xpath>
 						<value>
 							<li>HVB_Hemogen</li>
+							<li>HVB_Deathrest</li>
 						</value>
 					</match>
 				</li>

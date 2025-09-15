@@ -25,4 +25,29 @@
 			</operations>
 		</match>
 	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Layered Atmosphere and Orbit</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSkull"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>LAO_HighOrbit</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSkin"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>LAO_HighOrbit</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>LAO_HighOrbit</key><value>1.001</value></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVB_StarpowerGland"]/comps/li[@Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity"]/setToInLayer</xpath>
+					<value><li><key>LAO_HighOrbit</key><value>1.001</value></li></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
 </Patch>

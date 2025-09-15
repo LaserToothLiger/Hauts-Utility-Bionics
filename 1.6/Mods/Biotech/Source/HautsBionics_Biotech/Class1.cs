@@ -30,6 +30,37 @@ namespace HautsBionics_Biotech
         }
         public static HediffDef HVB_ArchotechMechaqueen;
     }
+    public class HediffCompProperties_DeathrestSeverity : HediffCompProperties
+    {
+        public HediffCompProperties_DeathrestSeverity()
+        {
+            this.compClass = typeof(HediffComp_DeathrestSeverity);
+        }
+    }
+    public class HediffComp_DeathrestSeverity : HediffComp
+    {
+        public HediffCompProperties_DeathrestSeverity Props
+        {
+            get
+            {
+                return (HediffCompProperties_DeathrestSeverity)this.props;
+            }
+        }
+        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
+        {
+            base.CompPostTickInterval(ref severityAdjustment, delta);
+            if (this.Pawn.IsHashIntervalTick(15, delta))
+            {
+                Need_Deathrest nd = this.Pawn.needs.TryGetNeed<Need_Deathrest>();
+                if (nd != null)
+                {
+                    this.parent.Severity = nd.CurLevel;
+                } else {
+                    this.parent.Severity = this.parent.def.minSeverity;
+                }
+            }
+        }
+    }
     public class HediffCompProperties_ProgenoidCharging : HediffCompProperties
     {
         public HediffCompProperties_ProgenoidCharging()
@@ -183,7 +214,7 @@ namespace HautsBionics_Biotech
                 Gene_Hemogen gene_Hemogen = this.Pawn.genes.GetFirstGeneOfType<Gene_Hemogen>();
                 if (gene_Hemogen != null)
                 {
-                    gene_Hemogen.Value -= this.Props.hemogenDrainPerDay / 4000f;
+                    GeneUtility.OffsetHemogen(this.Pawn, -this.Props.hemogenDrainPerDay / 4000f, true);
                     this.parent.Severity = gene_Hemogen.Value;
                 }
                 else

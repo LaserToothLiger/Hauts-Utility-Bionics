@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--extra sentience absorber-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_LeftExtraVoidshardSentienceAbsorber</defName>
+    <label>extra voidshard sentience absorber (left)</label>
+    <labelNoun>an extra voidshard sentience absorber (left)</labelNoun>
+    <description>An installed extra dark archotech sentience catalyzer. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AbsorbSentience</li>
+    </abilities>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.5</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.7</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s extra voidshard sentience absorber has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.25</increasedCooldownRecovery>
+		<affectedAbilities>
+			<li>HVB_AbsorbSentience</li>
+		</affectedAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallLeftExtraVoidshardSentienceAbsorber</defName>
+    <label>install extra voidshard sentience absorber (left)</label>
+    <description>Alter an extra archotech sentience catalyzer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_LeftExtraVoidshardSentienceAbsorber</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading extra archotech sentience catalyzer with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_LeftExtraVoidshardSentienceAbsorber</addsHediff>
+	<removesHediff>HVB_LeftExtraArchotechSentienceCatalyzer</removesHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveLeftExtraVoidshardSentienceAbsorber</defName>
+    <label>remove extra voidshard sentience absorber (left)</label>
+    <description>Remove extra voidshard sentience absorber (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_LeftExtraVoidshardSentienceAbsorber</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra voidshard sentience absorber (left).</jobString>
+    <removesHediff>HVB_LeftExtraVoidshardSentienceAbsorber</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RightExtraVoidshardSentienceAbsorber</defName>
+    <label>extra voidshard sentience absorber (right)</label>
+    <labelNoun>an extra voidshard sentience absorber (right)</labelNoun>
+    <description>An installed extra dark archotech sentience catalyzer. Its potency scales with the current anomalous activity level.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AbsorbSentience</li>
+    </abilities>
+	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.5</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>level 1</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 2</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.7</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 3</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>embraced</label>
+		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
+		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>3</value></li>
+			<li><key>5</key><value>4</value></li>
+			<li><key>6</key><value>2</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s extra voidshard sentience absorber has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.25</increasedCooldownRecovery>
+		<affectedAbilities>
+			<li>HVB_AbsorbSentience</li>
+		</affectedAbilities>
+		<multiplyBySeverity>true</multiplyBySeverity>
+	  </li>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallRightExtraVoidshardSentienceAbsorber</defName>
+    <label>install extra voidshard sentience absorber (right)</label>
+    <description>Alter an extra archotech sentience catalyzer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_RightExtraVoidshardSentienceAbsorber</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading extra archotech sentience catalyzer with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_RightExtraVoidshardSentienceAbsorber</addsHediff>
+	<removesHediff>HVB_RightExtraArchotechSentienceCatalyzer</removesHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveRightExtraVoidshardSentienceAbsorber</defName>
+    <label>remove extra voidshard sentience absorber (right)</label>
+    <description>Remove extra voidshard sentience absorber (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_RightExtraVoidshardSentienceAbsorber</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra voidshard sentience absorber (right).</jobString>
+    <removesHediff>HVB_RightExtraVoidshardSentienceAbsorber</removesHediff>
+  </RecipeDef>
+  
+</Defs>

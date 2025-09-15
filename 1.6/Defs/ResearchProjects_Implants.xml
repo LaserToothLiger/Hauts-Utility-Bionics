@@ -391,17 +391,22 @@
   </ResearchProjectDef>
   
   <!--bottom ultra row-->
-  <ResearchProjectDef ParentName="BaseBodyPartHVB_Ultra" MayRequire="Ludeon.RimWorld.Royalty">
+  <ResearchProjectDef ParentName="BaseBodyPartHVB_Spacer" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_EltexBodyParts</defName>
     <label>eltex body parts</label>
     <description>Craft body part replacements that sacrifice functionality to boost psycasting abilities. Typically, such devices enhance psychic sensitivity, meditation focus gain, and passive psyfocus regeneration.</description>
-    <baseCost>2500</baseCost>
+    <baseCost>500</baseCost>
     <prerequisites>
       <li>MicroelectronicsBasics</li>
     </prerequisites>
-    <hiddenPrerequisites>
-      <li>Prosthetics</li>
-    </hiddenPrerequisites>
+    <techprintCount>1</techprintCount>
+    <techprintCommonality>1</techprintCommonality>
+    <techprintMarketValue>1000</techprintMarketValue>
+    <heldByFactionCategoryTags><li>Empire</li></heldByFactionCategoryTags>
+    <prerequisites Inherit="False">
+	  <li>Prosthetics</li>
+    </prerequisites>
+    <hiddenPrerequisites Inherit="False"/>
     <researchViewX>2.50</researchViewX>
     <researchViewY>6.50</researchViewY>
     <generalRules>

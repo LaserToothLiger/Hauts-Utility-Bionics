@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--extra adv archotech sentience catalyzer-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</defName>
+    <label>extra advanced archotech sentience catalyzer (left)</label>
+    <labelNoun>an extra advanced archotech sentience catalyzer (left)</labelNoun>
+    <description>An installed extra advanced archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_CatalyzeSapience</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_InstallLeftExtraArchotechSentienceCatalyzer</defName>
+    <label>install extra advanced archotech sentience catalyzer (left)</label>
+    <description>Install an extra advanced archotech sentience catalyzer (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech sentience catalyzer (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_RemoveLeftExtraArchotechSentienceCatalyzer</defName>
+    <label>remove extra archotech sentience catalyzer (left)</label>
+    <description>Remove extra advanced archotech sentience catalyzer (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech sentience catalyzer (left).</jobString>
+    <removesHediff>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_RightExtraArchotechSentienceCatalyzer</defName>
+    <label>extra advanced archotech sentience catalyzer (right)</label>
+    <labelNoun>an extra advanced archotech sentience catalyzer (right)</labelNoun>
+    <description>An installed extra advanced archotech sentience catalyzer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_AEP_CatalyzeSapience</li>
+    </abilities>
+    <stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<duplicationAllowed>false</duplicationAllowed>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_InstallRightExtraArchotechSentienceCatalyzer</defName>
+    <label>install extra advanced archotech sentience catalyzer (right)</label>
+    <description>Install an extra advanced archotech sentience catalyzer (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra advanced archotech sentience catalyzer (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechSentienceCatalyzer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_RightExtraArchotechSentienceCatalyzer</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+    <defName>HVB_AEP_RemoveRightExtraArchotechSentienceCatalyzer</defName>
+    <label>remove extra advanced archotech sentience catalyzer (right)</label>
+    <description>Remove extra advanced archotech sentience catalyzer (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechSentienceCatalyzer</ThingDef>
+      <HediffDef>HVB_AEP_RightExtraArchotechSentienceCatalyzer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra advanced archotech sentience catalyzer (right).</jobString>
+    <removesHediff>HVB_AEP_RightExtraArchotechSentienceCatalyzer</removesHediff>
+  </RecipeDef>
+  
+</Defs>

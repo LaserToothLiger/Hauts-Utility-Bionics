@@ -178,10 +178,10 @@
         <verbs>
 			<li>
 			  <verbClass>Verb_Shoot</verbClass>
-			  <label>archotech death glare</label>
+			  <label>voidshard death glare</label>
 			  <hasStandardCommand>true</hasStandardCommand>
 			  <defaultProjectile>HVB_Bullet_VDG</defaultProjectile>
-			  <warmupTime>5.5</warmupTime>
+			  <warmupTime>5</warmupTime>
 			  <range>45.9</range>
 			  <burstShotCount>1</burstShotCount>
 			  <soundCast>Shot_ChargeBlaster</soundCast>

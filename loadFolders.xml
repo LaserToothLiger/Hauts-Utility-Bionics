@@ -30,6 +30,8 @@
 		<li IfModActive="Rah.RBSEHC">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="Rah.RBSE">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly">1.6/Mods/IntegratedImplants/Submods/II_Anomaly</li>
+		<li IfModActiveAll="lts.I,RedMattis.SapientAnimals">1.6/Mods/IntegratedImplants/Submods/II_SapientAnimals</li>
 		<li IfModActive="RedMattis.SapientAnimals">1.6/Mods/BigAndSmall_SapientAnimals</li>
 		<!--<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>-->
 	</v1.6>
