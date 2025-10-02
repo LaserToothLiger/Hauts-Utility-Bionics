@@ -88,7 +88,7 @@
     <stages>
       <li>
         <statOffsets>
-		  <InjuryHealingFactor>1.25</InjuryHealingFactor>
+		  <InjuryHealingFactor>2</InjuryHealingFactor>
         </statOffsets>
       </li>
     </stages>
@@ -112,7 +112,7 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HealingInfertilizer</defName>
     <label>healing infertilizer</label>
-    <description>This artificial organ cannibalizes germline cells, transforming them into a plasm with regenerative properties. In other words, it gradually depletes the fertility of the host in order to enhance recovery from injury.\n\nIf the host is no longer naturally fertile, an extracted ovum can be quickly and painlessly inserted into this device by a doctor, temporarily "refueling" it.</description>
+    <description>This artificial organ cannibalizes germline cells, transforming them into a plasm with remarkable regenerative properties. In other words, it gradually depletes the fertility of the host in order to enhance recovery from injury.\n\nIf the host is no longer naturally fertile, an extracted ovum can be quickly and painlessly inserted into this device by a doctor, temporarily "refueling" it.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallHealingInfertilizer</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>12</Plasteel>
@@ -202,7 +202,7 @@
 		    <label>temporarily fueled</label>
 			<minSeverity>0.002</minSeverity>
 			<statOffsets>
-			  <InjuryHealingFactor>1.0</InjuryHealingFactor>
+			  <InjuryHealingFactor>2.0</InjuryHealingFactor>
 			</statOffsets>
 		  </li>
 		</stages>

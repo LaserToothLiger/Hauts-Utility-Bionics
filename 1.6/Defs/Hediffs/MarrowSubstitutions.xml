@@ -26,17 +26,52 @@
     </costList>
     <statBases>
       <MarketValue>105</MarketValue>
-      <WorkToMake>4000</WorkToMake>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardHighFreq</li>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
-    <recipeMaker>
-      <researchPrerequisite>HVB_SyntheticMarrows</researchPrerequisite>
-	  <productCount>3</productCount>
-    </recipeMaker>
   </ThingDef>
+  <RecipeDef>
+    <defName>HVB_MakeMarrowBulk</defName>
+    <label>make marrow substitute x3</label>
+    <description>Make three marrow substitute capsules. A surgeon can quickly, easily, and painlessly inject up to 15 of these into a patient for incremental stat bonuses.</description>
+    <jobString>Making bulk marrow substitute.</jobString>
+    <workAmount>4000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>7</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Neutroamine</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HVB_MarrowSubstitute>3</HVB_MarrowSubstitute>
+    </products>
+    <workSkill>Crafting</workSkill>
+    <researchPrerequisite>HVB_SyntheticMarrows</researchPrerequisite>
+    <displayPriority>2</displayPriority>
+  </RecipeDef>
   <!--the remaining marrow decrement that is added with each installed bionic is hidden NOT to prevent players from wondering "what is Remaining Marrow", but rather to prevent it from scaling with the stat offset multiplier-->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_AugmentedMarrowCounter</defName>
