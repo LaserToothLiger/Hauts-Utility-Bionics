@@ -80,19 +80,19 @@
     <removesHediff>HVB_GravitometricLobe</removesHediff>
   </RecipeDef>
   
-  <!--psilocap filter-->
+  <!--psilocap injection port-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_PsilocapFilter</defName>
-    <label>psilocap filter</label>
-    <labelNoun>a psilocap filter</labelNoun>
-    <description>An installed psilocap filter implant. Prevents psilocap ingestion from causing catatonia.</description>
+    <label>psilocap injection port</label>
+    <labelNoun>a psilocap injection port</labelNoun>
+    <description>An installed psilocap injection port implant. Prevents psilocap ingestion from causing catatonia.</description>
     <descriptionHyperlinks><ThingDef>HVB_PsilocapFilter</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_PsilocapFilter</spawnThingOnRemoved>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_PsilocapFilter</defName>
-    <label>psilocap filter</label>
-    <description>This implant binds additional chemicals to ingested psilocap, preventing its active ingredient from achieving a sufficiently high local concentration to cause catatonia.</description>
+    <label>psilocap injection port</label>
+    <description>Psilocap can be administered through this port, which ratios out its active ingredients when distributing it into the bloodstream to prevent it from causing catatonia.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallPsilocapFilter</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>8</Plasteel>
@@ -107,13 +107,13 @@
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_InstallPsilocapFilter</defName>
-    <label>install psilocap filter</label>
-    <description>Install a psilocap filter.</description>
+    <label>install psilocap injection port</label>
+    <description>Install a psilocap injection port.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_PsilocapFilter</ThingDef>
       <HediffDef>HVB_PsilocapFilter</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing psilocap filter.</jobString>
+    <jobString>Installing psilocap injection port.</jobString>
     <ingredients>
       <li>
         <filter>
@@ -136,13 +136,13 @@
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_RemovePsilocapFilter</defName>
-    <label>remove psilocap filter</label>
-    <description>Remove psilocap filter.</description>
+    <label>remove psilocap injection port</label>
+    <description>Remove psilocap injection port.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_PsilocapFilter</ThingDef>
       <HediffDef>HVB_PsilocapFilter</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Removing psilocap filter.</jobString>
+    <jobString>Removing psilocap injection port.</jobString>
     <removesHediff>HVB_PsilocapFilter</removesHediff>
   </RecipeDef>
   

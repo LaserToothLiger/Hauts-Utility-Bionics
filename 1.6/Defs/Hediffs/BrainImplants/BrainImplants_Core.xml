@@ -487,6 +487,106 @@
 		</stages>
 	  </HediffDef>
 	  
+  <!--veil-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_CognoVeil</defName>
+    <label>cogno-veil</label>
+    <labelNoun>a cogno-veil</labelNoun>
+    <description>An installed cogno-veil implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CognoVeil</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CognoVeil</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <statOffsets>
+		  <Hauts_PilferingStealth>0.5</Hauts_PilferingStealth>
+        </statOffsets>
+		<statFactors>
+		  <NegotiationAbility>0.6</NegotiationAbility>
+		  <SocialImpact>0.6</SocialImpact>
+		  <TradePriceImprovement>0.6</TradePriceImprovement>
+		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.6</ConversionPower>
+		  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.6</LanguageLearningAbility>
+		</statFactors>
+	  </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_BoredomAdjustment">
+		<boredoms>
+			<li><key>Social</key><value>-999</value></li>
+		</boredoms>
+		<ticks>250</ticks>
+	  </li>
+	</comps>
+	<tags><li>HVB_CognoImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>HVB_CognoVeil</defName>
+    <label>cogno-veil</label>
+    <description>A brain implant that not only dampens the neurological rewards for engaging in socialization, but institutes its own reward system for avoiding attention. It renders the host permanently bored of social recreation.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCognoVeil</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
+    <thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+	<tradeability>Sellable</tradeability>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>7</ComponentSpacer>
+    </costList>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallCognoVeil</defName>
+    <label>install cogno-veil</label>
+    <description>Install a cogno-veil.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoVeil</ThingDef>
+      <HediffDef>HVB_CognoVeil</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cogno-veil.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CognoVeil</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CognoVeil</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CognoVeil</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_CognoImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveCognoVeil</defName>
+    <label>remove cogno-veil</label>
+    <description>Remove cogno-veil.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CognoVeil</ThingDef>
+      <HediffDef>HVB_CognoVeil</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing cogno-veil.</jobString>
+    <removesHediff>HVB_CognoVeil</removesHediff>
+  </RecipeDef>
+  
   <!--preserver-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="EBSG.Framework">
     <defName>HVB_CognoPreserver</defName>
