@@ -163,6 +163,7 @@
         </statOffsets>
 		<statFactors>
 		  <VEF_MassCarryCapacity>1.2</VEF_MassCarryCapacity>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">1.2</CarryWeight>
 		</statFactors>
       </li>
     </stages>
@@ -450,6 +451,7 @@
         </statOffsets>
 		<statFactors>
 		  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">2</CarryWeight>
 		</statFactors>
       </li>
     </stages>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!--eyes, ears, noses, jaws, hearts, lungs, livers, kidneys, stomachs, spines, arms, legs-->
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Bionic modularity</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--eyes-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_BalefulEye" or defName="HVB_LongshotEye" or defName="HVB_OcularComputingNode" or defName="HVB_ProgrammableEye" or defName="HVB_WayfinderEye" or defName="HVB_ArchotechDeathGlare" or defName="HVB_ArchotechProgrammableEye"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--ears-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_EcholocatorEar" or defName="HVB_EquilibriumEar" or defName="HVB_HuntingEar" or defName="HVB_RadioSurferEar" or defName="HVB_TremorsenseEar" or defName="HVB_ZoologistsEar" or defName="HVB_ArchotechEcholocator"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--noses-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_AromaticFacade" or defName="HVB_InhalingNose" or defName="HVB_MediAnalyzer" or defName="HVB_SpoorTranslator"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--jaws-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_PurifierJaw" or defName="HVB_RazortoothMaw" or defName="HVB_ArchotechFoodDisintegrator"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--hearts-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_AntiBleedingHeart" or defName="HVB_CleanHeart" or defName="HVB_ShieldpowerHeart" or defName="HVB_TemperedHeart" or defName="HVB_ArchotechMarrowheart"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--lungs-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_BardsLung" or defName="HVB_SensoryLung" or defName="HVB_ProgrammableLung" or defName="HVB_ArchotechApeliotanLung" or defName="HVB_ArchotechBreathTaker" or defName="HVB_ArchotechProgrammableLung"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--livers-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator" or defName="HVB_ArchotechNeutralizer" or defName="HVB_ArchotechGrowthStimulator"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--kidneys-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_CirculatoryAuxiliary" or defName="HVB_CogitationAuxiliary" or defName="HVB_MetabolicAuxiliary" or defName="HVB_ShieldingAuxiliary" or defName="HVB_ArchotechThinkingKidney"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--stomachs-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_GeneratorStomach" or defName="HVB_GutComputingNode" or defName="HVB_RefineryStomach" or defName="HVB_ArchotechRefineryStomach"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--spines-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_BracingSpine" or defName="HVB_HyperflexibleSpine" or defName="HVB_LifeguardSpine" or defName="HVB_LoadBearingSpine" or defName="HVB_ArchotechThinkingSpine" or defName="HVB_ArchotechUndulatingSpine"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--arms-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--legs-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--multiple option bionics-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechIntercessor" or defName="HVB_ProgrammableLimb" or defName="HVB_ArchotechProgrammableLimb"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--DLCs-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--eye-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_WarlocksEye"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--jaw-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_AestheticJaw" or defName="HVB_WarlocksRictus" or defName="HVB_ArchotechAestheticJaw"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--heart-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_WarlocksHeart"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--stomach-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_GastricMonk"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--spine-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_NeurothermalDispersionSpine"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--kidney-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_GauranlenAuxiliary"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--spine-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_Dryadspine"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--eye-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_MechanityrantEye"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--ear-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_MechanityrantEar"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--nose-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_NasalSprayProjector" or defName="HVB_SinusHemogenReservoir"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--jaw-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_MechanityrantMouth" or defName="HVB_OralSprayProjector"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--hearts-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_HemogenCyclingHeart" or defName="HVB_MechanityrantHeart"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--lung-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_PneumaticSprayProjector"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--livers-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--kidneys-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_MechanityrantKidney" or defName="HVB_HemogenCyclingKidney"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--stomachs-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_HemogenCyclingStomach" or defName="HVB_HemogenBurningStomach"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--leg-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_JetLeg"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Anomaly</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--nose-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_BioferriteAnalyzer"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--jaws-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_ForcefulWightCommander" or defName="HVB_MotiveWightCommander" or defName="HVB_RallyingWightCommander"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--various voidshards...-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardEye" or defName="HVB_VoidshardArm" or defName="HVB_VoidshardLeg"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardDeathGlare" or defName="HVB_VoidshardEcholocator" or defName="HVB_VoidshardFlenser" or defName="HVB_VoidshardMarrowheart" or defName="HVB_VoidshardApeliotanLung" or defName="HVB_VoidshardBreathTaker" or defName="HVB_VoidshardRefineryStomach" or defName="HVB_VoidshardNeutralizer" or defName="HVB_VoidshardGrowthStimulator" or defName="HVB_VoidshardThinkingKidney" or defName="HVB_VoidshardIntercessor" or defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardShieldBubbler" or defName="HVB_VoidshardThinkingSpine" or defName="HVB_VoidshardUndulatingSpine" or defName="HVB_VoidshardEarthshaker" or defName="HVB_VoidshardGeneratorLeg"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Royalty</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardAestheticMaw"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardDeathClaw" or defName="HVB_VoidshardObliterator"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>[FSF] Advanced Bionics Expansion</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardPowerArm"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Biotech</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAddModExtension">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardMedicArm"]</xpath>
+														<value>
+															<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+														</value>
+													</li>
+												</operations>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>More Archotech Implants</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardSustainer"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Odyssey</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--spine-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--arm-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--yet more mods-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Archotech Expanded Prosthetics</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechEcholocator" or defName="HVB_AEP_ArchotechFoodDisintegrator" or defName="HVB_AEP_ArchotechMarrowheart" or defName="HVB_AEP_ArchotechApeliotanLung" or defName="HVB_AEP_ArchotechBreathTaker" or defName="HVB_AEP_ArchotechProgrammableLung" or defName="HVB_AEP_ArchotechGrowthStimulator" or defName="HVB_AEP_ArchotechThinkingKidney" or defName="HVB_AEP_ArchotechIntercessor" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Royalty</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechAestheticJaw"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Big and Small - Sapient Animals</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAddModExtension">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]</xpath>
+											<value>
+												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Dubs Bad Hygiene</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--kidney-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_Immunomicturator"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>SwimmingKit</li>
+						<li>Pathfinding Framework</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--kidney-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_BallastKidney"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--multi-option-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_AquadynamicLimb"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

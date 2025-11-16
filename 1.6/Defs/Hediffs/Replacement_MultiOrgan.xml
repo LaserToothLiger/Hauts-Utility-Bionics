@@ -27,7 +27,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_ArchotechIntercessor</defName>
     <label>archotech intercessor</label>
-    <description>An artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.</description>
+    <description>An artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most limbs or internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechIntercessor</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>3400</MarketValue>

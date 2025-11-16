@@ -18,6 +18,7 @@
       <li>
         <statOffsets>
           <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.15</SmokeSensitivity>
         </statOffsets>
         <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
       </li>

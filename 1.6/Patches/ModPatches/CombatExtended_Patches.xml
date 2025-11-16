@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--AbilityDefs.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_BionicBansheeWail"]/comps/li[@Class="HautsBionics.CompProperties_AbilityBansheeWail"]/baseRadius</xpath>
+					<value>
+						<baseRadius>3</baseRadius>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_EMPDischarge"]/comps/li[@Class="HautsFramework.CompProperties_AbilityNova"]/baseRadius</xpath>
+					<value>
+						<baseRadius>2</baseRadius>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_BionicPounce"]/verbProperties/range</xpath>
+					<value>
+						<range>20</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
+					<value>
+						<range>24</range>
+					</value>
+				</li>
+				<!--DamageDefs.xml-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/ToolCapacityDef[defName="HVB_DisintegrationBite"]</xpath>
+					<value>
+						<li Class="CombatExtended.ModExtensionMeleeToolPenetration">
+							<canHitInternal>true</canHitInternal>
+						</li>
+					</value>
+				</li>
+				<!--MEXCHA.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_KnuckleShot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+					<value>
+						<projectileDef>Bullet_12Gauge_Slug</projectileDef>
+					</value>
+				</li>
+				<!--Replacement_MultiOrgan.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/description</xpath>
+					<value>
+						<description>An installed archotech intercessor. Gains 1 charge every 6 hours, up to a max of 7 charges; when damage is taken, 1 charge is spent to nullify it.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/maxStoredCharges</xpath>
+					<value>
+						<maxStoredCharges>7</maxStoredCharges>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/ticksToNextSpawn</xpath>
+					<value>
+						<ticksToNextSpawn>15000</ticksToNextSpawn>
+					</value>
+				</li>
+				<!--Replacements_and_AddOn_Ear.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="HVB_EquilibriumEar"]/description</xpath>
+					<value>
+						<description>An artificial ear which maintains a vastly superior sense of equilibrium, enhancing movement, dodging, and parrying capabilities.\n\nThe moving, melee dodge, and melee parry benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_EquilibriumEar"]/stages/li[minSeverity=0.001]/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>0.09</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_EquilibriumEar"]/stages/li[minSeverity=1.001]/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>0.06</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_EquilibriumEar"]/stages/li[minSeverity=1.751]/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>0.03</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="HVB_HuntingEar"]/description</xpath>
+					<value>
+						<description>An artificial ear with an onboard classifier AI that extrapolates the existence, positions, and profiles of nearby creatures based on sounds of movement. It is useful for detecting prey and raiders, and it quickly teaches its host to minimize their own sound profile, but the greater feedback it gives from the passing of nearby projectiles makes the host more susceptible to suppressing fire.\n\nThe shooting accuracy, attack range, and hunting stealth benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_HuntingEar"]/stages/li/statOffsets/MentalBreakThreshold</xpath>
+					<value>
+						<Suppressability>0.05</Suppressability>
+					</value>
+				</li>
+				<!--Replacements_and_AddOn_Heart.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/description</xpath>
+					<value>
+						<description>An installed shieldpower heart. Provides a shield that can intercept 50 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 6.5 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
+					<value>
+						<maxEnergyOffset>50</maxEnergyOffset>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/energyRegenOffset</xpath>
+					<value>
+						<energyRegenOffset>6.5</energyRegenOffset>
+					</value>
+				</li>
+				<!--Replacements_Arm.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm"]/stages/li/statFactors/RangedCooldownFactor</xpath>
+					<value>
+						<ReloadSpeed>1.4</ReloadSpeed>
+						<ShootingAccuracyPawn>1.35</ShootingAccuracyPawn>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>2</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets</xpath>
+					<value>
+						<MoveSpeed>-0.25</MoveSpeed>
+						<MeleeDodgeChance>-0.03</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/capMods</xpath>
+					<match Class="PatchOperationRemove">
+						<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/capMods</xpath>
+					</match>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>fist</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>5</power>
+								<cooldownTime>1.11</cooldownTime>
+								<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+								<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+								<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+							</li>
+						</tools>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>fist</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9</power>
+								<cooldownTime>0.83</cooldownTime>
+								<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+								<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+								<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+							</li>
+						</tools>
+					</value>
+				</li>
+				<!--Replacements_Eye.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_BalefulEye"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+								<label>baleful eye</label>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>Bullet_5x35mmCharged</defaultProjectile>
+								<warmupTime>1.9</warmupTime>
+								<range>56</range>
+								<soundCast>ChargeLance_Fire</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>6</muzzleFlashScale>
+							  <commandIcon>Weapons/HUB_BalefulEye</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_LongshotEye"]/stages/li/statOffsets/ShootingAccuracyPawn</xpath>
+					<value>
+						<ShootingAccuracyPawn>0.2</ShootingAccuracyPawn><!--equivalent to a level of shooting skill, just like how the longshot eye works w/o CE-->
+						<AimingAccuracy>0.1</AimingAccuracy>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_LongshotEye"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>-0.03</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+								<label>archotech death glare</label>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>Bullet_12x64mmCharged</defaultProjectile>
+								<warmupTime>4</warmupTime>
+								<range>70</range>
+								<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+								<burstShotCount>6</burstShotCount>
+								<soundCast>Shot_ChargeBlaster</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+				<!--Replacements_Jaw.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_RazortoothMaw"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+						  <li Class="CombatExtended.ToolCE">
+							<label>razor bite</label>
+							<capacities>
+							  <li>Bite</li>
+							</capacities>
+							<power>7.5</power>
+							<cooldownTime>1.5</cooldownTime>
+							<armorPenetrationSharp>10</armorPenetrationSharp>
+							<armorPenetrationBlunt>4.5</armorPenetrationBlunt>
+							<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						  </li>
+						</tools>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechFoodDisintegrator"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+						  <li Class="CombatExtended.ToolCE">
+							<label>disintegration bite</label>
+							<capacities>
+							  <li>HVB_DisintegrationBite</li>
+							</capacities>
+							<power>7.5</power>
+							<cooldownTime>1.33</cooldownTime>
+							<armorPenetrationSharp>20</armorPenetrationSharp>
+							<armorPenetrationBlunt>5</armorPenetrationBlunt>
+							<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						  </li>
+						</tools>
+					</value>
+				</li>
+				<!--Replacements_Leg.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_DancersLeg"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>0.05</MeleeDodgeChance>
+					</value>
+				</li>
+				<!--Replacements_Limb.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ProgrammableLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>programmable limb</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>5</power>
+								<cooldownTime>1.11</cooldownTime>
+								<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+								<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+								<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+							</li>
+						</tools>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ArchotechProgrammableLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>programmable limb</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9</power>
+								<cooldownTime>0.83</cooldownTime>
+								<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+								<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+								<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+							</li>
+						</tools>
+					</value>
+				</li>
+				<!--Replacements_Liver.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_GrowthStimulator"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.2</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechGrowthStimulator"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.8</MeleeDamageFactor>
+					</value>
+				</li>
+				<!--Replacements_Skin.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_Spikeskin"]/stages/li/statFactors/CarryingCapacity</xpath>
+					<value>
+						<CarryBulk>0.92</CarryBulk>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_Spikeskin"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>2</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_Spikeskin"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+					</value>
+				</li>
+				<!--Replacements_Spine.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_BracingSpine"]/stages/li/statFactors/MeleeCooldownFactor</xpath>
+					<value>
+						<MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_BracingSpine"]/stages/li/statFactors/RangedCooldownFactor</xpath>
+					<value>
+						<RangedCooldownFactor>0.85</RangedCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_HyperflexibleSpine"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>0.1</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_HyperflexibleSpine"]/stages/li/statFactors/MeleeCooldownFactor</xpath>
+					<value>
+						<MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVB_LifeguardSpine"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.96</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVB_ArchotechUndulatingSpine"]/stages/li/statFactors/CarryingCapacity</xpath>
+				</li>
+				<!--Shielding.xml-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/baseMaxEnergy</xpath>
+					<value>
+						<baseMaxEnergy>105</baseMaxEnergy>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/energyOnReset</xpath>
+					<value>
+						<energyOnReset>105</energyOnReset>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/baseEnergyRechargeRate</xpath>
+					<value>
+						<baseEnergyRechargeRate>6.5</baseEnergyRechargeRate>
+					</value>
+				</li>
+				<!--DLCs ahoy-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--AbilityDefs_R.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_PersonalSkip"]/verbProperties/range</xpath>
+								<value>
+									<range>24</range>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/AbilityDef[defName="HVB_AEP_PersonalSkip"]/verbProperties/range</xpath>
+											<value>
+												<range>24</range>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerGland"]/description</xpath>
+								<value>
+									<description>An installed shieldpower gland. Provides a shield that can intercept 50 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 1.5 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerGland"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
+								<value>
+									<maxEnergyOffset>50</maxEnergyOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerGland"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/energyRegenOffset</xpath>
+								<value>
+									<energyRegenOffset>1.5</energyRegenOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_WeldingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>welder</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>5</power>
+											<cooldownTime>1.5</cooldownTime>
+											<armorPenetrationSharp>1.1</armorPenetrationSharp>
+											<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+											<extraMeleeDamages>
+											  <li>
+												<def>Burn</def>
+												<amount>5</amount>
+												<chance>0.7</chance>
+											  </li>
+											</extraMeleeDamages>
+											<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+											<soundMeleeHit>Interact_Ignite</soundMeleeHit>
+											<soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--AbilityDefs.xml in base folder-->
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="HVB_Proj_Acid"]/projectile/stoppingPower</xpath>
+							</li>
+							<!--Replacements_Neck.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_MTCervixBuff"]/stages/li/statFactors/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>0.85</AimingDelayFactor>
+								</value>
+							</li>
+							<!--Replacements_Skin.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_MechanityrantCircuitskin"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+								<value>
+									<IncomingDamageFactor>1.1</IncomingDamageFactor>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Odyssey</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--TorsoImplants_Odyssey.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="HVB_ArchotechGravitonShielder"]/statBases/MarketValue</xpath>
+								<value>
+									<MarketValue>1400</MarketValue>
+								</value>
+							</li>
+							<!--MEXCHA.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_GraserArmCannon"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<value>
+									<verbs>
+										<li Class="CombatExtended.VerbPropertiesCE">
+											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+											<label>graser arm cannon</label>
+											<hasStandardCommand>true</hasStandardCommand>
+											<defaultProjectile>Bullet_Laser_BeamRepeater</defaultProjectile>
+											<warmupTime>1.1</warmupTime>
+											<range>46</range>
+											<soundCast>Shot_BeamRepeater</soundCast>
+											<soundCastTail>GunTail_Medium</soundCastTail>
+											<muzzleFlashScale>9</muzzleFlashScale>
+											<commandIcon>Weapons/HUB_GraserArmCannon</commandIcon>
+										</li>
+									</verbs>
+								</value>
+							</li>
+							<!--Replacements_Arm.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>fist</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>9</power>
+											<cooldownTime>0.83</cooldownTime>
+											<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--other mods ahoy-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>SwimmingKit</li>
+						<li>Pathfinding Framework</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ProstheticDorsalFin"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+									  <li Class="CombatExtended.ToolCE">
+										<label>finblade</label>
+										<capacities>
+										  <li>Cut</li>
+										</capacities>
+										<power>7</power>
+										<cooldownTime>1.35</cooldownTime>
+										<armorPenetrationSharp>4</armorPenetrationSharp>
+										<armorPenetrationBlunt>7.25</armorPenetrationBlunt>
+										<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+									  </li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AquadynamicLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>aquadynamic limb</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>5</power>
+											<cooldownTime>1.11</cooldownTime>
+											<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+										<li Class="CombatExtended.ToolCE">
+											<label>aquadynamic blade</label>
+											<capacities>
+												<li>Cut</li>
+											</capacities>
+											<power>8</power>
+											<cooldownTime>1.3</cooldownTime>
+											<armorPenetrationSharp>4.5</armorPenetrationSharp>
+											<armorPenetrationBlunt>8</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

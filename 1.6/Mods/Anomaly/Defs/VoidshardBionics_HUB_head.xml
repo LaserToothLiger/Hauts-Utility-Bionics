@@ -2,7 +2,7 @@
 <Defs>
 
   <!--NO DLC
-  recapture mesh-->
+  recapture mesh. wait actually this one requires DLC but the next ones don't. hm im not going to bother reordering these-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_VoidshardPsySkull</defName>
     <label>voidshard psy-skull</label>

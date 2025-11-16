@@ -15,52 +15,25 @@
       <solid>false</solid>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
+    <abilities>
+      <li>HVB_KnuckleShot</li>
+    </abilities>
     <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>knuckle cannons</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>Bullet_Shotgun</defaultProjectile>
-			  <warmupTime>5</warmupTime>
-			  <range>12.9</range>
-			  <soundCast>Shot_Shotgun</soundCast>
-			  <soundCastTail>GunTail_Heavy</soundCastTail>
-			  <muzzleFlashScale>9</muzzleFlashScale>
-			  <commandIcon>Weapons/HUB_KnuckleCannons</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>knuckle cannons</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Fires four knuckle cannons in a tightly clustered volley. Can be fired while performing other tasks.</description>
-			</li>
-		</verbProps>
-      </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_KnuckleCannons</defName>
     <label>knuckle cannons</label>
-    <description>A set of miniaturized guns which can be implanted in either an organic or bionic hand. The four barrels rest above each of the hand's metacarpals. A biogel nerve-trigger enables a mental command to fire each one in rapid sequence.</description>
+    <description>A set of miniaturized guns which can be implanted in either an organic or bionic hand, hooked up to a fast-twitch hand-eye supercoordinator. The four barrels rest above each of the hand's metacarpals. A biogel nerve-trigger enables mental commands to fire each chamber; the supercoordinator directs the shot with unerring accuracy, regardless of the aiming skills of the host. A full volley will take a full day to reload.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallKnuckleCannons</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>
-      <Plasteel>8</Plasteel>
-	  <ComponentSpacer>2</ComponentSpacer>
+      <Plasteel>12</Plasteel>
+	  <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>535</MarketValue>
+      <MarketValue>830</MarketValue>
     </statBases>
     <thingSetMakerTags>
       <li>HVB_MiscCoolItems</li>
@@ -383,7 +356,7 @@
   </RecipeDef>
   
   <!--graser arm cannon-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_GraserArmCannon</defName>
     <label>graser arm cannon</label>
     <labelNoun>a graser arm cannon</labelNoun>
@@ -396,49 +369,19 @@
       <solid>false</solid>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
-    <stages>
-      <li>
-        <statOffsets>
-          <CancerRate>0.4</CancerRate>
-        </statOffsets>
-      </li>
-    </stages>
     <comps>
       <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
         <verbs>
 			<li>
-				<verbClass>Verb_ShootBeam</verbClass>
+				<verbClass>Verb_Shoot</verbClass>
 				<label>graser arm cannon</label>
 				<hasStandardCommand>true</hasStandardCommand>
-				<warmupTime>1.0</warmupTime>
-				<range>24.9</range>
-				<minRange>3.9</minRange>
-				<beamFullWidthRange>6.9</beamFullWidthRange>
-				<burstShotCount>5</burstShotCount>
-				<beamWidth>6</beamWidth>
-				<ticksBetweenBurstShots>22</ticksBetweenBurstShots>
-				<beamDamageDef>Beam</beamDamageDef>
+				<defaultProjectile>Bullet_BeamRepeater</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>25.9</range>
+				<soundCast>Shot_BeamRepeater</soundCast>
 				<soundCastTail>GunTail_Medium</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
-				<soundCastBeam>BeamGraser_Shooting</soundCastBeam>
-				<beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
-				<beamFleckChancePerTick>0.32</beamFleckChancePerTick>
-				<beamMaxDeviation>1.5</beamMaxDeviation>
-				<beamCurvature>0.6</beamCurvature>
-				<beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
-				<beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
-				<beamChanceToStartFire>0.85</beamChanceToStartFire>
-				<beamChanceToAttachFire>0.85</beamChanceToAttachFire>
-				<beamFireSizeRange>0.55~0.85</beamFireSizeRange>
-				<beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
-				<beamStartOffset>0.8</beamStartOffset>
-				<beamLineFleckChanceCurve>
-				  <points>
-					<li>(0, 0)</li>
-					<li>(0.65, 0.4)</li>
-					<li>(1, 0.75)</li>
-				  </points>
-				</beamLineFleckChanceCurve>
 				<commandIcon>Weapons/HUB_GraserArmCannon</commandIcon>
 			</li>
 		</verbs>
@@ -446,36 +389,46 @@
 			<li>
 			  <label>graser arm cannon</label>
 			  <canBeToggled>true</canBeToggled>
-			  <description>Fires a sweeping high-energy gamma ray laser that pierces thick armor and burns targets.</description>
+			  <comps>
+				  <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
+					<compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
+						<invisible>true</invisible>
+						<uniqueTargets>true</uniqueTargets>
+				  </li>
+			  </comps>
+			  <description>Fires a single high-energy gamma ray laser that can pierce shields and armor to burn targets.</description>
 			</li>
 		</verbProps>
       </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>
   </HediffDef>
-  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="Ludeon.RimWorld.Biotech">
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_GraserArmCannon</defName>
     <label>graser arm cannon</label>
-    <description>A high-power gamma ray emitter protruding from the wrist of an organic or bionic hand. Activated via a mental command through its biogel nerve-link, it enables one to light a wide swath of land ablaze with a targeted sweep of the arm. Due to the radiation output, it does come with an unfortunate cancer risk.</description>
+    <description>A retractable, miniaturized high-power gamma ray emitter hidden within an organic or bionic hand. Activated via a mental command through its biogel nerve-link, its laser can pierce shields.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallGraserArmCannon</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>
-      <Plasteel>15</Plasteel>
+      <Plasteel>10</Plasteel>
       <Uranium>10</Uranium>
 	  <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>1600</MarketValue>
+      <MarketValue>1550</MarketValue>
     </statBases>
     <thingSetMakerTags>
       <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <recipeMaker>
-      <researchPrerequisite>HVB_BionicWeaponry</researchPrerequisite>
+      <researchPrerequisites>
+		<li>BeamWeapons</li>
+	    <li>HVB_BionicWeaponry</li>
+	  </researchPrerequisites>
     </recipeMaker>
     <techHediffsTags Inherit="False"><li>AdvancedWeapon</li></techHediffsTags>
   </ThingDef>
-  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase" MayRequire="Ludeon.RimWorld.Biotech">
+  <RecipeDef ParentName="HVB_SurgeryAddImplantToLimbBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_InstallGraserArmCannon</defName>
     <label>install graser arm cannon</label>
     <description>Install a graser arm cannon.</description>
@@ -507,7 +460,7 @@
     <addsHediff>HVB_GraserArmCannon</addsHediff>
 	<incompatibleWithHediffTags><li>HVB_HandTools</li></incompatibleWithHediffTags>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_RemoveGraserArmCannon</defName>
     <label>remove graser arm cannon</label>
     <description>Remove graser arm cannon.</description>
@@ -519,7 +472,7 @@
     <removesHediff>HVB_GraserArmCannon</removesHediff>
   </RecipeDef>
   
-  <!--sonic strike palm-->
+  <!--multi-hook-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_MultiHook</defName>
     <label>multi-hook</label>

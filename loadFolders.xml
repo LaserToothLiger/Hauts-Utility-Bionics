@@ -33,6 +33,7 @@
 		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly">1.6/Mods/IntegratedImplants/Submods/II_Anomaly</li>
 		<li IfModActiveAll="lts.I,RedMattis.SapientAnimals">1.6/Mods/IntegratedImplants/Submods/II_SapientAnimals</li>
 		<li IfModActive="RedMattis.SapientAnimals">1.6/Mods/BigAndSmall_SapientAnimals</li>
+		<li IfModActive="CETeam.CombatExtended">1.6/Mods/CombatExtended</li>
 		<!--<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>-->
 	</v1.6>
 </loadFolders>

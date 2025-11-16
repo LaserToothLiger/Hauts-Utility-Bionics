@@ -106,6 +106,7 @@
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.05</P42_AllergicSensitivity>
 		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.3</Mashed_Ashlands_AshResistance>
 		  <Radiation MayRequire="Dubwise.Rimatomics">-0.05</Radiation>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.15</SmokeSensitivity>
 		</statOffsets>
       </li>
     </stages>
@@ -258,6 +259,7 @@
           <MentalBreakThreshold>-0.1</MentalBreakThreshold>
           <PainShockThreshold>0.05</PainShockThreshold>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
+		  <Suppressability MayRequire="CETeam.CombatExtended">-0.5</Suppressability>
         </statOffsets>
         <!--<painFactor>0</painFactor>-->
       </li>
@@ -409,7 +411,7 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HemogenCyclingHeart</defName>
     <label>hemogen-cycling heart</label>
-    <description>An artificial heart of great value to bloodfeeders. As hemogen passes through this heart's chambers, its proteins are repaired and refolded to maximize their longevity, and waste particles that could lead to a reduction in hemogen half-life are broken down. This maintenance causes hemogen decay to take 60% longer.</description>
+    <description>An artificial heart of great value to bloodfeeders. As hemogen passes through this heart's chambers, its proteins are repaired and refolded to maximize their longevity, and waste particles that could lead to a reduction in hemogen half-life are broken down. This maintenance causes hemogen decay to take 125% longer.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallHemogenCyclingHeart</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicHeart>1</BionicHeart>

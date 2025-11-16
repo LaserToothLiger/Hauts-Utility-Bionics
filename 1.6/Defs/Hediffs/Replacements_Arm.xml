@@ -291,6 +291,7 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.02</MeleeParryChance>
         </statOffsets>
       </li>
     </stages>

@@ -106,6 +106,7 @@
       <li>
 		<statOffsets>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.10</P42_AllergicSensitivity>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0.05</SmokeSensitivity>
 		</statOffsets>
         <capMods>
           <li>
@@ -271,6 +272,7 @@
 		  <BondAnimalChanceFactor>0.15</BondAnimalChanceFactor>
 		  <TameAnimalChance>0.15</TameAnimalChance>
 		  <TrainAnimalChance>0.2</TrainAnimalChance>
+		  <AnimalsLearningFactor>0.08</AnimalsLearningFactor>
 		</statOffsets>
       </li>
     </stages>

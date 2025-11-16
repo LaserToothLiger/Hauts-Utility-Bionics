@@ -14,8 +14,12 @@
     </abilities>
     <stages>
       <li>
+		<statOffsets>
+		  <ArmorRating_Electric MayRequire="CETeam.CombatExtended">0.2</ArmorRating_Electric>
+		</statOffsets>
 		<damageFactors>
 		  <EMP>0</EMP>
+		  <Electrical MayRequire="CETeam.CombatExtended">0.1</Electrical>
 		</damageFactors>
 	  </li>
     </stages>
@@ -446,6 +450,7 @@
 		  <FSFFrostbite MayRequire="FrozenSnowFox.MorePsycastPowers">0.7</FSFFrostbite>
 		  <OTCCryo MayRequire="ObsidiaExpansion.Core">0.7</OTCCryo>
 		  <Burn>0.7</Burn>
+		  <VEF_PermanentBurn>0.7</VEF_PermanentBurn>
 		  <VQE_CryptoCut>0.7</VQE_CryptoCut>
 		</damageFactors>
       </li>

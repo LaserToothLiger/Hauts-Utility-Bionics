@@ -76,7 +76,7 @@
     <defName>HVB_GeneratorLeg</defName>
     <label>generator leg</label>
     <labelNoun>a generator leg</labelNoun>
-    <description>An installed generator leg. Affects abilities granted by other bionics, and slightly reduces the time it takes for an internal shield generator's shield to reset after being broken.</description>
+    <description>An installed generator leg. Affects abilities granted by other bionics, and slightly reduces the time it takes for a shieldpower bionic's shield to reset after being broken.</description>
     <descriptionHyperlinks><ThingDef>HVB_GeneratorLeg</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_GeneratorLeg</spawnThingOnRemoved>
     <addedPartProps>
@@ -101,7 +101,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_GeneratorLeg</defName>
     <label>generator leg</label>
-    <description>A bionic leg which generates and stores energy from the forces it experiences during use in the gait cycle. This energy is rerouted to other bionic systems, allowing their abilities to be used more frequently, and hastening the reset process for internal shield generators that have been overwhelmed.</description>
+    <description>A bionic leg which generates and stores energy from the forces it experiences during use in the gait cycle. This energy is rerouted to other bionic systems, allowing their abilities to be used more frequently, and hastening the reset process for shieldpower bionics which have been overwhelmed.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallGeneratorLeg</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicLeg>1</BionicLeg>
@@ -245,6 +245,7 @@
 		  <StaggerDurationFactor>-0.25</StaggerDurationFactor>
         </statOffsets>
         <statFactors>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">1.3</CarryWeight>
 		  <RestFallRateFactor>0.92</RestFallRateFactor>
         </statFactors>
       </li>
@@ -444,7 +445,7 @@
     <defName>HVB_ArchotechGeneratorLeg</defName>
     <label>archotech generator leg</label>
     <labelNoun>an archotech generator leg</labelNoun>
-    <description>An installed archotech generator leg. Affects abilities granted by other bionics, and reduces the time it takes for an internal shield generator's shield to reset after being broken by a quarter.</description>
+    <description>An installed archotech generator leg. Affects abilities granted by other bionics, and reduces the time it takes for shieldpower bionics to reset after their shields break by a quarter.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechGeneratorLeg</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechGeneratorLeg</spawnThingOnRemoved>
     <addedPartProps>
@@ -475,7 +476,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_ArchotechGeneratorLeg</defName>
     <label>archotech generator leg</label>
-    <description>An artificial leg built by an archotech. In addition to the already superb functions of an archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for an internal shield generator to reset its shield after being broken, and prolong the amount of time the host can go without sleep.</description>
+    <description>An artificial leg built by an archotech. In addition to the already superb functions of an archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for shieldpower bionics' shields to reset after being broken, and prolong the amount of time the host can go without sleep.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGeneratorLeg</RecipeDef></descriptionHyperlinks>
     <statBases>
 	  <MarketValue>3600</MarketValue>

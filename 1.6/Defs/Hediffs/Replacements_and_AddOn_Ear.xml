@@ -26,6 +26,8 @@
         </capMods>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -37,6 +39,8 @@
         </capMods>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -47,6 +51,8 @@
         </capMods>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>
@@ -72,6 +78,7 @@
     <statBases>
       <MarketValue>1260</MarketValue>
       <WorkToMake>9000</WorkToMake>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
     </statBases>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
@@ -122,20 +129,24 @@
 	<maxSeverity>2</maxSeverity>
     <stages>
       <li>
+		<minSeverity>0.001</minSeverity>
 		<label>blind</label>
         <capMods><li><capacity>Moving</capacity><offset>0.1</offset></li></capMods>
-        <statOffsets><MeleeDodgeChance>2</MeleeDodgeChance></statOffsets>
+        <statOffsets><MeleeDodgeChance>2</MeleeDodgeChance><VEF_RangedDodgeChance>0.02</VEF_RangedDodgeChance></statOffsets>
+		<statFactors><MeleeParryChance MayRequire="CETeam.CombatExtended">1.2</MeleeParryChance></statFactors>
       </li>
       <li>
         <minSeverity>1.001</minSeverity>
 		<label>half-blind</label>
         <capMods><li><capacity>Moving</capacity><offset>0.075</offset></li></capMods>
-        <statOffsets><MeleeDodgeChance>1.5</MeleeDodgeChance></statOffsets>
+        <statOffsets><MeleeDodgeChance>1.5</MeleeDodgeChance><VEF_RangedDodgeChance>0.015</VEF_RangedDodgeChance></statOffsets>
+		<statFactors><MeleeParryChance MayRequire="CETeam.CombatExtended">1.15</MeleeParryChance></statFactors>
       </li>
       <li>
         <minSeverity>1.751</minSeverity>
         <capMods><li><capacity>Moving</capacity><offset>0.05</offset></li></capMods>
-        <statOffsets><MeleeDodgeChance>1</MeleeDodgeChance></statOffsets>
+        <statOffsets><MeleeDodgeChance>1</MeleeDodgeChance><VEF_RangedDodgeChance>0.01</VEF_RangedDodgeChance></statOffsets>
+		<statFactors><MeleeParryChance MayRequire="CETeam.CombatExtended">1.1</MeleeParryChance></statFactors>
       </li>
     </stages>
 	<comps>
@@ -148,7 +159,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_EquilibriumEar</defName>
     <label>equilibrium ear</label>
-    <description>An artificial ear which maintains a vastly superior sense of equilibrium, enhancing movement and dodging capabilities.\n\nThe moving and melee dodge benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <description>An artificial ear which maintains a vastly superior sense of equilibrium, enhancing movement and dodging capabilities.\n\nThe moving, melee dodge, and ranged dodge benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallEquilibriumEar</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicEar>1</BionicEar>
@@ -212,15 +223,18 @@
       <li>
 		<label>blind</label>
         <statOffsets><ShootingAccuracyPawn>2</ShootingAccuracyPawn><HuntingStealth>0.2</HuntingStealth><VEF_VerbRangeFactor>0.08</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+		<statFactors><Hauts_PilferingStealth>1.12</Hauts_PilferingStealth></statFactors>
       </li>
       <li>
         <minSeverity>1.001</minSeverity>
 		<label>half-blind</label>
         <statOffsets><ShootingAccuracyPawn>1.5</ShootingAccuracyPawn><HuntingStealth>0.15</HuntingStealth><VEF_VerbRangeFactor>0.06</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+		<statFactors><Hauts_PilferingStealth>1.09</Hauts_PilferingStealth></statFactors>
       </li>
       <li>
         <minSeverity>1.751</minSeverity>
         <statOffsets><ShootingAccuracyPawn>1</ShootingAccuracyPawn><HuntingStealth>0.1</HuntingStealth><VEF_VerbRangeFactor>0.04</VEF_VerbRangeFactor><MentalBreakThreshold>0.05</MentalBreakThreshold></statOffsets>
+		<statFactors><Hauts_PilferingStealth>1.06</Hauts_PilferingStealth></statFactors>
       </li>
     </stages>
 	<comps>
@@ -321,7 +335,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_RadioSurferEar</defName>
     <label>radio-surfer ear</label>
-    <description>An artificial ear which can perceive and interpret various long-range radio communications. The radio channel can be switched with a mental impulse, as can various aspects of audio quality and volume. The variety of available audio shows, music, and other forms of engaging content can be used for merriment, recreation, and even occasional insight into practical matters.\n\nThe joy fall rate benefit provided by this bionic strengthens if the host has weak or nonexistent vision.</description>
+    <description>An artificial ear which can perceive and interpret various long-range radio communications. The radio channel can be switched with a mental impulse, as can various aspects of audio quality and volume. The variety of available audio shows, music, and other forms of engaging content can be used for merriment, recreation, and even occasional insight into practical matters.\n\nThe joy fall rate benefit provided by this bionic strengthens if the host has weak or nonexistent vision; the research speed benefit is unaffected by sightedness.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallRadioSurferEar</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicEar>1</BionicEar>
@@ -470,16 +484,16 @@
     <stages>
       <li>
 		<label>blind</label>
-        <statOffsets><BondAnimalChanceFactor>0.2</BondAnimalChanceFactor><TameAnimalChance>0.2</TameAnimalChance><TrainAnimalChance>0.3</TrainAnimalChance></statOffsets>
+        <statOffsets><BondAnimalChanceFactor>0.2</BondAnimalChanceFactor><TameAnimalChance>0.2</TameAnimalChance><TrainAnimalChance>0.3</TrainAnimalChance><AnimalsLearningFactor>0.12</AnimalsLearningFactor></statOffsets>
       </li>
       <li>
         <minSeverity>1.001</minSeverity>
 		<label>half-blind</label>
-        <statOffsets><BondAnimalChanceFactor>0.15</BondAnimalChanceFactor><TameAnimalChance>0.15</TameAnimalChance><TrainAnimalChance>0.225</TrainAnimalChance></statOffsets>
+        <statOffsets><BondAnimalChanceFactor>0.15</BondAnimalChanceFactor><TameAnimalChance>0.15</TameAnimalChance><TrainAnimalChance>0.225</TrainAnimalChance><AnimalsLearningFactor>0.09</AnimalsLearningFactor></statOffsets>
       </li>
       <li>
         <minSeverity>1.751</minSeverity>
-        <statOffsets><BondAnimalChanceFactor>0.1</BondAnimalChanceFactor><TameAnimalChance>0.1</TameAnimalChance><TrainAnimalChance>0.15</TrainAnimalChance></statOffsets>
+        <statOffsets><BondAnimalChanceFactor>0.1</BondAnimalChanceFactor><TameAnimalChance>0.1</TameAnimalChance><TrainAnimalChance>0.15</TrainAnimalChance><AnimalsLearningFactor>0.06</AnimalsLearningFactor></statOffsets>
       </li>
     </stages>
 	<comps>
@@ -492,7 +506,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_ZoologistsEar</defName>
     <label>zoologist's ear</label>
-    <description>An artificial ear. In addition to the normal functions of a bionic ear, it is especially suited to picking out animal communications, even those outside normal human hearing range.\n\nThe animal tame, train, and bond chance benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
+    <description>An artificial ear. In addition to the normal functions of a bionic ear, it is especially suited to picking out animal communications, even those outside normal human hearing range.\n\nThe animal tame/train/bond chance and animals learning factor benefits provided by this bionic strengthen if the host has weak or nonexistent vision.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallZoologistsEar</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicEar>1</BionicEar>
@@ -735,6 +749,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -748,6 +764,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -760,6 +778,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>
@@ -777,6 +797,7 @@
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechEcholocator</RecipeDef></descriptionHyperlinks>
     <statBases>
 	  <MarketValue>3000</MarketValue>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardLowFreq</li>

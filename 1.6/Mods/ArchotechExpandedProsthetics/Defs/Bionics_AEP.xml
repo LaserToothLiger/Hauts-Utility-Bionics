@@ -1609,7 +1609,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_AEP_ArchotechIntercessor</defName>
     <label>advanced archotech intercessor</label>
-    <description>An advanced artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.\n\nThis advanced version can store up to 5 charges, and gains 1 charge every 4 hours (up from 12).</description>
+    <description>An advanced artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most limbs or internal organs, significantly bolstering their function. The primary purpose of an intercessor, however, is to protect its host; it builds charges of vanometric energy over time, and when the host would take damage, that energy is somehow expended to negate the damage fully. How this works is a mystery to all human minds.\n\nThis advanced version can store up to 5 charges, and gains 1 charge every 4 hours (up from 12).</description>
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechIntercessor</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>20000</MarketValue>
@@ -2482,7 +2482,7 @@
     <defName>HVB_AEP_ArchotechGeneratorLeg</defName>
     <label>advanced archotech generator leg</label>
     <labelNoun>an advanced archotech generator leg</labelNoun>
-    <description>An installed advanced archotech generator leg. Affects abilities granted by other bionics, and quarters the time it takes for an internal shield generator's shield to reset after being broken.</description>
+    <description>An installed advanced archotech generator leg. Affects abilities granted by other bionics, and quarters the time it takes for shieldpower bionics to reset after their shields break.</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGeneratorLeg</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechGeneratorLeg</spawnThingOnRemoved>
     <addedPartProps>
@@ -2513,7 +2513,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_AEP_ArchotechGeneratorLeg</defName>
     <label>advanced archotech generator leg</label>
-    <description>An advanced artificial leg built by an archotech. In addition to the already superb functions of an advanced archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for an internal shield generator to reset its shield after being broken, and prolong the amount of time the host can go without sleep.</description>
+    <description>An advanced artificial leg built by an archotech. In addition to the already superb functions of an advanced archotech leg, it generates energy from the body's motion, from vibrations in surfaces it makes contact with, and through miniature vanometric processes. This energy is used to fuel other bionics' abilities, lower the amount of time it takes for shieldpower bionics' shields to reset after being broken, and prolong the amount of time the host can go without sleep.</description>
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGeneratorLeg</RecipeDef></descriptionHyperlinks>
     <statBases>
 	  <MarketValue>20000</MarketValue>

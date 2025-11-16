@@ -588,7 +588,7 @@
     <defName>HVB_ShieldingAuxiliary</defName>
     <label>shielding auxiliary</label>
     <labelNoun>a shielding auxiliary</labelNoun>
-    <description>An installed shielding auxiliary. It boosts the maximum energy and recharge rate of an internal shield generator - however, it does not generate one of its own.</description>
+    <description>An installed shielding auxiliary. It boosts the maximum energy and recharge rate of shieldpower bionics - however, it does not generate a shield of its own.</description>
     <descriptionHyperlinks><ThingDef>HVB_AssistiveKidney</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AssistiveKidney</spawnThingOnRemoved>
     <addedPartProps>
@@ -609,7 +609,7 @@
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>HVB_InstallShieldingAuxiliary</defName>
     <label>install shielding auxiliary</label>
-    <description>Install a shielding auxiliary to increase the potency of internal shield generators on this individual. Note that it does not generate a shield of its own.</description>
+    <description>Install a shielding auxiliary to increase the potency of shieldpower bionics within this individual. Note that it does not generate a shield of its own.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_AssistiveKidney</ThingDef>
       <HediffDef>HVB_ShieldingAuxiliary</HediffDef>

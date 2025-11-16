@@ -91,6 +91,7 @@
 	  <li>
         <statOffsets>
 		  <MechControlGroups>5</MechControlGroups>
+		  <Suppressability MayRequire="CETeam.CombatExtended">-0.25</Suppressability>
         </statOffsets>
 	  </li>
     </stages>

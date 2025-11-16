@@ -191,19 +191,19 @@
 							</li>
 							<!--legs-->
 							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_JetLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
+							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
 							  <value>
 								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
 							  </value>
 							</li>
 							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_GeneratorLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]</xpath>
+							  <xpath>/Defs/HediffDef[defName="HVB_DancersLeg" or defName="HVB_LoadBearingLeg" or defName="HVB_PouncingLeg"]</xpath>
 							  <value>
 								<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
 							  </value>
 							</li>
 							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/HediffDef[defName="HVB_GeneratorLeg" or defName="HVB_JetLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]/comps</xpath>
+							  <xpath>/Defs/HediffDef[defName="HVB_GeneratorLeg" or defName="HVB_ArchotechEarthshaker" or defName="HVB_ArchotechGeneratorLeg"]/comps</xpath>
 							  <value>
 								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
 							  </value>
@@ -298,6 +298,33 @@
 										  <value>
 											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_LegModuleSlot</slotID><slotName>leg module slot</slotName><capacity>-1</capacity></li></slots></li>
 										  </value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Odyssey</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]</xpath>
+													  <value>
+														<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_VoidshardGravitonSpine"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+												</operations>
+											</match>
 										</li>
 										<li Class="PatchOperationFindMod">
 											<mods>
@@ -404,6 +431,66 @@
 							</li>
 							<li Class="PatchOperationFindMod">
 								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_StarlightSpine"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_ArchotechGravitonSpine"]</xpath>
+										  <value>
+											<comps><li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li></comps>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]</xpath>
+										  <value>
+											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+										  </value>
+										</li>
+										<li Class="PatchOperationAdd">
+										  <xpath>/Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/comps</xpath>
+										  <value>
+											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+										  </value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Archotech Expanded Prosthetics</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]</xpath>
+													  <value>
+														<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+												</operations>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
 									<li>Royalty</li>
 								</mods>
 								<match Class="PatchOperationSequence">
@@ -489,6 +576,27 @@
 										  <value>
 											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li></slots></li>
 										  </value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Big and Small - Sapient Animals</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]</xpath>
+													  <value>
+														<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
+													  </value>
+													</li>
+													<li Class="PatchOperationAdd">
+													  <xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]/comps</xpath>
+													  <value>
+														<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
+													  </value>
+													</li>
+												</operations>
+											</match>
 										</li>
 									</operations>
 								</match>

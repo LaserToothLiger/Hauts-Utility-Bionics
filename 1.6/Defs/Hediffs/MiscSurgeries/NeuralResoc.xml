@@ -31,6 +31,7 @@
 		  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.5</CertaintyLossFactor>
 		  <MinimumContainmentStrength MayRequire="Ludeon.RimWorld.Anomaly">0.7</MinimumContainmentStrength>
 		  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityMultiplier>
+		  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
 		</statFactors>
 		<disablesNeeds>
 		  <li>Joy</li>

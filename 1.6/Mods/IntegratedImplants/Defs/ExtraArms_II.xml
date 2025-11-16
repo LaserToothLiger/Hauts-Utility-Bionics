@@ -1516,7 +1516,7 @@
   </RecipeDef>
   
   <!--extra welding arms-->
-  <HediffDef ParentName="HVB_Lesigh">
+  <HediffDef ParentName="HVB_Lesigh" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_LeftWeldingArm</defName>
     <label>extra welding arm (left)</label>
     <labelNoun>an extra welding arm (left)</labelNoun>
@@ -1636,7 +1636,7 @@
     </comps>
 	<tags><li>ExtraLeftArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_InstallLeftWeldingArm</defName>
     <label>install extra welding arm (left)</label>
     <description>Install an extra welding arm (left).</description>
@@ -1667,7 +1667,7 @@
 	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_RemoveLeftWeldingArm</defName>
     <label>remove extra welding arm (left)</label>
     <description>Remove extra welding arm (left).</description>
@@ -1678,7 +1678,7 @@
     <jobString>Removing extra welding arm (left).</jobString>
     <removesHediff>HVB_LeftWeldingArm</removesHediff>
   </RecipeDef>
-  <HediffDef ParentName="HVB_Lesigh">
+  <HediffDef ParentName="HVB_Lesigh" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_RightWeldingArm</defName>
     <label>extra welding arm (right)</label>
     <labelNoun>an extra welding arm (right)</labelNoun>
@@ -1798,7 +1798,7 @@
     </comps>
 	<tags><li>ExtraRightArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_InstallRightWeldingArm</defName>
     <label>install extra welding arm (right)</label>
     <description>Install an extra welding arm (right).</description>
@@ -1829,7 +1829,7 @@
 	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_RemoveRightWeldingArm</defName>
     <label>remove extra welding arm (right)</label>
     <description>Remove extra welding arm (right).</description>

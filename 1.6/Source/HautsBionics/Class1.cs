@@ -787,7 +787,8 @@ namespace HautsBionics
         public override void AffectSelf()
         {
             base.AffectSelf();
-            GenExplosion.DoExplosion(this.parent.pawn.PositionHeld, this.parent.pawn.Map, Math.Min(this.Radius, this.Props.maxRadius), DamageDefOf.EMP, null, -1, -1f, null, null, null, null, null, 0f, 1, null, null, 255, false, null, 0f, 1, 0f, false, null, null, null, true, 1f, 0f, true, null, 1f);
+            List<Thing> ignoredThings = new List<Thing> { this.parent.pawn };
+            GenExplosion.DoExplosion(this.parent.pawn.PositionHeld, this.parent.pawn.Map, Math.Min(this.Radius, this.Props.maxRadius), DamageDefOf.EMP, null, -1, -1f, null, null, null, null, null, 0f, 1, null, null, 255, false, null, 0f, 1, 0f, false, null, ignoredThings, null, true, 1f, 0f, true, null, 1f);
         }
         public override bool VictimCounter()
         {

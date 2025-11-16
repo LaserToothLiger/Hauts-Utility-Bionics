@@ -353,6 +353,7 @@
         </capMods>
 		<statOffsets>
 		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.1</ThirstRateMultiplier>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0.025</SmokeSensitivity>
 		</statOffsets>
       </li>
       <li>
@@ -366,6 +367,7 @@
         </capMods>
 		<statOffsets>
 		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.2</ThirstRateMultiplier>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0.025</SmokeSensitivity>
 		</statOffsets>
       </li>
       <li>
@@ -379,6 +381,7 @@
         </capMods>
 		<statOffsets>
 		  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">-0.4</ThirstRateMultiplier>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0.025</SmokeSensitivity>
 		</statOffsets>
       </li>
     </stages>

@@ -6,14 +6,14 @@
     <defName>HVB_ShieldpowerGland</defName>
     <label>shieldpower gland</label>
     <labelNoun>a shieldpower gland</labelNoun>
-    <description>An installed shieldpower gland. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 0.4 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+    <description>An installed shieldpower gland. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 1 energy per second. If broken, the shield will reset after 1.28 hours.</description>
     <descriptionHyperlinks><ThingDef>HVB_ShieldpowerGland</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ShieldpowerGland</spawnThingOnRemoved>
     <comps>
 	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
         <maxEnergyOffset>33.33</maxEnergyOffset>
         <resetDelayFactor>1</resetDelayFactor>
-        <energyRegenOffset>0.4</energyRegenOffset>
+        <energyRegenOffset>1</energyRegenOffset>
         <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
 		<makesShield>true</makesShield>
       </li>

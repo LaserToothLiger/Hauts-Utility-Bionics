@@ -248,6 +248,7 @@
       <li>
         <statFactors>
 		  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">1.6</CarryWeight>
 		  <RestFallRateFactor>0.8</RestFallRateFactor>
         </statFactors>
       </li>
@@ -548,10 +549,11 @@
 		  <MeleeHitChance>4</MeleeHitChance>
         </statOffsets>
 		<statFactors>
-		  <CrawlSpeed>4</CrawlSpeed>
-		  <PawnTrapSpringChance>0</PawnTrapSpringChance>
 		  <CarryingCapacity>1.1</CarryingCapacity>
 		  <VEF_MassCarryCapacity>1.1</VEF_MassCarryCapacity>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">1.1</CarryWeight>
+		  <CrawlSpeed>4</CrawlSpeed>
+		  <PawnTrapSpringChance>0</PawnTrapSpringChance>
         </statFactors>
       </li>
 	</stages>

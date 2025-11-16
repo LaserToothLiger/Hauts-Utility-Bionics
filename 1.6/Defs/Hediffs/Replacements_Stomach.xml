@@ -283,7 +283,7 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HemogenCyclingStomach</defName>
     <label>hemogen-cycling stomach</label>
-    <description>Unlike the natural stomach of a bloodfeeder, this artificial stomach performs its digestive duties without metabolizing hemogen. This gives hemogen a much longer half-life.</description>
+    <description>This artificial stomach facilitates a unique digestive process which anabolically repairs decaying hemogen chains. This causes hemogen to decay 95% slower.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallHemogenCyclingStomach</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicStomach>1</BionicStomach>

@@ -6,23 +6,6 @@
 		</mods>
 		<match Class="PatchOperationSequence">
 			<operations>
-				<li Class="PatchOperationConditional">
-					<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]/nullifyingTraits</xpath>
-					<nomatch Class="PatchOperationAdd">
-						<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]</xpath>
-						<value>
-							<nullifyingTraits>
-								<li>HVT_Imperceptive</li>
-							</nullifyingTraits>
-						</value>
-					</nomatch>
-					<match Class="PatchOperationAdd">
-						<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]/nullifyingTraits</xpath>
-						<value>
-							<li>HVT_Imperceptive</li>
-						</value>
-					</match>
-				</li>
 				<li Class="PatchOperationFindMod">
 					<mods>
 					  <li>Biotech</li>
@@ -46,23 +29,6 @@
 					</nomatch>
 					<match Class="PatchOperationSequence">
 						<operations>
-							<li Class="PatchOperationConditional">
-								<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]/nullifyingGenes</xpath>
-								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]</xpath>
-									<value>
-										<nullifyingGenes>
-											<li>HVT_ImperceptiveGene</li>
-										</nullifyingGenes>
-									</value>
-								</nomatch>
-								<match Class="PatchOperationAdd">
-									<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]/nullifyingGenes</xpath>
-									<value>
-										<li>HVT_ImperceptiveGene</li>
-									</value>
-								</match>
-							</li>
 							<li Class="PatchOperationAddModExtension">
 								<xpath>/Defs/ThoughtDef[defName="HVB_GreatInhalation"]</xpath>
 								<value>
@@ -95,23 +61,6 @@
 					</mods>
 					<match Class="PatchOperationSequence">
 						<operations>
-							<li Class="PatchOperationConditional">
-								<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]/nullifyingTraits</xpath>
-								<nomatch Class="PatchOperationAdd">
-									<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]</xpath>
-									<value>
-										<nullifyingTraits>
-											<li>HVT_Imperceptive</li>
-										</nullifyingTraits>
-									</value>
-								</nomatch>
-								<match Class="PatchOperationAdd">
-									<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]/nullifyingTraits</xpath>
-									<value>
-										<li>HVT_Imperceptive</li>
-									</value>
-								</match>
-							</li>
 							<li Class="PatchOperationFindMod">
 								<mods>
 								  <li>Biotech</li>
@@ -135,23 +84,6 @@
 								</nomatch>
 								<match Class="PatchOperationSequence">
 									<operations>
-										<li Class="PatchOperationConditional">
-											<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]/nullifyingGenes</xpath>
-											<nomatch Class="PatchOperationAdd">
-												<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]</xpath>
-												<value>
-													<nullifyingGenes>
-														<li>HVT_ImperceptiveGene</li>
-													</nullifyingGenes>
-												</value>
-											</nomatch>
-											<match Class="PatchOperationAdd">
-												<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]/nullifyingGenes</xpath>
-												<value>
-													<li>HVT_ImperceptiveGene</li>
-												</value>
-											</match>
-										</li>
 										<li Class="PatchOperationAddModExtension">
 											<xpath>/Defs/ThoughtDef[defName="HVB_OldSpice"]</xpath>
 											<value>

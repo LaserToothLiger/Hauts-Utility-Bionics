@@ -57,6 +57,12 @@
         <description>I can smell everything. Eugh.</description>
       </li>
     </stages>
+    <nullifyingTraits>
+	  <li MayRequire="Hautarche.HautsTraits">HVT_Imperceptive</li>
+    </nullifyingTraits>
+    <nullifyingGenes>
+	  <li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_ImperceptiveGene</li>
+    </nullifyingGenes>
   </ThoughtDef>
   
   <ThoughtDef>
@@ -85,6 +91,12 @@
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
     </stages>
+    <nullifyingTraits>
+	  <li MayRequire="Hautarche.HautsTraits">HVT_Imperceptive</li>
+    </nullifyingTraits>
+    <nullifyingGenes>
+	  <li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_ImperceptiveGene</li>
+    </nullifyingGenes>
   </ThoughtDef>
   
   <ThoughtDef>

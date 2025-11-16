@@ -10,6 +10,9 @@
 	  <RecipeDef>HVB_InstallMarrowEnhancementGland</RecipeDef>
 	  <RecipeDef>HVB_InstallMetabolicEnhancerGland</RecipeDef>
 	  <RecipeDef>HVB_InstallRestfulSleepGland</RecipeDef>
+	  <RecipeDef>HVB_InstallFermentationGland</RecipeDef>
+	  <RecipeDef MayRequire="phil42.allergies">HVB_InstallAntihistamineGland</RecipeDef>
+	  <RecipeDef MayRequire="CETeam.CombatExtended">HVB_InstallUnflinchingGland</RecipeDef>
 	</descriptionHyperlinks>
     <costList>
       <Plasteel>5</Plasteel>
@@ -392,6 +395,65 @@
     </descriptionHyperlinks>
     <jobString>Removing antihistamine gland.</jobString>
     <removesHediff>HVB_AntihistamineGland</removesHediff>
+  </RecipeDef>
+  
+  <!--unflinching gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="CETeam.CombatExtended">
+    <defName>HVB_UnflinchingGland</defName>
+    <label>unflinching gland</label>
+    <labelNoun>an unflinching gland</labelNoun>
+    <description>An installed unflinching gland.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <Suppressability MayRequire="CETeam.CombatExtended">-0.4</Suppressability>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="CETeam.CombatExtended">
+    <defName>HVB_InstallUnflinchingGland</defName>
+    <label>install unflinching gland</label>
+    <description>Install an unflinching gland to increase resistance to the psychological effects of suppressing fire.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_UnflinchingGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing unflinching gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_UnflinchingGland</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_Thyroid</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="CETeam.CombatExtended">
+    <defName>HVB_RemoveUnflinchingGland</defName>
+    <label>remove unflinching gland</label>
+    <description>Remove unflinching gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_UnflinchingGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing unflinching gland.</jobString>
+    <removesHediff>HVB_UnflinchingGland</removesHediff>
   </RecipeDef>
   
 </Defs>

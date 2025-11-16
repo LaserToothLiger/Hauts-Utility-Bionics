@@ -127,7 +127,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>programmable limb</label>
+            <label>programmable limb</label><!--finally, kicks in rimworld-->
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -193,22 +193,6 @@
   </RecipeDef>
   
   <!--aquadynamic limb-->
-  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="pathfinding.framework">
-    <defName>HVB_EnoughFinsToSwim</defName>
-    <label>amphibious movement unlocked</label>
-    <description>This character has sufficient bionic fins to swim easily.</description>
-	<hediffClass>HautsBionics.Hediff_SwimUnlocked</hediffClass>
-    <stages>
-      <li>
-	    <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
-    <modExtensions>
-      <li Class="PathfindingFramework.MovementExtension">
-        <movementDef>PF_Movement_Amphibious</movementDef>
-      </li>
-    </modExtensions>
-  </HediffDef>
   <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
     <defName>HVB_AquadynamicLimb</defName>
     <label>aquadynamic limb</label>

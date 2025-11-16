@@ -244,6 +244,33 @@
     </comps>
   </AbilityDef>
   
+  <!--Knuckle cannons-->
+  <AbilityDef>
+    <defName>HVB_KnuckleShot</defName>
+    <label>knuckleshot</label>
+    <description>Fire a knuckle cannon at the target with unerring accuracy.</description>
+    <iconPath>Weapons/HUB_KnuckleCannons</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <cooldownTicksRange>12000</cooldownTicksRange>
+	<cooldownPerCharge>true</cooldownPerCharge>
+    <writeCombatLog>True</writeCombatLog>
+	<charges>5</charges>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.1</warmupTime>
+      <soundCast>Shot_Shotgun</soundCast>
+	  <soundCastTail>GunTail_Heavy</soundCastTail>
+      <ai_IsWeapon>false</ai_IsWeapon>
+	  <muzzleFlashScale>9</muzzleFlashScale>
+      <range>12.9</range>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Bullet_Shotgun</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
   <!--Archotech breathtaker-->
   <AbilityDef>
     <defName>HVB_ToggleBreathtaker</defName>

@@ -358,7 +358,7 @@
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_ArchotechGravitonShielder</defName>
     <label>archotech graviton shielder</label>
-    <description>An implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but does not regenerate.</description>
+    <description>An implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but it also does not regenerate.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonShielder</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>2000</MarketValue>
