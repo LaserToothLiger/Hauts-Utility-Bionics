@@ -127,7 +127,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>programmable limb</label><!--finally, kicks in rimworld-->
+            <label>strike</label><!--finally, kicks in rimworld-->
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -238,7 +238,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>aquadynamic limb</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -434,7 +434,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>programmable limb</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>

@@ -334,7 +334,7 @@
     <defName>HVB_ArchotechGravitonShielder</defName>
     <label>archotech graviton shielder</label>
     <labelNoun>an archotech graviton shielder</labelNoun>
-    <description>An installed archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs and does not prevent the host from using ranged attacks.</description>
+    <description>An installed archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs, is roughly ten times as strong, and does not prevent the host from using ranged attacks.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonShielder</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechGravitonShielder</spawnThingOnRemoved>
 	<minSeverity>0.001</minSeverity>
@@ -358,7 +358,7 @@
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_ArchotechGravitonShielder</defName>
     <label>archotech graviton shielder</label>
-    <description>An implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but it also does not regenerate.</description>
+    <description>An implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield is ten times as strong as a normal-quality shield belt, lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but it also does not regenerate.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonShielder</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>2000</MarketValue>

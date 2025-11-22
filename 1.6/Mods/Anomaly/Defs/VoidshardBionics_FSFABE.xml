@@ -436,14 +436,6 @@
 				<li>HVB_DownsideIncubator</li>
 			  </downsides>
 		    </li>
-		  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
-			<increasedCooldownRecovery>0.1</increasedCooldownRecovery>
-			<affectedAbilities>
-				<li>FSFArchotechMedic</li>
-				<li>FSFArchotechHealSerum</li>
-			</affectedAbilities>
-			<multiplyBySeverity>true</multiplyBySeverity>
-		  </li>
 		</comps>
 		<tags><li>ArmorGland</li></tags>
 	</HediffDef>

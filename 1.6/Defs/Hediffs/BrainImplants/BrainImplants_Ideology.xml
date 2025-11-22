@@ -474,6 +474,7 @@
         </capMods>
         <statOffsets>
           <ConversionPower>0.20</ConversionPower>
+          <Suppressability MayRequire="CETeam.CombatExtended">-1</Suppressability>
         </statOffsets>
         <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
       </li>

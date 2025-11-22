@@ -37,26 +37,31 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
 	  <li>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.7</NightVisionEfficiency></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.8</NightVisionEfficiency></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.9</NightVisionEfficiency></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency></statOffsets>
       </li>
     </stages>
     <comps>

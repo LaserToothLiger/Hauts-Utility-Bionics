@@ -701,34 +701,34 @@
     <stages>
       <li>
         <statOffsets><MeleeDodgeChance>4</MeleeDodgeChance><MeleeHitChance>4</MeleeHitChance></statOffsets>
-		<statFactors><CrawlSpeed>4</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.1</CarryingCapacity><VEF_MassCarryCapacity>1.1</VEF_MassCarryCapacity></statFactors>
+		<statFactors><CrawlSpeed>4</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.1</CarryingCapacity><VEF_MassCarryCapacity>1.1</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">1.1</CarryWeight></statFactors>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
         <statOffsets><MeleeDodgeChance>4.6</MeleeDodgeChance><MeleeHitChance>4.6</MeleeHitChance></statOffsets>
-		<statFactors><CrawlSpeed>5</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.4</CarryingCapacity><VEF_MassCarryCapacity>1.4</VEF_MassCarryCapacity></statFactors>
+		<statFactors><CrawlSpeed>5</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.4</CarryingCapacity><VEF_MassCarryCapacity>1.4</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">1.4</CarryWeight></statFactors>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
         <statOffsets><MeleeDodgeChance>5.2</MeleeDodgeChance><MeleeHitChance>5.2</MeleeHitChance></statOffsets>
-		<statFactors><CrawlSpeed>6</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.7</CarryingCapacity><VEF_MassCarryCapacity>1.7</VEF_MassCarryCapacity></statFactors>
+		<statFactors><CrawlSpeed>6</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>1.7</CarryingCapacity><VEF_MassCarryCapacity>1.7</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">1.7</CarryWeight></statFactors>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
         <statOffsets><MeleeDodgeChance>5.8</MeleeDodgeChance><MeleeHitChance>5.8</MeleeHitChance></statOffsets>
-		<statFactors><CrawlSpeed>7</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>2</CarryingCapacity><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity></statFactors>
+		<statFactors><CrawlSpeed>7</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>2</CarryingCapacity><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2</CarryWeight></statFactors>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
         <statOffsets><MeleeDodgeChance>6.4</MeleeDodgeChance><MeleeHitChance>6.4</MeleeHitChance></statOffsets>
-		<statFactors><CrawlSpeed>8</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>2.3</CarryingCapacity><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity></statFactors>
+		<statFactors><CrawlSpeed>8</CrawlSpeed><PawnTrapSpringChance>0</PawnTrapSpringChance><CarryingCapacity>2.3</CarryingCapacity><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2.3</CarryWeight></statFactors>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
       </li>
     </stages>

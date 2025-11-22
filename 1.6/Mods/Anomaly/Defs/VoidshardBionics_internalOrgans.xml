@@ -127,6 +127,7 @@
 			  <GlobalLearningFactor>0.95</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.95</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.9</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.8</Suppressability>
 			</statFactors>
 			<opinionOfOthersFactor>0.95</opinionOfOthersFactor>
 			<socialFightChanceFactor>0.9</socialFightChanceFactor>
@@ -137,6 +138,7 @@
 			  <GlobalLearningFactor>0.9</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.9</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.8</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.6</Suppressability>
 			</statFactors>
 			<opinionOfOthersFactor>0.9</opinionOfOthersFactor>
 			<socialFightChanceFactor>0.84</socialFightChanceFactor>
@@ -147,6 +149,7 @@
 			  <GlobalLearningFactor>0.84</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.84</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.7</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.4</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.84</opinionOfOthersFactor>
@@ -158,6 +161,7 @@
 			  <GlobalLearningFactor>0.78</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.78</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.6</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.2</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.78</opinionOfOthersFactor>
@@ -169,6 +173,7 @@
 			  <GlobalLearningFactor>0.71</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.71</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.5</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.1</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-0.5</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.71</opinionOfOthersFactor>
@@ -180,6 +185,7 @@
 			  <GlobalLearningFactor>0.64</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.64</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.4</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.05</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.64</opinionOfOthersFactor>
@@ -191,6 +197,7 @@
 			  <GlobalLearningFactor>0.56</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.56</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.3</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.56</opinionOfOthersFactor>
@@ -202,6 +209,7 @@
 			  <GlobalLearningFactor>0.48</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.48</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.2</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-1</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.48</opinionOfOthersFactor>
@@ -213,6 +221,7 @@
 			  <GlobalLearningFactor>0.39</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.39</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.1</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-1.5</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.39</opinionOfOthersFactor>
@@ -224,6 +233,7 @@
 			  <GlobalLearningFactor>0.3</GlobalLearningFactor>
 			  <MentalBreakThreshold>0.3</MentalBreakThreshold>
 			  <Fertility MayRequire="Ludeon.RimWorld.Biotech">0</Fertility>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
 			</statFactors>
 			<statOffsets><PawnBeauty>-1.5</PawnBeauty></statOffsets>
 			<opinionOfOthersFactor>0.3</opinionOfOthersFactor>
@@ -684,31 +694,31 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
 	  <li>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.1</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.1</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.15</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.15</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.2</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.2</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.2</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.25</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.25</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.25</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.3</SmokeSensitivity></statOffsets>
       </li>
     </stages>
     <comps>
@@ -801,35 +811,35 @@
     <stages>
 	  <li>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.3</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.36</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.42</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.48</SmokeSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.54</SmokeSensitivity></statOffsets>
       </li>
     </stages>
     <comps>
@@ -1106,35 +1116,35 @@
     <stages>
 	  <li>
         <statOffsets><MeleeDamageFactor>1.25</MeleeDamageFactor><MoveSpeed>0.4</MoveSpeed><VEF_BodySize_Offset>1</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
-		<statFactors><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity></statFactors>
+		<statFactors><VEF_MassCarryCapacity>2</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2</CarryWeight></statFactors>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
         <statOffsets><MeleeDamageFactor>1.35</MeleeDamageFactor><MoveSpeed>0.44</MoveSpeed><VEF_BodySize_Offset>1.05</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
-		<statFactors><VEF_MassCarryCapacity>2.1</VEF_MassCarryCapacity></statFactors>
+		<statFactors><VEF_MassCarryCapacity>2.1</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2.1</CarryWeight></statFactors>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
         <statOffsets><MeleeDamageFactor>1.45</MeleeDamageFactor><MoveSpeed>0.48</MoveSpeed><VEF_BodySize_Offset>1.10</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
-		<statFactors><VEF_MassCarryCapacity>2.2</VEF_MassCarryCapacity></statFactors>
+		<statFactors><VEF_MassCarryCapacity>2.2</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2.2</CarryWeight></statFactors>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
         <statOffsets><MeleeDamageFactor>1.55</MeleeDamageFactor><MoveSpeed>0.52</MoveSpeed><VEF_BodySize_Offset>1.15</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
-		<statFactors><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity></statFactors>
+		<statFactors><VEF_MassCarryCapacity>2.3</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2.3</CarryWeight></statFactors>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.5</partEfficiencyOffset>
         <statOffsets><MeleeDamageFactor>1.65</MeleeDamageFactor><MoveSpeed>0.56</MoveSpeed><VEF_BodySize_Offset>1.2</VEF_BodySize_Offset><PawnBeauty>-1</PawnBeauty></statOffsets>
-		<statFactors><VEF_MassCarryCapacity>2.4</VEF_MassCarryCapacity></statFactors>
+		<statFactors><VEF_MassCarryCapacity>2.4</VEF_MassCarryCapacity><CarryWeight MayRequire="CETeam.CombatExtended">2.4</CarryWeight></statFactors>
       </li>
     </stages>
     <comps>
@@ -1304,7 +1314,7 @@
     <defName>HVB_VoidshardIntercessor</defName>
     <label>voidshard intercessor</label>
     <labelNoun>a voidshard intercessor</labelNoun>
-    <description>An installed dark archotech intercessor. Gains 1 charge every 12 hours, up to a max of 2 charges; when damage is taken, 1 charge is spent to nullify it.</description>
+    <description>An installed dark archotech intercessor. Gains 1 charge every 12 hours, up to a max of 2 charges (plus two per anomalous activity level); when damage is taken, 1 charge is spent to nullify it.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechIntercessor</spawnThingOnRemoved>
     <addedPartProps>
@@ -1319,22 +1329,22 @@
 	  <li>
       </li>
 	  <li>
-        <minSeverity>3</minSeverity>
+        <minSeverity>2</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
       </li>
 	  <li>
-        <minSeverity>4</minSeverity>
+        <minSeverity>3</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
       </li>
 	  <li>
-        <minSeverity>5</minSeverity>
+        <minSeverity>4</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
       </li>
 	  <li>
-        <minSeverity>6</minSeverity>
+        <minSeverity>5</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
       </li>
@@ -1342,14 +1352,14 @@
     <comps>
 	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
 		<severityAtEachLevel>
-			<li><key>1</key><value>3</value></li>
-			<li><key>2</key><value>4</value></li>
-			<li><key>3</key><value>5</value></li>
-			<li><key>4</key><value>5</value></li>
-			<li><key>5</key><value>6</value></li>
-			<li><key>6</key><value>4</value></li>
+			<li><key>1</key><value>2</value></li>
+			<li><key>2</key><value>3</value></li>
+			<li><key>3</key><value>4</value></li>
+			<li><key>4</key><value>4</value></li>
+			<li><key>5</key><value>5</value></li>
+			<li><key>6</key><value>3</value></li>
 		</severityAtEachLevel>
-		<defaultSeverity>2</defaultSeverity>
+		<defaultSeverity>1</defaultSeverity>
 	  </li>
 	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
         <letterLabel>Voidshard removed</letterLabel>
@@ -1366,7 +1376,7 @@
 		<hediffGiven>HVB_DamageBlock</hediffGiven>
 		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
 		<startingCharges>1</startingCharges>
-		<maxStoredCharges>1</maxStoredCharges>
+		<maxStoredCharges>2</maxStoredCharges>
 		<maxChargesScaleWithSeverity>true</maxChargesScaleWithSeverity>
 		<severityToGive>1</severityToGive>
 		<showProgressInTooltip>true</showProgressInTooltip>

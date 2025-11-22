@@ -72,7 +72,7 @@
   <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>HVB_InstallVoidshardPsySkull</defName>
     <label>upgrade psyfocus recapture mesh with shards</label>
-    <description>Alter a psyfocus recapture mesh by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and nullifying any mood penalties from various eldritch sounds.</description>
+    <description>Alter a psyfocus recapture mesh by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and nullifying mood penalties from various eldritch sounds.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_PsyfocusRecaptureMesh</ThingDef>
       <HediffDef>HVB_VoidshardPsySkull</HediffDef>
@@ -177,13 +177,14 @@
       <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
         <verbs>
 			<li>
-			  <verbClass>Verb_Shoot</verbClass>
+			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
 			  <label>voidshard death glare</label>
 			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>HVB_Bullet_VDG</defaultProjectile>
-			  <warmupTime>5</warmupTime>
+			  <defaultProjectile>HVB_BulletPoisonEye</defaultProjectile>
+			  <warmupTime>3</warmupTime>
 			  <range>45.9</range>
-			  <burstShotCount>1</burstShotCount>
+			  <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+			  <burstShotCount>7</burstShotCount>
 			  <soundCast>Shot_ChargeBlaster</soundCast>
 			  <soundCastTail>GunTail_Heavy</soundCastTail>
 			  <muzzleFlashScale>9</muzzleFlashScale>
@@ -201,7 +202,7 @@
 					<uniqueTargets>false</uniqueTargets>
               </li>
             </comps>
-			  <description>Fires an explosive energy bolt at high velocity. Each is charged with unstable energy as it leaves the miniaturized acceleration rail.</description>
+			  <description>Fires a stream of biotoxic slugs at high velocity. Each disrupts the nervous system of any biological creature that has been struck, although larger creatures are more resistant. Can be fired while performing other tasks.</description>
 			</li>
 		</verbProps>
       </li>
@@ -210,7 +211,7 @@
   <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
     <defName>HVB_InstallVoidshardDeathGlre</defName>
     <label>upgrade archotech death glare with shards</label>
-    <description>Alter an archotech death glare by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and transforming its attack into an explosive blast with a long wind-up.</description>
+    <description>Alter an archotech death glare by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and transforming its attack into a stream of biotoxic bolts which stun living creatures in the same way a nerve spiker does.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchotechDeathGlare</ThingDef>
       <HediffDef>HVB_VoidshardDeathGlare</HediffDef>
@@ -232,6 +233,20 @@
     <addsHediff>HVB_VoidshardDeathGlare</addsHediff>
 	<removesHediff>HVB_ArchotechDeathGlare</removesHediff>
   </RecipeDef>
+	  <ThingDef ParentName="BaseBullet">
+		<defName>HVB_BulletPoisonEye</defName>
+		<label>voidshard death glare shot</label>
+		<graphicData>
+		  <texPath>Things/Projectile/Nociosphere_Heatspike</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+		  <damageDef>Nerve</damageDef>
+		  <damageAmountBase>11</damageAmountBase>
+		  <speed>90</speed>
+		</projectile>
+	  </ThingDef>
   
   <!--echolocator-->
   <HediffDef ParentName="AddedBodyPartBase">
@@ -259,6 +274,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
 	  <li>
@@ -272,6 +289,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.7</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.7</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
 	  <li>
@@ -285,6 +304,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.8</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.8</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
 	  <li>
@@ -298,6 +319,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.9</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.9</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
 	  <li>
@@ -311,6 +334,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>

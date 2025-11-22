@@ -111,8 +111,9 @@
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_RupturingLimb</defName>
     <label>rupturing limb</label>
-    <description>A modified human limb with a bioferrite-lined inner reservoir which accumulates acid over the course of a day. The stored acid is sufficient to augment two attacks with bonus damage per day.</description>
+    <description>A modified human limb with a bioferrite-lined inner reservoir that produces and stores a highly corrosive acid. Each melee attack has a 60% chance to deal bonus acid damage.</description>
     <spawnThingOnRemoved>HVB_RupturingLimb</spawnThingOnRemoved>
+	<hediffClass>HautsFramework.Hediff_AddedPartHasExtraOnHitEffects</hediffClass>
     <addedPartProps>
       <solid>true</solid>
     </addedPartProps>
@@ -130,44 +131,27 @@
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>2</severityPerDay>
       </li>
-      <li Class="HautsFramework.HediffCompProperties_CreateHediffBySpendingSeverity">
-        <severityToTrigger>1</severityToTrigger>
-		<hediffGiven>HVB_SingleAcidAttack</hediffGiven>
-		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
-		<severityToGive>1</severityToGive>
-		<showProgressInTooltip>true</showProgressInTooltip>
-      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
+		<extraDamages>
+		  <li>
+			<def>AcidBurn</def>
+			<amount>4</amount>
+			<chance>0.6</chance>
+			<armorPenetration>0.5</armorPenetration>
+		  </li>
+		</extraDamages>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<damageScaling>false</damageScaling>
+		<cellRange>1.42</cellRange>
+		<severityChangeOnHit>-1</severityChangeOnHit>
+		<showTooltip>false</showTooltip>
+	  </li>
 	</comps>
   </HediffDef>
-	<HediffDef ParentName="HVT_TraitHediffBase">
-		<defName>HVB_SingleAcidAttack</defName>
-		<label>primed acid attack</label>
-		<description>When this ghoul lands a blow in melee, acid will spray onto the victim, doing +12 extra damage.</description>
-		<hediffClass>HautsFramework.Hediff_HasExtraOnHitEffects</hediffClass>
-		<initialSeverity>1</initialSeverity>
-		<maxSeverity>1</maxSeverity>
-		<comps>
-		  <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
-			<extraDamages>
-			  <li>
-				<def>AcidBurn</def>
-				<amount>12</amount>
-				<chance>1</chance>
-				<armorPenetration>0.5</armorPenetration>
-			  </li>
-			</extraDamages>
-			<appliedViaAttacks>true</appliedViaAttacks>
-			<damageScaling>false</damageScaling>
-			<cellRange>1.42</cellRange>
-			<severityChangeOnHit>-1</severityChangeOnHit>
-			<showTooltip>false</showTooltip>
-		  </li>
-		</comps>
-	</HediffDef>
   <ThingDef ParentName="BodyPartGhoulBase">
     <defName>HVB_RupturingLimb</defName>
     <label>rupturing limb</label>
-    <description>A bioferrite cavity embedded into a ghoul's limb. It accumulates acid which is discharged on attack for bonus damage.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <description>A bioferrite cavity embedded into a ghoul's limb. It accumulates acid which has a 60% chance to be discharged on any melee attack, doing bonus damage.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallRupturingLimb</RecipeDef></descriptionHyperlinks>
     <statBases>
       <Mass>0.3</Mass>
@@ -600,7 +584,7 @@
     <stages>
       <li>
         <statOffsets>
-          <StaggerDurationFactor>0.2</StaggerDurationFactor>
+          <StaggerDurationFactor>0.18</StaggerDurationFactor>
         </statOffsets>
       </li>
     </stages>

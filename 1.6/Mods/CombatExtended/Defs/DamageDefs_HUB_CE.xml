@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BaseBulletCE" MayRequire="Ludeon.RimWorld.Anomaly">
+	<defName>HVB_BulletPoisonEye_CE</defName>
+	<thingClass>CombatExtended.BulletCE</thingClass>
+	<label>voidshard death glare shot</label>
+	<graphicData>
+	  <texPath>Things/Projectile/Nociosphere_Heatspike</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <shaderType>TransparentPostLight</shaderType>
+	</graphicData>
+	<projectile Class="CombatExtended.ProjectilePropertiesCE">
+		<damageDef>Nerve</damageDef>
+		<damageAmountBase>11</damageAmountBase>
+		<speed>54</speed>
+		<armorPenetrationSharp>20</armorPenetrationSharp>
+		<armorPenetrationBlunt>1</armorPenetrationBlunt>
+	</projectile>
+  </ThingDef>
+</Defs>

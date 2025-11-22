@@ -693,7 +693,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>programmable limb</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -870,7 +870,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>programmable limb</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -1216,6 +1216,7 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
         </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
@@ -1224,10 +1225,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>-0.2</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1238,6 +1235,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.01</MeleeParryChance>
         </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
@@ -1245,10 +1244,6 @@
 		<capMods>
           <li>
             <capacity>Manipulation</capacity>
-            <offset>-0.05</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
             <offset>-0.05</offset>
           </li>
         </capMods>
@@ -1260,6 +1255,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.015</MeleeParryChance>
         </statOffsets>
         <statFactors>
 		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
@@ -1268,10 +1265,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>0.10</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1282,6 +1275,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.02</MeleeParryChance>
         </statOffsets>
         <statFactors>
 		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
@@ -1290,10 +1285,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>0.25</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1372,6 +1363,7 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
         </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
@@ -1380,10 +1372,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>-0.2</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1394,6 +1382,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.01</MeleeParryChance>
         </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
@@ -1401,10 +1391,6 @@
 		<capMods>
           <li>
             <capacity>Manipulation</capacity>
-            <offset>-0.05</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
             <offset>-0.05</offset>
           </li>
         </capMods>
@@ -1416,6 +1402,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.015</MeleeParryChance>
         </statOffsets>
         <statFactors>
 		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
@@ -1424,10 +1412,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>0.10</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1438,6 +1422,8 @@
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
+		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.02</MeleeParryChance>
         </statOffsets>
         <statFactors>
 		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
@@ -1446,10 +1432,6 @@
           <li>
             <capacity>Manipulation</capacity>
             <offset>0.25</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
           </li>
         </capMods>
       </li>
@@ -1984,7 +1966,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>fist</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -2178,7 +2160,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>fist</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -2895,7 +2877,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>fist</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>
@@ -3089,7 +3071,7 @@
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
-            <label>fist</label>
+            <label>strike</label>
             <capacities>
               <li>Blunt</li>
             </capacities>

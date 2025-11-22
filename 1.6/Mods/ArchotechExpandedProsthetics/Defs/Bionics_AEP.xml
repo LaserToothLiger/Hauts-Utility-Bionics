@@ -6,7 +6,7 @@
     <defName>HVB_AEP_ArchotechDeathGlare</defName>
     <label>advanced archotech death glare</label>
     <labelNoun>an advanced archotech death glare</labelNoun>
-    <description>An installed advanced archotech "death glare". Can fire at targets independently, even in melee.</description>
+    <description>An installed advanced archotech "death glare".</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechDeathGlare</spawnThingOnRemoved>
     <woundAnchorRange>0</woundAnchorRange>
@@ -15,6 +15,13 @@
       <solid>true</solid>
       <partEfficiency>2.50</partEfficiency>
     </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
+        </statOffsets>
+      </li>
+    </stages>
     <renderNodeProperties>
       <li Class="PawnRenderNodeProperties_Eye">
         <workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
@@ -76,6 +83,7 @@
     <statBases>
       <Mass>0.3</Mass>
 	  <MarketValue>20000</MarketValue>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
     </statBases>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
@@ -148,101 +156,121 @@
         <minSeverity>1</minSeverity>
         <label>1 Int</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>2</minSeverity>
         <label>2 Int</label>
 		<partEfficiencyOffset>0.6</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.4</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>3</minSeverity>
         <label>3 Int</label>
 		<partEfficiencyOffset>0.9</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>4</minSeverity>
         <label>4 Int</label>
 		<partEfficiencyOffset>1.2</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.8</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>5</minSeverity>
         <label>5 Int</label>
 		<partEfficiencyOffset>1.5</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>6</minSeverity>
         <label>6 Int</label>
 		<partEfficiencyOffset>1.8</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1.2</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>7</minSeverity>
         <label>7 Int</label>
 		<partEfficiencyOffset>2.1</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1.4</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>8</minSeverity>
         <label>8 Int</label>
 		<partEfficiencyOffset>2.4</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1.6</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>9</minSeverity>
         <label>9 Int</label>
 		<partEfficiencyOffset>2.7</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">1.8</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>10</minSeverity>
         <label>10 Int</label>
 		<partEfficiencyOffset>3</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">2</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>11</minSeverity>
         <label>11 Int</label>
 		<partEfficiencyOffset>3.3</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">2.2</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>12</minSeverity>
         <label>12 Int</label>
 		<partEfficiencyOffset>3.6</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">2.4</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>13</minSeverity>
         <label>13 Int</label>
 		<partEfficiencyOffset>3.9</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">2.6</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>14</minSeverity>
         <label>14 Int</label>
 		<partEfficiencyOffset>4.2</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">2.8</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>15</minSeverity>
         <label>15 Int</label>
 		<partEfficiencyOffset>4.5</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">3</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>16</minSeverity>
         <label>16 Int</label>
 		<partEfficiencyOffset>4.8</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">3.2</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>17</minSeverity>
         <label>17 Int</label>
 		<partEfficiencyOffset>5.1</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">3.4</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>18</minSeverity>
         <label>18 Int</label>
 		<partEfficiencyOffset>5.4</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">3.6</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>19</minSeverity>
         <label>19 Int</label>
 		<partEfficiencyOffset>5.7</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">3.8</NightVisionEfficiency></statOffsets>
       </li>
       <li>
         <minSeverity>20</minSeverity>
         <label>20 Int</label>
 		<partEfficiencyOffset>6</partEfficiencyOffset>
+		<statOffsets><NightVisionEfficiency MayRequire="CETeam.CombatExtended">4</NightVisionEfficiency></statOffsets>
       </li>
 	</stages>
     <comps>
@@ -317,6 +345,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -330,6 +360,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -342,6 +374,8 @@
         <capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
+		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>
@@ -359,6 +393,7 @@
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechEcholocator</RecipeDef></descriptionHyperlinks>
     <statBases>
 	  <MarketValue>20000</MarketValue>
+	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">1</NightVisionEfficiency_Implant>
     </statBases>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
@@ -566,6 +601,7 @@
         </capMods>
         <statOffsets>
           <ConversionPower>1.2</ConversionPower>
+          <Suppressability MayRequire="CETeam.CombatExtended">-1</Suppressability>
         </statOffsets>
         <statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
       </li>
@@ -929,7 +965,7 @@
     <defName>HVB_AEP_ArchotechGravitonShielder</defName>
     <label>advanced archotech graviton shielder</label>
     <labelNoun>an archotech graviton shielder</labelNoun>
-    <description>An installed advanced archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs and does not prevent the host from using ranged attacks.</description>
+    <description>An installed advanced archotech graviton shielder implant. Once exposed to the gravitic flux of a gravship in flight, it generates a shield.\n\nUnlike a regular shield, it does not regenerate over time, but it cannot be destroyed by EMPs, is roughly thirty times as strong, and does not prevent the host from using ranged attacks.</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGravitonShielder</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonShielder</spawnThingOnRemoved>
 	<minSeverity>0.001</minSeverity>
@@ -953,7 +989,7 @@
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>HVB_AEP_ArchotechGravitonShielder</defName>
     <label>advanced archotech graviton shielder</label>
-    <description>An advanced implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but does not regenerate.</description>
+    <description>An advanced implanted organ which absorbs graviton emissions while flying on a gravship to produce a durable projectile-repulsion field. This shield is thirty times as strong as a normal-quality shield belt, lasts until destroyed, isn't broken by EMPs, and does not prevent the host from using ranged attacks, but does not regenerate.</description>
     <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGravitonShielder</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>10000</MarketValue>
@@ -1147,6 +1183,7 @@
         <statOffsets>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
 		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.6</SmokeSensitivity>
         </statOffsets>
       </li>
     </stages>
@@ -1227,6 +1264,9 @@
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity>
 		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </statOffsets>
+		<statFactors>
+		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0</SmokeSensitivity>
+		</statFactors>
       </li>
     </stages>
     <comps>
@@ -1474,6 +1514,7 @@
         </statOffsets>
 		<statFactors>
 		  <VEF_MassCarryCapacity>6</VEF_MassCarryCapacity>
+		  <CarryWeight MayRequire="CETeam.CombatExtended">6</CarryWeight>
 		</statFactors>
       </li>
     </stages>
@@ -1587,7 +1628,7 @@
     <defName>HVB_AEP_ArchotechIntercessor</defName>
     <label>advanced archotech intercessor</label>
     <labelNoun>an advanced archotech intercessor</labelNoun>
-    <description>An installed advanced archotech intercessor. Gains 1 charge per 4 hours, up to a max of 5 charges; whenever damage is taken, 1 charge is spent to nullify it.</description>
+    <description>An installed advanced archotech intercessor. Gains 1 charge every 4 hours, up to a max of 5 charges; whenever damage is taken, 1 charge is spent to nullify it.</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechIntercessor</spawnThingOnRemoved>
     <addedPartProps>

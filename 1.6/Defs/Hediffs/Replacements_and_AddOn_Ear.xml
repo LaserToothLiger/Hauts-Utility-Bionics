@@ -27,7 +27,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -40,7 +40,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -52,7 +52,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">0.5</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>
@@ -750,7 +750,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -765,7 +765,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
       <li>
@@ -779,7 +779,7 @@
 		<statOffsets>
 		  <LTS_DarkVision MayRequire="lts.I">1</LTS_DarkVision>
 		  <NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency>
-	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
+		  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.6</NightVisionEfficiency_Implant>
 		</statOffsets>
       </li>
     </stages>

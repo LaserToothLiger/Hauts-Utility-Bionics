@@ -281,16 +281,12 @@
     </addedPartProps>
     <stages>
       <li>
-        <capMods>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.05</offset>
-          </li>
-        </capMods>
         <statOffsets>
           <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
           <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
           <ArmorRating_Heat>0.3</ArmorRating_Heat>
+		  <MoveSpeed>-0.25</MoveSpeed>
+		  <MeleeDodgeChance>-1</MeleeDodgeChance>
 		  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.02</MeleeParryChance>
         </statOffsets>
       </li>

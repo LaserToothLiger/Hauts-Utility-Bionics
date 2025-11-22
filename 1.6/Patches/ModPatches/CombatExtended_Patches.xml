@@ -20,9 +20,15 @@
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/AbilityDef[defName="HVB_BionicPounce"]/verbProperties/range</xpath>
+					<xpath>Defs/AbilityDef[defName="HVB_BionicYank"]/verbProperties/range</xpath>
 					<value>
-						<range>20</range>
+						<range>13</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
+					<value>
+						<range>24</range>
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
@@ -142,18 +148,11 @@
 						<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
 					</value>
 				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets</xpath>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
 					<value>
-						<MoveSpeed>-0.25</MoveSpeed>
 						<MeleeDodgeChance>-0.03</MeleeDodgeChance>
 					</value>
-				</li>
-				<li Class="PatchOperationConditional">
-					<xpath>/Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/capMods</xpath>
-					<match Class="PatchOperationRemove">
-						<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/capMods</xpath>
-					</match>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
@@ -295,7 +294,7 @@
 					<value>
 						<tools>
 							<li Class="CombatExtended.ToolCE">
-								<label>programmable limb</label>
+								<label>strike</label>
 								<capacities>
 									<li>Blunt</li>
 								</capacities>
@@ -313,7 +312,7 @@
 					<value>
 						<tools>
 							<li Class="CombatExtended.ToolCE">
-								<label>programmable limb</label>
+								<label>strike</label>
 								<capacities>
 									<li>Blunt</li>
 								</capacities>
@@ -428,6 +427,7 @@
 							<li Class="PatchOperationFindMod">
 								<mods>
 									<li>Archotech Expanded Prosthetics</li>
+									<li>Archotech Expanded</li>
 								</mods>
 								<match Class="PatchOperationSequence">
 									<operations>
@@ -490,6 +490,61 @@
 				</li>
 				<li Class="PatchOperationFindMod">
 					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--ScarKintsugi.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_PlasteelKintsugi"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_PlasteelKintsugi"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_UraniumKintsugi"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>0.08</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_UraniumKintsugi"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Anomaly</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>/Defs/HediffDef[defName="HVB_BioferriteKintsugi"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+											<value>
+												<ArmorRating_Sharp>0.08</ArmorRating_Sharp>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>/Defs/HediffDef[defName="HVB_BioferriteKintsugi"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+											<value>
+												<ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
 						<li>Biotech</li>
 					</mods>
 					<match Class="PatchOperationSequence">
@@ -517,6 +572,396 @@
 				</li>
 				<li Class="PatchOperationFindMod">
 					<mods>
+						<li>Anomaly</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--GhoulBionics.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_SpikeSlingingSpine"]/stages/li/statOffsets/StaggerDurationFactor</xpath>
+								<value>
+									<StaggerDurationFactor>0.08</StaggerDurationFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_SpikeSlingingSpine"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<value>
+									<verbs>
+										<li Class="CombatExtended.VerbPropertiesCE">
+											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+											<label>spike-slinging spine</label>
+											<hasStandardCommand>true</hasStandardCommand>
+											<defaultProjectile>Spike_Fingerspike</defaultProjectile>
+											<warmupTime>1.2</warmupTime>
+											<range>15.9</range>
+											<soundCast>Ability_SpineLaunch</soundCast>
+											<!--<commandIcon>UI/Abilities/Neuroquake</commandIcon>-->
+										</li>
+									</verbs>
+								</value>
+							</li>
+							<!--Replacements_JawA.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_ForcefulWCBuff"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>0.25</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+									<li>Archotech Expanded</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>/Defs/HediffDef[defName="HVB_VoidshardDeathClaw"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>claw</label>
+														<capacities>
+															<li>Scratch</li>
+														</capacities>
+														<power>21</power>
+														<cooldownTime>0.89</cooldownTime>
+														<armorPenetrationSharp>10</armorPenetrationSharp>
+														<armorPenetrationBlunt>6</armorPenetrationBlunt>
+														<linkedBodyPartsGroup>Blade</linkedBodyPartsGroup>
+													</li>
+												</tools>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardObliterator"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>fist</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>1</power>
+														<cooldownTime>0.01</cooldownTime>
+														<armorPenetrationBlunt>21.5</armorPenetrationBlunt>
+													</li>
+												</tools>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<!--VoidshardBionics_HUB_head.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<value>
+									<verbs>
+										<li Class="CombatExtended.VerbPropertiesCE">
+											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+											<label>voidshard death glare</label>
+											<hasStandardCommand>true</hasStandardCommand>
+											<defaultProjectile>HVB_BulletPoisonEye_CE</defaultProjectile>
+											<warmupTime>4</warmupTime>
+											<range>70</range>
+											<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+											<burstShotCount>8</burstShotCount>
+											<soundCast>Shot_ChargeBlaster</soundCast>
+											<soundCastTail>GunTail_Heavy</soundCastTail>
+											<muzzleFlashScale>9</muzzleFlashScale>
+										  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
+										</li>
+									</verbs>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardFlenser"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+									  <li Class="CombatExtended.ToolCE">
+										<label>disintegration bite</label>
+										<capacities>
+										  <li>HVB_DisintegrationBite</li>
+										</capacities>
+										<power>8</power>
+										<cooldownTime>1.33</cooldownTime>
+										<armorPenetrationSharp>20</armorPenetrationSharp>
+										<armorPenetrationBlunt>5</armorPenetrationBlunt>
+										<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+									  </li>
+									</tools>
+								</value>
+							</li>
+							<!--VoidshardBionics_internalOrgans.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGrowthStimulator"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>0.8</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGrowthStimulator"]/stages/li[minSeverity=1]/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>0.86</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGrowthStimulator"]/stages/li[minSeverity=2]/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>0.92</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGrowthStimulator"]/stages/li[minSeverity=3]/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>0.98</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardGrowthStimulator"]/stages/li[minSeverity=4]/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>1.04</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardIntercessor"]/description</xpath>
+								<value>
+									<description>An installed dark archotech intercessor. Gains 1 charge every 6 hours, up to a max of 7 charges (plus seven per anomalous activity level); when damage is taken, 1 charge is spent to nullify it.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/maxStoredCharges</xpath>
+								<value>
+									<maxStoredCharges>7</maxStoredCharges>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/ticksToNextSpawn</xpath>
+								<value>
+									<ticksToNextSpawn>15000</ticksToNextSpawn>
+								</value>
+							</li>
+							<!--VoidshardBionics_limbsSpineSkin.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_VSYank"]/verbProperties/range</xpath>
+								<value>
+									<range>13</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_VoidshardTelescopingArm" or defName="HVB_VoidshardShieldBubbler"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>fist</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>9</power>
+											<cooldownTime>0.83</cooldownTime>
+											<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/HediffDef[defName="HVB_VoidshardUndulatingSpine"]/stages/li/statFactors/CarryingCapacity</xpath>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+									<value>
+										<tools>
+											<li Class="CombatExtended.ToolCE">
+												<label>fist</label>
+												<capacities>
+													<li>Blunt</li>
+												</capacities>
+												<power>9</power>
+												<cooldownTime>0.83</cooldownTime>
+												<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+												<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+												<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+											</li>
+										</tools>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>[FSF] Advanced Bionics Expansion</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardPowerArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>fist</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>20</power>
+														<cooldownTime>0.71</cooldownTime>
+														<armorPenetrationSharp>0</armorPenetrationSharp>
+														<armorPenetrationBlunt>120</armorPenetrationBlunt>
+														<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+													<li Class="CombatExtended.ToolCE">
+														<label>edge</label>
+														<capacities>
+															<li>Cut</li>
+														</capacities>
+														<power>30</power>
+														<cooldownTime>0.71</cooldownTime>
+														<armorPenetrationSharp>24</armorPenetrationSharp>
+														<armorPenetrationBlunt>6.25</armorPenetrationBlunt>
+														<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+													<li Class="CombatExtended.ToolCE">
+														<label>point</label>
+														<capacities>
+															<li>Stab</li>
+														</capacities>
+														<power>15</power>
+														<cooldownTime>1.21</cooldownTime>
+														<armorPenetrationSharp>48</armorPenetrationSharp>
+														<armorPenetrationBlunt>4.75</armorPenetrationBlunt>
+														<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+												</tools>
+											</value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Royalty</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+														<value><ArmorRating_Sharp>7</ArmorRating_Sharp></value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+														<value><ArmorRating_Blunt>12</ArmorRating_Blunt></value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li/statOffsets/ArmorRating_Heat</xpath>
+														<value>
+															<ArmorRating_Heat>1.5</ArmorRating_Heat>
+														</value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li[minSeverity=1]/statFactors/IncomingDamageFactor</xpath>
+														<value><IncomingDamageFactor>0.95</IncomingDamageFactor></value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li[minSeverity=2]/statFactors/IncomingDamageFactor</xpath>
+														<value><IncomingDamageFactor>0.9</IncomingDamageFactor></value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li[minSeverity=3]/statFactors/IncomingDamageFactor</xpath>
+														<value><IncomingDamageFactor>0.85</IncomingDamageFactor></value>
+													</li>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="HVB_VoidshardSkinGland"]/stages/li[minSeverity=4]/statFactors/IncomingDamageFactor</xpath>
+														<value><IncomingDamageFactor>0.8</IncomingDamageFactor></value>
+													</li>
+												</operations>
+											</match>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Biotech</li>
+											</mods>
+											<match Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="HVB_VoidshardMedicArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+												<value>
+													<tools>
+														<li Class="CombatExtended.ToolCE">
+															<label>fist</label>
+															<capacities>
+																<li>Blunt</li>
+															</capacities>
+															<power>14</power>
+															<cooldownTime>2</cooldownTime>
+															<armorPenetrationBlunt>3.0</armorPenetrationBlunt>
+															<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+															<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+														</li>
+													</tools>
+												</value>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>More Archotech Implants</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+											<value><ArmorRating_Sharp>7</ArmorRating_Sharp></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+											<value><ArmorRating_Blunt>12</ArmorRating_Blunt></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=1]/statOffsets/ArmorRating_Sharp</xpath>
+											<value><ArmorRating_Sharp>8</ArmorRating_Sharp></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=1]/statOffsets/ArmorRating_Blunt</xpath>
+											<value><ArmorRating_Blunt>14</ArmorRating_Blunt></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=2]/statOffsets/ArmorRating_Sharp</xpath>
+											<value><ArmorRating_Sharp>9</ArmorRating_Sharp></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=2]/statOffsets/ArmorRating_Blunt</xpath>
+											<value><ArmorRating_Blunt>16</ArmorRating_Blunt></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=3]/statOffsets/ArmorRating_Sharp</xpath>
+											<value><ArmorRating_Sharp>10</ArmorRating_Sharp></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=3]/statOffsets/ArmorRating_Blunt</xpath>
+											<value><ArmorRating_Blunt>18</ArmorRating_Blunt></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=4]/statOffsets/ArmorRating_Sharp</xpath>
+											<value><ArmorRating_Sharp>11</ArmorRating_Sharp></value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardNanoskin"]/stages/li[minSeverity=4]/statOffsets/ArmorRating_Blunt</xpath>
+											<value><ArmorRating_Blunt>20</ArmorRating_Blunt></value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
 						<li>Odyssey</li>
 					</mods>
 					<match Class="PatchOperationSequence">
@@ -526,6 +971,12 @@
 								<xpath>Defs/ThingDef[defName="HVB_ArchotechGravitonShielder"]/statBases/MarketValue</xpath>
 								<value>
 									<MarketValue>1400</MarketValue>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ArchotechGravitonShielder"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
+								<value>
+									<maxEnergyOffset>500</maxEnergyOffset>
 								</value>
 							</li>
 							<!--MEXCHA.xml in base folder-->
@@ -573,6 +1024,463 @@
 				<!--other mods ahoy-->
 				<li Class="PatchOperationFindMod">
 					<mods>
+						<li>Archotech Expanded Prosthetics</li>
+						<li>Archotech Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<value>
+									<verbs>
+										<li Class="CombatExtended.VerbPropertiesCE">
+											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+											<label>archotech death glare</label>
+											<hasStandardCommand>true</hasStandardCommand>
+											<defaultProjectile>Bullet_12x64mmCharged</defaultProjectile>
+											<warmupTime>4</warmupTime>
+											<range>70</range>
+											<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+											<burstShotCount>24</burstShotCount>
+											<soundCast>Shot_ChargeBlaster</soundCast>
+											<soundCastTail>GunTail_Heavy</soundCastTail>
+											<muzzleFlashScale>9</muzzleFlashScale>
+										  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
+										</li>
+									</verbs>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechFoodDisintegrator"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+									  <li Class="CombatExtended.ToolCE">
+										<label>advanced disintegration bite</label>
+										<capacities>
+										  <li>HVB_DisintegrationBite</li>
+										</capacities>
+										<power>15</power>
+										<cooldownTime>1.33</cooldownTime>
+										<armorPenetrationSharp>80</armorPenetrationSharp>
+										<armorPenetrationBlunt>20</armorPenetrationBlunt>
+										<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+									  </li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechGrowthStimulator"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+								<value>
+									<MeleeDamageFactor>2.1</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechIntercessor"]/description</xpath>
+								<value>
+									<description>An installed advanced archotech intercessor. Gains 1 charge every 2 hours, up to a max of 20 charges; whenever damage is taken, 1 charge is spent to nullify it.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/maxStoredCharges</xpath>
+								<value>
+									<maxStoredCharges>20</maxStoredCharges>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechIntercessor"]/comps/li[@Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically"]/ticksToNextSpawn</xpath>
+								<value>
+									<ticksToNextSpawn>5000</ticksToNextSpawn>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechProgrammableLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>strike</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>9</power>
+											<cooldownTime>0.83</cooldownTime>
+											<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechTelescopingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>fist</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>9</power>
+											<cooldownTime>0.83</cooldownTime>
+											<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_AEP_BionicYank"]/verbProperties/range</xpath>
+								<value>
+									<range>40</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_AEP_ProjectBionicShield"]/verbProperties/range</xpath>
+								<value>
+									<range>24</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/baseMaxEnergy</xpath>
+								<value>
+									<baseMaxEnergy>420</baseMaxEnergy>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/energyOnReset</xpath>
+								<value>
+									<energyOnReset>420</energyOnReset>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ProjectedShield"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegationShield"]/baseEnergyRechargeRate</xpath>
+								<value>
+									<baseEnergyRechargeRate>6.5</baseEnergyRechargeRate>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="HVB_AEP_ArchotechGravitonShielder"]/statBases/MarketValue</xpath>
+											<value>
+												<MarketValue>7000</MarketValue>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonShielder"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
+											<value>
+												<maxEnergyOffset>1500</maxEnergyOffset>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Big and Small - Sapient Animals</li>
+								</mods>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechSentienceCatalyzer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+									<value>
+										<tools>
+											<li Class="CombatExtended.ToolCE">
+												<label>fist</label>
+												<capacities>
+													<li>Blunt</li>
+												</capacities>
+												<power>9</power>
+												<cooldownTime>0.83</cooldownTime>
+												<armorPenetrationBlunt>3.00</armorPenetrationBlunt>
+												<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+												<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+											</li>
+										</tools>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Integrated Implants</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--ExtraArms_II.xml-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm" or defName="HVB_LeftLopingArm" or defName="HVB_RightLopingArm" or defName="HVB_LeftServoShankArm" or defName="HVB_RightServoShankArm" or defName="HVB_LeftTestudoArm" or defName="HVB_RightTestudoArm"
+								or defName="HVB_LeftExtraArchotechShieldBubbler" or defName="HVB_RightExtraArchotechShieldBubbler" or defName="HVB_LeftExtraArchotechTelescopingArm" or defName="HVB_RightExtraArchotechTelescopingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>fist</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>5</power>
+											<cooldownTime>1.11</cooldownTime>
+											<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftProgrammableLimb" or defName="HVB_RightProgrammableLimb" or defName="HVB_LeftExtraArchotechProgrammableLimb" or defName="HVB_RightExtraArchotechProgrammableLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+								<value>
+									<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>strike</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>5</power>
+											<cooldownTime>1.11</cooldownTime>
+											<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+									</tools>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li/statFactors/RangedCooldownFactor</xpath>
+								<value>
+									<ReloadSpeed>1.1</ReloadSpeed>
+									<ShootingAccuracyPawn>1.05</ShootingAccuracyPawn>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=0.333]/statFactors/ReloadSpeed</xpath>
+								<value><ReloadSpeed>1.2</ReloadSpeed></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=0.333]/statFactors/ShootingAccuracyPawn</xpath>
+								<value><ShootingAccuracyPawn>1.15</ShootingAccuracyPawn></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=0.666]/statFactors/ReloadSpeed</xpath>
+								<value><ReloadSpeed>1.3</ReloadSpeed></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=0.666]/statFactors/ShootingAccuracyPawn</xpath>
+								<value><ShootingAccuracyPawn>1.25</ShootingAccuracyPawn></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=1]/statFactors/ReloadSpeed</xpath>
+								<value><ReloadSpeed>1.4</ReloadSpeed></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftFiringArm" or defName="HVB_RightFiringArm"]/stages/li[minSeverity=1]/statFactors/ShootingAccuracyPawn</xpath>
+								<value><ShootingAccuracyPawn>1.35</ShootingAccuracyPawn></value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftTestudoArm" or defName="HVB_RightTestudoArm"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>2</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_LeftTestudoArm" or defName="HVB_RightTestudoArm"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_TestudoArm"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+								<value>
+									<MeleeDodgeChance>-0.03</MeleeDodgeChance>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Royalty</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_LeftWeldingArm" or defName="HVB_RightWeldingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>welder</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>4</power>
+														<cooldownTime>1.5</cooldownTime>
+														<armorPenetrationSharp>1.1</armorPenetrationSharp>
+														<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+														<extraMeleeDamages>
+														  <li>
+															<def>Burn</def>
+															<amount>5</amount>
+															<chance>0.7</chance>
+														  </li>
+														</extraMeleeDamages>
+														<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+														<soundMeleeHit>Interact_Ignite</soundMeleeHit>
+														<soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+													</li>
+												</tools>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Anomaly</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_LeftExtraVoidshardTelescopingArm" or defName="HVB_RightExtraVoidshardTelescopingArm" or defName="HVB_LeftExtraVoidshardShieldBubbler" or defName="HVB_RightExtraVoidshardShieldBubbler"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>fist</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>5</power>
+														<cooldownTime>1.11</cooldownTime>
+														<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+												</tools>
+											</value>
+										</li>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Odyssey</li>
+											</mods>
+											<match Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="HVB_LeftExtraVoidshardSentienceAbsorber" or defName="HVB_RightExtraVoidshardSentienceAbsorber"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+												<value>
+													<tools>
+														<li Class="CombatExtended.ToolCE">
+															<label>fist</label>
+															<capacities>
+																<li>Blunt</li>
+															</capacities>
+															<power>5</power>
+															<cooldownTime>1.11</cooldownTime>
+															<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+															<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+															<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+														</li>
+													</tools>
+												</value>
+											</match>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Odyssey</li>
+								</mods>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/HediffDef[defName="HVB_LeftExtraArchotechSentienceCatalyzer" or defName="HVB_RightExtraArchotechSentienceCatalyzer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+									<value>
+										<tools>
+											<li Class="CombatExtended.ToolCE">
+												<label>fist</label>
+												<capacities>
+													<li>Blunt</li>
+												</capacities>
+												<power>5</power>
+												<cooldownTime>1.11</cooldownTime>
+												<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+												<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+												<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+											</li>
+										</tools>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Archotech Expanded Prosthetics</li>
+									<li>Archotech Expanded</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_LeftExtraArchotechProgrammableLimb" or defName="HVB_AEP_RightExtraArchotechProgrammableLimb"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>strike</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>5</power>
+														<cooldownTime>1.11</cooldownTime>
+														<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+												</tools>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/HediffDef[defName="HVB_AEP_LeftExtraArchotechShieldBubbler" or defName="HVB_AEP_RightExtraArchotechShieldBubbler" or defName="HVB_AEP_LeftExtraArchotechTelescopingArm" or defName="HVB_AEP_RightExtraArchotechTelescopingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+											<value>
+												<tools>
+													<li Class="CombatExtended.ToolCE">
+														<label>punch</label>
+														<capacities>
+															<li>Blunt</li>
+														</capacities>
+														<power>5</power>
+														<cooldownTime>1.11</cooldownTime>
+														<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+														<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+														<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+													</li>
+												</tools>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Big and Small - Sapient Animals</li>
+								</mods>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/HediffDef[defName="HVB_AEP_LeftExtraArchotechSentienceCatalyzer" or defName="HVB_AEP_RightExtraArchotechSentienceCatalyzer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+									<value>
+										<tools>
+										<li Class="CombatExtended.ToolCE">
+											<label>fist</label>
+											<capacities>
+												<li>Blunt</li>
+											</capacities>
+											<power>5</power>
+											<cooldownTime>1.11</cooldownTime>
+											<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+											<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+											<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+										</li>
+										</tools>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
 						<li>SwimmingKit</li>
 						<li>Pathfinding Framework</li>
 					</mods>
@@ -601,7 +1509,7 @@
 								<value>
 									<tools>
 										<li Class="CombatExtended.ToolCE">
-											<label>aquadynamic limb</label>
+											<label>strike</label>
 											<capacities>
 												<li>Blunt</li>
 											</capacities>

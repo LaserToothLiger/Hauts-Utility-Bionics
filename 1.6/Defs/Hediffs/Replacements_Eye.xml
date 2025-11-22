@@ -802,7 +802,7 @@
     <defName>HVB_ArchotechDeathGlare</defName>
     <label>archotech death glare</label>
     <labelNoun>an archotech death glare</labelNoun>
-    <description>An installed archotech "death glare". In addition to the usual functions of an archotech eye, death glares are devastating weapons that can launch a stream of pulse-charged projectiles over long distances. Since the weapon only needs eyesight and a mental trigger to fire, it can even be used in melee.</description>
+    <description>An installed archotech "death glare". Can fire independently, even in melee.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechDeathGlare</spawnThingOnRemoved>
     <addedPartProps>
@@ -871,7 +871,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_ArchotechDeathGlare</defName>
     <label>archotech death glare</label>
-    <description>An artificial eye built by an archotech. Can fire at targets independently, even in melee.</description>
+    <description>An artificial eye built by an archotech. In addition to the usual functions of an archotech eye, death glares are devastating weapons that can launch a stream of dozens of pulse-charged projectiles over long distances. Since the weapon only needs eyesight and a mental trigger to fire, it can even be used in melee.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechDeathGlare</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <statBases>
