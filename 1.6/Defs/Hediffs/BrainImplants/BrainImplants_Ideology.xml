@@ -37,7 +37,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
-      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+      <researchPrerequisite>HVB_Neuroideology</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Steel>15</Steel>
@@ -124,7 +124,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
-      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+      <researchPrerequisite>HVB_Neuroideology</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Steel>15</Steel>
@@ -211,7 +211,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
-      <researchPrerequisite>HVB_Neurotheology</researchPrerequisite>
+      <researchPrerequisite>HVB_Neuroideology</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Steel>15</Steel>
@@ -259,8 +259,8 @@
     <removesHediff>HVB_PreachingPrompter</removesHediff>
   </RecipeDef>
   
-		<!--neurotheologic work driver-->
-  <HediffDef Name="HVB_NeurotheologyHediffBase" ParentName="ImplantHediffBase" Abstract="True" MayRequire="Ludeon.RimWorld.Ideology">
+		<!--neuroideologic work driver-->
+  <HediffDef Name="HVB_NeuroideologyHediffBase" ParentName="ImplantHediffBase" Abstract="True" MayRequire="Ludeon.RimWorld.Ideology">
     <hediffClass>Hediff_Level</hediffClass>
     <initialSeverity>1</initialSeverity>
     <minSeverity>0</minSeverity>
@@ -268,15 +268,15 @@
     <levelIsQuantity>true</levelIsQuantity>
   </HediffDef>
   
-  <!--theologic work driver-->
-  <HediffDef ParentName="HVB_NeurotheologyHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+  <!--ideologic work driver-->
+  <HediffDef ParentName="HVB_NeuroideologyHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
     <hediffClass>HautsBionics_Ideology.Hediff_WorkDriver</hediffClass>
-    <defName>HVB_TheologicWorkDriver</defName>
-    <label>neurotheologic work driver</label>
-    <labelNoun>a neurotheologic work driver</labelNoun>
-    <description>An installed neurotheologic work driver implant. Prevents the host from being affected by the Work Drive ability, but passively boosts work speed.\n\nCan be installed up to three times.</description>
-    <descriptionHyperlinks><ThingDef>HVB_TheologicWorkDriver</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_TheologicWorkDriver</spawnThingOnRemoved>
+    <defName>HVB_IdeologicWorkDriver</defName>
+    <label>neuroideologic work driver</label>
+    <labelNoun>a neuroideologic work driver</labelNoun>
+    <description>An installed neuroideologic work driver implant. Prevents the host from being affected by the Work Drive ability, but passively boosts work speed.\n\nCan be installed up to three times.</description>
+    <descriptionHyperlinks><ThingDef>HVB_IdeologicWorkDriver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_IdeologicWorkDriver</spawnThingOnRemoved>
     <stages>
       <li>
         <minSeverity>1</minSeverity>
@@ -293,10 +293,10 @@
     </stages>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
-    <defName>HVB_TheologicWorkDriver</defName>
-    <label>neurotheologic work driver</label>
-    <description>A neurotheologic work driver implant. This device induces a state of increased productivity, by stimulating the same regions of the brain affected by an ideoligious Work Drive.\n\nCan be installed up to three times; the surgery required to install it is so simple it can't fail.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallTheologicWorkDriver</RecipeDef></descriptionHyperlinks>
+    <defName>HVB_IdeologicWorkDriver</defName>
+    <label>neuroideologic work driver</label>
+    <description>A neuroideologic work driver implant. This device induces a state of increased productivity, by stimulating the same regions of the brain affected by an ideoligious Work Drive.\n\nCan be installed up to three times; the surgery required to install it is so simple it can't fail.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallIdeologicWorkDriver</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>770</MarketValue>
       <WorkToMake>10000</WorkToMake>
@@ -315,7 +315,7 @@
       <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
       <researchPrerequisites Inherit="False">
 		<li>HVB_BrainInterfacing</li>
-		<li>HVB_Neurotheology</li>
+		<li>HVB_Neuroideology</li>
 	  </researchPrerequisites>
     </recipeMaker>
     <costList>
@@ -324,20 +324,20 @@
     </costList>
   </ThingDef>
   <RecipeDef ParentName="HVB_SurgeryAddImplantLevelBase" MayRequire="Ludeon.RimWorld.Ideology">
-    <defName>HVB_InstallTheologicWorkDriver</defName>
-    <label>install theologic work driver</label>
-    <description>Install a theologic work driver.</description>
+    <defName>HVB_InstallIdeologicWorkDriver</defName>
+    <label>install ideologic work driver</label>
+    <description>Install an ideologic work driver.</description>
     <!--<researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>-->
     <descriptionHyperlinks>
-      <ThingDef>HVB_TheologicWorkDriver</ThingDef>
-      <HediffDef>HVB_TheologicWorkDriver</HediffDef>
+      <ThingDef>HVB_IdeologicWorkDriver</ThingDef>
+      <HediffDef>HVB_IdeologicWorkDriver</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing theologic work driver.</jobString>
+    <jobString>Installing ideologic work driver.</jobString>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_TheologicWorkDriver</li>
+            <li>HVB_IdeologicWorkDriver</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -345,24 +345,24 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_TheologicWorkDriver</li>
+        <li>HVB_IdeologicWorkDriver</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Brain</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>HVB_TheologicWorkDriver</addsHediff>
+    <addsHediff>HVB_IdeologicWorkDriver</addsHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_SurgeryLowerImplantLevelBase" MayRequire="Ludeon.RimWorld.Ideology">
-    <defName>HVB_RemoveTheologicWorkDriver</defName>
-    <label>remove theologic work driver</label>
-    <description>Remove theologic work driver.</description>
+    <defName>HVB_RemoveIdeologicWorkDriver</defName>
+    <label>remove ideologic work driver</label>
+    <description>Remove ideologic work driver.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_TheologicWorkDriver</ThingDef>
-      <HediffDef>HVB_TheologicWorkDriver</HediffDef>
+      <ThingDef>HVB_IdeologicWorkDriver</ThingDef>
+      <HediffDef>HVB_IdeologicWorkDriver</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Removing theologic work driver.</jobString>
-    <removesHediff>HVB_TheologicWorkDriver</removesHediff>
+    <jobString>Removing ideologic work driver.</jobString>
+    <removesHediff>HVB_IdeologicWorkDriver</removesHediff>
   </RecipeDef>
   
   <!--dryadqueen interface-->

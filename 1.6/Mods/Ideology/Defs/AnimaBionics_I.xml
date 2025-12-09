@@ -2,7 +2,7 @@
 <Defs>
   
   <!--queen dryad-->
-  <HediffDef ParentName="HVB_NeurotheologyHediffBase" MayRequire="Seti.Victor.AnimaBodies">
+  <HediffDef ParentName="HVB_NeuroideologyHediffBase" MayRequire="Seti.Victor.AnimaBodies">
     <defName>HVB_QueenDryad</defName>
     <label>queen dryad</label>
     <labelNoun>a queen dryad</labelNoun>

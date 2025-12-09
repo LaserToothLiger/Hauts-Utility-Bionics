@@ -88,20 +88,20 @@
     </generalRules>
   </ResearchProjectDef>
   <ResearchProjectDef ParentName="BaseBodyPartHVB_Industrial" MayRequire="Ludeon.RimWorld.Ideology">
-    <defName>HVB_Neurotheology</defName>
-    <label>applied neurotheology</label>
+    <defName>HVB_Neuroideology</defName>
+    <label>applied neuroideology</label>
     <description>Craft bionics capable of strengthening ideoligious beliefs and their effects on the psyche.</description>
     <baseCost>500</baseCost>
     <researchViewX>0.20</researchViewX>
     <researchViewY>3.50</researchViewY>
     <generalRules>
       <rulesStrings>
-			<li>subject->neurotheologic bionics</li>
-        <li>subject_story->faced censure from some ideoligious organizations, and open-minded encouragement from others, for studying applied neurotheology</li>
+			<li>subject->neuroideologic bionics</li>
+        <li>subject_story->faced censure from some ideoligious organizations, and open-minded encouragement from others, for studying applied neuroideology</li>
         <li>subject_story->sought to understand the neurochemical processes underlying zealous faith</li>
-        <li>subject_story->illicitly implanted neurotheologic bionics in dozens of schoolchildren before [ANYPAWN_pronoun] was finally caught</li>
-        <li>subject_story->believed that neurotheology was the next great advancement in asserting civic authority</li>
-        <li>subject_story->ran a bionic startup company whose neurotheologic implants became surprisingly popular among demographics not highly associated with ideoligion</li>
+        <li>subject_story->illicitly implanted neuroideologic bionics in dozens of schoolchildren before [ANYPAWN_pronoun] was finally caught</li>
+        <li>subject_story->believed that neuroideology was the next great advancement in asserting civic authority</li>
+        <li>subject_story->ran a bionic startup company whose neuroideologic implants became surprisingly popular among demographics not highly associated with ideoligion</li>
 			<li>subject_gerund->bionically enhancing faith</li>
 			<li>subject_gerund->constructing belief-enhancing implants</li>
       </rulesStrings>
