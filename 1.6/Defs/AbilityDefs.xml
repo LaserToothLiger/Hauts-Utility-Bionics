@@ -683,7 +683,7 @@
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <hotKey>Misc12</hotKey>
-	<iconPath>UI/Buttons/Infinity</iconPath>
+	<iconPath>BionicAbilities/HUB_Cloak</iconPath>
     <writeCombatLog>True</writeCombatLog>
 	<cooldownTicksRange>60000</cooldownTicksRange>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
