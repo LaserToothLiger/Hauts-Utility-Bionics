@@ -446,11 +446,6 @@
         </statOffsets>
         <totalBleedFactor>0.2</totalBleedFactor>
 		<damageFactors>
-		  <Frostbite>0.7</Frostbite>
-		  <FSFFrostbite MayRequire="FrozenSnowFox.MorePsycastPowers">0.7</FSFFrostbite>
-		  <OTCCryo MayRequire="ObsidiaExpansion.Core">0.7</OTCCryo>
-		  <Burn>0.7</Burn>
-		  <VEF_PermanentBurn>0.7</VEF_PermanentBurn>
 		  <VQE_CryptoCut>0.7</VQE_CryptoCut>
 		</damageFactors>
       </li>

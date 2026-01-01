@@ -77,6 +77,84 @@
     <removesHediff>HVB_FirefoamSpitter</removesHediff>
   </RecipeDef>
   
+  <!--genetic ability boster-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_GeneticAbilityBooster</defName>
+    <label>genetic ability booster</label>
+    <labelNoun>a genetic ability booster</labelNoun>
+    <description>An installed genetic ability booster implant. Affects abilities granted by endogenes and xenogenes.</description>
+    <descriptionHyperlinks><ThingDef>HVB_GeneticAbilityBooster</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_GeneticAbilityBooster</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <hungerRateFactor>1.15</hungerRateFactor>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
+		<increasedCooldownRecovery>0.75</increasedCooldownRecovery>
+		<affectsAllGeneticAbilities>true</affectsAllGeneticAbilities>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_GeneticAbilityBooster</defName>
+    <label>genetic ability booster</label>
+    <description>An implant which regulates the host's metabolism to better fuel whatever abilities it has from its genome (such as an impid's fire breath). It causes such abilities' cooldowns to elapse 75% faster, at the expense of needing to eat slightly more frequently.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallGeneticAbilityBooster</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>1030</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_SprayAbility</li><li>HVB_GeneticAbilityHavers</li></techHediffsTags><!--HVB_GeneticAbilityHavers not currently used anywhere. May extend function to some xenotype mods that introduce factions-->
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_InstallGeneticAbilityBooster</defName>
+    <label>install genetic ability booster</label>
+    <description>Install a genetic ability booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GeneticAbilityBooster</ThingDef>
+      <HediffDef>HVB_GeneticAbilityBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing genetic ability booster.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_GeneticAbilityBooster</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_GeneticAbilityBooster</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_GeneticAbilityBooster</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVB_RemoveGeneticAbilityBooster</defName>
+    <label>remove genetic ability booster</label>
+    <description>Remove genetic ability booster.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_GeneticAbilityBooster</ThingDef>
+      <HediffDef>HVB_GeneticAbilityBooster</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing genetic ability booster.</jobString>
+    <removesHediff>HVB_GeneticAbilityBooster</removesHediff>
+  </RecipeDef>
+  
   <!--healing infertilizer-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HealingInfertilizer</defName>
@@ -691,6 +769,18 @@
       <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Harvesting endogenes from an archotech progenoid gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs><li>ArchiteCapsule</li></thingDefs></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ArchiteCapsule</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
@@ -702,6 +792,18 @@
       <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Harvesting xenogenes from an archotech progenoid gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs><li>ArchiteCapsule</li></thingDefs></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ArchiteCapsule</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
   </RecipeDef>
   

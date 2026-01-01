@@ -628,8 +628,8 @@
     <label>archo-convert</label>
     <description>Attempt to convert someone to the speaker's ideoligion. This will reduce the target's certainty in their own beliefs. The certainty reduction depends on the speaker's negotiation ability.</description>
 	<cooldownTicksRange>60000</cooldownTicksRange>
-    <iconPath>UI/Abilities/Convert</iconPath>
-    <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
+    <iconPath>BionicAbilities/HUB_ArchoConvert</iconPath>
+    <warmupMoteSocialSymbol>BionicAbilities/HUB_ArchoConvert</warmupMoteSocialSymbol>
     <warmupSound>MoralistAbility_Warmup</warmupSound>
     <hotKey>Misc12</hotKey>
     <jobDef>CastAbilityOnThingMelee</jobDef>

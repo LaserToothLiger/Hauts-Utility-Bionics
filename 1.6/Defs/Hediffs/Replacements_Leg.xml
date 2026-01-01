@@ -324,6 +324,9 @@
       <BionicLeg>1</BionicLeg>
       <ComponentSpacer>2</ComponentSpacer>
     </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
     <statBases>
       <MarketValue>1535</MarketValue>
       <WorkToMake>9000</WorkToMake>
