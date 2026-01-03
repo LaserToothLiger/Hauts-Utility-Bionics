@@ -265,7 +265,7 @@
   <ResearchProjectDef ParentName="BaseBodyPartHVB_Spacer">
     <defName>HVB_SurvivalAdaptations</defName>
     <label>survival adaptations</label>
-    <description>Craft bionics that offer protection against harsh environments, conceal the host from view, or improve medical outcomes.</description>
+    <description>Craft bionics that offer protection against harsh environments, improve resistance to injury, or improve medical outcomes.</description>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <researchViewX>4.10</researchViewX>
     <researchViewY>1.40</researchViewY>

@@ -221,7 +221,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_ServoShankArm</defName>
     <label>servo-shank arm</label>
-    <description>In addition to the capabilities of an ordinary bionic arm, the servo-shank arm contains additional motors at the base of each joint, which enable more rapid, nimble explosive movements. Users can throw punches and swing weapons notably faster, but the added complexity makes the arm unwieldy to use in situations other than handling ranged weapons.</description>
+    <description>In addition to the capabilities of an ordinary bionic arm, the servo-shank arm contains additional motors at the base of each joint, which enable more rapid, nimble explosive movements. Users can throw punches and swing weapons notably faster, but the added complexity makes the arm unwieldy to use in situations other handline melee weapons.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallServoShankArm</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>

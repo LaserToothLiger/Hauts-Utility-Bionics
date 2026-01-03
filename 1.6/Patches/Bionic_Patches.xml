@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod"><!--gastro-analyzers suck, lol, both compared to HUB noses and even if no mods are being considered. It doesn't make sense that they somehow make you cook faster, but I don't think it would be right for this mod to address that.
+													Instead, let's just add a bonus that a better sense of food-related olfaction would LOGICALLY give you, the ability to detect food gone bad and therefore avoid putting it in your meals.-->
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/HediffDef[defName="GastroAnalyzer"]/stages/li/statFactors</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/HediffDef[defName="GastroAnalyzer"]/stages/li</xpath>
+				<value>
+					<statFactors>
+						<FoodPoisonChance>0.7</FoodPoisonChance>
+					</statFactors>
+				</value>
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/HediffDef[defName="GastroAnalyzer"]/stages/li/statFactors</xpath>
+				<value>
+					<FoodPoisonChance>0.7</FoodPoisonChance>
+				</value>
+			</match>
+		</match>
+	</Operation>
+</Patch>
