@@ -1669,9 +1669,7 @@ namespace HautsBionics
                     if (removableTraits.Count == 0)
                     {
                         hasRemovableTrait = false;
-                    }
-                    else
-                    {
+                    } else {
                         Trait toRemove = removableTraits.RandomElement();
                         this.hiddenTraits.Add(toRemove);
                         this.pawn.story.traits.RemoveTrait(toRemove);
@@ -1685,6 +1683,11 @@ namespace HautsBionics
                     }
                 }
             }
+        }
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look<Trait>(ref this.hiddenTraits, "hiddenTraits", LookMode.Deep, Array.Empty<object>());
         }
         public List<Trait> hiddenTraits = new List<Trait>();
     }
