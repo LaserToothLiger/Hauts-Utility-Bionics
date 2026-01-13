@@ -532,7 +532,7 @@
     <label>project bionic shield</label>
     <description>Erects a temporary repulsion shield over the target creature. This shield blocks up to 70 damage from projectiles but will instantly be destroyed when exposed to EMPs.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</iconPath>
+    <iconPath>BionicAbilities/HUB_PBS</iconPath>
     <stunTargetWhileCasting>False</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
     <aiCanUse>false</aiCanUse><!--for now, at least...-->
