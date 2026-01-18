@@ -183,6 +183,7 @@
 		  <MedicalTendQuality>0.1</MedicalTendQuality>
 		  <TrainAnimalChance>0.1</TrainAnimalChance>
 		  <TameAnimalChance>0.06</TameAnimalChance>
+		  <RimScent_SmellSensitivity MayRequire="reo.RimScent">0.35</RimScent_SmellSensitivity>
         </statOffsets>
       </li>
     </stages>
@@ -235,6 +236,7 @@
 		  <MedicalTendQuality>0.1</MedicalTendQuality>
 		  <TrainAnimalChance>0.1</TrainAnimalChance>
 		  <TameAnimalChance>0.06</TameAnimalChance>
+		  <RimScent_SmellSensitivity MayRequire="reo.RimScent">0.35</RimScent_SmellSensitivity>
         </statOffsets>
       </li>
     </stages>

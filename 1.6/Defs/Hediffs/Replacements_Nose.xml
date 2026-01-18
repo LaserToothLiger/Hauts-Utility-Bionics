@@ -27,6 +27,9 @@
 		  <TrainAnimalChance>-0.1</TrainAnimalChance>
 		  <TameAnimalChance>-0.06</TameAnimalChance>
 		</statOffsets>
+		<statFactors>
+		  <RimScent_SmellSensitivity MayRequire="reo.RimScent">0</RimScent_SmellSensitivity>
+		</statFactors>
       </li>
     </stages>
   </HediffDef>
@@ -107,6 +110,7 @@
 		<statOffsets>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.10</P42_AllergicSensitivity>
 		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">0.05</SmokeSensitivity>
+		  <RimScent_SmellSensitivity MayRequire="reo.RimScent">0.25</RimScent_SmellSensitivity>
 		</statOffsets>
         <capMods>
           <li>

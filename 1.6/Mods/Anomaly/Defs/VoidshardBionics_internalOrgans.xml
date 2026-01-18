@@ -811,35 +811,35 @@
     <stages>
 	  <li>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.3</SmokeSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.3</SmokeSensitivity><RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.36</SmokeSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.375</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.55</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.36</SmokeSensitivity><RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.42</SmokeSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.45</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.6</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.42</SmokeSensitivity><RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.48</SmokeSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.525</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.65</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.48</SmokeSensitivity><RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity></statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
         <statFactors><Flammability>0</Flammability></statFactors>
-		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.54</SmokeSensitivity></statOffsets>
+		<statOffsets><P42_AllergicSensitivity MayRequire="phil42.allergies">-0.6</P42_AllergicSensitivity><VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.7</VacuumResistance><SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.54</SmokeSensitivity><RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity></statOffsets>
       </li>
     </stages>
     <comps>

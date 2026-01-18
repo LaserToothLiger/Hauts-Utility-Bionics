@@ -325,6 +325,7 @@
 		  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.5</VacuumResistance>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.3</P42_AllergicSensitivity>
 		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.3</SmokeSensitivity>
+		  <RimScent_SmellSensitivity MayRequire="reo.RimScent">-0.5</RimScent_SmellSensitivity>
 		</statOffsets>
       </li>
     </stages>

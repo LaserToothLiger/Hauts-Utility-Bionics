@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!--his name... is Miles Morales. He was bitten by a radioactive spider, and... he's not the only one.
-			once again, one item for many, many bionics
-			... but this time we're going wack as all hell. BEYOND the spider-verse. What about an entirely new bionic system from scratch eh?-->
+	<!--once again, one item for many, many bionics
+			... but this time it's an entirely new bionic system from scratch-->
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_MarrowSubstitute</defName>
     <label>marrow substitute</label>
@@ -25,7 +24,7 @@
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <statBases>
-      <MarketValue>105</MarketValue>
+      <MarketValue>70</MarketValue>
     </statBases>
     <thingSetMakerTags>
 	  <li>RewardStandardHighFreq</li>
