@@ -1425,7 +1425,7 @@ namespace HautsBionics
             {
                 foreach (Hediff h in this.pawn.health.hediffSet.hediffs)
                 {
-                    if (h.def == HediffDefOf.DrugOverdose)
+                    if (h.def == HediffDefOf.DrugOverdose && h.Visible)
                     {
                         this.pawn.health.RemoveHediff(h);
                         this.Severity = this.def.minSeverity;
