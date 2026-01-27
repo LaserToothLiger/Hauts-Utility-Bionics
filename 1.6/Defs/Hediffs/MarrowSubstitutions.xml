@@ -81,7 +81,7 @@
     <initialSeverity>1</initialSeverity>
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
-    <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><HVB_RemainingMarrow>-1</HVB_RemainingMarrow></statOffsets>
@@ -103,6 +103,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><LifespanFactor>0.1</LifespanFactor><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.1</CancerRate></statOffsets>
@@ -154,6 +155,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ToxicResistance>0.03</ToxicResistance><ToxicEnvironmentResistance>0.04</ToxicEnvironmentResistance><Radiation MayRequire="Dubwise.Rimatomics">-0.07</Radiation></statOffsets>
@@ -206,6 +208,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><MentalBreakThreshold>-0.03</MentalBreakThreshold></statOffsets>
@@ -257,6 +260,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	  </li>
@@ -313,6 +317,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ImmunityGainSpeed>0.07</ImmunityGainSpeed><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.05</CancerRate></statOffsets>
@@ -364,6 +369,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><InjuryHealingFactor>0.12</InjuryHealingFactor></statOffsets>
@@ -415,6 +421,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><PsychicSensitivity>0.07</PsychicSensitivity><PsychicEntropyRecoveryRate MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">0.03</PsychicEntropyRecoveryRate></statOffsets>
@@ -466,6 +473,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ComfyTemperatureMin>-2</ComfyTemperatureMin><ComfyTemperatureMax>2</ComfyTemperatureMax></statOffsets>
@@ -517,6 +525,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><Hauts_HemogenContentFactor>0.075</Hauts_HemogenContentFactor><EBSG_BloodlossRecoveryBonus MayRequire="EBSG.Framework">0.075</EBSG_BloodlossRecoveryBonus><InjuryHealingFactor>0.06</InjuryHealingFactor></statOffsets>
@@ -568,6 +577,7 @@
     <minSeverity>0</minSeverity>
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><PruningSpeed>0.06</PruningSpeed></statOffsets>

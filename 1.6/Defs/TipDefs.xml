@@ -4,7 +4,7 @@
   <TipSetDef>
     <defName>HVB_Tipset</defName>
     <tips>
-      <li TKey="HVB_MarrowSubs">Marrow substitutes are easy to craft, and installation is quick, painless, and risk-free. This makes them ideal for satisfying Body Modders and Transhumanists.</li>
+      <li TKey="HVB_MarrowSubs">Installing marrow substitutes is quick, risk-free, and done without anesthetic. There's never a bad time to use them.</li>
       <li TKey="HVB_Smartbodies">Craftable "programmable" bionics gain effect based on Intellectual skill. They become better than normal bionics by level 9, and better than archotech ones by level 17.</li>
       <li TKey="HVB_GastroNeutroamine">Bionic refinery stomachs produce certain resources by consuming enough food. If you're having trouble finding neutroamine, fill a refinery stomach with surplus meals.</li>
       <li TKey="HVB_BewareOfCyborg">Various bionic abilities can be used by non-player characters. Check the health tabs of technologically advanced enemies to avoid nasty surprises!</li>
