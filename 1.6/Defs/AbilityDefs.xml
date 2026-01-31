@@ -24,6 +24,7 @@
 	  <range>0</range>
       <drawAimPie>False</drawAimPie>
       <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>false</canTargetPawns>
@@ -72,6 +73,7 @@
 	  <range>0</range>
       <drawAimPie>False</drawAimPie>
       <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>false</canTargetPawns>
@@ -167,6 +169,7 @@
       <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
       <drawAimPie>False</drawAimPie>
       <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>false</canTargetPawns>
@@ -290,6 +293,7 @@
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <drawAimPie>False</drawAimPie>
+	  <targetable>false</targetable>
 	  <range>0</range>
     </verbProperties>
     <comps>
@@ -318,6 +322,7 @@
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <drawAimPie>False</drawAimPie>
+	  <targetable>false</targetable>
 	  <range>0</range>
     </verbProperties>
     <comps>
@@ -696,6 +701,7 @@
 	  <range>0</range>
       <drawAimPie>False</drawAimPie>
       <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>false</canTargetPawns>
