@@ -80,9 +80,8 @@
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_CleanHeart</defName>
     <label>clean heart</label>
-    <hediffClass>HautsBionics.Hediff_CleanHeart</hediffClass>
     <labelNoun>a clean heart</labelNoun>
-    <description>An installed clean heart. When its charge is full, it will negate the next overdose.</description>
+    <description>An installed clean heart.</description>
     <descriptionHyperlinks><ThingDef>HVB_CleanHeart</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_CleanHeart</spawnThingOnRemoved>
 	<initialSeverity>0.001</initialSeverity>
@@ -103,6 +102,7 @@
         </capMods>
 		<statOffsets>
 		  <ToxicResistance>0.4</ToxicResistance>
+		  <Hauts_OverdoseSusceptibility>-0.5</Hauts_OverdoseSusceptibility>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.05</P42_AllergicSensitivity>
 		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.3</Mashed_Ashlands_AshResistance>
 		  <Radiation MayRequire="Dubwise.Rimatomics">-0.05</Radiation>
@@ -164,80 +164,6 @@
       <li>Heart</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_CleanHeart</addsHediff>
-  </RecipeDef>
-  
-  <!--shieldpower heart-->
-  <HediffDef ParentName="AddedBodyPartBase">
-    <defName>HVB_ShieldpowerHeart</defName>
-    <label>shieldpower heart</label>
-    <labelNoun>a shieldpower heart</labelNoun>
-    <description>An installed shieldpower heart. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 4.33 energy per second. If broken, the shield will reset after 1.28 hours.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ShieldpowerHeart</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ShieldpowerHeart</spawnThingOnRemoved>
-    <addedPartProps>
-      <solid>true</solid>
-      <partEfficiency>1.25</partEfficiency>
-      <betterThanNatural>true</betterThanNatural>
-    </addedPartProps>
-	<comps>
-	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
-        <maxEnergyOffset>33.33</maxEnergyOffset>
-        <resetDelayFactor>1</resetDelayFactor>
-        <energyRegenOffset>4.33</energyRegenOffset>
-        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
-		<makesShield>true</makesShield>
-      </li>
-	</comps>
-  </HediffDef>
-  <ThingDef ParentName="BodyPartBionicBase">
-    <defName>HVB_ShieldpowerHeart</defName>
-    <label>shieldpower heart</label>
-    <description>An artificial heart which seeds the bloodstream with polarized mechanites, creating a nearly-skintight momentum-repulsion field across the entire body. Though this field functions mostly the same as the kind created by a shield belt, its closeness to the skin enables the host to use ranged weapons without it getting in the way, and enables it to be layered 'under' worn shields.\n\nDue to technical limitations in projecting the field, it is only roughly as strong as a normal-quality shield belt, and it remains susceptible to EMPs.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallShieldpowerHeart</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <Plasteel>5</Plasteel>
-      <BionicHeart>1</BionicHeart>
-      <ComponentSpacer>2</ComponentSpacer>
-    </costList>
-    <statBases>
-      <MarketValue>1600</MarketValue>
-      <WorkToMake>9000</WorkToMake>
-    </statBases>
-    <recipeMaker>
-      <researchPrerequisites>
-	    <li>HVB_SurvivalAdaptations</li>
-		<li>ShieldBelt</li>
-	  </researchPrerequisites>
-    </recipeMaker>
-  </ThingDef>
-  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
-    <defName>HVB_InstallShieldpowerHeart</defName>
-    <label>install shieldpower heart</label>
-    <description>Install a shieldpower heart.</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ShieldpowerHeart</ThingDef>
-      <HediffDef>HVB_ShieldpowerHeart</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing shieldpower heart.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_ShieldpowerHeart</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_ShieldpowerHeart</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Heart</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_ShieldpowerHeart</addsHediff>
   </RecipeDef>
   
   <!--tempered heart-->

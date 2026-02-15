@@ -1411,31 +1411,6 @@ namespace HautsBionics
             this.pawn.health.RemoveHediff(this);
         }
     }
-    public class Hediff_CleanHeart : Hediff_AddedPart
-    {
-        public override string Label { 
-            get {
-                return base.Label + " (" + this.Severity.ToStringByStyle(ToStringStyle.FloatOne) + "/" + this.def.maxSeverity + ")";
-            } 
-        }
-        public override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
-            if (this.pawn.IsHashIntervalTick(200, delta) && this.Severity == this.def.maxSeverity)
-            {
-                foreach (Hediff h in this.pawn.health.hediffSet.hediffs)
-                {
-                    if (h.def == HediffDefOf.DrugOverdose && h.Visible)
-                    {
-                        this.pawn.health.RemoveHediff(h);
-                        this.Severity = this.def.minSeverity;
-                        Messages.Message("HVB_HeartClean".Translate().CapitalizeFirst().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true).Resolve(), pawn, MessageTypeDefOf.PositiveEvent, true);
-                        break;
-                    }
-                }
-            }
-        }
-    }
     public class Hediff_DosageSustainer : Hediff_AddedPart
     {
         public override void PostTickInterval(int delta)

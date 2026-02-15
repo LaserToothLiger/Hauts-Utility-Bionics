@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Defs><!--You can have a Royalty armor gland AND one of these at the same time, don't worry-->
+<Defs>
 
+  <!--shieldpower heart-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ShieldpowerHeart</defName>
+    <label>shieldpower heart</label>
+    <labelNoun>a shieldpower heart</labelNoun>
+    <description>An installed shieldpower heart. Provides a shield that can intercept 34 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 4.33 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ShieldpowerHeart</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ShieldpowerHeart</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+	<comps>
+	  <li Class="HautsBionics.HediffCompProperties_ShieldGenerator">
+        <maxEnergyOffset>33.33</maxEnergyOffset>
+        <resetDelayFactor>1</resetDelayFactor>
+        <energyRegenOffset>4.33</energyRegenOffset>
+        <bionicShieldDef>HVB_BionicShield</bionicShieldDef>
+		<makesShield>true</makesShield>
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_ShieldpowerHeart</defName>
+    <label>shieldpower heart</label>
+    <description>An artificial heart which seeds the bloodstream with polarized mechanites, creating a nearly-skintight momentum-repulsion field across the entire body. Though this field functions mostly the same as the kind created by a shield belt, its closeness to the skin enables the host to use ranged weapons without it getting in the way, and enables it to be layered 'under' worn shields.\n\nDue to technical limitations in projecting the field, it is only roughly as strong as a normal-quality shield belt, and it remains susceptible to EMPs.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallShieldpowerHeart</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>5</Plasteel>
+      <BionicHeart>1</BionicHeart>
+	  <BroadshieldCore>1</BroadshieldCore>
+    </costList>
+    <statBases>
+      <MarketValue>1600</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+	    <li>HVB_SurvivalAdaptations</li>
+		<li>ShieldBelt</li>
+	  </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallShieldpowerHeart</defName>
+    <label>install shieldpower heart</label>
+    <description>Install a shieldpower heart.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ShieldpowerHeart</ThingDef>
+      <HediffDef>HVB_ShieldpowerHeart</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing shieldpower heart.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ShieldpowerHeart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ShieldpowerHeart</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Heart</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ShieldpowerHeart</addsHediff>
+  </RecipeDef>
+  
   <!-- shieldpower gland -->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>HVB_ShieldpowerGland</defName>
@@ -27,7 +101,8 @@
     <descriptionHyperlinks><RecipeDef>HVB_InstallShieldpowerGland</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>15</Plasteel>
-      <ComponentSpacer>4</ComponentSpacer>
+      <ComponentSpacer>2</ComponentSpacer>
+	  <BroadshieldCore>1</BroadshieldCore>
     </costList>
     <statBases>
       <MarketValue>1030</MarketValue>
