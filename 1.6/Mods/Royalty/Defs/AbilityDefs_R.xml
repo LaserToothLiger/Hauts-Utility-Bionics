@@ -6,7 +6,7 @@
     <label>personal skip</label>
     <description>Teleport to a desired position not too far away.</description>
     <category>Skip</category>
-    <iconPath>UI/Abilities/Skip</iconPath>
+    <iconPath>UI/Hauts_SelfSkip</iconPath>
     <aiCanUse>true</aiCanUse>
     <statBases>
       <Ability_Duration>0</Ability_Duration>
@@ -61,7 +61,7 @@
     <label>personal skip</label>
     <description>Teleport to a desired position not too far away.</description>
     <category>Skip</category>
-    <iconPath>UI/Abilities/Skip</iconPath>
+    <iconPath>UI/Hauts_SelfSkip</iconPath>
     <aiCanUse>true</aiCanUse>
     <statBases>
       <Ability_Duration>0</Ability_Duration>

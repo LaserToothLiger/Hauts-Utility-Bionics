@@ -91,11 +91,7 @@
     </stages>
   </HediffDef>
 
-  <!--anti-geriatric-->
-  <HediffDef ParentName="ImplantHediffBase">
-    <defName>HVB_AntiGeriatricMarrow</defName>
-    <label>anti-geriatric marrow</label>
-    <description>Injected anti-geriatric marrow. Boosts lifespan.</description>
+  <HediffDef Abstract="True" Name="HVB_MarrowBase" ParentName="ImplantHediffBase">
     <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
     <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
@@ -104,6 +100,12 @@
     <maxSeverity>99999</maxSeverity>
     <levelIsQuantity>true</levelIsQuantity>
 	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+  </HediffDef>
+  <!--anti-geriatric-->
+  <HediffDef ParentName="HVB_MarrowBase">
+    <defName>HVB_AntiGeriatricMarrow</defName>
+    <label>anti-geriatric marrow</label>
+    <description>Injected anti-geriatric marrow. Boosts lifespan.</description>
     <stages>
       <li>
 	    <statOffsets><LifespanFactor>0.1</LifespanFactor><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.1</CancerRate></statOffsets>
@@ -144,18 +146,10 @@
   </RecipeDef>
   
   <!--anti-toxic-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_AntiToxicMarrow</defName>
     <label>anti-toxic marrow</label>
     <description>Injected anti-toxic marrow. Boosts toxic resistance.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ToxicResistance>0.03</ToxicResistance><ToxicEnvironmentResistance>0.04</ToxicEnvironmentResistance><Radiation MayRequire="Dubwise.Rimatomics">-0.07</Radiation></statOffsets>
@@ -197,18 +191,10 @@
   </RecipeDef>
   
   <!--anxiolytic-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_AnxiolyticMarrow</defName>
     <label>anxiolytic marrow</label>
     <description>Injected anxiolytic marrow. Boosts mental fortitude.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><MentalBreakThreshold>-0.03</MentalBreakThreshold></statOffsets>
@@ -249,18 +235,10 @@
   </RecipeDef>
   
   <!--bionic synergy-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_BionicSynergyMarrow</defName>
     <label>bionic synergy marrow</label>
     <description>Injected bionic synergy marrow. Causes bionic ability cooldowns to elapse faster.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	  </li>
@@ -306,18 +284,10 @@
   </RecipeDef>
   
   <!--leukocytic-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_LeukocyticMarrow</defName>
     <label>leukocytic marrow</label>
     <description>Injected leukocytic marrow. Boosts immunity.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ImmunityGainSpeed>0.07</ImmunityGainSpeed><CancerRate MayRequire="Ludeon.RimWorld.Biotech">-0.05</CancerRate></statOffsets>
@@ -358,18 +328,10 @@
   </RecipeDef>
   
   <!--pluripotent-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_PluripotentMarrow</defName>
     <label>pluripotent marrow</label>
     <description>Injected pluripotent marrow. Boosts healing factor.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><InjuryHealingFactor>0.12</InjuryHealingFactor></statOffsets>
@@ -410,18 +372,10 @@
   </RecipeDef>
   
   <!--psionic-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_PsionicMarrow</defName>
     <label>psionic marrow</label>
     <description>Injected psionic marrow. Boosts psychic sensitivity.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><PsychicSensitivity>0.07</PsychicSensitivity><PsychicEntropyRecoveryRate MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">0.03</PsychicEntropyRecoveryRate></statOffsets>
@@ -462,18 +416,10 @@
   </RecipeDef>
   
   <!--thermoregulatory-->
-  <HediffDef ParentName="ImplantHediffBase">
+  <HediffDef ParentName="HVB_MarrowBase">
     <defName>HVB_ThermoregulatoryMarrow</defName>
     <label>thermoregulatory marrow</label>
     <description>Injected thermoregulatory marrow. Boosts temperature tolerances.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><ComfyTemperatureMin>-2</ComfyTemperatureMin><ComfyTemperatureMax>2</ComfyTemperatureMax></statOffsets>
@@ -514,18 +460,10 @@
   </RecipeDef>
   
   <!--hemogenic-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+  <HediffDef ParentName="HVB_MarrowBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HemogenicMarrow</defName>
     <label>hemogenic marrow</label>
     <description>Injected hemogenic marrow.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><Hauts_HemogenContentFactor>0.075</Hauts_HemogenContentFactor><EBSG_BloodlossRecoveryBonus MayRequire="EBSG.Framework">0.075</EBSG_BloodlossRecoveryBonus><InjuryHealingFactor>0.06</InjuryHealingFactor></statOffsets>
@@ -566,18 +504,10 @@
   </RecipeDef>
   
   <!--gau-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+  <HediffDef ParentName="HVB_MarrowBase" MayRequire="Ludeon.RimWorld.Ideology">
     <defName>HVB_Gaumarrow</defName>
     <label>gaumarrow</label>
     <description>Injected gaumarrow. Hastens gauranlen tree pruning.</description>
-    <descriptionHyperlinks><ThingDef>HVB_MarrowSubstitute</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_MarrowSubstitute</spawnThingOnRemoved>
-    <hediffClass>HautsBionics.Hediff_Marrow</hediffClass>
-    <initialSeverity>1</initialSeverity>
-    <minSeverity>0</minSeverity>
-    <maxSeverity>99999</maxSeverity>
-    <levelIsQuantity>true</levelIsQuantity>
-	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
     <stages>
       <li>
 	    <statOffsets><PruningSpeed>0.06</PruningSpeed></statOffsets>
