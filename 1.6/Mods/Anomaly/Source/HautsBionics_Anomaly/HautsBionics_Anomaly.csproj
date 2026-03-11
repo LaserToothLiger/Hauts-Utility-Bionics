@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\..\..\Users\ianti\OneDrive\Pictures\modstuff\HarmonyMod\Current\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -60,13 +60,20 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VEF">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\..\..\Users\ianti\OneDrive\Pictures\modstuff\VanillaExpandedFramework-main\1.6\Assemblies\VEF.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AnomalyDefsOf.cs" />
+    <Compile Include="ArchotechTruelife.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="Creepjoiner_Homunculus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoidshardDownsides.cs" />
+    <Compile Include="VoidshardSharedProperties.cs" />
+    <Compile Include="Voidshards_SpecificBionicMechanics.cs" />
+    <Compile Include="WightCommanders.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

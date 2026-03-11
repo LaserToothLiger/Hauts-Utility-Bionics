@@ -1,66 +1,19 @@
-﻿using HautsBionics;
-using RimWorld;
-using RimWorld.Planet;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
-using HautsFramework;
-using UnityEngine;
-using System.Reflection;
 
 namespace HautsBionics_Biotech
 {
-    [StaticConstructorOnStartup]
-    public static class HautsBionics_Biotech
-    {
-        private static readonly Type patchType = typeof(HautsBionics_Biotech);
-        static HautsBionics_Biotech()
-        {
-        }
-    }
-    [DefOf]
-    public static class HVBDefOf_Biotech
-    {
-        static HVBDefOf_Biotech()
-        {
-            DefOfHelper.EnsureInitializedInCtor(typeof(HVBDefOf_Biotech));
-        }
-        public static HediffDef HVB_ArchotechMechaqueen;
-    }
-    public class HediffCompProperties_DeathrestSeverity : HediffCompProperties
-    {
-        public HediffCompProperties_DeathrestSeverity()
-        {
-            this.compClass = typeof(HediffComp_DeathrestSeverity);
-        }
-    }
-    public class HediffComp_DeathrestSeverity : HediffComp
-    {
-        public HediffCompProperties_DeathrestSeverity Props
-        {
-            get
-            {
-                return (HediffCompProperties_DeathrestSeverity)this.props;
-            }
-        }
-        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
-        {
-            base.CompPostTickInterval(ref severityAdjustment, delta);
-            if (this.Pawn.IsHashIntervalTick(15, delta))
-            {
-                Need_Deathrest nd = this.Pawn.needs.TryGetNeed<Need_Deathrest>();
-                if (nd != null)
-                {
-                    this.parent.Severity = nd.CurLevel;
-                } else {
-                    this.parent.Severity = this.parent.def.minSeverity;
-                }
-            }
-        }
-    }
+    /*each progenoid gland is composed of two different hediffs: the one that can't be harvested (which is the version created by installing the implant) and the one that it transforms into once it reaches sufficient severity, which CAN be harvested.
+     * The not-ready (unripe?) versions start at a severity = severityPerComplexity * [whichever is higher, the pawn's total endogenetic complexity or xenogenetic cpx].
+     *   Severity drops by 1 per day (handled by a vanilla hediff comp) until it hits nearabout the minimum value, at which point it transforms into the ripe version (handled by ChangeBelowSeverity, a Framework comp).
+     * canTranscribeArchiteGenes: imparts the pawn's archogenes into the produced xenogerm. This also alters the severity equation, by adding the [total archite capsule cost*severityPerArchites of the endo/xenogerm] to each of those cpx sums.
+     * dropXenogermOnDeath: on death, the xenogerm or endogerm is produced (preferrentially the former), then the hediff removes itself. That sounds wonky, but because the endo/xenogerm dropping methods create the "transformsToWhenHarvested" hediff
+     *   on the pawn, in practice it looks like it's just expended its charge. (this is of course reliant on you not turning this flag on for the unripe variant, turning it on for the ripe variant, and setting the ripe's transformsToWhenHarvested
+     *   to the unripe variant)
+     * naturally, transformsToWhenHarvested is also added to the pawn when you use the recipes to harvest the e/xgerm. And then the recipe destroys the original hediff, once more looking like a charge expenditure.*/
     public class HediffCompProperties_ProgenoidCharging : HediffCompProperties
     {
         public HediffCompProperties_ProgenoidCharging()
@@ -103,7 +56,7 @@ namespace HautsBionics_Biotech
                         totalComplexity2 += g.def.biostatArc <= 0 ? g.def.biostatCpx * this.Props.severityPerComplexity : (this.Props.canTranscribeArchiteGenes ? (g.def.biostatArc * this.Props.severityPerArchites) + (g.def.biostatCpx * this.Props.severityPerComplexity) : 0f);
                     }
                 }
-                this.parent.Severity = Math.Max(Math.Max(totalComplexity,totalComplexity2), 1f);
+                this.parent.Severity = Math.Max(Math.Max(totalComplexity, totalComplexity2), 1f);
             }
             else
             {
@@ -120,7 +73,9 @@ namespace HautsBionics_Biotech
                 {
                     this.DropXenogerm();
                     didDrop = true;
-                } else if (this.parent.pawn.genes.Endogenes.Count > 0) {
+                }
+                else if (this.parent.pawn.genes.Endogenes.Count > 0)
+                {
                     this.DropEndogerm();
                     didDrop = true;
                 }
@@ -171,84 +126,8 @@ namespace HautsBionics_Biotech
             }
         }
     }
-    public class HediffCompProperties_OnlyYourMechsAura : HediffCompProperties_AuraHediff
-    {
-        public HediffCompProperties_OnlyYourMechsAura()
-        {
-            this.compClass = typeof(HedifComp_OnlyYourMechsAura);
-        }
-    }
-    public class HedifComp_OnlyYourMechsAura : HediffComp_AuraHediff
-    {
-        public override bool ValidatePawn(Pawn originator, Pawn p, bool inCaravan)
-        {
-            if (originator.mechanitor != null && originator.mechanitor.OverseenPawns != null && originator.mechanitor.OverseenPawns.Contains(p))
-            {
-                return base.ValidatePawn(originator, p, inCaravan);
-            }
-            return false;
-        }
-    }
-    public class HediffCompProperties_HBS : HediffCompProperties
-    {
-        public HediffCompProperties_HBS()
-        {
-            this.compClass = typeof(HediffComp_HBS);
-        }
-        public float hemogenDrainPerDay;
-    }
-    public class HediffComp_HBS : HediffComp
-    {
-        public HediffCompProperties_HBS Props
-        {
-            get
-            {
-                return (HediffCompProperties_HBS)this.props;
-            }
-        }
-        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
-        {
-            base.CompPostTickInterval(ref severityAdjustment, delta);
-            if (this.Pawn.IsHashIntervalTick(15, delta) && this.Pawn.genes != null)
-            {
-                Gene_Hemogen gene_Hemogen = this.Pawn.genes.GetFirstGeneOfType<Gene_Hemogen>();
-                if (gene_Hemogen != null)
-                {
-                    GeneUtility.OffsetHemogen(this.Pawn, -this.Props.hemogenDrainPerDay / 4000f, true);
-                    this.parent.Severity = gene_Hemogen.Value;
-                }
-                else
-                {
-                    this.parent.Severity = this.parent.def.minSeverity;
-                }
-            }
-        }
-    }
-    public class Recipe_RefuelInfertilizer : Recipe_Surgery
-    {
-        public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
-        {
-            List<Hediff> allHediffs = pawn.health.hediffSet.hediffs;
-            int num;
-            for (int i = 0; i < allHediffs.Count; i = num + 1)
-            {
-                if (allHediffs[i].Part != null && allHediffs[i].def == recipe.addsHediff && allHediffs[i].Visible)
-                {
-                    yield return allHediffs[i].Part;
-                }
-                num = i;
-            }
-            yield break;
-        }
-        public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
-        {
-            Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(this.recipe.addsHediff);
-            if (hediff != null)
-            {
-                hediff.Severity = hediff.def.maxSeverity;
-            }
-        }
-    }
+    /*you can choose to either generate a xenogerm of the pawn's endogenes or xenogenes, but not both at once.
+     * this triggers either the DropEndogerm or DropXenogerm methods of the ProgenoidCharging comp*/
     public class Recipe_HarvestProgenoidEndo : Recipe_Surgery
     {
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)

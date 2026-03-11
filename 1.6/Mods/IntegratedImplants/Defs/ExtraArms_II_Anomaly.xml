@@ -2,7 +2,7 @@
 <Defs>
   
   <!--extra sentience absorber-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_LeftExtraVoidshardSentienceAbsorber</defName>
     <label>extra voidshard sentience absorber (left)</label>
     <labelNoun>an extra voidshard sentience absorber (left)</labelNoun>
@@ -88,7 +88,7 @@
 	<duplicationAllowed>false</duplicationAllowed>
 	<tags><li>ExtraLeftArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_InstallLeftExtraVoidshardSentienceAbsorber</defName>
     <label>install extra voidshard sentience absorber (left)</label>
     <description>Alter an extra archotech sentience catalyzer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
@@ -115,7 +115,7 @@
 	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_RemoveLeftExtraVoidshardSentienceAbsorber</defName>
     <label>remove extra voidshard sentience absorber (left)</label>
     <description>Remove extra voidshard sentience absorber (left).</description>
@@ -126,7 +126,7 @@
     <jobString>Removing extra voidshard sentience absorber (left).</jobString>
     <removesHediff>HVB_LeftExtraVoidshardSentienceAbsorber</removesHediff>
   </RecipeDef>
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_RightExtraVoidshardSentienceAbsorber</defName>
     <label>extra voidshard sentience absorber (right)</label>
     <labelNoun>an extra voidshard sentience absorber (right)</labelNoun>
@@ -212,7 +212,7 @@
 	<duplicationAllowed>false</duplicationAllowed>
 	<tags><li>ExtraRightArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidImplantBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_InstallRightExtraVoidshardSentienceAbsorber</defName>
     <label>install extra voidshard sentience absorber (right)</label>
     <description>Alter an extra archotech sentience catalyzer by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
@@ -239,7 +239,7 @@
 	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Anomaly">
     <defName>HVB_RemoveRightExtraVoidshardSentienceAbsorber</defName>
     <label>remove extra voidshard sentience absorber (right)</label>
     <description>Remove extra voidshard sentience absorber (right).</description>

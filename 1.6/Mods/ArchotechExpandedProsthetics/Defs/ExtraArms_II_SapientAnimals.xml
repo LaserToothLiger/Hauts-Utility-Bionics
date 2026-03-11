@@ -2,7 +2,7 @@
 <Defs>
   
   <!--extra adv archotech sentience catalyzer-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</defName>
     <label>extra advanced archotech sentience catalyzer (left)</label>
     <labelNoun>an extra advanced archotech sentience catalyzer (left)</labelNoun>
@@ -44,7 +44,7 @@
 	<duplicationAllowed>false</duplicationAllowed>
 	<tags><li>ExtraLeftArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_InstallLeftExtraArchotechSentienceCatalyzer</defName>
     <label>install extra advanced archotech sentience catalyzer (left)</label>
     <description>Install an extra advanced archotech sentience catalyzer (left).</description>
@@ -75,7 +75,7 @@
 	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_RemoveLeftExtraArchotechSentienceCatalyzer</defName>
     <label>remove extra archotech sentience catalyzer (left)</label>
     <description>Remove extra advanced archotech sentience catalyzer (left).</description>
@@ -86,7 +86,7 @@
     <jobString>Removing extra advanced archotech sentience catalyzer (left).</jobString>
     <removesHediff>HVB_AEP_LeftExtraArchotechSentienceCatalyzer</removesHediff>
   </RecipeDef>
-  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_RightExtraArchotechSentienceCatalyzer</defName>
     <label>extra advanced archotech sentience catalyzer (right)</label>
     <labelNoun>an extra advanced archotech sentience catalyzer (right)</labelNoun>
@@ -128,7 +128,7 @@
 	<duplicationAllowed>false</duplicationAllowed>
 	<tags><li>ExtraRightArm</li></tags>
   </HediffDef>
-  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_InstallRightExtraArchotechSentienceCatalyzer</defName>
     <label>install extra advanced archotech sentience catalyzer (right)</label>
     <description>Install an extra advanced archotech sentience catalyzer (right).</description>
@@ -159,7 +159,7 @@
 	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
 	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
   </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded.Prosthetics,Teok25.ArchotechExpanded">
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I,RedMattis.SapientAnimals">
     <defName>HVB_AEP_RemoveRightExtraArchotechSentienceCatalyzer</defName>
     <label>remove extra advanced archotech sentience catalyzer (right)</label>
     <description>Remove extra advanced archotech sentience catalyzer (right).</description>

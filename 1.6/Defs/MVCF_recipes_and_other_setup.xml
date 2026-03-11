@@ -14,7 +14,7 @@
 	</MVCF.ModDef>
   <!--surgery to install an "add-on" for a pawn-->
   <RecipeDef Name="HVB_SurgeryAddImplantBase" ParentName="SurgeryFlesh" Abstract="True">
-    <workerClass>HautsBionics.Recipe_AddImplant</workerClass>
+    <workerClass>HautsBionics.Recipe_AddAddOn</workerClass>
     <workAmount>2500</workAmount>
     <developmentalStageFilter>Child, Adult</developmentalStageFilter>
     <skillRequirements>
@@ -62,7 +62,7 @@
   </RecipeDef>
   <!--surgery for add-ons that go on a HAND or FOOT. this specifically enables them to be added to a bionic replacement to the limb as well-->
   <RecipeDef Name="HVB_SurgeryAddImplantToLimbBase" ParentName="SurgeryFlesh" Abstract="True">
-    <workerClass>HautsBionics.Recipe_AddImplantToLimb</workerClass>
+    <workerClass>HautsBionics.Recipe_AddAddOnToLimb</workerClass>
     <workAmount>2500</workAmount>
     <developmentalStageFilter>Child, Adult</developmentalStageFilter>
     <skillRequirements>
@@ -247,23 +247,5 @@
       </categories>
     </fixedIngredientFilter>
   </RecipeDef>
-  
-  <!--swim swam swum-->
-  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="pathfinding.framework">
-    <defName>HVB_EnoughFinsToSwim</defName>
-    <label>amphibious movement unlocked</label>
-    <description>This character has sufficient bionic fins to swim easily.</description>
-	<hediffClass>HautsBionics.Hediff_SwimUnlocked</hediffClass>
-    <stages>
-      <li>
-	    <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
-    <modExtensions>
-      <li Class="PathfindingFramework.MovementExtension">
-        <movementDef>PF_Movement_Amphibious</movementDef>
-      </li>
-    </modExtensions>
-  </HediffDef>
   
 </Defs>

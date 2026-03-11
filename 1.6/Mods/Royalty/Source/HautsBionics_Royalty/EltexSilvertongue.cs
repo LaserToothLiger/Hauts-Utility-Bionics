@@ -1,11 +1,6 @@
 ﻿using HarmonyLib;
-using HautsBionics;
 using HautsFramework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace HautsBionics_Royalty
@@ -17,7 +12,7 @@ namespace HautsBionics_Royalty
         static HautsBionics_Royalty()
         {
             Harmony harmony = new Harmony(id: "rimworld.hautarche.hautsbionics.royalty");
-            harmony.Patch(AccessTools.Method(typeof(HautsUtility), nameof(HautsUtility.TotalPsyfocusRefund)),
+            harmony.Patch(AccessTools.Method(typeof(HautsMiscUtility), nameof(HautsMiscUtility.TotalPsyfocusRefund)),
                           postfix: new HarmonyMethod(patchType, nameof(HVB_TotalPsyfocusRefundPostfix)));
         }
         public static void HVB_TotalPsyfocusRefundPostfix(ref float __result, Pawn pawn, float psyfocusCost, bool isWord)
@@ -35,6 +30,7 @@ namespace HautsBionics_Royalty
             }
         }
     }
+    //makes Eltex Silvertongues (or variants thereupon) add a partial refund to the psyfocus spent on Word psycasts
     public class Hediff_Silvertongue : Hediff_AddedPart
     {
 

@@ -61,7 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="HealingInfertilizer.cs" />
+    <Compile Include="SanguophageHediffs.cs" />
+    <Compile Include="MechanitorHediffs.cs" />
+    <Compile Include="ProgenoidGlands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

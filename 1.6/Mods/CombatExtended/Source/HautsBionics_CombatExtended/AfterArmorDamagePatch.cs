@@ -3,13 +3,7 @@ using HarmonyLib;
 using HautsBionics;
 using RimWorld;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
-using Verse.AI;
 
 namespace HautsBionics_CombatExtended
 {
@@ -23,6 +17,7 @@ namespace HautsBionics_CombatExtended
             harmony.Patch(AccessTools.Method(typeof(ArmorUtilityCE), nameof(ArmorUtilityCE.GetAfterArmorDamage)),
                           postfix: new HarmonyMethod(patchType, nameof(HVB_GetAfterArmorDamagePostfix)));
         }
+        //makes the damage reduction effects of the hardhead protector and center mass laminar work
         public static void HVB_GetAfterArmorDamagePostfix(ref DamageInfo __result, Pawn pawn, BodyPartRecord hitPart)
         {
             if ((hitPart.IsInGroup(BodyPartGroupDefOf.FullHead) || hitPart.IsInGroup(BodyPartGroupDefOf.UpperHead)) && pawn.health.hediffSet.HasHediff(HVBDefOf.HVB_HardheadProtector))

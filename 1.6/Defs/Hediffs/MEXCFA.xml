@@ -198,13 +198,9 @@
 			<MoveSpeed>0.1</MoveSpeed>
 			<Hauts_JumpRangeFactor>0.1</Hauts_JumpRangeFactor>
 		</statOffsets>
-		<statFactors><SwimSpeed MayRequire="pyrce.swimming.modkit">1.05</SwimSpeed></statFactors>
       </li>
     </stages>
     <comps>
-	  <li Class="HautsBionics.HediffCompProperties_Fin">
-		<finPower>0.1</finPower>
-	  </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
 	</comps>
   </HediffDef>

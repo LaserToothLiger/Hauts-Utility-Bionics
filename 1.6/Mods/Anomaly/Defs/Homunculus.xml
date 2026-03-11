@@ -40,7 +40,7 @@
 	</degreeDatas>
 	<modExtensions>
 		<li Class="HautsFramework.CannotRemoveBionicsFrom" />
-		<li Class="HautsFramework.ExciseTraitExemption" />
+		<li Class="HautsFramework.ExciseTraitExempt" />
 	</modExtensions>
   </TraitDef>
   

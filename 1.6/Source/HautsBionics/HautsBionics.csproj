@@ -61,8 +61,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AbilityComps.cs" />
+    <Compile Include="Ability_BionicYank.cs" />
+    <Compile Include="AddOns.cs" />
+    <Compile Include="ItemGeneratingIntestines.cs" />
+    <Compile Include="LazarusSeed.cs" />
+    <Compile Include="MarrowSubstitutions.cs" />
+    <Compile Include="BionicShields.cs" />
+    <Compile Include="BrainAlteringHediffs.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="DamageWorker.cs" />
+    <Compile Include="DefsOf.cs" />
+    <Compile Include="LevelingImplants.cs" />
+    <Compile Include="LiverBionics.cs" />
+    <Compile Include="ModSettings.cs" />
+    <Compile Include="GravshipTravelAffectedBionics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thoughts.cs" />
+    <Compile Include="ToggleableArchotechBionics.cs" />
+    <Compile Include="TongueRecipe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -472,30 +472,6 @@
 						</operations>
 					</match>
 				</li>
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>SwimmingKit</li>
-						<li>Pathfinding Framework</li>
-					</mods>
-					<match Class="PatchOperationSequence">
-						<operations>
-							<!--kidney-->
-							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_BallastKidney"]</xpath>
-								<value>
-									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
-								</value>
-							</li>
-							<!--multi-option-->
-							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_AquadynamicLimb"]</xpath>
-								<value>
-									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
-								</value>
-							</li>
-						</operations>
-					</match>
-				</li>
 			</operations>
 		</match>
 	</Operation>

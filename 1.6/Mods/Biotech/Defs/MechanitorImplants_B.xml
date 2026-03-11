@@ -250,10 +250,10 @@
 		  </li>
 		</capMods>
         <statOffsets>
-          <MechBandwidth>3</MechBandwidth>
+          <MechBandwidth>4</MechBandwidth>
           <MechControlGroups>1</MechControlGroups>
-		  <Hauts_MechCommandRange>3</Hauts_MechCommandRange>
-          <WorkSpeedGlobalOffsetMech>0.11</WorkSpeedGlobalOffsetMech>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">3</MechRemoteControlDistanceOffset>
+          <WorkSpeedGlobalOffsetMech>0.13</WorkSpeedGlobalOffsetMech>
         </statOffsets>
       </li>
       <li>
@@ -269,10 +269,10 @@
 		  </li>
 		</capMods>
         <statOffsets>
-          <MechBandwidth>6</MechBandwidth>
+          <MechBandwidth>8</MechBandwidth>
           <MechControlGroups>2</MechControlGroups>
-		  <Hauts_MechCommandRange>6</Hauts_MechCommandRange>
-          <WorkSpeedGlobalOffsetMech>0.22</WorkSpeedGlobalOffsetMech>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">6</MechRemoteControlDistanceOffset>
+          <WorkSpeedGlobalOffsetMech>0.26</WorkSpeedGlobalOffsetMech>
         </statOffsets>
       </li>
       <li>
@@ -288,10 +288,10 @@
 		  </li>
 		</capMods>
         <statOffsets>
-          <MechBandwidth>9</MechBandwidth>
+          <MechBandwidth>12</MechBandwidth>
           <MechControlGroups>3</MechControlGroups>
-		  <Hauts_MechCommandRange>9</Hauts_MechCommandRange>
-          <WorkSpeedGlobalOffsetMech>0.33</WorkSpeedGlobalOffsetMech>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">9</MechRemoteControlDistanceOffset>
+          <WorkSpeedGlobalOffsetMech>0.39</WorkSpeedGlobalOffsetMech>
         </statOffsets>
       </li>
     </stages>
@@ -344,15 +344,30 @@
     <stages>
       <li>
         <minSeverity>1</minSeverity>
-		<statFactors><MechBandwidth>2</MechBandwidth><MechControlGroups>1.25</MechControlGroups><Hauts_MechCommandRange>1.2</Hauts_MechCommandRange><SubcoreEncodingSpeed>2</SubcoreEncodingSpeed></statFactors>
+		<statFactors>
+			<MechBandwidth>2</MechBandwidth>
+			<MechControlGroups>1.25</MechControlGroups>
+			<MechRemoteControlDistanceOffset MayRequire="lts.I">1.2</MechRemoteControlDistanceOffset>
+			<SubcoreEncodingSpeed>2</SubcoreEncodingSpeed>
+		</statFactors>
       </li>
       <li>
         <minSeverity>2</minSeverity>
-		<statFactors><MechBandwidth>3</MechBandwidth><MechControlGroups>1.5</MechControlGroups><Hauts_MechCommandRange>1.4</Hauts_MechCommandRange><SubcoreEncodingSpeed>3</SubcoreEncodingSpeed></statFactors>
+		<statFactors>
+			<MechBandwidth>3</MechBandwidth>
+			<MechControlGroups>1.5</MechControlGroups>
+			<MechRemoteControlDistanceOffset MayRequire="lts.I">1.4</MechRemoteControlDistanceOffset>
+			<SubcoreEncodingSpeed>3</SubcoreEncodingSpeed>
+		</statFactors>
       </li>
       <li>
         <minSeverity>3</minSeverity>
-		<statFactors><MechBandwidth>4</MechBandwidth><MechControlGroups>1.75</MechControlGroups><Hauts_MechCommandRange>1.6</Hauts_MechCommandRange><SubcoreEncodingSpeed>4</SubcoreEncodingSpeed></statFactors>
+		<statFactors>
+			<MechBandwidth>4</MechBandwidth>
+			<MechControlGroups>1.75</MechControlGroups>
+			<MechRemoteControlDistanceOffset MayRequire="lts.I">1.6</MechRemoteControlDistanceOffset>
+			<SubcoreEncodingSpeed>4</SubcoreEncodingSpeed>
+		</statFactors>
       </li>
     </stages>
   </HediffDef>

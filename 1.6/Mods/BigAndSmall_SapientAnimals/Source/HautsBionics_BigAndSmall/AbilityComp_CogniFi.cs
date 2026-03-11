@@ -1,10 +1,5 @@
 ﻿using BigAndSmall;
 using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace HautsBionics_BigAndSmall
@@ -20,6 +15,7 @@ namespace HautsBionics_BigAndSmall
             this.compClass = typeof(CompAbilityEffect_CogniFi);
         }
     }
+    //an ability comp that mimicks what the cogni-fi item does
     public class CompAbilityEffect_CogniFi : CompAbilityEffect
     {
         public new CompProperties_AbilityCogniFi Props

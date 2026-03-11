@@ -1684,39 +1684,6 @@
 							</li>
 						</operations>
 					</match>
-					<nomatch Class="PatchOperationFindMod">
-						<mods>
-							<li>SwimmingKit</li>
-						</mods>
-						<match Class="PatchOperationSequence">
-							<operations>
-								<!--KIMMY-->
-								<li Class="PatchOperationConditional">
-									<xpath>/Defs/HediffDef[defName="HVB_BallastKidney"]/comps</xpath>
-									<nomatch Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_BallastKidney"]</xpath>
-										<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
-									</nomatch>
-									<match Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_BallastKidney"]/comps</xpath>
-										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
-									</match>
-								</li>
-								<!--limbic system-->
-								<li Class="PatchOperationConditional">
-									<xpath>/Defs/HediffDef[defName="HVB_AquadynamicLimb"]/comps</xpath>
-									<nomatch Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_AquadynamicLimb"]</xpath>
-										<value><comps><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></comps></value>
-									</nomatch>
-									<match Class="PatchOperationAdd">
-										<xpath>/Defs/HediffDef[defName="HVB_AquadynamicLimb"]/comps</xpath>
-										<value><li Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"><scaleAdjustment>0.25</scaleAdjustment></li></value>
-									</match>
-								</li>
-							</operations>
-						</match>
-					</nomatch>
 				</li>
 				<!--Archotech Expanded Prosthetics-->
 				<li Class="PatchOperationFindMod">

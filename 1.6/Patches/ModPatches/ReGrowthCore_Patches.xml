@@ -14,7 +14,6 @@
 						<value>
 							<nullifyingHediffs>
 								<li>HVB_OilskinGland</li>
-								<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
 							</nullifyingHediffs>
 						</value>
 					</nomatch>
@@ -22,7 +21,6 @@
 						<xpath>/Defs/ThoughtDef[defName="RG_Wet"]/nullifyingHediffs</xpath>
 						<value>
 							<li>HVB_OilskinGland</li>
-							<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
 						</value>
 					</match>
 				</li>
@@ -33,7 +31,6 @@
 						<value>
 							<nullifyingHediffs>
 								<li>HVB_OilskinGland</li>
-								<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
 							</nullifyingHediffs>
 						</value>
 					</nomatch>
@@ -41,7 +38,6 @@
 						<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingHediffs</xpath>
 						<value>
 							<li>HVB_OilskinGland</li>
-							<li MayRequire="pathfinding.framework">HVB_AquadynamicBiojacket</li>
 						</value>
 					</match>
 				</li>

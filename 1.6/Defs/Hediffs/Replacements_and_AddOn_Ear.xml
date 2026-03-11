@@ -566,8 +566,8 @@
     <stages>
       <li>
         <statOffsets>
-		  <MechBandwidth>1</MechBandwidth>
-          <Hauts_MechCommandRange>1</Hauts_MechCommandRange>
+		  <MechBandwidth>2</MechBandwidth>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">1</MechRemoteControlDistanceOffset>
         </statOffsets>
       </li>
     </stages>
@@ -618,105 +618,6 @@
       <li>Ear</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_MechanityrantEar</addsHediff>
-  </RecipeDef>
-  
-  <!--prosthetic earfin-->
-  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
-    <defName>HVB_ProstheticEarfin</defName>
-    <label>prosthetic earfin</label>
-    <labelNoun>a prosthetic earfin</labelNoun>
-    <description>An installed prosthetic earfin.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ProstheticEarfin</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ProstheticEarfin</spawnThingOnRemoved>
-	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
-	<minSeverity>0.001</minSeverity>
-	<initialSeverity>0.001</initialSeverity>
-    <addedPartProps>
-      <solid>false</solid>
-      <betterThanNatural>true</betterThanNatural>
-    </addedPartProps>
-    <stages>
-      <li>
-        <statOffsets>
-		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
-        </statOffsets>
-      </li>
-      <li MayRequire="pathfinding.framework">
-        <minSeverity>0.3</minSeverity>
-		<statOffsets>
-		  <MoveSpeed>0.09</MoveSpeed>
-		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
-        </statOffsets>
-      </li>
-      <li MayRequire="pathfinding.framework">
-        <minSeverity>0.42</minSeverity>
-		<statOffsets>
-		  <MoveSpeed>0.09</MoveSpeed>
-		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.09</SwimSpeed>
-        </statOffsets>
-      </li>
-    </stages>
-	<comps>
-	  <li Class="HautsBionics.HediffCompProperties_Fin">
-		<finPower>0.15</finPower>
-	  </li>
-	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
-		<rainCountsFor>0</rainCountsFor>
-	  </li>
-	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
-	</comps>
-  </HediffDef>
-  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
-    <defName>HVB_ProstheticEarfin</defName>
-    <label>prosthetic earfin</label>
-    <description>A hydrodynamic fin which fits around the ear to boost swim speed.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallProstheticEarfin</RecipeDef></descriptionHyperlinks>
-    <costList>
-      <Steel>20</Steel>
-    </costList>
-    <statBases>
-      <MarketValue>60</MarketValue>
-    </statBases>
-  </ThingDef>
-  <RecipeDef ParentName="HVB_SurgeryAddImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
-    <defName>HVB_InstallProstheticEarfin</defName>
-    <label>install prosthetic earfin</label>
-    <description>Install a prosthetic earfin.</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ProstheticEarfin</ThingDef>
-      <HediffDef>HVB_ProstheticEarfin</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing prosthetic earfin.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>HVB_ProstheticEarfin</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>HVB_ProstheticEarfin</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Ear</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>HVB_ProstheticEarfin</addsHediff>
-  </RecipeDef>
-  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="pyrce.swimming.modkit,pathfinding.framework">
-    <defName>HVB_RemoveProstheticEarfin</defName>
-    <label>remove prosthetic earfin</label>
-    <description>Remove prosthetic earfin.</description>
-    <descriptionHyperlinks>
-      <ThingDef>HVB_ProstheticEarfin</ThingDef>
-      <HediffDef>HVB_ProstheticEarfin</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Removing prosthetic earfin.</jobString>
-    <removesHediff>HVB_ProstheticEarfin</removesHediff>
   </RecipeDef>
   
   

@@ -189,7 +189,8 @@
           <MechBandwidth>4</MechBandwidth>
         </statOffsets>
 		<statFactors>
-          <Hauts_MechCommandRange>1.2</Hauts_MechCommandRange>
+		  <MechBandwidth>1.1</MechBandwidth>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">1.2</MechRemoteControlDistanceOffset>
 		</statFactors>
       </li>
     </stages>
