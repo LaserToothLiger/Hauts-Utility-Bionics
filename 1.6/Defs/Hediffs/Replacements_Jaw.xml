@@ -187,10 +187,10 @@
       <li>
         <statOffsets>
           <MechBandwidth>4</MechBandwidth>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">8</MechRemoteControlDistanceOffset>
         </statOffsets>
 		<statFactors>
 		  <MechBandwidth>1.1</MechBandwidth>
-		  <MechRemoteControlDistanceOffset MayRequire="lts.I">1.2</MechRemoteControlDistanceOffset>
 		</statFactors>
       </li>
     </stages>
@@ -198,7 +198,7 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_MechanityrantMouth</defName>
     <label>mechanityrant maw</label>
-    <description>This artificial jaw replaces most of the oral cavity with mechlink-amplifying technology, including bandwidth amplifiers and a range booster. This unfortunately makes using the mouth for its evolutionarily intended purposes difficult.</description>
+    <description>This artificial jaw replaces most of the oral cavity with mechlink-amplifying technology. This unfortunately makes using the mouth for its evolutionarily intended purposes difficult.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantMouth</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>15</Plasteel>

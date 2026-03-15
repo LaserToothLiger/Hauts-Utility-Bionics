@@ -344,6 +344,9 @@
     <stages>
       <li>
         <minSeverity>1</minSeverity>
+		<statOffsets>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">5</MechRemoteControlDistanceOffset>
+		</statOffsets>
 		<statFactors>
 			<MechBandwidth>2</MechBandwidth>
 			<MechControlGroups>1.25</MechControlGroups>
@@ -353,6 +356,9 @@
       </li>
       <li>
         <minSeverity>2</minSeverity>
+		<statOffsets>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">10</MechRemoteControlDistanceOffset>
+		</statOffsets>
 		<statFactors>
 			<MechBandwidth>3</MechBandwidth>
 			<MechControlGroups>1.5</MechControlGroups>
@@ -362,6 +368,9 @@
       </li>
       <li>
         <minSeverity>3</minSeverity>
+		<statOffsets>
+		  <MechRemoteControlDistanceOffset MayRequire="lts.I">15</MechRemoteControlDistanceOffset>
+		</statOffsets>
 		<statFactors>
 			<MechBandwidth>4</MechBandwidth>
 			<MechControlGroups>1.75</MechControlGroups>
