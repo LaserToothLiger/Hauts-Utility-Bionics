@@ -6,7 +6,7 @@
     <label>voidshard homunculus</label>
     <description>A heavily modified transhuman further augmented by the integration of a dark archotech's shards. The potency of its augments strengthen as the doorway to the void is further opened.</description>
     <category>Basic</category>
-    <uiIconPath>UI/CodexEntries/DeathPall</uiIconPath>
+    <uiIconPath>CodexEntries/Homunculus</uiIconPath>
     <linkedIncidents>
       <li>HVB_HomunculusExamined</li>
     </linkedIncidents>
