@@ -109,25 +109,6 @@
 						<Suppressability>0.05</Suppressability>
 					</value>
 				</li>
-				<!--Replacements_and_AddOn_Heart.xml-->
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/description</xpath>
-					<value>
-						<description>An installed shieldpower heart. Provides a shield that can intercept 50 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 6.5 energy per second. If broken, the shield will reset after 1.28 hours.</description>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
-					<value>
-						<maxEnergyOffset>50</maxEnergyOffset>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/energyRegenOffset</xpath>
-					<value>
-						<energyRegenOffset>6.5</energyRegenOffset>
-					</value>
-				</li>
 				<!--Replacements_Arm.xml-->
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/HediffDef[defName="HVB_FiringArm"]/stages/li/statFactors/RangedCooldownFactor</xpath>
@@ -440,6 +421,7 @@
 									</operations>
 								</match>
 							</li>
+							<!--ShieldpowerBionics_R.xml-->
 							<li Class="PatchOperationReplace">
 								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerGland"]/description</xpath>
 								<value>
@@ -458,6 +440,25 @@
 									<energyRegenOffset>1.5</energyRegenOffset>
 								</value>
 							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/description</xpath>
+								<value>
+									<description>An installed shieldpower heart. Provides a shield that can intercept 50 damage from ranged attacks, does not prohibit the use of ranged weaponry, and regenerates at a rate of 6.5 energy per second. If broken, the shield will reset after 1.28 hours.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
+								<value>
+									<maxEnergyOffset>50</maxEnergyOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/energyRegenOffset</xpath>
+								<value>
+									<energyRegenOffset>6.5</energyRegenOffset>
+								</value>
+							</li>
+							<!--Replacements_Arm_R.xml-->
 							<li Class="PatchOperationReplace">
 								<xpath>Defs/HediffDef[defName="HVB_WeldingArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
 								<value>

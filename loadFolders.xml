@@ -31,6 +31,5 @@
 		<li IfModActive="Rah.RBSE">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li><!--warlock bionics require eltex to make, not gold and jade-->
 		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li><!--extra arms-->
-		<li IfModActive="RedMattis.SapientAnimals">1.6/Mods/BigAndSmall_SapientAnimals</li><!--archotech arm that can inflict cogni-fi effect-->
 	</v1.6>
 </loadFolders>

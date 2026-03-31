@@ -444,10 +444,11 @@
 		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
           <ArmorRating_Heat>0.6</ArmorRating_Heat>
         </statOffsets>
+		<statFactors>
+		  <Hauts_ColdDamageFactor>0.7</Hauts_ColdDamageFactor>
+		  <Hauts_HeatDamageFactor>0.7</Hauts_HeatDamageFactor>
+		</statFactors>
         <totalBleedFactor>0.2</totalBleedFactor>
-		<damageFactors>
-		  <VQE_CryptoCut>0.7</VQE_CryptoCut>
-		</damageFactors>
       </li>
     </stages>
     <comps>

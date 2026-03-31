@@ -231,4 +231,35 @@ namespace HautsBionics
             }
         }
     }
+    //Big and Small - Sapient Animals ability comp: does the cogni-fi effect on the targeted pawn
+    public class CompProperties_AbilityCogniFi : CompProperties_AbilityEffect
+    {
+        public CompProperties_AbilityCogniFi()
+        {
+            this.compClass = typeof(CompAbilityEffect_CogniFi);
+        }
+    }
+    //an ability comp that mimicks what the cogni-fi item does. Note that this ability can never apply on any pawn UNLESS Big and Small is running, as CanSapienateAnimal is false by default.
+    public class CompAbilityEffect_CogniFi : CompAbilityEffect
+    {
+        public new CompProperties_AbilityCogniFi Props
+        {
+            get
+            {
+                return (CompProperties_AbilityCogniFi)this.props;
+            }
+        }
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            return base.CanApplyOn(target, dest) && target.Pawn != null && ModCompatibilityUtility.CanSapienateAnimal(target.Pawn);
+        }
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            if (target.Pawn != null)
+            {
+                ModCompatibilityUtility.SapienateAnimal(target.Pawn);
+            }
+        }
+    }
 }

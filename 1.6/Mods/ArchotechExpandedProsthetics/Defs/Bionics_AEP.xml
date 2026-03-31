@@ -2442,7 +2442,7 @@
 		  </targetParams>
 		</verbProperties>
 		<comps>
-		  <li Class="HautsBionics_BigAndSmall.CompProperties_AbilityCogniFi" />
+		  <li Class="HautsBionics.CompProperties_AbilityCogniFi" />
 		</comps>
 	  </AbilityDef>
   
