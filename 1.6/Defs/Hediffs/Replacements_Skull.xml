@@ -163,7 +163,7 @@
       <li>
         <statOffsets>
 		  <PsychicSensitivity>-1.4</PsychicSensitivity>
-		  <Hauts_PsychicDamageFactor>-0.2</Hauts_PsychicDamageFactor>
+		  <Hauts_PsychicDamageFactor>-0.4</Hauts_PsychicDamageFactor>
         </statOffsets>
       </li>
     </stages>

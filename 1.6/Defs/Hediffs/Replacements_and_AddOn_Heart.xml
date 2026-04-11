@@ -119,7 +119,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_CleanHeart</defName>
     <label>clean heart</label>
-    <description>An artificial heart which catches toxic particles and foreign cells via a filter in its pulmonary artery. Caught material is stored in compacted mucus pellets, and a biogel nerve-link stimulates the host to cough once enough have built up, expelling them.\n\nIt also produces a specialized hunter cell that detects and neutralizes drug overdoses as they occur. However, since these cells expend themselves in the effort, this effect can only occur once every 12 days.</description>
+    <description>An artificial heart which catches toxic particles and foreign cells via a filter attached to its pulmonary artery. Caught material is stored in compacted mucus pellets, and a biogel nerve-link stimulates the host to cough once enough have built up, expelling them. This increases tolerance to toxic environments, as well as to hard drug use.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCleanHeart</RecipeDef></descriptionHyperlinks>
     <costList>
       <BionicHeart>1</BionicHeart>

@@ -65,9 +65,7 @@ namespace HautsBionics_Biotech
                 {
                     GeneUtility.OffsetHemogen(this.Pawn, -this.Props.hemogenDrainPerDay / 4000f, true);
                     this.parent.Severity = gene_Hemogen.Value;
-                }
-                else
-                {
+                } else {
                     this.parent.Severity = this.parent.def.minSeverity;
                 }
             }

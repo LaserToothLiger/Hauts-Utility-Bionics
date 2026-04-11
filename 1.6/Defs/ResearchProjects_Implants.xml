@@ -63,7 +63,7 @@
         <li>subject_story->sought to utilize pluripotent cells within the marrow to boost the human body</li>
         <li>subject_story->found loose mechanites contaminating [ANYPAWN_possessive] tissue samples, and noticed potential health benefits within the resultant melange</li>
 			<li>subject_gerund->repurposing marrow to benefit overall health</li>
-			<li>subject_gerund->crafting incrementally beneficial synthetic marrow</li>
+			<li>subject_gerund->crafting beneficial synthetic marrow</li>
       </rulesStrings>
     </generalRules>
   </ResearchProjectDef>
@@ -81,7 +81,7 @@
         <li>subject_story->believed that connection with a gauranlen tree was necessary to 'elevate the human spirit'</li>
         <li>subject_story->mandated that all of [ANYPAWN_possessive] apprentices maintain their own dryad colonies</li>
         <li>subject_story->revolutionized the field gauranlen bionics after spending ten years living under the boughs of a connected gauranlen tree</li>
-        <li>subject_story->once used a legion of dryads controlled by gauranlen bionics to crew a naval vessel</li>
+        <li>subject_story->lived on a naval vessel crewed only by [ANYPAWN_objective]self and a grove of trained dryads</li>
 			<li>subject_gerund->bionically enhancing human-dryad symbiosis</li>
 			<li>subject_gerund->crafting bionics that interface with dryads</li>
       </rulesStrings>
@@ -97,11 +97,11 @@
     <generalRules>
       <rulesStrings>
 			<li>subject->neuroideologic bionics</li>
-        <li>subject_story->faced censure from some ideoligious organizations, and open-minded encouragement from others, for studying applied neuroideology</li>
+        <li>subject_story->faced censure from some ideoligious organizations, but open-minded encouragement from others, for studying applied neuroideology</li>
         <li>subject_story->sought to understand the neurochemical processes underlying zealous faith</li>
         <li>subject_story->illicitly implanted neuroideologic bionics in dozens of schoolchildren before [ANYPAWN_pronoun] was finally caught</li>
         <li>subject_story->believed that neuroideology was the next great advancement in asserting civic authority</li>
-        <li>subject_story->ran a bionic startup company whose neuroideologic implants became surprisingly popular among demographics not highly associated with ideoligion</li>
+        <li>subject_story->ran a bionic startup company whose neuroideologic implants became surprisingly popular among the secular crowd</li>
 			<li>subject_gerund->bionically enhancing faith</li>
 			<li>subject_gerund->constructing belief-enhancing implants</li>
       </rulesStrings>
@@ -120,13 +120,13 @@
     <generalRules>
       <rulesStrings>
 			<li>subject->assistive kidney bionics</li>
-        <li>subject_story->regularly asserted in conferences that the kidneys were the least spatially-efficient human internal organ</li>
-        <li>subject_story->developed a 'programmable hybrid material' that utilized embedded mechanites to regulate the exact function of a bionic organ, but was only able to make it work with certain organs</li>
-        <li>subject_story->maintained transhumans' organs for a living, learned that kidneys were often one of the last things to be replaced due to their limited utility, and set out to make something the clientele would buy up</li>
+        <li>subject_story->regularly asserted in conferences that the kidneys were the 'largest wastes of space' in the human body, and that they were prime candidates for replacement with novel organ types</li>
+        <li>subject_story->developed a 'programmable hybrid material' that utilized embedded mechanites to regulate the exact function of a bionic organ, but was only able to make it work consistently with kidneys</li>
+        <li>subject_story->maintained transhumans' organs for a living, and developed a wide catalogue of bionic kidneys to attract a novelty-seeking clientele</li>
         <li>subject_story->recovered an assistive kidney from a ruin on the rim and spent years puzzling out all its different configurations</li>
-        <li>subject_story->tried creating a unique configuration of the assistive kidney with a novel use</li>
+        <li>subject_story->tried creating a unique configuration of the assistive kidney, just for bragging rights</li>
 			<li>subject_gerund->bionically repurposing kidneys</li>
-			<li>subject_gerund->crafting bionic kidneys with additional uses</li>
+			<li>subject_gerund->crafting bionic kidneys with secondary functions</li>
       </rulesStrings>
     </generalRules>
   </ResearchProjectDef>
@@ -141,8 +141,8 @@
     <generalRules>
       <rulesStrings>
 			<li>subject->neometabolic bionics</li>
-        <li>subject_story->used neometabolic technology to cure mood maladies, and did not believe it had other uses</li>
-        <li>subject_story->experimented with the idea of using bionic organs to tame and direct rogue mechanites</li>
+        <li>subject_story->used neometabolic technology to cure mood maladies, but lacked the imagination to conceive of other uses</li>
+        <li>subject_story->experimented with the idea of using bionic organs to produce and control mechanites</li>
         <li>subject_story->produced hundreds of designs for neometabolic augments, but scrapped most of them after realizing they weren't generalizable to a wider population </li>
         <li>subject_story->delved into neometabolic studies while attempting to diversify the products offered by [ANYPAWN_possessive] drug empire</li>
         <li>subject_story->suffered from multiple inherited body chemistry disorders, spurring [ANYPAWN_possessive] pursuit into metabolic therapies</li>
@@ -164,12 +164,12 @@
       <rulesStrings>
 			<li>subject->bionic sensors</li>
         <li>subject_story->was born without the sense of smell, and so sought to overcome this limitation via transhumanist means</li>
-        <li>subject_story->pioneered a niche genre of music where adjusting one's own bionic hearing could be used to "choose one's own melody"</li>
+        <li>subject_story->pioneered a niche genre of polyphonic music where adjusting one's own bionic hearing could result in thousands of different songs from just one composition</li>
         <li>subject_story->clearly based the initial bionic designs on the sensors of domestic mechanoids</li>
-        <li>subject_story->created a pheromonic conlang that could only be perceived and understood by someone with bionic chemical receptors</li>
+        <li>subject_story->created a pheromonic conlang that could only be perceived and understood by those with bionic chemical receptors</li>
         <li>subject_story->resolved to restore the hearing of skipgate bomb survivors</li>
-        <li>subject_story->was driven mad by [ANYPAWN_possessive] newfound bionic senses and had to be interred in a remote, supersterile facility to preserve what was left of [ANYPAWN_possessive] sanity</li>
-        <li>subject_story->activated and deactivated [ANYPAWN_possessive] sleeper agents via a subtle signal detectable only to their bionic senses</li>
+        <li>subject_story->was driven mad by [ANYPAWN_possessive] newfound bionic senses and had to be interred in a remote, supersterile facility to preserve what was left of [ANYPAWN_possessive] faculties</li>
+        <li>subject_story->managed [ANYPAWN_possessive] sleeper agents via a subtle signal detectable only to their bionic senses</li>
 			<li>subject_gerund->bionically enhancing perception</li>
 			<li>subject_gerund->crafting sensory implants</li>
       </rulesStrings>
@@ -186,9 +186,9 @@
     <generalRules>
       <rulesStrings>
 			<li>subject->bionic respiration augmentation</li>
-        <li>subject_story->outfitted deepcrust exploration teams with these bionics to raise their chances of survival in such low-oxygen climes</li>
+        <li>subject_story->outfitted deepcrust exploration teams with these bionics to raise their chances of survival in dangerous subterranean atmospheres</li>
         <li>subject_story->pursued a career in bionic augmentation after witnessing the pervasive breathing illnesses common to local mining towns</li>
-        <li>subject_story->created an amphibious micronation of the transhuman elite whose bionics allowed them to breathe water as easily as air</li>
+        <li>subject_story->created an amphibious micronation of the transhuman elite, whose bionics allowed them to breathe water as easily as air</li>
         <li>subject_story->repurposed air purification technology from interstellar ships to create these designs</li>
         <li>subject_story->sought to grant humanity the means to be as vocally expressive as the songbirds [ANYPAWN_pronoun] so loved</li>
         <li>subject_story->appropriated these plans from a surgical clinic in an urbworld's smoggy underhive</li>
@@ -209,7 +209,7 @@
       <rulesStrings>
 			<li>subject->bionic strength optimizations</li>
         <li>subject_story->was enamored with the idea of creating a real-life Hercules</li>
-        <li>subject_story->worked with bodybuilders who didn't care about staying "natty" in order to push their limits</li>
+        <li>subject_story->worked with bodybuilders who didn't care about staying natural in their pursuit of gains</li>
         <li>subject_story->only hired laborers if they consented to receive these upgrades</li>
         <li>subject_story->translated these designs from scraped data regarding an old Earth super-soldier project</li>
         <li>subject_story->went a little overboard when redesigning standard-suite bionic replacements</li>
@@ -254,7 +254,7 @@
         <li>subject_story->developed means of restoring mobility to paraplegic veterans</li>
         <li>subject_story->compared the kinetics and kinematics of individuals from different athletic pursuits, juxtaposing these findings with data from less mobile, infirm individuals</li>
         <li>subject_story->dedicated [ANYPAWN_possessive] career to replicating the movement abilities of notably quick, nimble, and fast xenohumans</li>
-        <li>subject_story->was rumored to have developed bionics to walk on walls, soar on the winds, and tunnel through the earth under one's own power, but sadly no examples of this technology have been found</li>
+        <li>subject_story->was rumored to have developed bionics to walk on walls, soar on the winds, and tunnel through the earth, but sadly no examples of those devices have been found</li>
 			<li>subject_gerund->bionically enhancing mobility</li>
 			<li>subject_gerund->crafting movement-enhancing implants</li>
       </rulesStrings>
@@ -275,8 +275,8 @@
         <li>subject_story->developed technologies to enhance the survival rate of new colonists</li>
         <li>subject_story->labored for years to understand the natural survival adaptations of remarkable extremophile organisms</li>
         <li>subject_story->forced those under [ANYPAWN_possessive] command to receive these augments</li>
-        <li>subject_story->led a transhuman movement focused on "vanquishing once and for all humanity's oldest foe, death", but nevertheless died over a hundred years ago</li>
-        <li>subject_story->reverse-engineered the life-preserving augmetics of ancient soldiers found preserved in cryptosleep for hundreds of years</li>
+        <li>subject_story->led a transhuman movement focused on "vanquishing once and for all humanity's oldest foe, death"</li>
+        <li>subject_story->reverse-engineered the life-preserving augmetics of ancient soldiers extracted from centuries-long cryptosleep</li>
 			<li>subject_gerund->bionically enhancing survival</li>
 			<li>subject_gerund->crafting survival-enhancing implants</li>
       </rulesStrings>
@@ -295,8 +295,8 @@
         <li>subject_story->believed that only the 'smartest' individuals were deserving of bionic technology</li>
         <li>subject_story->habitually overdesigned every machine [ANYPAWN_pronoun] worked on, stuffing them full of niche extra functions, compact telescoping limbs, and unnecessarily intricate user-modifiable settings</li>
         <li>subject_story->also published a user manual detailing the full operation of these bionics, but it is hopelessly complicated and too dense for most to understand</li>
-        <li>subject_story->received inspiration from studying the relics left behind by a civilization on the cusp of transcendence</li>
-        <li>subject_story->expressed contempt for those who refused to upgrade themselves with these designs</li>
+        <li>subject_story->was inspired by the cerebral relics left behind by a civilization that vanished shortly after attempting to create an archotech</li>
+        <li>subject_story->expressed contempt for those "slack-jawed nitwits" who refused to upgrade themselves with these designs</li>
 			<li>subject_gerund->constructing intellect-scaling bionics</li>
 			<li>subject_gerund->crafting modular bionics</li>
       </rulesStrings>
@@ -305,7 +305,7 @@
   <ResearchProjectDef ParentName="BaseBodyPartHVB_Spacer">
     <defName>HVB_BionicWeaponry</defName>
     <label>bionic weaponry</label>
-    <description>Craft bionic ranged weapons that can be embedded in various body parts. Since they can be fired with just a thought, it is possible to use them at the same time as other weapons.</description>
+    <description>Craft bionic ranged weapons that can be embedded in various body parts, as well as bionics that enhance regular attacks or provide combat-relevant abilities.</description>
     <baseCost>2800</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <researchViewX>4.10</researchViewX>
@@ -316,7 +316,7 @@
         <li>subject_story->was accompanied in all public appearances by a bodyguard with over thirty different kinds of hidden integrated weapons</li>
         <li>subject_story->handed these plans over in exchange for amnesty upon defecting, believing that leaving them in the wrong hands would invite armageddon</li>
         <li>subject_story->produced these designs to equalize the gap between weak and strong</li>
-        <li>subject_story->believed that the best self-defense was a good suite of integrated offensive options in various levels and flavors of lethality</li>
+        <li>subject_story->believed that the best self-defense was a hidden, biologically-integrated suite of overwhelming firepower, subject to direct neural control</li>
         <li>subject_story->helped design an elite team of killer cyborgs because [ANYPAWN_possessive] thought it would be fun</li>
 			<li>subject_gerund->integrating weapons systems into the body</li>
 			<li>subject_gerund->bionically enhancing lethality</li>
@@ -368,7 +368,7 @@
   <ResearchProjectDef ParentName="BaseBodyPartHVB_Spacer" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_ProgenoidGlands</defName>
     <label>progenoid glands</label>
-    <description>Craft progenoid glands, bionic implants that replicate the xenogerms of their hosts.</description>
+    <description>Craft progenoid glands, bionic implants that fully replicate either the endogerm or xenogerm of their hosts.</description>
     <baseCost>1000</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <prerequisites>
@@ -380,8 +380,8 @@
       <rulesStrings>
 			<li>subject->progenoid glands</li>
         <li>subject_story->hoped the progenoid gland could rescue [ANYPAWN_possessive] dwindling xenotype from extinction</li>
-        <li>subject_story->attempted to patent the genomes produced by [ANYPAWN_possessive] own brand of progenoid glands, igniting a fierce legal battle as to whether or not the glands' hosts were the owners of their own genes</li>
-        <li>subject_story->believed the progenoid gland was one of nineteen bionics necessary to create the ultimate transhuman warrior</li>
+        <li>subject_story->attempted to patent the genomes produced by [ANYPAWN_possessive] own brand of progenoid glands, igniting a fierce legal battle as to whether or not the glands' hosts were the owners of their own genetics</li>
+        <li>subject_story->believed the progenoid gland was one of nineteen (or, later, twenty-two) bionics necessary to create the ultimate transhuman warrior</li>
         <li>subject_story->survived a faulty progenoid gland discharging mass nuclear fragments into [ANYPAWN_possessive] bloodstream</li>
         <li>subject_story->proposed the use of progenoid glands to study rare cancers</li>
 			<li>subject_gerund->creating installable progenoid glands</li>
@@ -413,7 +413,7 @@
       <rulesStrings>
 			<li>subject->eltex prostheses</li>
         <li>subject_story->achieved an epiphany after repurposing the broken fragment of [ANYPAWN_possessive] bestowal staff as a peg leg</li>
-        <li>subject_story->spent years precipitating eltex minerals in organoid vats in order to optimize the bio-crystalline psychic amplification</li>
+        <li>subject_story->spent years precipitating eltex minerals in organoid vats in order to optimize bio-crystalline psychic amplification</li>
         <li>subject_story->was part of a Sophian splinter sect focused on augmentation of psycasting ability above all else</li>
         <li>subject_story->mastered the art of sculpting lifelike body parts from eltex</li>
         <li>subject_story->studied Sophiamundan technology with a special focus on eltex and its applications</li>
@@ -425,7 +425,7 @@
   <ResearchProjectDef ParentName="BaseBodyPartHVB_Ultra">
     <defName>HVB_NeuralResocialization</defName>
     <label>neural resocialization</label>
-    <description>Learn how to rewrite a subject's memories and subconscious - this process trades away much of the victim's individuality, but makes them incredibly compliant and tenacious.</description>
+    <description>Learn how to rewrite a subject's memories and subconscious - this process trades away much of the victim's individuality, but makes them incredibly compliant and tenacious. Resocialization has a slight chance to break during moments of extreme stress, but this can be fixed by subjecting the victim to another rewrite.</description>
     <prerequisites>
       <li>HVB_BrainInterfacing</li>
     </prerequisites>
@@ -437,7 +437,7 @@
         <li>subject_story->ran a program that enabled convicts to shorten their prison sentences in exchange for agreeing to neural resocialization</li>
         <li>subject_story->campaigned for a legal ban on neural resocialization after witnessing the atrocities resoc soldiers were willing to commit once given the order</li>
         <li>subject_story->depravedly cultivated a harem in the subarctic wilds by abducting those [ANYPAWN_possessive] desired and subjecting them to neural resocialization</li>
-        <li>subject_story->also infamously developed various other means of enforcing the state's iron-fisted, absolute control over its citizens</li>
+        <li>subject_story->developed many means of enforcing the state's iron-fisted, absolute control over its citizens, though [ANYPAWN_pronoun] was most well-known for inventing resocialization</li>
         <li>subject_story->recreated the neural resocialization process from the salvaged databanks of late twenty-fifth century colonies</li>
 			<li>subject_gerund->rewriting the brain to ensure compliance</li>
 			<li>subject_gerund->brainwashing</li>
