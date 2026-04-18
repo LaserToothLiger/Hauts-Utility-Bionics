@@ -431,7 +431,7 @@
     <defName>HVB_BionicFlameKick</defName>
     <label>bionic flame kick</label>
     <description>Launch a stream of burning chemfuel from a jet leg. It can ignite anything or anyone it hits, and also form flaming pools on the ground.\n\nUsing this ability will temporarily negate the bonus jump range granted by the jet leg.</description>
-    <iconPath>UI/Abilities/FireSpew</iconPath>
+    <iconPath>BionicAbilities/HUB_FlameKick</iconPath>
     <cooldownTicksRange>60000</cooldownTicksRange>
     <aiCanUse>true</aiCanUse>
     <ai_IsIncendiary>true</ai_IsIncendiary>

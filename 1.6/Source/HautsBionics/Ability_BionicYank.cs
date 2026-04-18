@@ -41,9 +41,7 @@ namespace HautsBionics
                     {
                         return false;
                     }
-                }
-                else if (target.Thing.def.category != ThingCategory.Building && target.Thing.def.category != ThingCategory.Pawn && (target.Thing.def.category != ThingCategory.Item || !target.Thing.def.EverHaulable))
-                {
+                } else if (target.Thing.def.category != ThingCategory.Building && target.Thing.def.category != ThingCategory.Pawn && (target.Thing.def.category != ThingCategory.Item || !target.Thing.def.EverHaulable)) {
                     return false;
                 }
             }
@@ -62,10 +60,28 @@ namespace HautsBionics
                     {
                         this.parent.ResetCooldown();
                     }
-                }
-                else
-                {
-                    this.DoLink(target.Thing, this.parent.pawn, target.Cell, target.Thing.Map, (Mathf.Max(target.Thing.PositionHeld.DistanceTo(this.parent.pawn.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks());
+                } else {
+                    IntVec3 destination = target.Cell;
+                    if (!target.Cell.Walkable(target.Thing.Map))
+                    {
+                        if (this.parent.pawn.Position.x > destination.x)
+                        {
+                            IntVec3 replacement = new IntVec3(destination.x + 1, destination.y, destination.z);
+                            if (replacement.Walkable(target.Thing.Map))
+                            {
+                                destination = replacement;
+                            }
+                        }
+                        if (this.parent.pawn.Position.z > destination.z)
+                        {
+                            IntVec3 replacement = new IntVec3(destination.x, destination.y, destination.z + 1);
+                            if (replacement.Walkable(target.Thing.Map))
+                            {
+                                destination = replacement;
+                            }
+                        }
+                    }
+                    this.DoLink(target.Thing, this.parent.pawn, destination, target.Thing.Map, (Mathf.Max(target.Thing.PositionHeld.DistanceTo(this.parent.pawn.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks());
                 }
             }
         }

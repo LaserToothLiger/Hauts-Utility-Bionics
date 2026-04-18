@@ -441,7 +441,6 @@
 	  <li>
 		<statOffsets>
 		  <PawnBeauty>-0.5</PawnBeauty>
-		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">0.3</EBSG_HemogenMaxOffset>
 		</statOffsets>
 	  </li>
 	</stages>

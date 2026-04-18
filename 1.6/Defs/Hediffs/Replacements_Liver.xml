@@ -288,13 +288,6 @@
     <description>An installed hepatic hemogen reservoir.</description>
     <descriptionHyperlinks><ThingDef>HVB_HepaticHemogenReservoir</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_HepaticHemogenReservoir</spawnThingOnRemoved>
-	<stages>
-	  <li>
-	    <statOffsets>
-		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">1.2</EBSG_HemogenMaxOffset>
-		</statOffsets>
-	  </li>
-	</stages>
     <addedPartProps>
       <solid>true</solid>
 	  <partEfficiency>1.25</partEfficiency>

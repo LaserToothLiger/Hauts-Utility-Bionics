@@ -351,13 +351,6 @@
     <description>An installed mass hemogen reservoir implant.</description>
     <descriptionHyperlinks><ThingDef>HVB_MassHemogenReservoir</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_MassHemogenReservoir</spawnThingOnRemoved>
-	<stages>
-	  <li>
-	    <statOffsets>
-		  <EBSG_HemogenMaxOffset MayRequire="EBSG.Framework">1.2</EBSG_HemogenMaxOffset>
-		</statOffsets>
-	  </li>
-	</stages>
     <comps>
 	  <li Class="HautsFramework.HediffCompProperties_GeneticResourceModifiers">
 		<maxResourceOffsets>
