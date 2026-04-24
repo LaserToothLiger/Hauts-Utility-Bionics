@@ -1559,6 +1559,73 @@
     <addsHediff>HVB_AEP_ArchotechGrowthStimulator</addsHediff>
   </RecipeDef>
   
+  <!--neutralizer-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_AEP_ArchotechNeutralizer</defName>
+    <hediffClass>HautsBionics.Hediff_Neutralizer</hediffClass>
+    <label>advanced archotech neutralizer</label>
+    <labelNoun>an advanced archotech neutralizer</labelNoun>
+    <description>An installed advanced archotech neutralizer. Prevents random diseases, and near-instantly neutralizes all drugs, diseases, toxins, and even the buildup of fatigue. Will not protect against instantaneously fatal drug effects.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechNeutralizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechNeutralizer</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3.75</partEfficiency>
+    </addedPartProps>
+    <stages>
+	  <li>
+		<statOffsets>
+		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+		  <ToxicResistance>10</ToxicResistance>
+		</statOffsets>
+		<statFactors>
+		  <Hauts_AcidDamageFactor>0</Hauts_AcidDamageFactor>
+		  <Hauts_ToxicDamageFactor>0</Hauts_ToxicDamageFactor>
+		  <RestFallRateFactor>0</RestFallRateFactor>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+		</statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_AEP_ArchotechNeutralizer</defName>
+    <label>advanced archotech neutralizer</label>
+    <description>An advanced artificial liver created by an archotech. In addition to its supernatural potency as a liver, it aggressively targets and removes the effects of most chemicals, drugs and pathogenic agents from and around the body - though how it does so, or even discerns its targets, is a mystery to all human minds.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechNeutralizer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_AEP_InstallArchotechNeutralizer</defName>
+    <label>install advanced archotech neutralizer</label>
+    <description>Install an advanced archotech neutralizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechNeutralizer</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechNeutralizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech neutralizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechNeutralizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechNeutralizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechNeutralizer</addsHediff>
+  </RecipeDef>
+  
   <!--archotech thinking kidney-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_AEP_ArchotechThinkingKidney</defName>

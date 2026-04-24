@@ -1011,35 +1011,35 @@
     <stages>
 	  <li>
 		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
-		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+		<statFactors><Hauts_ToxicDamageFactor>0.5</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
 		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
-		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+		<statFactors><Hauts_ToxicDamageFactor>0.4</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
 		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
-		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+		<statFactors><Hauts_ToxicDamageFactor>0.3</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
 		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
-		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+		<statFactors><Hauts_ToxicDamageFactor>0.2</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
 		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
-		<statFactors><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
+		<statFactors><Hauts_ToxicDamageFactor>0.1</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
     </stages>
     <comps>

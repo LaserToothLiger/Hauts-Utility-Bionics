@@ -3,7 +3,7 @@
 
   <EntityCodexEntryDef>
     <defName>HVB_HomunculusEntry</defName>
-    <label>voidshard homunculus</label>
+    <label>homunculus</label>
     <description>A heavily modified transhuman further augmented by the integration of a dark archotech's shards. The potency of its augments strengthen as the doorway to the void is further opened.</description>
     <category>Basic</category>
     <uiIconPath>CodexEntries/Homunculus</uiIconPath>

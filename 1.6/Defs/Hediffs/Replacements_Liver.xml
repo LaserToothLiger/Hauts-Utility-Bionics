@@ -375,6 +375,7 @@
 		  <ToxicResistance>10</ToxicResistance>
 		</statOffsets>
 		<statFactors>
+		  <Hauts_ToxicDamageFactor>0.5</Hauts_ToxicDamageFactor>
 		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
 		</statFactors>
       </li>
