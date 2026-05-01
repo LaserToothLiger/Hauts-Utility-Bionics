@@ -25,7 +25,7 @@
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_KnuckleCannons</defName>
     <label>knuckle cannons</label>
-    <description>A set of miniaturized guns which can be implanted in either an organic or bionic hand, hooked up to a fast-twitch hand-eye supercoordinator. The four barrels rest above each of the hand's metacarpals. A biogel nerve-trigger enables mental commands to fire each chamber; the supercoordinator directs the shot with unerring accuracy, regardless of the aiming skills of the host. A full volley will take a full day to reload.</description>
+    <description>A set of miniaturized guns which can be implanted in either an organic or bionic arm. The four barrels protrude above each of the hand's metacarpals, though they retract within the arm when not in use. A simplistic biogel nerve-trigger enables a mental command to brace the arm, chamber the rounds, and fire four shots in rapid succession. This implant can only be used once a day, as self-repair mechanisms are needed to keep the weapon in functioning shape, and new bullets must be generated from metabolic processes.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallKnuckleCannons</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>
@@ -109,7 +109,7 @@
 		<cellRange>1.5</cellRange>
 		<minDmgToTrigger>0</minDmgToTrigger>
 		<canAffectMechs>false</canAffectMechs>
-		<chance>0.12</chance>
+		<chance>0.13</chance>
       </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>
@@ -196,7 +196,7 @@
     <stages>
       <li>
         <statOffsets>
-          <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+          <WorkSpeedGlobal>0.12</WorkSpeedGlobal>
         </statOffsets>
       </li>
     </stages>
@@ -360,45 +360,67 @@
     <defName>HVB_GraserArmCannon</defName>
     <label>graser arm cannon</label>
     <labelNoun>a graser arm cannon</labelNoun>
-    <description>An installed graser arm cannon.</description>
+    <description>An installed graser arm cannon. Overuse in a short period can cause burns and toxic buildup.</description>
     <descriptionHyperlinks><ThingDef>HVB_GraserArmCannon</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_GraserArmCannon</spawnThingOnRemoved>
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
 	<tags><li>HVB_HandTools</li></tags>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+	<maxSeverity>24</maxSeverity>
     <addedPartProps>
       <solid>false</solid>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
+    <abilities>
+      <li>HVB_BionicGraser</li>
+    </abilities>
+	<stages>
+	  <li>
+	    <minSeverity>0.001</minSeverity>
+	  </li>
+	  <li>
+	    <minSeverity>4.001</minSeverity>
+		<label>slight risk</label>
+	  </li>
+	  <li>
+	    <minSeverity>9.5</minSeverity>
+		<label>mild risk</label>
+	  </li>
+	  <li>
+	    <minSeverity>10</minSeverity>
+		<label>high risk</label>
+	  </li>
+	</stages>
     <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-				<verbClass>Verb_Shoot</verbClass>
-				<label>graser arm cannon</label>
-				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_BeamRepeater</defaultProjectile>
-				<warmupTime>1.1</warmupTime>
-				<range>25.9</range>
-				<soundCast>Shot_BeamRepeater</soundCast>
-				<soundCastTail>GunTail_Medium</soundCastTail>
-				<muzzleFlashScale>9</muzzleFlashScale>
-				<commandIcon>Weapons/HUB_GraserArmCannon</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>graser arm cannon</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-				  <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-					<compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-						<invisible>true</invisible>
-						<uniqueTargets>true</uniqueTargets>
-				  </li>
-			  </comps>
-			  <description>Fires a single high-energy gamma ray laser that can pierce shields and armor to burn targets.</description>
-			</li>
-		</verbProps>
+      <li Class="HautsBionics.HediffCompProperties_RadiationBuildup">
+		<damage>
+            <def>Burn</def>
+            <amount>2</amount>
+		</damage>
+		<condition>ToxicBuildup</condition>
+		<conditionSevverity>0.06</conditionSevverity>
+		<severityPerShot>1</severityPerShot>
+		<resistanceStat>Hauts_RadiationDamageFactor</resistanceStat>
+		<damageOrConditionMinSeverity>4.001</damageOrConditionMinSeverity>
+		<damageOrConditionMTBdaysCurve>
+		  <points>
+			  <li>(4,72)</li>
+			  <li>(5,70)</li>
+			  <li>(6,64)</li>
+			  <li>(7,54)</li>
+			  <li>(8,40)</li>
+			  <li>(9,22)</li>
+			  <li>(10,1)</li>
+			  <li>(15,0.1)</li>
+			  <li>(20,0.03)</li>
+			  <li>(24,0.01)</li>
+		  </points>
+		</damageOrConditionMTBdaysCurve>
+		<riskString>HVB_GraserCannonLeakage</riskString>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
       </li>
 	  <li><compClass>HautsBionics.HediffComp_AddOn</compClass></li>
     </comps>

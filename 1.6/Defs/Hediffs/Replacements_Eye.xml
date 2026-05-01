@@ -6,14 +6,17 @@
     <defName>HVB_BalefulEye</defName>
     <label>baleful eye</label>
     <labelNoun>a baleful eye</labelNoun>
-    <description>An installed baleful eye. Can fire at targets independently, even in melee.</description>
+    <description>An installed baleful eye. Once every four hours, it can fire a charged bullet with near-perfect accuracy, dealing damage akin to a charge lance.</description>
     <descriptionHyperlinks><ThingDef>HVB_BalefulEye</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_BalefulEye</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <!--<partEfficiency>1.25</partEfficiency>-->
+      <partEfficiency>1.25</partEfficiency>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
+    <abilities>
+      <li>HVB_BionicEyeshot</li>
+    </abilities>
     <stages>
       <li>
         <statOffsets>
@@ -39,43 +42,11 @@
         </drawData>
       </li>
     </renderNodeProperties>
-    <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>baleful eye</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>Bullet_ChargeLance</defaultProjectile>
-			  <warmupTime>2.4</warmupTime>
-			  <range>29.9</range>
-			  <soundCast>ChargeLance_Fire</soundCast>
-			  <soundCastTail>GunTail_Heavy</soundCastTail>
-			  <muzzleFlashScale>6</muzzleFlashScale>
-			  <commandIcon>Weapons/HUB_BalefulEye</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>baleful eye</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Fires a single shot at high velocity, charging it with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
-			</li>
-		</verbProps>
-      </li>
-    </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>HVB_BalefulEye</defName>
     <label>baleful eye</label>
-    <description>An artificial eye with extremely miniaturized pulse-charge and mass acceleration technology, enabling it to fire projectiles akin to a charge lance. It does not offer improved eyesight when compared to organic eyes. Due to its compact design, its rate of fire is slower than that of a proper charge lance; however, because it only requires eyesight and a mental trigger to fire, it can also be used in melee.\n\nThe machinery of this bionic is too large to fully fit within an eye socket, so it protrudes hideously from the face.</description>
+    <description>An artificial eye with extremely miniaturized pulse-charge and mass acceleration technology, enabling it to fire projectiles akin to a charge lance; its relatively compact design prevents it from firing more than once every four hours, however. Since it is essentially aimed by eye contact, it has incredible accuracy.\n\nThe machinery of this bionic is too large to fully fit within an eye socket, so it protrudes hideously from the face.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallBalefulEye</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <costList>
@@ -802,9 +773,12 @@
     <defName>HVB_ArchotechDeathGlare</defName>
     <label>archotech death glare</label>
     <labelNoun>an archotech death glare</labelNoun>
-    <description>An installed archotech "death glare". Can fire independently, even in melee.</description>
+    <description>An installed archotech "death glare". Once every four hours, it can fire a charged bullet with near-perfect accuracy, piercing effortlessly through armor and dealing pulverizing damage to the victim.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechDeathGlare</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_ArchotechEyeshot</li>
+    </abilities>
     <addedPartProps>
       <solid>true</solid>
       <partEfficiency>1.50</partEfficiency>
@@ -833,50 +807,16 @@
         </drawData>
       </li>
     </renderNodeProperties>
-    <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>archotech death glare</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
-			  <warmupTime>3.5</warmupTime>
-			  <range>45.9</range>
-			  <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-			  <burstShotCount>5</burstShotCount>
-			  <soundCast>Shot_ChargeBlaster</soundCast>
-			  <soundCastTail>GunTail_Heavy</soundCastTail>
-			  <muzzleFlashScale>9</muzzleFlashScale>
-			  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>archotech death glare</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Fires a stream of slugs at high velocity. Each is charged with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
-			</li>
-		</verbProps>
-      </li>
-    </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_ArchotechDeathGlare</defName>
     <label>archotech death glare</label>
-    <description>An artificial eye built by an archotech. In addition to the usual functions of an archotech eye, death glares are devastating weapons that can launch a stream of dozens of pulse-charged projectiles over long distances. Since the weapon only needs eyesight and a mental trigger to fire, it can even be used in melee.</description>
+    <description>An artificial eye built by an archotech. In addition to the usual functions of an archotech eye, death glares can somehow accrete small projectiles from nearby dust or the host's own spoor. Once every four hours, a death glare can discharge one of these bullets with armor-penetrating, pulverizing force, at ranges comparable to a sniper rifle. Since it is essentially aimed by eye contact, it has incredible accuracy.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechDeathGlare</RecipeDef></descriptionHyperlinks>
     <violentTechHediff>true</violentTechHediff>
     <statBases>
       <Mass>0.3</Mass>
-	  <MarketValue>5000</MarketValue>
+	  <MarketValue>3700</MarketValue>
 	  <NightVisionEfficiency_Implant MayRequire="CETeam.CombatExtended">0.5</NightVisionEfficiency_Implant>
     </statBases>
     <thingSetMakerTags>

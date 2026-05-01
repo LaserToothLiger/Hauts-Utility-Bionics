@@ -103,6 +103,9 @@
     <description>An installed dark archotech death glare. Its potency scales with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechDeathGlare</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_VoidshardEyeshot</li>
+    </abilities>
     <addedPartProps>
       <solid>true</solid>
       <partEfficiency>1.50</partEfficiency>
@@ -174,44 +177,12 @@
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
 	  </li>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>voidshard death glare</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>HVB_BulletPoisonEye</defaultProjectile>
-			  <warmupTime>3</warmupTime>
-			  <range>45.9</range>
-			  <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-			  <burstShotCount>7</burstShotCount>
-			  <soundCast>Shot_ChargeBlaster</soundCast>
-			  <soundCastTail>GunTail_Heavy</soundCastTail>
-			  <muzzleFlashScale>9</muzzleFlashScale>
-			  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>voidshard death glare</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Fires a stream of biotoxic slugs at high velocity. Each disrupts the nervous system of any biological creature that has been struck, although larger creatures are more resistant. Can be fired while performing other tasks.</description>
-			</li>
-		</verbProps>
-      </li>
     </comps>
   </HediffDef>
   <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
     <defName>HVB_InstallVoidshardDeathGlre</defName>
     <label>upgrade archotech death glare with shards</label>
-    <description>Alter an archotech death glare by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and transforming its attack into a stream of biotoxic bolts which stun living creatures in the same way a nerve spiker does.</description>
+    <description>Alter an archotech death glare by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level, and transforming its attack into a searing area of effect that takes slightly longer to aim.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchotechDeathGlare</ThingDef>
       <HediffDef>HVB_VoidshardDeathGlare</HediffDef>
@@ -233,18 +204,50 @@
     <addsHediff>HVB_VoidshardDeathGlare</addsHediff>
 	<removesHediff>HVB_ArchotechDeathGlare</removesHediff>
   </RecipeDef>
+	  <AbilityDef>
+		<defName>HVB_VoidshardEyeshot</defName>
+		<label>voidshard eyeshot</label>
+		<description>Fire a concrete-melting area-of-effect hellsphere projectile from the voidshard death glare. Since it is entirely aimed thorugh the eye muscles, it takes only a little while to fire and has near-perfect accuracy.</description>
+		<iconPath>Weapons/HUB_DeathGlare</iconPath>
+		<aiCanUse>true</aiCanUse>
+		<cooldownTicksRange>10000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<verbProperties>
+		  <verbClass>HautsFramework.Verb_CastAbilityBlockedByBlocksRanged</verbClass>
+		  <warmupTime>0.6</warmupTime>
+		  <soundCast>ChargeLance_Fire</soundCast>
+		  <soundCastTail>GunTail_Heavy</soundCastTail>
+		  <ai_IsWeapon>false</ai_IsWeapon>
+		  <muzzleFlashScale>6</muzzleFlashScale>
+		  <range>45.9</range>
+		</verbProperties>
+		<comps>
+		  <li Class="CompProperties_AbilityLaunchProjectile">
+			<projectileDef>HVB_Bullet_DeathGlare_VS</projectileDef>
+		  </li>
+		</comps>
+	  </AbilityDef>
 	  <ThingDef ParentName="BaseBullet">
-		<defName>HVB_BulletPoisonEye</defName>
-		<label>voidshard death glare shot</label>
+		<defName>HVB_Bullet_DeathGlare_VS</defName>
+		<label>death glare shot</label>
+		<thingClass>Projectile_Explosive</thingClass>
 		<graphicData>
-		  <texPath>Things/Projectile/Nociosphere_Heatspike</texPath>
-		  <graphicClass>Graphic_Random</graphicClass>
-		  <shaderType>TransparentPostLight</shaderType>
+		  <texPath>Things/Projectile/FleshmelterBolt</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <shaderType>Mote</shaderType>
+		  <drawSize>(1.5, 3)</drawSize>
 		</graphicData>
 		<projectile>
-		  <damageDef>Nerve</damageDef>
-		  <damageAmountBase>11</damageAmountBase>
-		  <speed>90</speed>
+		  <damageDef>NociosphereVaporize</damageDef>
+		  <damageAmountBase>120</damageAmountBase>
+		  <speed>75</speed>
+		  <soundAmbient>FleshmelterBolt_Launch</soundAmbient>
+		  <explosionRadius>2.49</explosionRadius>
+		  <screenShakeFactor>1.25</screenShakeFactor>
+		  <explosionChanceToStartFire>0.75</explosionChanceToStartFire>
+		  <filth>Filth_BlastMark</filth>
+		  <filthCount>1</filthCount>
+		  <explosionSpawnsSingleFilth>true</explosionSpawnsSingleFilth>
 		</projectile>
 	  </ThingDef>
   

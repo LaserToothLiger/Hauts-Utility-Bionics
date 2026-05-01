@@ -8,6 +8,18 @@
 			<operations>
 				<!--AbilityDefs.xml-->
 				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_BionicEyeshot"]/verbProperties/range</xpath>
+					<value>
+						<range>56</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_BionicEyeshot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+					<value>
+						<projectileDef>Bullet_5x35mmCharged</projectileDef>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
 					<xpath>Defs/AbilityDef[defName="HVB_BionicBansheeWail"]/comps/li[@Class="HautsBionics.CompProperties_AbilityBansheeWail"]/baseRadius</xpath>
 					<value>
 						<baseRadius>3</baseRadius>
@@ -37,6 +49,18 @@
 						<range>24</range>
 					</value>
 				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ArchotechEyeshot"]/verbProperties/range</xpath>
+					<value>
+						<range>70</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ArchotechEyeshot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+					<value>
+						<projectileDef>HVB_CE_Bullet_DeathGlare</projectileDef>
+					</value>
+				</li>
 				<!--DamageDefs.xml-->
 				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/ToolCapacityDef[defName="HVB_DisintegrationBite"]</xpath>
@@ -48,9 +72,9 @@
 				</li>
 				<!--MEXCHA.xml-->
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/AbilityDef[defName="HVB_KnuckleShot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+					<xpath>Defs/AbilityDef[defName="HVB_KnuckleShot"]/verbProperties/defaultProjectile</xpath>
 					<value>
-						<projectileDef>Bullet_12Gauge_Slug</projectileDef>
+						<defaultProjectile>Bullet_12Gauge_Slug</defaultProjectile>
 					</value>
 				</li>
 				<!--Replacement_MultiOrgan.xml-->
@@ -173,25 +197,6 @@
 				</li>
 				<!--Replacements_Eye.xml-->
 				<li Class="PatchOperationReplace">
-					<xpath>/Defs/HediffDef[defName="HVB_BalefulEye"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
-					<value>
-						<verbs>
-							<li Class="CombatExtended.VerbPropertiesCE">
-								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-								<label>baleful eye</label>
-								<hasStandardCommand>true</hasStandardCommand>
-								<defaultProjectile>Bullet_5x35mmCharged</defaultProjectile>
-								<warmupTime>1.9</warmupTime>
-								<range>56</range>
-								<soundCast>ChargeLance_Fire</soundCast>
-								<soundCastTail>GunTail_Heavy</soundCastTail>
-								<muzzleFlashScale>6</muzzleFlashScale>
-							  <commandIcon>Weapons/HUB_BalefulEye</commandIcon>
-							</li>
-						</verbs>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
 					<xpath>/Defs/HediffDef[defName="HVB_LongshotEye"]/stages/li/statOffsets/ShootingAccuracyPawn</xpath>
 					<value>
 						<ShootingAccuracyPawn>0.2</ShootingAccuracyPawn><!--equivalent to a level of shooting skill, just like how the longshot eye works w/o CE-->
@@ -202,27 +207,6 @@
 					<xpath>Defs/HediffDef[defName="HVB_LongshotEye"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
 					<value>
 						<MeleeDodgeChance>-0.03</MeleeDodgeChance>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/HediffDef[defName="HVB_ArchotechDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
-					<value>
-						<verbs>
-							<li Class="CombatExtended.VerbPropertiesCE">
-								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-								<label>archotech death glare</label>
-								<hasStandardCommand>true</hasStandardCommand>
-								<defaultProjectile>Bullet_12x64mmCharged</defaultProjectile>
-								<warmupTime>4</warmupTime>
-								<range>70</range>
-								<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-								<burstShotCount>6</burstShotCount>
-								<soundCast>Shot_ChargeBlaster</soundCast>
-								<soundCastTail>GunTail_Heavy</soundCastTail>
-								<muzzleFlashScale>9</muzzleFlashScale>
-							  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-							</li>
-						</verbs>
 					</value>
 				</li>
 				<!--Replacements_Jaw.xml-->
@@ -585,20 +569,9 @@
 								</value>
 							</li>
 							<li Class="PatchOperationReplace">
-								<xpath>/Defs/HediffDef[defName="HVB_SpikeSlingingSpine"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<xpath>/Defs/HediffDef[defName="HVB_ThrashingSpine"]/stages/li/statFactors/MeleeCooldownFactor</xpath>
 								<value>
-									<verbs>
-										<li Class="CombatExtended.VerbPropertiesCE">
-											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-											<label>spike-slinging spine</label>
-											<hasStandardCommand>true</hasStandardCommand>
-											<defaultProjectile>Spike_Fingerspike</defaultProjectile>
-											<warmupTime>1.2</warmupTime>
-											<range>15.9</range>
-											<soundCast>Ability_SpineLaunch</soundCast>
-											<!--<commandIcon>UI/Abilities/Neuroquake</commandIcon>-->
-										</li>
-									</verbs>
+									<MeleeCooldownFactor>0.8</MeleeCooldownFactor>
 								</value>
 							</li>
 							<!--Replacements_JawA.xml-->
@@ -654,24 +627,15 @@
 							</li>
 							<!--VoidshardBionics_HUB_head.xml-->
 							<li Class="PatchOperationReplace">
-								<xpath>/Defs/HediffDef[defName="HVB_VoidshardDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<xpath>Defs/AbilityDef[defName="HVB_VoidshardEyeshot"]/verbProperties/range</xpath>
 								<value>
-									<verbs>
-										<li Class="CombatExtended.VerbPropertiesCE">
-											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-											<label>voidshard death glare</label>
-											<hasStandardCommand>true</hasStandardCommand>
-											<defaultProjectile>HVB_BulletPoisonEye_CE</defaultProjectile>
-											<warmupTime>4</warmupTime>
-											<range>70</range>
-											<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-											<burstShotCount>8</burstShotCount>
-											<soundCast>Shot_ChargeBlaster</soundCast>
-											<soundCastTail>GunTail_Heavy</soundCastTail>
-											<muzzleFlashScale>9</muzzleFlashScale>
-										  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-										</li>
-									</verbs>
+									<range>70</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_VoidshardEyeshot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+								<value>
+									<projectileDef>HVB_CE_Bullet_DeathGlare_VS</projectileDef>
 								</value>
 							</li>
 							<li Class="PatchOperationReplace">
@@ -980,26 +944,6 @@
 									<maxEnergyOffset>500</maxEnergyOffset>
 								</value>
 							</li>
-							<!--MEXCHA.xml in base folder-->
-							<li Class="PatchOperationReplace">
-								<xpath>/Defs/HediffDef[defName="HVB_GraserArmCannon"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
-								<value>
-									<verbs>
-										<li Class="CombatExtended.VerbPropertiesCE">
-											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-											<label>graser arm cannon</label>
-											<hasStandardCommand>true</hasStandardCommand>
-											<defaultProjectile>Bullet_Laser_BeamRepeater</defaultProjectile>
-											<warmupTime>1.1</warmupTime>
-											<range>46</range>
-											<soundCast>Shot_BeamRepeater</soundCast>
-											<soundCastTail>GunTail_Medium</soundCastTail>
-											<muzzleFlashScale>9</muzzleFlashScale>
-											<commandIcon>Weapons/HUB_GraserArmCannon</commandIcon>
-										</li>
-									</verbs>
-								</value>
-							</li>
 							<!--Replacements_Arm.xml in base folder-->
 							<li Class="PatchOperationReplace">
 								<xpath>Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
@@ -1031,24 +975,15 @@
 					<match Class="PatchOperationSequence">
 						<operations>
 							<li Class="PatchOperationReplace">
-								<xpath>/Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+								<xpath>Defs/AbilityDef[defName="HVB_AEP_ArchotechEyeshot"]/verbProperties/range</xpath>
 								<value>
-									<verbs>
-										<li Class="CombatExtended.VerbPropertiesCE">
-											<verbClass>CombatExtended.Verb_ShootCE</verbClass>
-											<label>archotech death glare</label>
-											<hasStandardCommand>true</hasStandardCommand>
-											<defaultProjectile>Bullet_12x64mmCharged</defaultProjectile>
-											<warmupTime>4</warmupTime>
-											<range>70</range>
-											<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-											<burstShotCount>24</burstShotCount>
-											<soundCast>Shot_ChargeBlaster</soundCast>
-											<soundCastTail>GunTail_Heavy</soundCastTail>
-											<muzzleFlashScale>9</muzzleFlashScale>
-										  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-										</li>
-									</verbs>
+									<range>70</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_AEP_ArchotechEyeshot"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+								<value>
+									<projectileDef>HVB_AEP_CE_Bullet_DeathGlare</projectileDef>
 								</value>
 							</li>
 							<li Class="PatchOperationReplace">

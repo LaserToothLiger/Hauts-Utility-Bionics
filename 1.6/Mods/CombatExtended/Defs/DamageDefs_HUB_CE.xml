@@ -1,20 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef ParentName="BaseBulletCE" MayRequire="Ludeon.RimWorld.Anomaly">
-	<defName>HVB_BulletPoisonEye_CE</defName>
-	<thingClass>CombatExtended.BulletCE</thingClass>
-	<label>voidshard death glare shot</label>
+  <ThingDef ParentName="Base5x35mmChargedBullet">
+	<defName>HVB_CE_Bullet_DeathGlare</defName>
+	<label>death glare bullet</label>
 	<graphicData>
-	  <texPath>Things/Projectile/Nociosphere_Heatspike</texPath>
-	  <graphicClass>Graphic_Random</graphicClass>
-	  <shaderType>TransparentPostLight</shaderType>
+		<texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>TransparentPostLight</shaderType>
 	</graphicData>
 	<projectile Class="CombatExtended.ProjectilePropertiesCE">
-		<damageDef>Nerve</damageDef>
-		<damageAmountBase>11</damageAmountBase>
-		<speed>54</speed>
-		<armorPenetrationSharp>20</armorPenetrationSharp>
-		<armorPenetrationBlunt>1</armorPenetrationBlunt>
+		<damageDef>Bomb</damageDef>
+		<damageAmountBase>120</damageAmountBase>
+		<speed>178</speed>
+		<secondaryDamage>
+			<li>
+				<def>Bomb_Secondary</def>
+				<amount>2</amount>
+			</li>
+		</secondaryDamage>
+		<armorPenetrationSharp>66</armorPenetrationSharp>
+		<armorPenetrationBlunt>120</armorPenetrationBlunt>
 	</projectile>
   </ThingDef>
+  <ThingDef ParentName="Base5x35mmChargedBullet">
+	<defName>HVB_AEP_CE_Bullet_DeathGlare</defName>
+	<label>death glare bullet</label>
+	<graphicData>
+		<texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>TransparentPostLight</shaderType>
+	</graphicData>
+	<projectile Class="CombatExtended.ProjectilePropertiesCE">
+		<damageDef>BombSuper</damageDef>
+		<damageAmountBase>600</damageAmountBase>
+		<speed>178</speed>
+		<secondaryDamage>
+			<li>
+				<def>Bomb_Secondary</def>
+				<amount>20</amount>
+			</li>
+		</secondaryDamage>
+		<armorPenetrationSharp>660</armorPenetrationSharp>
+		<armorPenetrationBlunt>1200</armorPenetrationBlunt>
+	</projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseBulletCE" MayRequire="Ludeon.RimWorld.Anomaly">
+	<defName>HVB_CE_Bullet_DeathGlare_VS</defName>
+	<label>voidshard death glare bullet</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/FleshmelterBolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Mote</shaderType>
+      <drawSize>(1.5, 3)</drawSize>
+    </graphicData>
+	<projectile Class="CombatExtended.ProjectilePropertiesCE">
+		<damageDef>NociosphereVaporize</damageDef>
+		<damageAmountBase>120</damageAmountBase>
+		<speed>120</speed>
+		<soundAmbient>FleshmelterBolt_Launch</soundAmbient>
+		<explosionRadius>2.49</explosionRadius>
+		<screenShakeFactor>1.25</screenShakeFactor>
+		<explosionChanceToStartFire>0.75</explosionChanceToStartFire>
+	</projectile>
+  </ThingDef>
+  
 </Defs>

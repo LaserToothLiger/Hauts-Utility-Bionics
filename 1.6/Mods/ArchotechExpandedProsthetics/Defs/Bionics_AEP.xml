@@ -6,14 +6,17 @@
     <defName>HVB_AEP_ArchotechDeathGlare</defName>
     <label>advanced archotech death glare</label>
     <labelNoun>an advanced archotech death glare</labelNoun>
-    <description>An installed advanced archotech "death glare".</description>
+    <description>An installed advanced archotech "death glare". Once every four hours, it can fire a charged bullet with near-perfect accuracy, piercing effortlessly through armor and dealing an absurd amount of pulverizing damage to the victim.</description>
     <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechDeathGlare</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_AEP_ArchotechDeathGlare</spawnThingOnRemoved>
     <woundAnchorRange>0</woundAnchorRange>
     <displayWound>true</displayWound>
+    <abilities>
+      <li>HVB_AEP_ArchotechEyeshot</li>
+    </abilities>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>2.50</partEfficiency>
+      <partEfficiency>3</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -39,40 +42,6 @@
         </drawData>
       </li>
     </renderNodeProperties>
-    <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>advanced archotech death glare</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
-			  <warmupTime>3.5</warmupTime>
-			  <range>49.9</range>
-			  <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
-			  <burstShotCount>20</burstShotCount>
-			  <soundCast>Shot_ChargeBlaster</soundCast>
-			  <soundCastTail>GunTail_Heavy</soundCastTail>
-			  <muzzleFlashScale>9</muzzleFlashScale>
-			  <commandIcon>Weapons/HUB_DeathGlare</commandIcon>
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>advanced archotech death glare</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Fires a stream of slugs at high velocity. Each is charged with unstable energy as it leaves the miniaturized acceleration rail. Can be fired while performing other tasks.</description>
-			</li>
-		</verbProps>
-      </li>
-    </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>HVB_AEP_ArchotechDeathGlare</defName>
@@ -115,6 +84,46 @@
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_AEP_ArchotechDeathGlare</addsHediff>
   </RecipeDef>
+	  <AbilityDef>
+		<defName>HVB_AEP_ArchotechEyeshot</defName>
+		<label>advanced archotech eyeshot</label>
+		<description>Fire an armor-penetrating, pulverizing charge projectile from the archotech death glare, dealing absurd damage. Since it is entirely aimed thorugh the eye muscles, it has near-instant targeting and near-perfect accuracy.</description>
+		<iconPath>Weapons/HUB_DeathGlare</iconPath>
+		<aiCanUse>true</aiCanUse>
+		<cooldownTicksRange>10000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<verbProperties>
+		  <verbClass>HautsFramework.Verb_CastAbilityBlockedByBlocksRanged</verbClass>
+		  <warmupTime>0.01</warmupTime>
+		  <soundCast>ChargeLance_Fire</soundCast>
+		  <soundCastTail>GunTail_Heavy</soundCastTail>
+		  <ai_IsWeapon>false</ai_IsWeapon>
+		  <muzzleFlashScale>6</muzzleFlashScale>
+		  <range>49.9</range>
+		</verbProperties>
+		<comps>
+		  <li Class="CompProperties_AbilityLaunchProjectile">
+			<projectileDef>HVB_AEP_Bullet_DeathGlare</projectileDef>
+		  </li>
+		</comps>
+	  </AbilityDef>
+	  <ThingDef ParentName="BaseBullet">
+		<defName>HVB_AEP_Bullet_DeathGlare</defName>
+		<label>death glare shot</label>
+		<graphicData>
+		  <texPath>Things/Projectile/ChargeLanceShot</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <shaderType>TransparentPostLight</shaderType>
+		  <drawSize>2</drawSize>
+		</graphicData>
+		<projectile>
+		  <damageDef>BombSuper</damageDef>
+		  <damageAmountBase>600</damageAmountBase>
+		  <stoppingPower>1.8</stoppingPower>
+		  <armorPenetrationBase>20</armorPenetrationBase>
+		  <speed>120</speed>
+		</projectile>
+	  </ThingDef>
   
   <!--Archotech programmable eye-->
   <HediffDef ParentName="AddedBodyPartBase">

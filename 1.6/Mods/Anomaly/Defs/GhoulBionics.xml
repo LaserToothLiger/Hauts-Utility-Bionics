@@ -572,58 +572,33 @@
     <addsHediff>HVB_MetabolicKidney</addsHediff>
   </RecipeDef>
   
-  <!--spike-slinging spine-->
+  <!--cartilaginous spine-->
   <HediffDef ParentName="AddedBodyPartBase">
-    <defName>HVB_SpikeSlingingSpine</defName>
-    <label>spike-slinging spine</label>
-    <description>The tailbone of this ghoul has been elongated; it writhes, tipped by wicked-looking keratin spikes which it can flick at foes. Since it acts independently of the ghoul's limbs, it can fire even while the ghoul is moving or attacking.</description>
-    <spawnThingOnRemoved>HVB_SpikeSlingingSpine</spawnThingOnRemoved>
+    <defName>HVB_CartilaginousSpine</defName>
+    <label>cartilaginous spine</label>
+    <description>Bioferrite organs sewn onto this ghoul's spine have made its bones disturbingly elastic.</description>
+    <spawnThingOnRemoved>HVB_CartilaginousSpine</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
     </addedPartProps>
     <stages>
       <li>
-        <statOffsets>
-          <StaggerDurationFactor>0.18</StaggerDurationFactor>
-        </statOffsets>
+        <statFactors>
+          <MeleeDodgeChance>1.5</MeleeDodgeChance>
+          <Hauts_ExplosiveDamageFactor>0.5</Hauts_ExplosiveDamageFactor>
+		  <StaggerDurationFactor>1.5</StaggerDurationFactor>
+        </statFactors>
+		<statOffsets>
+		  <MoveSpeed>-0.15</MoveSpeed>
+		</statOffsets>
       </li>
     </stages>
-    <comps>
-      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
-        <verbs>
-			<li>
-			  <verbClass>HautsFramework.Verb_MeleeShot</verbClass>
-			  <label>spike-slinging spine</label>
-			  <hasStandardCommand>true</hasStandardCommand>
-			  <defaultProjectile>Spike_Fingerspike</defaultProjectile>
-			  <warmupTime>1.2</warmupTime>
-			  <range>7.9</range>
-			  <soundCast>Ability_SpineLaunch</soundCast>
-			  <!--<commandIcon>UI/Abilities/Neuroquake</commandIcon>-->
-			</li>
-		</verbs>
-		<verbProps>
-			<li>
-			  <label>spike-slinging spine</label>
-			  <canBeToggled>true</canBeToggled>
-			  <comps>
-              <li Class="MVCF.VerbComps.VerbCompProperties_Turret">
-                <compClass>MVCF.VerbComps.VerbComp_Turret</compClass>
-					<invisible>true</invisible>
-					<uniqueTargets>false</uniqueTargets>
-              </li>
-            </comps>
-			  <description>Launches a keratin spike at the target, dealing damage.</description>
-			</li>
-		</verbProps>
-      </li>
-    </comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartGhoulBase">
-    <defName>HVB_SpikeSlingingSpine</defName>
-    <label>spike-slinging spine</label>
-    <description>Bioferrite sculpted into the form of an elongated cocyx; piezoelectric distortions within a host's spine can cause this implant to flick about, throwing the sharp keratin spines which precipitate along its length. It makes for an excellent ranged weapon and can fire even at targets in melee range. However, it makes balancing more difficult.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeSlingingSpine</RecipeDef></descriptionHyperlinks>
+    <defName>HVB_CartilaginousSpine</defName>
+    <label>cartilaginous spine</label>
+    <description>Artificial bioferrite hormone-producing organs that can be sewn onto a spine. The morphogens they produce make the skeleton more resemblant of cartilage, enabling them to bend with blows instead of breaking, at the expense of making it more difficult to keep stable in the face of a heavy blow.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCartilaginousSpine</RecipeDef></descriptionHyperlinks>
     <statBases>
       <Mass>0.3</Mass>
       <WorkToMake>13200</WorkToMake>
@@ -634,6 +609,118 @@
     <costList>
       <Bioferrite>40</Bioferrite>
 	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>260</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallCartilaginousSpine</defName>
+    <label>install cartilaginous spine</label>
+    <description>Install cartilaginous spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CartilaginousSpine</ThingDef>
+      <HediffDef>HVB_CartilaginousSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cartilaginous spine.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CartilaginousSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CartilaginousSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CartilaginousSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--spike-slinging spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_SpikeSlingingSpine</defName>
+    <label>spike-slinging spine</label>
+    <description>The tailbone of this ghoul has been elongated; it writhes, tipped by wicked-looking keratin spikes which can be flicked at foes. It autonomously acquires targets, but can be commanded to also discharge many spikes at a target at once. Since it acts independently of the ghoul's limbs, it can fire even while the ghoul is moving or attacking.</description>
+    <spawnThingOnRemoved>HVB_SpikeSlingingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_SpikeSling</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+          <StaggerDurationFactor>0.18</StaggerDurationFactor>
+        </statOffsets>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_Turret">
+        <turretDef>HVB_TurretSpikeSlingingSpine</turretDef>
+        <angleOffset>-90</angleOffset>
+        <!--<renderNodeProperties>
+          <li>
+            <nodeClass>HautsFramework.PawnRenderNode_TurretGunHediff</nodeClass>
+            <workerClass>HautsFramework.PawnRenderNodeWorker_TurretGunHediff</workerClass>
+            <parentTagDef>Body</parentTagDef>
+            <overrideMeshSize>(1, 1)</overrideMeshSize>
+            <baseLayer>20</baseLayer>
+            <pawnType>Any</pawnType>
+            <drawData>
+              <dataWest>
+                <rotationOffset>180</rotationOffset>
+              </dataWest>
+            </drawData>
+          </li>
+        </renderNodeProperties>-->
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_SpikeSlingingSpine</defName>
+    <label>spike-slinging spine</label>
+    <description>Bioferrite sculpted into the form of an elongated cocyx; piezoelectric distortions within a host's spine can cause this implant to flick violently, throwing the sharp keratin spines which precipitate along its length. However, it makes balancing more difficult, and it can only rarely be consciously controlled.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeSlingingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>13200</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>60</Bioferrite>
+	  <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -687,5 +774,124 @@
       <li>Spine</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_SpikeSlingingSpine</addsHediff>
+  </RecipeDef>
+	  <ThingDef ParentName="BaseWeaponTurret">
+		<defName>HVB_TurretSpikeSlingingSpine</defName>
+		<label>spike-slinging spine</label>
+		<description>A writhing cocyx protruding from the tailbone of a ghoul. It is tipped in wicked-looking keratinous spikes which it can fire at foes.</description>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<graphicData>
+		  <texPath>Things/Pawn/Fleshbeast/Fingerspike/Attachments/Fingerspike_TopLimb</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+		  <Mass>2.6</Mass>
+		  <AccuracyTouch>0.8</AccuracyTouch>
+		  <AccuracyShort>0.75</AccuracyShort>
+		  <AccuracyMedium>0.7</AccuracyMedium>
+		  <AccuracyLong>0.6</AccuracyLong>
+		</statBases>
+		<verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<defaultProjectile>Spike_Fingerspike</defaultProjectile>
+			<range>8.9</range>
+			<soundCast>Ability_SpineLaunch</soundCast>
+			<defaultCooldownTime>2.2</defaultCooldownTime>
+			<linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			<ticksBetweenBurstShots>150</ticksBetweenBurstShots>
+		  </li>
+		</verbs>
+	  </ThingDef>
+  
+  <!--thrashing spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ThrashingSpine</defName>
+    <label>thrashing spine</label>
+    <description>Electrically-active bioferrite strips bolted onto this ghoul's spine cause it to attack recklessly.</description>
+    <spawnThingOnRemoved>HVB_ThrashingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeCooldownFactor>0.65</MeleeCooldownFactor>
+		  <MeleeDodgeChance>0</MeleeDodgeChance>
+        </statFactors>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_ThrashingSpine</defName>
+    <label>thrashing spine</label>
+    <description>A special bioferrite prosthesis bolted onto the ghoul's spine, which produces frenzy-stimulating feedback when the ghoul performs an aggressive motor task (such as a swipe, bite, or slam). It effectively causes the ghoul to attack faster, but prevents it from even trying to dodge attacks.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallThrashingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>13200</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>40</Bioferrite>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>260</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallThrashingSpine</defName>
+    <label>install thrashing spine</label>
+    <description>Install thrashing spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThrashingSpine</ThingDef>
+      <HediffDef>HVB_ThrashingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing thrashing spine.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ThrashingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ThrashingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ThrashingSpine</addsHediff>
   </RecipeDef>
 </Defs>

@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  
-	<MVCF.ModDef>
-		<defName>Hauts_HVB_MVCF</defName>
-		<label>mwah</label>
-		<description>mrow</description>
-		<ActivateFeatures>
-			<li>Drawing</li>
-			<li>HediffVerbs</li>
-            <li>IndependentFire</li>
-            <li>IntegratedToggle</li>
-		</ActivateFeatures>
-	</MVCF.ModDef>
   <!--surgery to install an "add-on" for a pawn-->
   <RecipeDef Name="HVB_SurgeryAddImplantBase" ParentName="SurgeryFlesh" Abstract="True">
     <workerClass>HautsBionics.Recipe_AddAddOn</workerClass>

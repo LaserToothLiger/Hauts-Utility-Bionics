@@ -18,6 +18,8 @@
 <!--ability labels-->
 <HVB_Toggler>(currently on)</HVB_Toggler>
 <HVB_Toggler2>(currently off)</HVB_Toggler2>
+<!--hediff labels-->
+<HVB_GraserCannonLeakage>Causes burns or toxic buildup roughly every {0} days</HVB_GraserCannonLeakage>
 <!--Mod settings-->
 <HVB_SettingBSM>Amount of bionics sold by traders</HVB_SettingBSM>
 <HVB_TooltipBionicSaleMulti>Scales the amount of bionics traders will sell; at 2x, a trader who would ordinarily sell 1-3 bionics will sell 2-6. This won't cause traders who don't sell bionics to start doing so.</HVB_TooltipBionicSaleMulti>

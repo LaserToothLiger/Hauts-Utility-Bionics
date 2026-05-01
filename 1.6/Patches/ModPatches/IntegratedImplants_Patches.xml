@@ -126,7 +126,7 @@
 								<match Class="PatchOperationSequence">
 									<operations>
 										<li Class="PatchOperationAdd">
-										  <xpath>/Defs/HediffDef[defName="HVB_RupturingLimb" or defName="HVB_SkitteringLimb" or defName="HVB_SpikeSlingingSpine"]</xpath>
+										  <xpath>/Defs/HediffDef[defName="HVB_RupturingLimb" or defName="HVB_SkitteringLimb" or defName="HVB_CartilaginousSpine" or defName="HVB_SpikeSlingingSpine" or defName="HVB_ThrashingSpine"]</xpath>
 										  <value>
 											<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
 										  </value>
@@ -152,7 +152,7 @@
 										  </value>
 										</li>
 										<li Class="PatchOperationAdd">
-										  <xpath>/Defs/HediffDef[defName="HVB_SpikeSlingingSpine"]/comps</xpath>
+										  <xpath>/Defs/HediffDef[defName="HVB_CartilaginousSpine" or defName="HVB_SpikeSlingingSpine" or defName="HVB_ThrashingSpine"]/comps</xpath>
 										  <value>
 											<li Class="AthenaFramework.HediffCompProperties_Modular"><slots>
 												<li><slotID>LTS_SpineModuleSlot</slotID><slotName>spine module slot</slotName><capacity>-1</capacity></li>

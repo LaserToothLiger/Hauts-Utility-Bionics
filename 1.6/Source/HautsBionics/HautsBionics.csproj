@@ -80,6 +80,7 @@
     <Compile Include="Thoughts.cs" />
     <Compile Include="ToggleableArchotechBionics.cs" />
     <Compile Include="TongueRecipe.cs" />
+    <Compile Include="GraserArmCannon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
