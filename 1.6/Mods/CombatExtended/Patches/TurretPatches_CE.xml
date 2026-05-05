@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+					<defName>HVB_TurretSpikeSlingingSpine</defName>
+					<statBases>
+						<SightsEfficiency>1</SightsEfficiency>
+						<ShotSpread>0.2</ShotSpread>
+						<SwayFactor>0.56</SwayFactor>
+						<Bulk>0</Bulk>
+					</statBases>
+					<Properties>
+						<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+						<hasStandardCommand>true</hasStandardCommand>
+						<defaultProjectile>Spike_Fingerspike</defaultProjectile>
+						<range>15.9</range>
+						<burstShotCount>1</burstShotCount>
+						<soundCast>Ability_SpineLaunch</soundCast>
+						<defaultCooldownTime>2.2</defaultCooldownTime>
+						<linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+						<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+						<ticksBetweenBurstShots>150</ticksBetweenBurstShots>
+					</Properties>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

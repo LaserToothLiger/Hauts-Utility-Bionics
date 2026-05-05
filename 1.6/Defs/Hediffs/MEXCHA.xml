@@ -402,6 +402,7 @@
 		<conditionSevverity>0.06</conditionSevverity>
 		<severityPerShot>1</severityPerShot>
 		<resistanceStat>Hauts_RadiationDamageFactor</resistanceStat>
+		<conditionResistanceStat>ToxicResistance</conditionResistanceStat>
 		<damageOrConditionMinSeverity>4.001</damageOrConditionMinSeverity>
 		<damageOrConditionMTBdaysCurve>
 		  <points>
@@ -512,7 +513,7 @@
     <stages>
       <li>
         <statOffsets>
-          <FishingYield>0.1</FishingYield>
+          <FishingYield>0.15</FishingYield>
         </statOffsets>
       </li>
     </stages>

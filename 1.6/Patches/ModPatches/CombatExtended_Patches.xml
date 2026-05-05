@@ -32,21 +32,26 @@
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_KnuckleShot"]/verbProperties</xpath>
+					<value>
+						<verbProperties Class="CombatExtended.VerbPropertiesCE">
+							<verbClass>Hauts_CombatExtended.Verb_AbilityShootCE_DontMove</verbClass>
+							<defaultProjectile>Bullet_12Gauge_Slug</defaultProjectile>
+							<range>19.9</range>
+							<soundCast>Shot_Shotgun</soundCast>
+							<soundCastTail>GunTail_Heavy</soundCastTail>
+							<muzzleFlashScale>9</muzzleFlashScale>
+							<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+							<warmupTime>0.2</warmupTime>
+							<burstShotCount>4</burstShotCount>
+							<ai_IsWeapon>true</ai_IsWeapon>
+						</verbProperties>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
 					<xpath>Defs/AbilityDef[defName="HVB_BionicYank"]/verbProperties/range</xpath>
 					<value>
 						<range>13</range>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
-					<value>
-						<range>24</range>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
-					<value>
-						<range>24</range>
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
@@ -61,6 +66,18 @@
 						<projectileDef>HVB_CE_Bullet_DeathGlare</projectileDef>
 					</value>
 				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
+					<value>
+						<range>24</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVB_ProjectBionicShield"]/verbProperties/range</xpath>
+					<value>
+						<range>24</range>
+					</value>
+				</li>
 				<!--DamageDefs.xml-->
 				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/ToolCapacityDef[defName="HVB_DisintegrationBite"]</xpath>
@@ -68,13 +85,6 @@
 						<li Class="CombatExtended.ModExtensionMeleeToolPenetration">
 							<canHitInternal>true</canHitInternal>
 						</li>
-					</value>
-				</li>
-				<!--MEXCHA.xml-->
-				<li Class="PatchOperationReplace">
-					<xpath>Defs/AbilityDef[defName="HVB_KnuckleShot"]/verbProperties/defaultProjectile</xpath>
-					<value>
-						<defaultProjectile>Bullet_12Gauge_Slug</defaultProjectile>
 					</value>
 				</li>
 				<!--Replacement_MultiOrgan.xml-->
@@ -567,11 +577,27 @@
 								<value>
 									<StaggerDurationFactor>0.08</StaggerDurationFactor>
 								</value>
-							</li>
+							</li><!--turret being made CE compatible takes place in the CE folder to avoid red error when CE is not present-->
 							<li Class="PatchOperationReplace">
 								<xpath>/Defs/HediffDef[defName="HVB_ThrashingSpine"]/stages/li/statFactors/MeleeCooldownFactor</xpath>
 								<value>
 									<MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+								</value>
+							</li>
+							<!--AbilityDefs.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_SpikeSling"]/verbProperties</xpath>
+								<value>
+									<verbProperties Class="CombatExtended.VerbPropertiesCE">
+										<verbClass>Hauts_CombatExtended.Verb_AbilityShootCE_DontMove</verbClass>
+										<defaultProjectile>Spike_Fingerspike</defaultProjectile>
+										<range>15.9</range>
+										<soundCast>Ability_SpineLaunch</soundCast>
+										<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+										<warmupTime>0.01</warmupTime>
+										<burstShotCount>3</burstShotCount>
+										<ai_IsWeapon>true</ai_IsWeapon>
+									</verbProperties>
 								</value>
 							</li>
 							<!--Replacements_JawA.xml-->
@@ -942,6 +968,23 @@
 								<xpath>Defs/HediffDef[defName="HVB_ArchotechGravitonShielder"]/comps/li[@Class="HautsBionics.HediffCompProperties_ShieldGenerator"]/maxEnergyOffset</xpath>
 								<value>
 									<maxEnergyOffset>500</maxEnergyOffset>
+								</value>
+							</li>
+							<!--AbilityDefs.xml in base folder-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_BionicGraser"]/verbProperties</xpath>
+								<value>
+									<verbProperties Class="CombatExtended.VerbPropertiesCE">
+										<verbClass>HautsBionics_CombatExtended.Verb_AbilityShootCE_BionicGraser</verbClass>
+										<defaultProjectile>Bullet_Laser_BeamRepeater</defaultProjectile>
+										<range>43.9</range>
+										<soundCast>Shot_BeamRepeater</soundCast>
+										<soundCastTail>GunTail_Medium</soundCastTail>
+										<muzzleFlashScale>9</muzzleFlashScale>
+										<warmupTime>0.1</warmupTime>
+										<burstShotCount>1</burstShotCount>
+										<ai_IsWeapon>true</ai_IsWeapon>
+									</verbProperties>
 								</value>
 							</li>
 							<!--Replacements_Arm.xml in base folder-->

@@ -1,5 +1,6 @@
 ﻿using HautsFramework;
 using RimWorld;
+using System;
 using Verse;
 
 namespace HautsBionics
@@ -41,6 +42,7 @@ namespace HautsBionics
         public float conditionSevverity;
         public float severityPerShot;
         public StatDef resistanceStat;
+        public StatDef conditionResistanceStat;
         public float damageOrConditionMinSeverity;
         public SimpleCurve damageOrConditionMTBdaysCurve;
         public string riskString;
@@ -91,10 +93,10 @@ namespace HautsBionics
                         Hediff h = this.Pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.condition);
                         if (h != null)
                         {
-                            h.Severity += this.Props.conditionSevverity;
+                            h.Severity += this.Props.conditionSevverity*(this.Props.conditionResistanceStat != null ? Math.Max(0f,1f-this.Pawn.GetStatValue(this.Props.conditionResistanceStat)): 1f);
                         } else {
                             h = HediffMaker.MakeHediff(this.Props.condition,this.Pawn);
-                            h.Severity = this.Props.conditionSevverity;
+                            h.Severity = this.Props.conditionSevverity * (this.Props.conditionResistanceStat != null ? Math.Max(0f, 1f - this.Pawn.GetStatValue(this.Props.conditionResistanceStat)) : 1f);
                             this.Pawn.health.AddHediff(h);
                         }
                     }

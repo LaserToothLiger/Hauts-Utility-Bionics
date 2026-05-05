@@ -7,10 +7,10 @@
     <description>Aggravated boils on this ghoul swell with pungent, corrosive acids. Generates up to five discharges worth of acid over the course of a day, which are released when struck, damaging nearby foes.</description>
 	<minSeverity>0.001</minSeverity>
 	<initialSeverity>1</initialSeverity>
-	<maxSeverity>5</maxSeverity>
+	<maxSeverity>12</maxSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>5</severityPerDay>
+        <severityPerDay>12</severityPerDay>
       </li>
       <li Class="HautsFramework.HediffCompProperties_CreateHediffBySpendingSeverity">
         <severityToTrigger>1</severityToTrigger>
@@ -31,7 +31,7 @@
 		<comps>
 		  <li Class="HautsFramework.HediffCompProperties_DamageRetaliation">
 			<priority>90000</priority>
-			<range>1.42</range>
+			<range>1.49</range>
 			<severityOnHit>-1</severityOnHit>
 			<chanceToDoDamage>0.5</chanceToDoDamage>
 			<retaliationDamageDef>AcidBurn</retaliationDamageDef>
@@ -107,10 +107,10 @@
     <addsHediff>HVB_AcidNodules</addsHediff>
   </RecipeDef>
   
-  <!--Rupturing Limb-->
+  <!--acidic limb-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_RupturingLimb</defName>
-    <label>rupturing limb</label>
+    <label>acidic limb</label>
     <description>A modified human limb with a bioferrite-lined inner reservoir that produces and stores a highly corrosive acid. Each melee attack has a 60% chance to deal bonus acid damage.</description>
     <spawnThingOnRemoved>HVB_RupturingLimb</spawnThingOnRemoved>
 	<hediffClass>HautsFramework.Hediff_AddedPartHasExtraOnHitEffects</hediffClass>
@@ -150,7 +150,7 @@
   </HediffDef>
   <ThingDef ParentName="BodyPartGhoulBase">
     <defName>HVB_RupturingLimb</defName>
-    <label>rupturing limb</label>
+    <label>acidic limb</label>
     <description>A bioferrite cavity embedded into a ghoul's limb. It accumulates acid which has a 60% chance to be discharged on any melee attack, doing bonus damage.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallRupturingLimb</RecipeDef></descriptionHyperlinks>
     <statBases>
@@ -182,13 +182,13 @@
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>HVB_InstallRupturingLimb</defName>
-    <label>install rupturing limb</label>
-    <description>Install rupturing limb.</description>
+    <label>install acidic limb</label>
+    <description>Install acidic limb.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_RupturingLimb</ThingDef>
       <HediffDef>HVB_RupturingLimb</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing rupturing limb.</jobString>
+    <jobString>Installing acidic limb.</jobString>
     <anesthetize>false</anesthetize>
     <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
     <skillRequirements>
@@ -787,8 +787,8 @@
 		</graphicData>
 		<statBases>
 		  <Mass>2.6</Mass>
-		  <AccuracyTouch>0.8</AccuracyTouch>
-		  <AccuracyShort>0.75</AccuracyShort>
+		  <AccuracyTouch>0.9</AccuracyTouch>
+		  <AccuracyShort>0.8</AccuracyShort>
 		  <AccuracyMedium>0.7</AccuracyMedium>
 		  <AccuracyLong>0.6</AccuracyLong>
 		</statBases>
@@ -838,8 +838,8 @@
       <li>Ghoul</li>
     </techHediffsTags>
     <costList>
-      <Bioferrite>40</Bioferrite>
-	  <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>60</Bioferrite>
+	  <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
