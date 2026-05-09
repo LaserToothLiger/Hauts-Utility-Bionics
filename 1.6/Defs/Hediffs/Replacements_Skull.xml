@@ -323,9 +323,7 @@
     <comps>
 	  <li Class="HautsFramework.HediffCompProperties_PlanetLayerSeverity">
 		<defaultSeverity>0.001</defaultSeverity>
-		<setToInLayer>
-			<li><key>Orbit</key><value>1.001</value></li>
-		</setToInLayer>
+		<setToInSpace>1.001</setToInSpace>
 	  </li>
 	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
 	    <hediffTag>HVB_Skull</hediffTag>

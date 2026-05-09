@@ -591,13 +591,19 @@
 									<verbProperties Class="CombatExtended.VerbPropertiesCE">
 										<verbClass>Hauts_CombatExtended.Verb_AbilityShootCE_DontMove</verbClass>
 										<defaultProjectile>Spike_Fingerspike</defaultProjectile>
-										<range>15.9</range>
+										<range>12.9</range>
 										<soundCast>Ability_SpineLaunch</soundCast>
 										<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
 										<warmupTime>0.01</warmupTime>
 										<burstShotCount>3</burstShotCount>
 										<ai_IsWeapon>true</ai_IsWeapon>
 									</verbProperties>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVB_SpikeSling"]/cooldownTicksRange</xpath>
+								<value>
+									<cooldownTicksRange>2500</cooldownTicksRange>
 								</value>
 							</li>
 							<!--Replacements_JawA.xml-->

@@ -328,7 +328,11 @@
 			<li>ImmunityDrive</li>
 			<li>HVB_BionicBansheeWail</li>
 			<li MayRequire="vanillaracesexpanded.phytokin">VRE_AnimaSong</li>
-			<!--the VIEMS compats are hardcoded into abilitycooldownmodifier, so no need to put them here-->
+			<li MayRequire="Leo.Bard">PowerWordHeal</li>
+			<li MayRequire="Leo.Bard">PowerWordKill</li>
+			<li MayRequire="Leo.Bard">BardicInspiration</li>
+			<li MayRequire="Leo.Bard">SongOfRest</li>
+			<li MayRequire="Leo.Bard">ViciousMockery</li>
 		</affectedAbilities>
 		<abilitiesUsingThisWorkTag>
 			<li>Social</li>

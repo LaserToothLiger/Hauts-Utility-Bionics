@@ -18,7 +18,7 @@
 						<verbClass>CombatExtended.Verb_ShootCE</verbClass>
 						<hasStandardCommand>true</hasStandardCommand>
 						<defaultProjectile>Spike_Fingerspike</defaultProjectile>
-						<range>15.9</range>
+						<range>12.9</range>
 						<burstShotCount>1</burstShotCount>
 						<soundCast>Ability_SpineLaunch</soundCast>
 						<defaultCooldownTime>2.2</defaultCooldownTime>
