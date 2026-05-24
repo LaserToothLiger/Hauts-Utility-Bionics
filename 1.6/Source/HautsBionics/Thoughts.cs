@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HautsFramework;
+using RimWorld;
 using System;
 using Verse;
 

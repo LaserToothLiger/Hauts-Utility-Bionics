@@ -81,7 +81,7 @@
   </ThoughtDef>
   <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
     <defName>HVB_OldSpice</defName>
-    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <thoughtClass>HautsFramework.Thought_SituationalSocial_RimScentScaling</thoughtClass>
     <workerClass>HautsBionics.ThoughtWorker_TheNoseKnows</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
 	<hediff>HVB_InternalPerfumist</hediff>
