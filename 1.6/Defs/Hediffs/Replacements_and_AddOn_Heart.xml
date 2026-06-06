@@ -107,6 +107,8 @@
 		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.3</Mashed_Ashlands_AshResistance>
 		  <Radiation MayRequire="Dubwise.Rimatomics">-0.05</Radiation>
 		  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.15</SmokeSensitivity>
+		  <AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.05</AntiOrgToxinResistance>
+		  <RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.05</RadiationResistance>
 		</statOffsets>
       </li>
     </stages>

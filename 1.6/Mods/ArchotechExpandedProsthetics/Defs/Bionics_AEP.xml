@@ -1584,8 +1584,13 @@
     <stages>
 	  <li>
 		<statOffsets>
-		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
 		  <ToxicResistance>10</ToxicResistance>
+		  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+		  <HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+		  <ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+		  <AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+		  <RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+		  <RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RadiationResistance>
 		</statOffsets>
 		<statFactors>
 		  <Hauts_AcidDamageFactor>0</Hauts_AcidDamageFactor>

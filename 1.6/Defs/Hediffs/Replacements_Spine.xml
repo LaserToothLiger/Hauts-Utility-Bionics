@@ -168,6 +168,9 @@
         <statOffsets>
 		  <InjuryHealingFactor>1</InjuryHealingFactor>
 		  <ImmunityGainSpeed>1</ImmunityGainSpeed>
+		  <AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.2</AntiOrgToxinResistance>
+		  <RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.2</RageVirusResistance>
+		  <NecrotionResistance MayRequire="zal.taofc">0.2</NecrotionResistance>
         </statOffsets>
 		<statFactors>
 		  <CancerRate MayRequire="Ludeon.RimWorld.Biotech">0.35</CancerRate>

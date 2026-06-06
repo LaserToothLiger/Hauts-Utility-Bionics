@@ -1010,35 +1010,75 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
 	  <li>
-		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statOffsets>
+			<ToxicResistance>10</ToxicResistance>
+			<Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+			<HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+			<ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+			<AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+			<RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+			<RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.5</RadiationResistance>
+		</statOffsets>
 		<statFactors><Hauts_ToxicDamageFactor>0.5</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
-		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statOffsets>
+			<ToxicResistance>10</ToxicResistance>
+			<Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+			<HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+			<ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+			<AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+			<RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+			<RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.6</RadiationResistance>
+		</statOffsets>
 		<statFactors><Hauts_ToxicDamageFactor>0.4</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
-		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statOffsets>
+			<ToxicResistance>10</ToxicResistance>
+			<Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+			<HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+			<ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+			<AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+			<RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+			<RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.7</RadiationResistance>
+		</statOffsets>
 		<statFactors><Hauts_ToxicDamageFactor>0.3</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
-		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statOffsets>
+			<ToxicResistance>10</ToxicResistance>
+			<Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+			<HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+			<ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+			<AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+			<RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+			<RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.8</RadiationResistance>
+		</statOffsets>
 		<statFactors><Hauts_ToxicDamageFactor>0.2</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
-		<statOffsets><ToxicResistance>10</ToxicResistance></statOffsets>
+		<statOffsets>
+			<ToxicResistance>10</ToxicResistance>
+			<Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">10</Mashed_Ashlands_AshResistance>
+			<HeatNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</HeatNullNaniteResistance>
+			<ColdNullNaniteResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</ColdNullNaniteResistance>
+			<AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</AntiOrgToxinResistance>
+			<RageVirusResistance MayRequire="Snow.KraltechIndustries.Rebalanced">1</RageVirusResistance>
+			<RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.9</RadiationResistance>
+		</statOffsets>
 		<statFactors><Hauts_ToxicDamageFactor>0.1</Hauts_ToxicDamageFactor><P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity></statFactors>
       </li>
     </stages>

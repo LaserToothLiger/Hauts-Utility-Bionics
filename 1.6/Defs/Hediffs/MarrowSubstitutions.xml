@@ -152,7 +152,13 @@
     <description>Injected anti-toxic marrow. Boosts toxic resistance.</description>
     <stages>
       <li>
-	    <statOffsets><ToxicResistance>0.03</ToxicResistance><ToxicEnvironmentResistance>0.04</ToxicEnvironmentResistance><Radiation MayRequire="Dubwise.Rimatomics">-0.07</Radiation></statOffsets>
+	    <statOffsets>
+		  <ToxicResistance>0.03</ToxicResistance>
+		  <ToxicEnvironmentResistance>0.04</ToxicEnvironmentResistance>
+		  <Radiation MayRequire="Dubwise.Rimatomics">-0.07</Radiation>
+		  <AntiOrgToxinResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.03</AntiOrgToxinResistance>
+		  <RadiationResistance MayRequire="Snow.KraltechIndustries.Rebalanced">0.07</RadiationResistance>
+		</statOffsets>
 		<statOffsetEffectMultiplier>HVB_MarrowEfficacy</statOffsetEffectMultiplier>
 		<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
 	  </li>
