@@ -101,7 +101,7 @@
   <ThingDef ParentName="BodyPartProstheticMakeableBase">
     <defName>HVB_CognoBerserker</defName>
     <label>cogno-berserker</label>
-    <description>A brain implant that can improve neurotransmission speed and reliability by means too dangerous to use for prolonged periods. Therefore, it only - and automatically - activates when its host is injured, and may therefore need its aid the most.</description>
+    <description>A brain implant that can improve neurotransmission speed and reliability, boosting movement and attack speeds. However, the means by which it does so are too dangerous to constantly sustain or even manually stimulate, so it only - and automatically - activates when its host is attacked (and therefore likely in need of its abilities).</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCognoBerserker</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>950</MarketValue>
