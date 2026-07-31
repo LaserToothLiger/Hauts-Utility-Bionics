@@ -89,7 +89,7 @@
     <defName>HVB_MechanityrantCervix</defName>
     <label>mechanityrant collar</label>
     <labelNoun>a mechanityrant collar</labelNoun>
-    <description>An installed mechanityrant collar. Broadcasts a mechanoid-coordinating signal with a range equal to half the mechanitor's mech command range.</description>
+    <description>An installed mechanityrant collar. Broadcasts a mechanoid-coordinating signal out to the mechanitor's mech command range.</description>
     <descriptionHyperlinks><ThingDef>HVB_MechanityrantCervix</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_MechanityrantCervix</spawnThingOnRemoved>
 	<tags><li>HVB_Neck</li></tags>
@@ -123,7 +123,7 @@
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_MechanityrantCervix</defName>
     <label>mechanityrant collar</label>
-    <description>Mechanitor-enhancing machinery which largely replaces the larynx and shrinks the esophagus. It enables subvocal command of mechanoids, and projects a coordinating effect across half the mechanitor's direct control range.</description>
+    <description>Mechanitor-enhancing machinery which largely replaces the larynx and shrinks the esophagus. It enables subvocal command of mechanoids, and projects a coordinating effect across the mechanitor's direct control range.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallMechanityrantCervix</RecipeDef></descriptionHyperlinks>
     <costList>
       <NanostructuringChip>1</NanostructuringChip>

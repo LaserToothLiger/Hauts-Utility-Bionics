@@ -266,6 +266,96 @@
     <addsHediff>HVB_ServoShankArm</addsHediff>
   </RecipeDef>
   
+  <!--telescoping arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_TelescopingArm</defName>
+    <label>telescoping arm</label>
+    <labelNoun>a telescoping arm</labelNoun>
+    <description>An installed telescoping arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TelescopingArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_BionicYankCraftable</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <CarryingCapacity>10</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">5</CarryBulk>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_TelescopingArm</defName>
+    <label>telescoping arm</label>
+    <description>A bulky bionic arm of unusual design. Its upper arm and forearm are each situated within a telescopic sheath, both of which can be locked together and then extended or retracted via mental command. As the arm's synthetic muscles would be damaged by stretching along with the sheaths, the extension procedure also temporarily detaches them from the endoskeleton and stores them away, while also disabling their motoric nerve links. This prevents the host from performing conventional motor tasks with the arm (but not the hand) in its extended state, so extension is primarily useful for grabbing or rappelling to distant objects.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTelescopingArm</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <costList>
+      <BionicArm>1</BionicArm>
+	  <Plasteel>10</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>HVB_MobilityAids</researchPrerequisite>
+    </recipeMaker>
+    <statBases>
+      <MarketValue>1645</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallTelescopingArm</defName>
+    <label>install telescoping arm</label>
+    <description>Install a telescoping arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TelescopingArm</ThingDef>
+      <HediffDef>HVB_TelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing telescoping armarm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TelescopingArm</addsHediff>
+  </RecipeDef>
+  
   <!--testudo arm-->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>HVB_TestudoArm</defName>
@@ -448,6 +538,14 @@
     <abilities>
       <li>HVB_BionicYank</li>
     </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <CarryingCapacity>40</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk>
+        </statOffsets>
+      </li>
+    </stages>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
         <tools>

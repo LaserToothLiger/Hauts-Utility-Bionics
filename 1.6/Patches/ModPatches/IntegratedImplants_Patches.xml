@@ -31,8 +31,7 @@
 					</mods>
 					<match Class="PatchOperationSequence">
 						<operations>
-							<!--modules: note that voidshards will not have any because that's a little too much nested patching even for me
-							let's start w eyes. Ocular Computing Nodes and Mechanityrant Eyes aren't actually eyes, so don't get this treatment-->
+							<!--modules: let's start w eyes. Ocular Computing Nodes and Mechanityrant Eyes aren't actually eyes, so don't get this treatment-->
 							<li Class="PatchOperationAdd">
 							  <xpath>/Defs/HediffDef[defName="HVB_BalefulEye" or defName="HVB_LongshotEye" or defName="HVB_ProgrammableEye" or defName="HVB_WayfinderEye" or defName="HVB_ArchotechDeathGlare" or defName="HVB_ArchotechProgrammableEye"]</xpath>
 							  <value>
@@ -53,13 +52,13 @@
 							</li>
 							<!--arms-->
 							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]</xpath>
+							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]</xpath>
 							  <value>
 								<hediffClass>AthenaFramework.Hediff_ModularAddedPart</hediffClass>
 							  </value>
 							</li>
 							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]/comps</xpath>
+							  <xpath>/Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechTelescopingArm" or defName="HVB_ArchotechShieldBubbler"]/comps</xpath>
 							  <value>
 								<li Class="AthenaFramework.HediffCompProperties_Modular"><slots><li><slotID>LTS_ArmModuleSlot</slotID><slotName>arm module slot</slotName><capacity>-1</capacity></li></slots></li>
 							  </value>

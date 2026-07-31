@@ -80,7 +80,7 @@
 				</li>
 				<!--arms-->
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>

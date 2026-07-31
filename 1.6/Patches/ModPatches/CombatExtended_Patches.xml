@@ -170,7 +170,7 @@
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TestudoArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
 					<value>
 						<tools>
 							<li Class="CombatExtended.ToolCE">

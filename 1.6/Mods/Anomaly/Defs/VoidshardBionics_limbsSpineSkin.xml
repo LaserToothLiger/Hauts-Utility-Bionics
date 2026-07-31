@@ -139,26 +139,46 @@
     <maxSeverity>4.0</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+		  <CarryingCapacity>40</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk>
+        </statOffsets>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
 		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+        <statOffsets>
+		  <CarryingCapacity>50</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">30</CarryBulk>
+        </statOffsets>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
 		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+        <statOffsets>
+		  <CarryingCapacity>60</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">35</CarryBulk>
+        </statOffsets>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
 		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+        <statOffsets>
+		  <CarryingCapacity>70</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">40</CarryBulk>
+        </statOffsets>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
 		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+        <statOffsets>
+		  <CarryingCapacity>80</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">45</CarryBulk>
+        </statOffsets>
       </li>
     </stages>
     <comps>
@@ -251,7 +271,7 @@
 		<verbProperties>
 		  <verbClass>Verb_CastAbility</verbClass>
 		  <drawAimPie>True</drawAimPie>
-		  <range>9</range>
+		  <range>14</range>
 		  <warmupTime>0.01</warmupTime>
 		  <targetParams>
 			<canTargetSelf>false</canTargetSelf>
@@ -1147,35 +1167,40 @@
     <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
     <abilities>
-      <li>HVB_BionicYank</li>
+      <li>HVB_VSYank</li>
     </abilities>
 	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
     <stages>
       <li>
+        <statOffsets><CarryingCapacity>40</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.5</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
+        <statOffsets><CarryingCapacity>50</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">30</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
+        <statOffsets><CarryingCapacity>60</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">35</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.7</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
+        <statOffsets><CarryingCapacity>70</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">40</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
+        <statOffsets><CarryingCapacity>80</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">45</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
       </li>
@@ -1206,6 +1231,7 @@
 		<increasedCooldownRecovery>0.25</increasedCooldownRecovery>
 		<affectedAbilities>
 			<li>HVB_BionicYank</li>
+			<li>HVB_VSYank</li>
 		</affectedAbilities>
 		<multiplyBySeverity>true</multiplyBySeverity>
 	  </li>
@@ -1273,35 +1299,40 @@
     <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
     <abilities>
-      <li>HVB_BionicYank</li>
+      <li>HVB_VSYank</li>
     </abilities>
 	<defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
     <stages>
       <li>
+        <statOffsets><CarryingCapacity>40</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.5</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>1</minSeverity>
         <label>level 1</label>
+        <statOffsets><CarryingCapacity>50</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">30</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.6</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>2</minSeverity>
         <label>level 2</label>
+        <statOffsets><CarryingCapacity>60</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">35</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.7</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>3</minSeverity>
         <label>level 3</label>
+        <statOffsets><CarryingCapacity>70</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">40</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.8</offset></li></capMods>
       </li>
 	  <li>
         <minSeverity>4</minSeverity>
         <label>embraced</label>
+        <statOffsets><CarryingCapacity>80</CarryingCapacity><CarryBulk MayRequire="CETeam.CombatExtended">45</CarryBulk></statOffsets>
 		<statFactors><MeleeCooldownFactor>0.8</MeleeCooldownFactor></statFactors>
 		<capMods><li><capacity>Manipulation</capacity><offset>0.9</offset></li></capMods>
       </li>
@@ -1332,6 +1363,7 @@
 		<increasedCooldownRecovery>0.25</increasedCooldownRecovery>
 		<affectedAbilities>
 			<li>HVB_BionicYank</li>
+			<li>HVB_VSYank</li>
 		</affectedAbilities>
 		<multiplyBySeverity>true</multiplyBySeverity>
 	  </li>

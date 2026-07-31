@@ -473,6 +473,82 @@
     </comps>
   </AbilityDef>
   
+  <!--Telescoping arm-->
+  <AbilityDef>
+    <defName>HVB_BionicYankCraftable</defName>
+    <label>bionic lasso</label>
+    <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>false</aiCanUse><!--for now, at least. usually non-player pawns can't have archotech bionics so this really doesn't matter...-->
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <uiOrder>11</uiOrder>
+    <hostile>false</hostile>
+	<cooldownTicksRange>10000</cooldownTicksRange>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>True</drawAimPie>
+      <range>9</range>
+      <warmupTime>0.01</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+		<canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+		<canTargetItems>true</canTargetItems>
+		<canTargetPlants>true</canTargetPlants>
+		<mustBeSelectable>true</mustBeSelectable>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
+        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
+		<customMote>HVB_GraspLine</customMote>
+      </li>
+    </comps>
+  </AbilityDef>
+	  <ThingDef ParentName="PawnFlyerBase">
+		<defName>HVB_GrabFlyer</defName>
+		<label>grabbed</label>
+		<thingClass>HautsBionics.GrabFlyer</thingClass>
+		<pawnFlyer>
+		  <flightDurationMin>0.5</flightDurationMin>
+		  <flightSpeed>12</flightSpeed>
+		  <workerClass>HautsBionics.GrabFlyerWorker</workerClass>
+		  <heightFactor>0.25</heightFactor>
+		  <progressCurve>
+			<points>
+			  <li>(0, 0)</li>
+			  <li>(0.1, 0.15)</li> <!-- Complete 15% of the journey in first 10% of time -->
+			  <li>(1, 1)</li>
+			</points>
+		  </progressCurve>
+		</pawnFlyer>
+	  </ThingDef>
+	  <ThingDef ParentName="MoteBase">
+		<defName>HVB_GraspLine</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<mote>
+		  <fadeInTime>0.1</fadeInTime>
+		  <fadeOutTime>0.1</fadeOutTime>
+		  <solidTime>999999</solidTime>
+		  <needsMaintenance>True</needsMaintenance>
+		  <rotateTowardsTarget>True</rotateTowardsTarget>
+		  <scaleToConnectTargets>True</scaleToConnectTargets>
+		</mote>
+		<graphicData>
+		  <texPath>BionicAbilities/HUB_GraspLine</texPath>
+		  <color>(0.7, 0.7, 0.7, 1)</color>
+		  <drawSize>(0.42,1)</drawSize>
+		</graphicData>
+	  </ThingDef>
+  
   <!--Spike-slinging spine-->
   <AbilityDef MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>HVB_SpikeSling</defName>
@@ -643,7 +719,7 @@
   <!--Archotech telescoping arm-->
   <AbilityDef>
     <defName>HVB_BionicYank</defName>
-    <label>bionic lasso</label>
+    <label>archotech lasso</label>
     <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
     <jobDef>CastAbilityOnThing</jobDef>
     <iconPath>UI/Buttons/UnDismiss</iconPath>
@@ -660,7 +736,7 @@
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <drawAimPie>True</drawAimPie>
-      <range>9</range>
+      <range>14</range>
       <warmupTime>0.01</warmupTime>
       <targetParams>
         <canTargetSelf>false</canTargetSelf>
@@ -675,30 +751,12 @@
     <comps>
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-		<customMote>HVB_GraspLine</customMote>
+		<customMote>HVB_GraspLineArchotech</customMote>
       </li>
     </comps>
   </AbilityDef>
-	  <ThingDef ParentName="PawnFlyerBase">
-		<defName>HVB_GrabFlyer</defName>
-		<label>grabbed</label>
-		<thingClass>HautsBionics.GrabFlyer</thingClass>
-		<pawnFlyer>
-		  <flightDurationMin>0.5</flightDurationMin>
-		  <flightSpeed>12</flightSpeed>
-		  <workerClass>HautsBionics.GrabFlyerWorker</workerClass>
-		  <heightFactor>0.25</heightFactor>
-		  <progressCurve>
-			<points>
-			  <li>(0, 0)</li>
-			  <li>(0.1, 0.15)</li> <!-- Complete 15% of the journey in first 10% of time -->
-			  <li>(1, 1)</li>
-			</points>
-		  </progressCurve>
-		</pawnFlyer>
-	  </ThingDef>
 	  <ThingDef ParentName="MoteBase">
-		<defName>HVB_GraspLine</defName>
+		<defName>HVB_GraspLineArchotech</defName>
 		<thingClass>MoteDualAttached</thingClass>
 		<altitudeLayer>MoteLow</altitudeLayer>
 		<mote>
@@ -711,7 +769,7 @@
 		</mote>
 		<graphicData>
 		  <texPath>BionicAbilities/HUB_GraspLine</texPath>
-		  <color>(0.75, 0.81, 0.7, 1)</color>
+		  <color>(0.85, 0.92, 0.85, 1)</color>
 		  <drawSize>(0.42,1)</drawSize>
 		</graphicData>
 	  </ThingDef>
@@ -871,9 +929,11 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
+      <li Class = "HautsBionics.CompProperties_AbilityCatalyzeSentience">
+        <compClass>HautsBionics.CompAbilityEffect_CatalyzeSentience</compClass>
         <hediffDef>SentienceCatalyst</hediffDef>
+		<onlyBrain>true</onlyBrain>
+		<levelOffset>1</levelOffset>
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
       </li>

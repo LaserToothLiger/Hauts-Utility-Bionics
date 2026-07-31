@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
-  <!--so about that mechanitor command radius fix that requires Integrated Implants to be below HUB. it means abstract hediffDefs from II don't exist by the time the game loads these Defs. so I gotta replicate it here. AUGH-->
+  <!--replication of an abstract hediffDef from II. This used to be necessary due to content that has long since been removed. However I am keeping it around so as to not require a specific relative positioning in the mod list. Course if the real deal changes, that'll be an issue.-->
   <HediffDef Name="HVB_Lesigh" ParentName="ImplantHediffBase" Abstract="True">
 	<minSeverity>0.001</minSeverity>
 	<maxSeverity>1</maxSeverity>
@@ -1199,6 +1199,286 @@
     </descriptionHyperlinks>
     <jobString>Removing extra servo-shank arm (right).</jobString>
     <removesHediff>HVB_RightServoShankArm</removesHediff>
+  </RecipeDef>
+  
+  <!--extra telescoping arms-->
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_LeftTelescopingArm</defName>
+    <label>extra telescoping arm (left)</label>
+    <labelNoun>an extra telescoping arm (left)</labelNoun>
+    <description>An installed extra telescoping arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hindrance than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYankCraftable</li>
+    </abilities>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <CarryingCapacity>4</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">2</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <CarryingCapacity>6</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">3</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <CarryingCapacity>8</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">4</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <CarryingCapacity>10</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">5</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraLeftArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallLeftTelescopingArm</defName>
+    <label>install extra telescoping arm (left)</label>
+    <description>Install an extra telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra telescoping arm (left).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_LeftTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraLeftArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveLeftTelescopingArm</defName>
+    <label>remove extra telescoping arm (left)</label>
+    <description>Remove extra telescoping arm (left).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TelescopingArm</ThingDef>
+      <HediffDef>HVB_LeftTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra telescoping arm (left).</jobString>
+    <removesHediff>HVB_LeftTelescopingArm</removesHediff>
+  </RecipeDef>
+  <HediffDef ParentName="HVB_Lesigh">
+    <defName>HVB_RightTelescopingArm</defName>
+    <label>extra telescoping arm (right)</label>
+    <labelNoun>an extra telescoping arm (right)</labelNoun>
+    <description>An installed extra telescoping arm.\n\nAs humans tend to lack experience using more than 2 arms, extra limbs start off as more of a hinderence than anything. They will incrementally improve over time. It takes up to a year to fully master them.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TelescopingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TelescopingArm</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_BionicYankCraftable</li>
+    </abilities>
+	<stages>
+	  <li>
+        <label>unwieldy</label>
+        <statOffsets>
+		  <CarryingCapacity>4</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">2</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>1.15</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.333</minSeverity>
+        <label>inconvenient</label>
+        <statOffsets>
+		  <CarryingCapacity>6</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">3</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>1.05</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>0.666</minSeverity>
+        <label>acclimatised</label>
+        <statOffsets>
+		  <CarryingCapacity>8</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">4</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.95</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+	    <minSeverity>1</minSeverity>
+        <label>mastered</label>
+        <statOffsets>
+		  <CarryingCapacity>10</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">5</CarryBulk>
+        </statOffsets>
+        <statFactors>
+		  <MeleeCooldownFactor>0.85</MeleeCooldownFactor>
+		</statFactors>
+		<capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2</cooldownTime>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+	<tags><li>ExtraRightArm</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallRightTelescopingArm</defName>
+    <label>install extra telescoping arm (right)</label>
+    <description>Install an extra telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TelescopingArm</ThingDef>
+      <HediffDef>HVB_RightTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing extra telescoping arm (right).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TelescopingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TelescopingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RightTelescopingArm</addsHediff>
+	<incompatibleWithHediffTags><li>ExtraRightArm</li></incompatibleWithHediffTags>
+	<researchPrerequisite>I_ExtraArms</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveRightTelescopingArm</defName>
+    <label>remove extra telescoping arm (right)</label>
+    <description>Remove extra telescoping arm (right).</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TelescopingArm</ThingDef>
+      <HediffDef>HVB_RightTelescopingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing extra telescoping arm (right).</jobString>
+    <removesHediff>HVB_RightTelescopingArm</removesHediff>
   </RecipeDef>
   
   <!--extra testudo arms-->
@@ -2411,6 +2691,10 @@
     </abilities>
     <stages>
 	  <li>
+        <statOffsets>
+		  <CarryingCapacity>40</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk>
+        </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
 		</statFactors>
@@ -2495,6 +2779,10 @@
     </abilities>
     <stages>
 	  <li>
+        <statOffsets>
+		  <CarryingCapacity>40</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">25</CarryBulk>
+        </statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
 		</statFactors>
@@ -3322,6 +3610,10 @@
     </abilities>
     <stages>
 	  <li>
+        <statOffsets>
+		  <CarryingCapacity>160</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">100</CarryBulk>
+		</statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
 		</statFactors>
@@ -3406,6 +3698,10 @@
     </abilities>
     <stages>
 	  <li>
+        <statOffsets>
+		  <CarryingCapacity>160</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">100</CarryBulk>
+		</statOffsets>
 		<statFactors>
 		  <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
 		</statFactors>

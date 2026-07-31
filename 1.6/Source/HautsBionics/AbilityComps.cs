@@ -231,6 +231,82 @@ namespace HautsBionics
             }
         }
     }
+    //the mod "Craftable and Improved Sentience Catalysts" turns sentience catalysts into leveling hediffs, so the archotech sentience catalyzer needs a custom comp to handle this if you are/n't running that mod
+    public class CompProperties_AbilityCatalyzeSentience : CompProperties_AbilityEffect
+    {
+        public HediffDef hediffDef;
+        public bool onlyBrain;
+        public int levelOffset = 1;
+    }
+    public class CompAbilityEffect_CatalyzeSentience : CompAbilityEffect
+    {
+        public new CompProperties_AbilityCatalyzeSentience Props
+        {
+            get
+            {
+                return (CompProperties_AbilityCatalyzeSentience)this.props;
+            }
+        }
+        public bool TargetHasMaxSentienceCatalysts(Pawn p)
+        {
+            Hediff h = p.health.hediffSet.GetFirstHediffOfDef(this.Props.hediffDef);
+            if (p.health.hediffSet.HasHediff(this.Props.hediffDef))
+            {
+                if (!(h is Hediff_Level hl) || (hl.CurStageIndex + 1) >= this.Props.hediffDef.stages.Count)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            if (target != null && target.Thing != null && target.Thing is Pawn p)
+            {
+                if (!p.RaceProps.Animal || this.TargetHasMaxSentienceCatalysts(p))
+                {
+                    return;
+                }
+                Hediff already = p.health.hediffSet.GetFirstHediffOfDef(this.Props.hediffDef);
+                if (already != null)
+                {
+                    if (this.Props.levelOffset > 0)
+                    {
+                        if (already is Hediff_Level hl)
+                        {
+                            hl.ChangeLevel(this.Props.levelOffset);
+                        } else {
+                            already.Severity = this.Props.levelOffset;
+                        }
+                    }
+                } else {
+                    Hediff hediff = HediffMaker.MakeHediff(this.Props.hediffDef, p, this.Props.onlyBrain ? p.health.hediffSet.GetBrain() : null);
+                    p.health.AddHediff(hediff, null, null, null);
+                }
+            }
+        }
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (target != null && target.Thing != null && target.Thing is Pawn p)
+            {
+                if (this.TargetHasMaxSentienceCatalysts(p))
+                {
+                    if (throwMessages)
+                    {
+                        Messages.Message("CannotUseAbility".Translate(this.parent.def.label) + ": " + "HVB_MaxedOutCatalysts".Translate(), target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+                    }
+                    return false;
+                }
+                return AbilityUtility.ValidateMustBeAnimal(p, throwMessages, this.parent);
+            }
+            return false;
+        }
+        public override bool AICanTargetNow(LocalTargetInfo target)
+        {
+            return false;
+        }
+    }
     //Big and Small - Sapient Animals ability comp: does the cogni-fi effect on the targeted pawn
     public class CompProperties_AbilityCogniFi : CompProperties_AbilityEffect
     {

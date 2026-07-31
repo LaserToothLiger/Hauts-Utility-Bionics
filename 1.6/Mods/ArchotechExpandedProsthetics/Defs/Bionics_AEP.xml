@@ -2171,6 +2171,14 @@
     <abilities>
       <li>HVB_AEP_BionicYank</li>
     </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <CarryingCapacity>160</CarryingCapacity>
+		  <CarryBulk MayRequire="CETeam.CombatExtended">100</CarryBulk>
+        </statOffsets>
+      </li>
+    </stages>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
@@ -2260,7 +2268,7 @@
     <comps>
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-		<customMote>HVB_GraspLine</customMote>
+		<customMote>HVB_GraspLineArchotech</customMote>
       </li>
     </comps>
   </AbilityDef>
