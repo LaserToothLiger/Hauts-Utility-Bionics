@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HautsFramework;
+using RimWorld;
 using Verse;
 
 namespace HautsBionics_Anomaly
@@ -25,15 +26,16 @@ namespace HautsBionics_Anomaly
      * hediffToSelf: ewisott - in this case a cons boost
      * baseSeverityToAdd: the hediff should be created with a certain amount of severity (or if it already exists on the caster, its severity should increase by) this amount...
      * bonusSeverityIf fields: ...plus these values if the targeted animal had intermediate trainability|advanced trainability|a sentience catalyst hediff*/
-    public class CompProperties_AbilityAbsorbSentience : CompProperties_AbilityEffectWithDuration
+    public class CompProperties_AbilityAbsorbSentience : CompProperties_AbilityAiScansForTargets
     {
         public HediffDef hediffToSelf;
         public float baseSeverityToAdd;
         public float bonusSeverityIfIntermediate;
         public float bonusSeverityIfAdvanced;
         public float bonusSeverityIfHadSentienceCatalyst;
+        public float NPCtargetingRange;
     }
-    public class CompAbilityEffect_AbsorbSentience : CompAbilityEffect_WithDuration
+    public class CompAbilityEffect_AbsorbSentience : CompAbilityEffect_AiScansForTargets
     {
         public new CompProperties_AbilityAbsorbSentience Props
         {
@@ -42,15 +44,21 @@ namespace HautsBionics_Anomaly
                 return (CompProperties_AbilityAbsorbSentience)this.props;
             }
         }
+        public override float Range => this.Props.NPCtargetingRange;
+        public override bool AdditionalQualifiers(Thing thing)
+        {
+            return base.AdditionalQualifiers(thing) && this.CanApplyOn(new LocalTargetInfo(thing),null);
+        }
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            return base.CanApplyOn(target, dest) && target.Pawn != null && (target.Pawn.Downed || target.Pawn.Faction == this.parent.pawn.Faction);
+            return base.CanApplyOn(target, dest) && target.Pawn != null && AbilityUtility.ValidateMustBeAnimal(target.Pawn, false, this.parent);
         }
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
             float severityToGain = this.Props.baseSeverityToAdd;
             Pawn occupant = target.Pawn;
+            EffecterDefOf.ChimeraRage.Spawn(occupant.Position, occupant.Map, 1f).Cleanup();
             if (occupant != null)
             {
                 TrainabilityDef td = TrainableUtility.GetTrainability(occupant);
@@ -59,9 +67,7 @@ namespace HautsBionics_Anomaly
                     if (td == TrainabilityDefOf.Advanced)
                     {
                         severityToGain += this.Props.bonusSeverityIfAdvanced;
-                    }
-                    else if (td == TrainabilityDefOf.Intermediate)
-                    {
+                    } else if (td == TrainabilityDefOf.Intermediate) {
                         severityToGain += this.Props.bonusSeverityIfIntermediate;
                     }
                     if (ModsConfig.OdysseyActive && occupant.health.hediffSet.HasHediff(HediffDefOf.SentienceCatalyst))
@@ -82,9 +88,7 @@ namespace HautsBionics_Anomaly
                 if (alreadyExisting != null)
                 {
                     alreadyExisting.Severity += severityToGain;
-                }
-                else
-                {
+                } else {
                     BodyPartRecord bpr = this.parent.pawn.health.hediffSet.GetBrain();
                     Hediff hediff = HediffMaker.MakeHediff(this.Props.hediffToSelf, this.parent.pawn, bpr);
                     this.parent.pawn.health.AddHediff(hediff, bpr);

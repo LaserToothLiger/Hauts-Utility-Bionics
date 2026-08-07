@@ -482,7 +482,7 @@
     <iconPath>UI/Buttons/UnDismiss</iconPath>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
-    <aiCanUse>false</aiCanUse><!--for now, at least. usually non-player pawns can't have archotech bionics so this really doesn't matter...-->
+    <aiCanUse>true</aiCanUse>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <showWhenDrafted>true</showWhenDrafted>
@@ -509,6 +509,8 @@
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
 		<customMote>HVB_GraspLine</customMote>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
       </li>
     </comps>
   </AbilityDef>
@@ -722,10 +724,10 @@
     <label>archotech lasso</label>
     <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <iconPath>BionicAbilities/HUB_ArchotechGrasp</iconPath>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
-    <aiCanUse>false</aiCanUse><!--for now, at least. usually non-player pawns can't have archotech bionics so this really doesn't matter...-->
+    <aiCanUse>true</aiCanUse>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <showWhenDrafted>true</showWhenDrafted>
@@ -752,6 +754,8 @@
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
 		<customMote>HVB_GraspLineArchotech</customMote>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
       </li>
     </comps>
   </AbilityDef>
@@ -901,7 +905,7 @@
     <label>catalyze sentience</label>
     <description>Inject mechanites into the targeted animal's neural pathways, enhancing its intelligence as if it had been administered a sentience catalyst.</description>
     <jobDef>CastAbilityOnThingMelee</jobDef>
-    <iconPath>Things/Item/Special/SentienceCatalyst</iconPath>
+    <iconPath>BionicAbilities/HUB_CatalyzeSentience</iconPath>
     <warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>

@@ -257,10 +257,10 @@
 		<label>voidshard lasso</label>
 		<description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
 		<jobDef>CastAbilityOnThing</jobDef>
-		<iconPath>UI/Buttons/UnDismiss</iconPath>
+		<iconPath>BionicAbilities/HUB_ArchotechGrasp</iconPath>
 		<stunTargetWhileCasting>True</stunTargetWhileCasting>
 		<showPsycastEffects>False</showPsycastEffects>
-		<aiCanUse>false</aiCanUse><!--for now, at least. usually non-player pawns can't have archotech bionics so this really doesn't matter...-->
+		<aiCanUse>true</aiCanUse>
 		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 		<showWhenDrafted>true</showWhenDrafted>
@@ -287,6 +287,8 @@
 		  <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
 			<compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
 			<customMote>HVB_GraspLineVoid</customMote>
+			<distanceRange>4.5~99999</distanceRange>
+			<mustBeMelee>true</mustBeMelee>
 		  </li>
 		</comps>
 	  </AbilityDef>
@@ -532,10 +534,11 @@
 		<label>absorb sentience</label>
 		<description>Use corrupted archites to incorporate the targeted animal's neural pathways into one's own neurobiology. This enhances the caster's consciousness for a duration based on the animal's trainability, but kills the animal.</description>
 		<jobDef>CastAbilityOnThingMelee</jobDef>
-		<iconPath>Things/Item/Special/SentienceCatalyst</iconPath>
+		<iconPath>BionicAbilities/HUB_AbsorbSentience</iconPath>
 		<warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
 		<stunTargetWhileCasting>True</stunTargetWhileCasting>
 		<showPsycastEffects>False</showPsycastEffects>
+		<aiCanUse>true</aiCanUse>
 		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 		<showWhenDrafted>true</showWhenDrafted>
@@ -570,6 +573,9 @@
 			<clamorType>Ability</clamorType>
 			<clamorRadius>10</clamorRadius>
 			<goodwillImpact>-80</goodwillImpact>
+			<canTargetBosses>false</canTargetBosses>
+			<onlyHostiles>true</onlyHostiles><!--governs NPC targeting of the ability-->
+			<NPCtargetingRange>3</NPCtargetingRange>
 		  </li>
 		</comps>
 	  </AbilityDef>

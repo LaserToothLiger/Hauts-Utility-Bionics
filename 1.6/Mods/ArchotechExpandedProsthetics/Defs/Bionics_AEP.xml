@@ -2239,10 +2239,10 @@
     <label>advanced bionic lasso</label>
     <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <iconPath>BionicAbilities/HUB_ArchotechGrasp</iconPath>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
-    <aiCanUse>false</aiCanUse>
+    <aiCanUse>true</aiCanUse>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <showWhenDrafted>true</showWhenDrafted>
@@ -2269,6 +2269,8 @@
       <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
         <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
 		<customMote>HVB_GraspLineArchotech</customMote>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
       </li>
     </comps>
   </AbilityDef>
@@ -2503,7 +2505,7 @@
 		<label>catalyze sapience</label>
 		<description>Inject mechanites into the targeted animal's neural pathways, enhancing its intelligence to humanlike levels.</description>
 		<jobDef>CastAbilityOnThingMelee</jobDef>
-		<iconPath>BS_Items/sapienator</iconPath>
+		<iconPath>BionicAbilities/HUB_CatalyzeSentience</iconPath>
 		<warmupSound>ScannerLongRangeMineral_Ambience</warmupSound>
 		<stunTargetWhileCasting>True</stunTargetWhileCasting>
 		<showPsycastEffects>False</showPsycastEffects>

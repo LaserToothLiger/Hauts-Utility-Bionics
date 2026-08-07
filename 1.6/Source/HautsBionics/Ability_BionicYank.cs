@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HautsFramework;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace HautsBionics
 {
     /*Bionic Yank either pulls the caster to the target, or the target to the caster, depending on the target's nature. The mote is the graphical line drawn between the two, and it can be specified in XML since the Anomaly voidshard has a different look.
      * NPC pawns only use on pawns, not items or buildings. Doesn't go on cooldown if you just use it to pull an item to your location, since that's one of the most niche and trivial uses possible.*/
-    public class CompProperties_AbilityMrFantastic : CompProperties_AbilityEffect
+    public class CompProperties_AbilityMrFantastic : CompProperties_AbilityAiTargetingDistanceRange
     {
         public CompProperties_AbilityMrFantastic()
         {
@@ -18,7 +19,7 @@ namespace HautsBionics
         }
         public ThingDef customMote;
     }
-    public class CompAbilityEffect_MrFantastic : CompAbilityEffect
+    public class CompAbilityEffect_MrFantastic : CompAbilityEffect_AiTargetingDistanceRange
     {
         public new CompProperties_AbilityMrFantastic Props
         {
