@@ -16,7 +16,7 @@
     </abilities>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -1125,7 +1125,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechMarrowheart</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -1185,7 +1185,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechApeliotanLung</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -1265,7 +1265,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechBreathTaker</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -1513,7 +1513,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechGrowthStimulator</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>
@@ -1650,7 +1650,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechThinkingKidney</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
 	<stages>
       <li>
@@ -1715,7 +1715,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechIntercessor</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <comps>
       <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
@@ -1773,6 +1773,72 @@
 	  <li>Leg</li>
     </appliedOnFixedBodyParts>
     <addsHediff>HVB_AEP_ArchotechIntercessor</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech graviton repulsor-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonRepulsor</defName>
+    <label>advanced archotech graviton repulsor</label>
+    <labelNoun>an advanced archotech graviton repulsor</labelNoun>
+    <description>An installed advanced archotech graviton repulsor. Gains 12 charges after flying on a gravship. While adjacent to enemies, one charge is periodically expended to slow and damage all nearby foes.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechGravitonRepulsor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonRepulsor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>3.5</partEfficiency>
+    </addedPartProps>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravityRepulsorCharge</hediff>
+		  <addToSameBodyPart>false</addToSameBodyPart>
+		  <severityMultiplier>16</severityMultiplier>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_ArchotechGravitonRepulsor</defName>
+    <label>advanced archotech graviton repulsor</label>
+    <description>An advanced artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most limbs or internal organs, significantly bolstering their function. In addition to their prosthetic capabilities, repulsors also store loose gravitons, such as those produced over the course of a gravship flight. The repulsor uses these stored gravitons as a defensive measure, somehow detecting when foes are nearby and discharging the gravitons to briefly and violently amplify the gravity those foes experience.\n\nThe advanced version grants 16 charges per gravship flight (up from 4).</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechGravitonRepulsor</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_AEP_InstallArchotechGravitonRepulsor</defName>
+    <label>install advanced archotech graviton repulsor</label>
+    <description>Install an advanced archotech graviton repulsor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechGravitonRepulsor</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechGravitonRepulsor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech graviton repulsor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechGravitonRepulsor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechGravitonRepulsor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechGravitonRepulsor</addsHediff>
   </RecipeDef>
   
   <!--archotech programmable limb-->
@@ -1963,7 +2029,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechThinkingSpine</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
 	<stages>
       <li>
@@ -2025,7 +2091,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechUndulatingSpine</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
 	<stages>
       <li>
@@ -2094,7 +2160,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechGravitonSpine</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-	  <partEfficiency>3</partEfficiency>
+	  <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <minSeverity>0.001</minSeverity>
     <initialSeverity>0.001</initialSeverity>
@@ -2166,7 +2232,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechTelescopingArm</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <abilities>
       <li>HVB_AEP_BionicYank</li>
@@ -2285,7 +2351,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechShieldBubbler</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <abilities>
       <li>HVB_AEP_ProjectBionicShield</li>
@@ -2440,7 +2506,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechSentienceCatalyzer</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <abilities>
       <li>HVB_AEP_CatalyzeSapience</li>
@@ -2547,7 +2613,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechEarthshaker</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <abilities>
       <li>HVB_BionicPounce</li>
@@ -2620,7 +2686,7 @@
     <spawnThingOnRemoved>HVB_AEP_ArchotechGeneratorLeg</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
-      <partEfficiency>3</partEfficiency>
+      <partEfficiency>3.5</partEfficiency>
     </addedPartProps>
     <stages>
       <li>

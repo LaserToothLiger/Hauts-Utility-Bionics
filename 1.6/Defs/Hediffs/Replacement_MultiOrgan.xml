@@ -92,5 +92,97 @@
 		  </li>
 		</comps>
 	  </HediffDef>
-	  
+  
+  
+  <!--archotech graviton repulsor-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonRepulsor</defName>
+    <label>archotech graviton repulsor</label>
+    <labelNoun>an archotech graviton repulsor</labelNoun>
+    <description>An installed archotech graviton repulsor. Gains 4 charges after flying on a gravship. While adjacent to enemies, one charge is periodically expended to slow and damage all nearby foes.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonRepulsor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonRepulsor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravityRepulsorCharge</hediff>
+		  <addToSameBodyPart>false</addToSameBodyPart>
+		  <severityMultiplier>4</severityMultiplier>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonRepulsor</defName>
+    <label>archotech graviton repulsor</label>
+    <description>An artificial organ created by an archotech. Despite its appearance as a lumpy, smooth-textured wad of slightly translucent plastic, it can be used as a substitute for most limbs or internal organs, significantly bolstering their function. In addition to their prosthetic capabilities, repulsors also store loose gravitons, such as those produced over the course of a gravship flight. The repulsor uses these stored gravitons as a defensive measure, somehow detecting when foes are nearby and discharging the gravitons to briefly and violently amplify the gravity those foes experience.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonRepulsor</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3400</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechGravitonRepulsor</defName>
+    <label>install archotech graviton repulsor</label>
+    <description>Install an archotech graviton repulsor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonRepulsor</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonRepulsor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech graviton repulsor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGravitonRepulsor</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGravitonRepulsor</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGravitonRepulsor</addsHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravityRepulsorCharge</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(110,61,216)</defaultLabelColor>
+		<label>archotech graviton charge</label>
+		<description>Gravitons stored within one or more "archotech graviton repulsor" bionics. When a foe is nearby, a full charge will be expended to violently amplify the gravity of all directly adjacent foes, damaging and slowing them.</description>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>999</maxSeverity>
+		<comps>
+		  <li Class="HautsBionics.HediffCompProperties_GraviticRepulsion">
+			<periodicity>120</periodicity>
+			<radius>1.5</radius>
+			<severityCost>-1</severityCost>
+			<damageType>Hauts_GravPulverization</damageType>
+			<damageAmount>15</damageAmount>
+			<sound>GravshipShieldGenerator_Activate</sound><!--Shot_BeamRepeater-->
+			<fleck>PsycastAreaEffect</fleck>
+			<fleckSize>1.8</fleckSize>
+		  </li>
+		</comps>
+	  </HediffDef>
+  
 </Defs>

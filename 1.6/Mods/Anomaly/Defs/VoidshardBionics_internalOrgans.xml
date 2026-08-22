@@ -1456,4 +1456,130 @@
 	<removesHediff>HVB_ArchotechIntercessor</removesHediff>
   </RecipeDef>
   
+  
+  <HediffDef ParentName="AddedBodyPartBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_VoidshardGravitonRepulsor</defName>
+    <label>voidshard graviton repulsor</label>
+    <labelNoun>a voidshardgraviton repulsor</labelNoun>
+    <description>An installed dark archotech graviton repulsor. Gains 4 charges after flying on a gravship. While adjacent to enemies, one charge is periodically expended to slow and damage all nearby foes.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechIntercessor</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechIntercessor</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+    <defaultLabelColor>(1, 0.1, 0.1)</defaultLabelColor>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>6.0</maxSeverity>
+    <stages>
+	  <li>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>level 1</label>
+		<partEfficiencyOffset>0.1</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>level 2</label>
+		<partEfficiencyOffset>0.2</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>level 3</label>
+		<partEfficiencyOffset>0.3</partEfficiencyOffset>
+      </li>
+	  <li>
+        <minSeverity>5</minSeverity>
+        <label>embraced</label>
+		<partEfficiencyOffset>0.4</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>2</value></li>
+			<li><key>2</key><value>3</value></li>
+			<li><key>3</key><value>4</value></li>
+			<li><key>4</key><value>4</value></li>
+			<li><key>5</key><value>5</value></li>
+			<li><key>6</key><value>3</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>1</defaultSeverity>
+	  </li>
+	  <li Class="HautsBionics_Anomaly.HediffCompProperties_Voidshard">
+        <letterLabel>Voidshard removed</letterLabel>
+        <letterText>Removal of {PAWN_nameDef}'s voidshard graviton repulsor has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
+		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
+		</downsides>
+	  </li>
+	</comps>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravityRepulsorCharge_Voidshard</hediff>
+		  <addToSameBodyPart>false</addToSameBodyPart>
+		  <severityMultiplier>4</severityMultiplier>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallVoidshardGravitonRepulsor</defName>
+    <label>upgrade archotech graviton repulsor with shards</label>
+    <description>Alter an archotech graviton repulsor by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level. Its damage output will increase, but it will be unleashed as an indiscriminate explosion that harms everything adjacent to the host.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonRepulsor</ThingDef>
+      <HediffDef>HVB_VoidshardGravitonRepulsor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Upgrading archotech graviton repulsor with shards.</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Shard</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>Shard</li></thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+      <li>Liver</li>
+      <li>Lung</li>
+      <li>Heart</li>
+      <li>Stomach</li>
+	  <li>Spine</li>
+	  <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <addsHediff>HVB_VoidshardGravitonRepulsor</addsHediff>
+	<removesHediff>HVB_ArchotechGravitonRepulsor</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravityRepulsorCharge_Voidshard</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(110,61,216)</defaultLabelColor>
+		<label>voidshard graviton charge</label>
+		<description>Gravitons stored within one or more "voidshard graviton repulsor" bionics. When a foe is nearby, a full charge will be expended to unleash a violent gravitic explosion, slowing and harming everything in the immediate vicinity.</description>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>999</maxSeverity>
+		<comps>
+		  <li Class="HautsBionics.HediffCompProperties_GraviticRepulsion">
+			<periodicity>120</periodicity>
+			<radius>1.5</radius>
+			<severityCost>-1</severityCost>
+			<damageType>Hauts_GravPulverization</damageType>
+			<damageAmount>35</damageAmount>
+			<sound>GravshipShieldGenerator_Activate</sound><!--Shot_BeamRepeater-->
+			<fleck>PsycastAreaEffect</fleck>
+			<fleckSize>1.8</fleckSize>
+			<indiscriminateExplosion>true</indiscriminateExplosion><!--yay!-->
+		  </li>
+		</comps>
+	  </HediffDef>
+  
 </Defs>

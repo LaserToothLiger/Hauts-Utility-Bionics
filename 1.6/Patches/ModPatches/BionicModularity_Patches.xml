@@ -301,7 +301,7 @@
 								<match Class="PatchOperationSequence">
 									<operations>
 										<li Class="PatchOperationAddModExtension">
-											<xpath>Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine"]</xpath>
+											<xpath>Defs/HediffDef[defName="HVB_VoidshardSentienceAbsorber" or defName="HVB_VoidshardGravitonSpine" or defName="HVB_VoidshardGravitonRepulsor"]</xpath>
 											<value>
 												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 											</value>
@@ -380,7 +380,7 @@
 						<operations>
 							<!--spine-->
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine" or defName="HVB_ArchotechGravitonRepulsor"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -430,7 +430,7 @@
 								<match Class="PatchOperationSequence">
 									<operations>
 										<li Class="PatchOperationAddModExtension">
-											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine"]</xpath>
+											<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechGravitonSpine" or defName="HVB_AEP_ArchotechGravitonRepulsor"]</xpath>
 											<value>
 												<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 											</value>

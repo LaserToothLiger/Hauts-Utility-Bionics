@@ -267,7 +267,7 @@
     <defName>HVB_FermentationGland</defName>
     <label>fermentation gland</label>
     <labelNoun>a fermentation gland</labelNoun>
-    <description>An installed fermentation gland. Ingesting nutrition or being exposed to rot stink will increase the rate at which it produces beer.</description>
+    <description>An installed fermentation gland. It gradually produces beer; ingesting nutrition or being exposed to rot stink will increase the rate at which it does so.</description>
     <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
 	<tags><li>HVB_Thyroid</li></tags>
@@ -336,6 +336,58 @@
     </descriptionHyperlinks>
     <jobString>Removing fermentation gland.</jobString>
     <removesHediff>HVB_FermentationGland</removesHediff>
+  </RecipeDef>
+  
+  <!--psilocap uptake gland-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_PsilocapFilter</defName>
+    <label>psilocap uptake gland</label>
+    <labelNoun>a psilocap uptake gland</labelNoun>
+    <description>An installed psilocap uptake gland. Prevents psilocap ingestion from causing catatonia.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BionicThyroidSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BionicThyroidSubstitute</spawnThingOnRemoved>
+	<tags><li>HVB_Thyroid</li></tags>
+  </HediffDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallPsilocapFilter</defName>
+    <label>install psilocap uptake gland</label>
+    <description>Install a psilocap uptake gland, which prevents psilocap ingestion from causing catatonia.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_PsilocapFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psilocap uptake gland.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BionicThyroidSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BionicThyroidSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Neck</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsilocapFilter</addsHediff>
+	<incompatibleWithHediffTags><li>HVB_Thyroid</li></incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemovePsilocapFilter</defName>
+    <label>remove psilocap uptake gland</label>
+    <description>Remove psilocap uptake gland.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BionicThyroidSubstitute</ThingDef>
+      <HediffDef>HVB_PsilocapFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing psilocap uptake gland.</jobString>
+    <removesHediff>HVB_PsilocapFilter</removesHediff>
   </RecipeDef>
   
   <!--antihistamine gland-->

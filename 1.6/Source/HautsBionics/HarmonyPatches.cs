@@ -410,8 +410,10 @@ namespace HautsBionics
                         if (gp != null) {
                             if (gp.hediff != null)
                             {
-                                Hediff hediff = HediffMaker.MakeHediff(gp.hediff, pawn, h.Part);
-                                pawn.health.AddHediff(hediff, h.Part);
+                                BodyPartRecord bpr = gp.addToSameBodyPart ? h.Part : null;
+                                Hediff hediff = HediffMaker.MakeHediff(gp.hediff, pawn, bpr);
+                                hediff.Severity = gp.hediff.initialSeverity * gp.severityMultiplier;
+                                pawn.health.AddHediff(hediff, bpr);
                             } else {
                                 h.Severity = h.def.maxSeverity;
                             }
