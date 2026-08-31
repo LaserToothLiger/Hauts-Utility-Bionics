@@ -333,6 +333,8 @@
 			<li MayRequire="Leo.Bard">BardicInspiration</li>
 			<li MayRequire="Leo.Bard">SongOfRest</li>
 			<li MayRequire="Leo.Bard">ViciousMockery</li>
+			<li MayRequire="det.stoneborn">DV_Stonecall</li>
+			<li MayRequire="Rimsenal.Askbarn">ThunderingRoar</li>
 		</affectedAbilities>
 		<abilitiesUsingThisWorkTag>
 			<li>Social</li>
