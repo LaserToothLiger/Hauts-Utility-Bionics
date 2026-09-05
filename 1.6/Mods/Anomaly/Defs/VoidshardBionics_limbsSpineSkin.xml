@@ -56,6 +56,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -678,6 +679,7 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard thinking spine has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideCorruptor3</li>
 		</downsides>
 	  </li>
     </comps>
@@ -880,7 +882,10 @@
         <letterLabel>Voidshard removed</letterLabel>
         <letterText>Removal of {PAWN_nameDef}'s voidshard graviton spine has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
+			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor2</li>
 			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideIncubator</li>
 		</downsides>
 	  </li>
     </comps>

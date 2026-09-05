@@ -260,6 +260,67 @@
 		</stages>
 	  </HediffDef>
   
+  <!--corruption, paralytic-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideCorruptor3</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Corruptor">
+        <corruptionMtbDays>7</corruptionMtbDays>
+		<mtbLossPerExtraSeverity>0.17</mtbLossPerExtraSeverity>
+		<hediff>HVB_VoidshardCorruption3</hediff>
+      </li>
+    </comps>
+  </HediffDef>
+	  <HediffDef ParentName="InfectionBase">
+		<defName>HVB_VoidshardCorruption3</defName>
+		<label>kismetic corruption</label>
+		<description>A dark psychic influence which subtly adjusts causality around this individual, making their odds worse.</description>
+		<initialSeverity>0.33</initialSeverity>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-24</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		</comps>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <Hauts_OverdoseSusceptibility>0.05</Hauts_OverdoseSusceptibility>
+			</statOffsets>
+			<statFactors>
+			  <IncomingDamageFactor>1.15</IncomingDamageFactor>
+			  <StaggerDurationFactor>2</StaggerDurationFactor>
+			  <PawnTrapSpringChance>2</PawnTrapSpringChance>
+			  <MeleeHitChance>0.5</MeleeHitChance>
+			  <MeleeCritChance MayRequire="CETeam.CombatExtended">0.5</MeleeCritChance>
+			  <MeleeDodgeChance>0.5</MeleeDodgeChance>
+			  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.5</MeleeParryChance>
+			  <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+			  <AimingAccuracy MayRequire="CETeam.CombatExtended">0.5</AimingAccuracy>
+			  <VEF_RangedDodgeChance>0.5</VEF_RangedDodgeChance>
+			  <PsychicEntropyMax MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">0.8</PsychicEntropyMax>
+			</statFactors>
+		  </li>
+		</stages>
+	  </HediffDef>
+  
   <!--incubation-->
   <HediffDef ParentName="HVT_TraitHediffBase">
     <defName>HVB_DownsideIncubator</defName>
@@ -346,5 +407,33 @@
 		  </li>
 		</stages>
 	  </ThoughtDef>
+  
+  <!--malediction-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVB_DownsideMaledictor</defName>
+    <label>voidshard downside</label>
+    <description>I warned you about voidshards, bro!!!! I told you dog!\n\nWhat, you want me to be serious in the tooltip of a hidden hediff?</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityLossMultiplier>
+		</statOffsets>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HautsBionics_Anomaly.HediffComp_VoidshardDownside</compClass>
+      </li>
+      <li Class="HautsBionics_Anomaly.HediffCompProperties_Maledictor">
+        <badEventMtbDays>13</badEventMtbDays>
+		<mtbLossPerExtraSeverity>0.5</mtbLossPerExtraSeverity>
+      </li>
+    </comps>
+  </HediffDef>
   
 </Defs>

@@ -82,6 +82,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -183,6 +184,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -280,6 +282,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -369,8 +372,9 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -472,8 +476,9 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -536,8 +541,9 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
       <li Class="HautsFramework.HediffCompProperties_AuraThought">

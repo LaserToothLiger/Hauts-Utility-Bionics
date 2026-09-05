@@ -138,8 +138,10 @@
 		  <downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		  </downsides>
 		</li>
 	</comps>
@@ -185,7 +187,7 @@
 		<defName>HVB_Voidborn</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>voidborn</label>
-		<description>This person was formed in a dark archotech womb. Connected to the void, they are more than human. Should the void be disrupted, these effects will vanish.</description>
+		<description>This person was formed in a dark archotech womb. Connected to the void, they are more than human.\n\nShould the void be disrupted, these effects will vanish.</description>
 		<defaultLabelColor>(1,0.1,0.1)</defaultLabelColor>
 		<scenarioCanAdd>true</scenarioCanAdd>
 		<isBad>false</isBad>
@@ -341,6 +343,7 @@
 			<li>HVB_DownsideCorruptor2</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
 	  <li Class="HautsBionics_Anomaly.HediffCompProperties_InhumanRambler">

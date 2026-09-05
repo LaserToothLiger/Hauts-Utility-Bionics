@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HautsFramework;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using Verse;
@@ -29,7 +30,7 @@ namespace HautsBionics_Anomaly
         public override void CompExposeData()
         {
             base.CompExposeData();
-            Scribe_Collections.Look<Hediff>(ref this.causativeHediffs, "causativeHediffs", LookMode.Deep, Array.Empty<object>());
+            Scribe_Collections.Look<Hediff>(ref this.causativeHediffs, "causativeHediffs", LookMode.Reference, Array.Empty<object>());
         }
         public List<Hediff> causativeHediffs;
     }
@@ -121,6 +122,33 @@ namespace HautsBionics_Anomaly
                     TaggedString text = this.Props.letterText.Formatted(pawn.Named("PAWN"));
                     Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.ThreatBig, pawn2, null, null, null, null, 0, true);
                 }
+            }
+        }
+    }
+    public class HediffCompProperties_Maledictor : HediffCompProperties
+    {
+        public HediffCompProperties_Maledictor()
+        {
+            this.compClass = typeof(HediffComp_Maledictor);
+        }
+        public float badEventMtbDays = 13f;
+        public float mtbLossPerExtraSeverity;
+    }
+    public class HediffComp_Maledictor : HediffComp
+    {
+        public HediffCompProperties_Maledictor Props
+        {
+            get
+            {
+                return (HediffCompProperties_Maledictor)this.props;
+            }
+        }
+        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
+        {
+            base.CompPostTickInterval(ref severityAdjustment, delta);
+            if (this.Pawn.IsHashIntervalTick(150, delta) && (this.Pawn.story == null || !this.Pawn.story.traits.HasTrait(HVBAnomalyDefOf.HVB_HomunculusTrait)) && Rand.MTBEventOccurs(Math.Max(this.Props.badEventMtbDays - (this.Props.mtbLossPerExtraSeverity * this.parent.Severity), 0.001f), 60000f, 150f))
+            {
+                GoodAndBadIncidentsUtility.MakeBadEvent(this.Pawn);
             }
         }
     }

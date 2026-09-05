@@ -11,6 +11,7 @@
 	  <RecipeDef>HVB_InstallMetabolicEnhancerGland</RecipeDef>
 	  <RecipeDef>HVB_InstallRestfulSleepGland</RecipeDef>
 	  <RecipeDef>HVB_InstallFermentationGland</RecipeDef>
+	  <RecipeDef MayRequire="Ludeon.RimWorld.Odyssey">HVB_InstallPsilocapFilter</RecipeDef>
 	  <RecipeDef MayRequire="phil42.allergies">HVB_InstallAntihistamineGland</RecipeDef>
 	  <RecipeDef MayRequire="CETeam.CombatExtended">HVB_InstallUnflinchingGland</RecipeDef>
 	</descriptionHyperlinks>

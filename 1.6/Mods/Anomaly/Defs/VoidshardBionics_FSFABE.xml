@@ -189,8 +189,10 @@
 			  <downsides>
 				<li>HVB_DownsideCorruptor</li>
 				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideCorruptor3</li>
 				<li>HVB_DownsideInsinuator</li>
 				<li>HVB_DownsideIncubator</li>
+				<li>HVB_DownsideMaledictor</li>
 			  </downsides>
 		    </li>
 			<li Class="VEF.AnimalBehaviours.HediffCompProperties_Resurrect">
@@ -432,6 +434,7 @@
 			  <downsides>
 				<li>HVB_DownsideCorruptor</li>
 				<li>HVB_DownsideCorruptor2</li>
+				<li>HVB_DownsideCorruptor3</li>
 				<li>HVB_DownsideInsinuator</li>
 				<li>HVB_DownsideIncubator</li>
 			  </downsides>

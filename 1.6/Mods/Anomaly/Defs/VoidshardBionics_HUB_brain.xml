@@ -65,7 +65,9 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard worship drive has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
 	  <li Class="HautsBionics_Anomaly.HediffCompProperties_InhumanRambler">
@@ -161,8 +163,9 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -267,6 +270,7 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard psyfocuser has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 		</downsides>
 	  </li>
@@ -369,7 +373,7 @@
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -474,7 +478,9 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard channel has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
 	  <li Class="HautsBionics_Anomaly.HediffCompProperties_InhumanRambler">
@@ -767,8 +773,9 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -865,8 +872,9 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard trancer has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
-			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -994,7 +1002,7 @@
     <defName>HVB_VoidshardGravitonmind</defName>
     <label>voidshard gravitonmind</label>
     <labelNoun>a voidshard gravitonmind</labelNoun>
-    <description>An installed dark archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship. Its potency scales with the current anomalous activity level.</description>
+    <description>An installed dark archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship. Its base potency scales with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechGravitonmind</spawnThingOnRemoved>
     <allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
@@ -1045,8 +1053,10 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
+			<li>HVB_DownsideMaledictor</li>
 		</downsides>
 	  </li>
     </comps>
@@ -1152,6 +1162,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -1250,6 +1261,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
@@ -1354,6 +1366,7 @@
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>

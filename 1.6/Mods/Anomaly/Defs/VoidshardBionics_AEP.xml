@@ -70,6 +70,7 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard melder has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor2</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideInsinuator</li>
 		</downsides>
 	  </li>
@@ -184,6 +185,7 @@
         <letterText>Removal of {PAWN_nameDef}'s voidshard membrane has caused its dark archotechnological components to slough off. It has coalesced into a metalhorror!</letterText>
 		<downsides>
 			<li>HVB_DownsideCorruptor</li>
+			<li>HVB_DownsideCorruptor3</li>
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
 	  </li>
