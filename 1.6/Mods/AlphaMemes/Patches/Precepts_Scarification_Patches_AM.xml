@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/PreceptDef[defName="AM_Scarification_Insane"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PreceptDef[defName="AM_Scarification_Insane"]</xpath>
+			<value>
+				<comps>
+				  <li Class="PreceptComp_SituationalThought">
+					<thought>HVB_ScarKintsugi_Insane</thought>
+					<thoughtStageDescriptions>
+					  <li>Scar kintsugi (8 desired)</li>
+					</thoughtStageDescriptions>
+				  </li>
+				  <li Class="PreceptComp_SituationalThought">
+					<thought>HVB_ScarKintsugi_Insane_Opinion</thought>
+					<thoughtStageDescriptions>
+					  <li>Scar kintsugi (8 desired)</li>
+					</thoughtStageDescriptions>
+				  </li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/PreceptDef[defName="AM_Scarification_Insane"]/comps</xpath>
+			<value>
+			  <li Class="PreceptComp_SituationalThought">
+				<thought>HVB_ScarKintsugi_Insane</thought>
+				<thoughtStageDescriptions>
+				  <li>Scar kintsugi (8 desired)</li>
+				</thoughtStageDescriptions>
+			  </li>
+			  <li Class="PreceptComp_SituationalThought">
+				<thought>HVB_ScarKintsugi_Insane_Opinion</thought>
+				<thoughtStageDescriptions>
+				  <li>Scar kintsugi (8 desired)</li>
+				</thoughtStageDescriptions>
+			  </li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

@@ -31,5 +31,6 @@
 		<li IfModActive="Rah.RBSE">1.6/Mods/EPOE_Forked</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li><!--warlock bionics require eltex to make, not gold and jade-->
 		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li><!--extra arms-->
+		<li IfModActive="Sarg.AlphaMemes">1.6/Mods/AlphaMemes</li><!--integrates scar kintsugi into the Scarification - Insane precept-->
 	</v1.6>
 </loadFolders>

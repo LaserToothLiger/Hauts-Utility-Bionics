@@ -166,6 +166,10 @@ namespace HautsBionics
             Hediff hediff = HediffMaker.MakeHediff(this.Props.possibleHediffs.RandomElement(), target.Pawn, null);
             target.Pawn.health.AddHediff(hediff, null, null, null);
         }
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            return base.CanApplyOn(target, dest) && target.Thing is Pawn p && p.RaceProps.IsFlesh;
+        }
         public override bool AICanTargetNow(LocalTargetInfo target)
         {
             if (target.Pawn != null)

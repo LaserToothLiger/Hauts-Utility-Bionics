@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>HVB_ScarKintsugi_Insane_Opinion</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsBionics_Ideology.ThoughtWorker_Precept_ScarKintsugi_Social</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>Wimp</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>scar kintsugi</label>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>HVB_ScarKintsugi_Insane</defName>
+    <workerClass>HautsBionics_Ideology.ThoughtWorker_Precept_ScarKintsugi</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+    <minExpectationForNegativeThought>Low</minExpectationForNegativeThought>
+    <nullifyingTraits>
+      <li>Wimp</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>scar kintsugi</label>
+        <description>My flesh is lacquered in proof of my devotion. Every gilded mark is another piece of our truth written into me.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

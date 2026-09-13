@@ -172,35 +172,35 @@
 		<maxSeverity>10</maxSeverity>
 		<stages>
 		  <li>
-			<capMods><li><capacity>Moving</capacity><offset>0.05</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.075</MeleeCooldownFactor><AimingDelayFactor>-0.075</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.1</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.05</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.04</MeleeCooldownFactor><AimingDelayFactor>-0.04</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.1</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>1.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.1</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.15</MeleeCooldownFactor><AimingDelayFactor>-0.15</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.2</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.1</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.08</MeleeCooldownFactor><AimingDelayFactor>-0.08</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.2</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>2.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.14</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.225</MeleeCooldownFactor><AimingDelayFactor>-0.225</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.4</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.14</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.12</MeleeCooldownFactor><AimingDelayFactor>-0.12</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.4</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>3.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.18</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.3</MeleeCooldownFactor><AimingDelayFactor>-0.3</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.6</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.18</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.16</MeleeCooldownFactor><AimingDelayFactor>-0.16</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.6</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>4.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.21</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.375</MeleeCooldownFactor><AimingDelayFactor>-0.375</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.8</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.21</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.2</MeleeCooldownFactor><AimingDelayFactor>-0.2</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-0.8</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>5.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.24</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.45</MeleeCooldownFactor><AimingDelayFactor>-0.45</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.24</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.24</MeleeCooldownFactor><AimingDelayFactor>-0.24</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>6.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.26</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.525</MeleeCooldownFactor><AimingDelayFactor>-0.525</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1.25</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.26</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.28</MeleeCooldownFactor><AimingDelayFactor>-0.28</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1.25</Suppressability></statOffsets>
 		  </li>
 		  <li>
 			<minSeverity>7.001</minSeverity>
-			<capMods><li><capacity>Moving</capacity><offset>0.28</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.6</MeleeCooldownFactor><AimingDelayFactor>-0.6</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1.5</Suppressability></statOffsets>
+			<capMods><li><capacity>Moving</capacity><offset>0.28</offset></li></capMods><statOffsets><MeleeCooldownFactor>-0.32</MeleeCooldownFactor><AimingDelayFactor>-0.32</AimingDelayFactor><Suppressability MayRequire="CETeam.CombatExtended">-1.5</Suppressability></statOffsets>
 		  </li>
 		</stages>
 		<comps>
@@ -507,6 +507,12 @@
 		  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.6</ConversionPower>
 		  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.6</LanguageLearningAbility>
 		</statFactors>
+			<capMods>
+			  <li>
+				<capacity>Talking</capacity>
+				<setMax>0.1</setMax>
+			  </li>
+			</capMods>
 	  </li>
     </stages>
 	<comps>
