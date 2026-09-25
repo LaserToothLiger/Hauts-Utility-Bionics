@@ -125,6 +125,7 @@ namespace HautsBionics_Anomaly
             }
         }
     }
+    //Maledictors create bad events (see Framework 'good and bad incidents' meachanics) at random via MTB. The higher the severity of the hediff, the shorter the MTB interval is, as dictated by adding severity*mtbLossPerExtraSeverity
     public class HediffCompProperties_Maledictor : HediffCompProperties
     {
         public HediffCompProperties_Maledictor()
@@ -148,7 +149,7 @@ namespace HautsBionics_Anomaly
             base.CompPostTickInterval(ref severityAdjustment, delta);
             if (this.Pawn.IsHashIntervalTick(150, delta) && (this.Pawn.story == null || !this.Pawn.story.traits.HasTrait(HVBAnomalyDefOf.HVB_HomunculusTrait)) && Rand.MTBEventOccurs(Math.Max(this.Props.badEventMtbDays - (this.Props.mtbLossPerExtraSeverity * this.parent.Severity), 0.001f), 60000f, 150f))
             {
-                GoodAndBadIncidentsUtility.MakeBadEvent(this.Pawn);
+                GoodAndBadIncidentsUtility.MakeBadEvent(this.Pawn,maxImpact: 2);
             }
         }
     }
