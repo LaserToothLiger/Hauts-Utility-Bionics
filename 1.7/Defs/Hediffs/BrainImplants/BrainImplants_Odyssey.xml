@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--archotech gravitonmind-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonmind</defName>
+    <label>archotech gravitonmind</label>
+    <labelNoun>an archotech gravitonmind</labelNoun>
+    <description>An installed archotech gravitonmind. Grants bonus consciousness for 5 days after flying on a gravship.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechGravitonmind</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechGravitonmind</spawnThingOnRemoved>
+    <stages>
+	  <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+	<modExtensions>
+		<li Class="HautsBionics.GravitonPart">
+		  <hediff>HVB_GravitonPartEfficiency_ArchoBrain</hediff>
+		</li>
+	</modExtensions>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_ArchotechGravitonmind</defName>
+    <label>archotech gravitonmind</label>
+    <description>A brain implant which is essentially smart enough to be its own mind. However, it is only active within 5 days of exposure to gravitic flux - such as that created by a gravship in flight.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechGravitonmind</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>3250</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_InstallArchotechGravitonmind</defName>
+    <label>install archotech gravitonmind</label>
+    <description>Install an archotech gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech gravitonmind.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechGravitonmind</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechGravitonmind</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechGravitonmind</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVB_RemoveArchotechGravitonmind</defName>
+    <label>remove archotech gravitonmind</label>
+    <description>Remove archotech gravitonmind.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechGravitonmind</ThingDef>
+      <HediffDef>HVB_ArchotechGravitonmind</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech gravitonmind.</jobString>
+    <removesHediff>HVB_ArchotechGravitonmind</removesHediff>
+  </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVB_GravitonPartEfficiency_ArchoBrain</defName>
+		<label>archo-gravitic empowerment</label>
+		<description>A temporary state of improved efficiency.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<initialSeverity>5</initialSeverity>
+		<maxSeverity>5</maxSeverity>
+		<stages>
+		  <li>
+			<partEfficiencyOffset>0.25</partEfficiencyOffset>
+			<statFactors>
+			  <VEF_NegativeThoughtDurationFactor>0.5</VEF_NegativeThoughtDurationFactor>
+			</statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1</severityPerDay>
+			<showDaysToRecover>true</showDaysToRecover>
+		  </li>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+  
+</Defs>

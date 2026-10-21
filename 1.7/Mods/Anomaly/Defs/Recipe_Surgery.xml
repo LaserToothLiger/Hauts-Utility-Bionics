@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--voidshard upgrades-->
+  <RecipeDef Name="HVB_SurgeryInstallVoidImplantBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>HautsBionics_Anomaly.Recipe_InstallVoidImplant</workerClass>
+    <workAmount>2500</workAmount>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <researchPrerequisite>HVB_VoidshardBionics</researchPrerequisite>
+    <recipeUsers>
+      <li>Human</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <RecipeDef Name="HVB_SurgeryInstallVoidBodyPartArtificialBase" ParentName="HVB_SurgeryInstallVoidImplantBase" Abstract="True">
+    <workerClass>HautsBionics_Anomaly.Recipe_InstallVoidArtificialBodyPart</workerClass>
+  </RecipeDef>
+  
+  <!--homunculus vivisection-->
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>HVB_VivisectHomunculus</defName>
+    <label>vivisect homunculus</label>
+    <description>Pull apart a homunculus' body to retrieve some of its archotech bionic components. This will irreversibly destroy the homunculus, and may trigger dangerous failsafes.</description>
+    <workerClass>HautsBionics_Anomaly.Recipe_VivisectHomunculus</workerClass>
+    <jobString>Vivisecting TargetA.</jobString>
+    <workAmount>2000</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <isViolation>false</isViolation>
+    <uiIconPath>UI/Icons/SurgicalInspection</uiIconPath>
+    <skillRequirements>
+      <Medicine>10</Medicine>
+    </skillRequirements>
+    <researchPrerequisite>
+      <li>HVB_VoidshardBionics</li>
+    </researchPrerequisite>
+    <recipeUsers>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>

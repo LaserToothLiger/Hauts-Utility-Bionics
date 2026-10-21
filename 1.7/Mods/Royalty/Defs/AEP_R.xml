@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--for Archotech Expanded Prosthetics-->
+  <!--archotech aesthetic jaw-->
+  <HediffDef ParentName="AddedBodyPartBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_ArchotechAestheticJaw</defName>
+    <label>advanced archotech aesthetic jaw</label>
+    <labelNoun>an advanced archotech aesthetic jaw</labelNoun>
+    <description>An installed advanced archotech aesthetic jaw.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechAestheticJaw</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechAestheticJaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+	  <partEfficiency>4</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+		<statOffsets>
+		  <PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_ArchotechAestheticJaw</defName>
+    <label>advanced archotech aesthetic jaw</label>
+    <description>An artificial jaw shaped to the user's desired form, matching prevalent beauty standards and enhancing physical impressions. Additionally, it is supremely functional compared to a normal jaw.\n\nThis advanced version is doubly as beautiful and many more times more powerful.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechAestheticJaw</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <tradeTags>
+      <li>ImplantEmpireRoyal</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantEmpireRoyal</li>
+    </techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallArchotechAestheticJaw</defName>
+    <label>install advanced archotech aesthetic jaw</label>
+    <description>Install an advanced archotech aesthetic jaw.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechAestheticJaw</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechAestheticJaw</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech aesthetic jaw.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechAestheticJaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechAestheticJaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechAestheticJaw</addsHediff>
+  </RecipeDef>
+  
+  <!--archotech cerebropearl-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_ArchotechCerebropearl</defName>
+    <label>advanced archotech cerebropearl</label>
+    <labelNoun>an advanced archotech cerebropearl</labelNoun>
+    <description>An installed advanced archotech cerebropearl. Through means unknown to even the most well-educated archotechists, it produces vast quantities of psyfocus over time. The cerebropearl occasionally flares with activity, sending its host into a trancelike state.\n\nThough it derives its name from its pearl-like appearance, during its implantation it "hatched" into a tangle of thorny cables that are now threaded throughout each of the host's cerebral lobes, as well as the cerebellum and brainstem. Thus, only the most accomplished surgeons can extract it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_ArchotechCerebropearl</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_ArchotechCerebropearl</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsyfocusRegenRate>0.48</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>6</PsychicSensitivity>
+        </statOffsets>
+        <mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>18</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartRoyalBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_ArchotechCerebropearl</defName>
+    <label>advanced archotech cerebropearl</label>
+    <description>This brain implant resembles a sage-green pearl a few inches in diameter. It passively generates psyfocus and heavily enhances psychic sensitivity, but also randomly induces harmless trancing.\n\nAs it is being implanted into a host, it begins a process best described as "hatching", where thorny cables break through its surface and must be guided by the surgeon to infest each and every part of the brain, up to and including the brainstem. Thus, only a skilled surgeon can even attempt implantation.\n\nThis advanced version grants twice the psyfocus regeneration, and six times the psychic sensitivity, but it also induces trances more often.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallArchotechCerebropearl</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_AEP_SuperPsychic</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallArchotechCerebropearl</defName>
+    <label>install advanced archotech cerebropearl</label>
+    <description>Install an advanced archotech cerebropearl.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechCerebropearl</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechCerebropearl</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced archotech cerebropearl.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_ArchotechCerebropearl</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_ArchotechCerebropearl</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_ArchotechCerebropearl</addsHediff>
+    <skillRequirements>
+      <Medicine>15</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemoveArchotechCerebropearl</defName>
+    <label>remove advanced archotech cerebropearl</label>
+    <description>Remove advanced archotech cerebropearl.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_ArchotechCerebropearl</ThingDef>
+      <HediffDef>HVB_AEP_ArchotechCerebropearl</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing advanced archotech cerebropearl.</jobString>
+    <removesHediff>HVB_AEP_ArchotechCerebropearl</removesHediff>
+    <skillRequirements>
+      <Medicine>20</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+  
+  <!--personal skipgate generator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_PersonalSkipgateGenerator</defName>
+    <label>advanced personal skipgate generator</label>
+    <labelNoun>an advanced personal skipgate generator</labelNoun>
+    <description>An installed advanced personal skipgate generator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AEP_PersonalSkipgateGenerator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AEP_PersonalSkipgateGenerator</spawnThingOnRemoved>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVB_AEP_PersonalSkip</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_PersonalSkipgateGenerator</defName>
+    <label>advanced personal skipgate generator</label>
+    <description>This archotech body implant, resembling an armillary sphere, enables the host to teleport via the use of skipgates.\n\nThis advanced version recovers charges of its ability six times as fast.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_AEP_InstallPersonalSkipgateGenerator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>20000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_InstallPersonalSkipgateGenerator</defName>
+    <label>install advanced personal skipgate generator</label>
+    <description>Install an advanced personal skipgate generator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_AEP_PersonalSkipgateGenerator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing advanced personal skipgate generator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AEP_PersonalSkipgateGenerator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AEP_PersonalSkipgateGenerator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AEP_PersonalSkipgateGenerator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequireAnyOf="Teok25.ArchotechExpanded,Teok25.ArchotechExpanded.Prosthetics">
+    <defName>HVB_AEP_RemovePersonalSkipgateGenerator</defName>
+    <label>remove advanced personal skipgate generator</label>
+    <description>Remove advanced personal skipgate generator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AEP_PersonalSkipgateGenerator</ThingDef>
+      <HediffDef>HVB_AEP_PersonalSkipgateGenerator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing personal skipgate generator.</jobString>
+    <removesHediff>HVB_AEP_PersonalSkipgateGenerator</removesHediff>
+  </RecipeDef>
+</Defs>

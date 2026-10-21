@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--firefoam intestine-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FirefoamIntestine</defName>
+    <label>firefoam intestine</label>
+    <labelNoun>a firefoam intestine</labelNoun>
+    <description>An installed firefoam intestine implant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_FirefoamIntestine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_FirefoamIntestine</spawnThingOnRemoved>
+    <abilities>
+      <li>FirefoampopMech</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+		  <ImmunityGainSpeed>-0.05</ImmunityGainSpeed>
+		  <Flammability>-0.5</Flammability>
+        </statOffsets>
+		<statFactors>
+		  <BladderRateMultiplier>0.1</BladderRateMultiplier>
+		</statFactors>
+      </li>
+    </stages>
+	<tags><li>HVB_IntestineImplant</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_FirefoamIntestine</defName>
+    <label>firefoam intestine</label>
+    <description>This bionic intestine metabolizes the waste produced by the body, altering it into an internal reservoir of biodegradable firefoam. When the host takes fire damage, this reservoir is forcibly expelled, extinguishing all nearby fires.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFirefoamIntestine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HygieneBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_InstallFirefoamIntestine</defName>
+    <label>install firefoam intestine</label>
+    <description>Install a firefoam intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamIntestine</ThingDef>
+      <HediffDef>HVB_FirefoamIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firefoam intestine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FirefoamIntestine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FirefoamIntestine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FirefoamIntestine</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_IntestineImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Dubwise.DubsBadHygiene">
+    <defName>HVB_RemoveFirefoamIntestine</defName>
+    <label>remove firefoam intestine</label>
+    <description>Remove firefoam intestine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamIntestine</ThingDef>
+      <HediffDef>HVB_FirefoamIntestine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing firefoam intestine.</jobString>
+    <removesHediff>HVB_FirefoamIntestine</removesHediff>
+  </RecipeDef>
+  
+</Defs>

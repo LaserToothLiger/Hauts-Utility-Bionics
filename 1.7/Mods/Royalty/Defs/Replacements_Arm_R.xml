@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--welding arm-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_WeldingArm</defName>
+    <label>welding arm</label>
+    <labelNoun>a welding arm</labelNoun>
+    <description>An installed welding arm.</description>
+    <descriptionHyperlinks><ThingDef>HVB_WeldingArm</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_WeldingArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ConstructionSpeed>1.14</ConstructionSpeed>
+          <SmeltingSpeed>1.14</SmeltingSpeed>
+          <MechRepairSpeed MayRequire="Ludeon.RimWorld.Biotech">0.2</MechRepairSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>welder</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>Interact_Ignite</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+			<extraMeleeDamages>
+			  <li>
+				<def>Burn</def>
+				<amount>5</amount>
+				<chance>0.7</chance>
+			  </li>
+			</extraMeleeDamages>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticImperialBase">
+    <defName>HVB_WeldingArm</defName>
+    <label>welding arm</label>
+    <description>A bionic arm with an inbuilt array of precision metalworking, masonry, and carpentry equipment. The most prominent of these tools is a massive welder which can protrude from the wrist, large enough to make an effective weapon in a pinch. It is, however, somewhat ungainly, which slows down movement slightly.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallWeldingArm</RecipeDef></descriptionHyperlinks>
+    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>425</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>SpecializedLimbs</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>HVB_InstallWeldingArm</defName>
+    <label>install welding arm</label>
+    <description>Install a welding arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_WeldingArm</ThingDef>
+      <HediffDef>HVB_WeldingArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing welding arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_WeldingArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_WeldingArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Arm</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_WeldingArm</addsHediff>
+  </RecipeDef>
+  
+</Defs>

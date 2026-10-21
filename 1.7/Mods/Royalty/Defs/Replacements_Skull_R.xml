@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+						<!--uncraftable-->
+  <!--Psyfocus recapture mesh-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_PsyfocusRecaptureMesh</defName>
+    <label>psyfocus recapture mesh</label>
+    <labelNoun>a psyfocus recapture mesh</labelNoun>
+    <description>An installed psyfocus recapture mesh.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PsyfocusRecaptureMesh</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PsyfocusRecaptureMesh</spawnThingOnRemoved>
+	<tags><li>HVB_Skull</li></tags>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsycastFocusRefund>0.2</Hauts_PsycastFocusRefund>
+        </statOffsets>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ExpelsHediffsWithTag">
+	    <hediffTag>HVB_Skull</hediffTag>
+		<onlySameBodyPart>true</onlySameBodyPart>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_PsyfocusRecaptureMesh</defName>
+    <label>psyfocus recapture mesh</label>
+    <description>This artificial skull retains imprints of the psyfocus spent on psycasts, partially refunding their psyfocus costs. The mechanism by which it accomplishes this is a mystery to human minds.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPsyfocusRecaptureMesh</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2800</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallPsyfocusRecaptureMesh</defName>
+    <label>install psyfocus recapture mesh</label>
+    <description>Install a psyfocus recapture mesh.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsyfocusRecaptureMesh</ThingDef>
+      <HediffDef>HVB_PsyfocusRecaptureMesh</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psyfocus recapture mesh.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PsyfocusRecaptureMesh</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PsyfocusRecaptureMesh</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Skull</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsyfocusRecaptureMesh</addsHediff>
+  </RecipeDef>
+
+</Defs>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--circadian deathrester-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="lts.I">
+    <defName>HVB_CircadianDeathrester</defName>
+    <label>circadian deathrester</label>
+    <labelNoun>a circadian deathrester</labelNoun>
+    <description>An installed circadian deathrester.</description>
+    <descriptionHyperlinks><ThingDef>HVB_CircadianDeathrester</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_CircadianDeathrester</spawnThingOnRemoved>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0.001</minSeverity>
+	<maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <label>deathrest-exhausted</label>
+		<statFactors>
+		  <DeathrestEffectivenessFactor>0.9</DeathrestEffectivenessFactor>
+		</statFactors>
+      </li>
+      <li>
+        <minSeverity>0.002</minSeverity>
+        <statOffsets>
+          <RestRateMultiplier>14</RestRateMultiplier>
+        </statOffsets>
+		<statFactors>
+		  <DeathrestEffectivenessFactor>0.9</DeathrestEffectivenessFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsBionics_Biotech.HediffCompProperties_DeathrestSeverity" />
+    </comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartProstheticBase" MayRequire="lts.I">
+    <defName>HVB_CircadianDeathrester</defName>
+    <label>circadian deathrester</label>
+    <description>This brain implant leverages the long-term restorative effects of deathrest to provide many of the benefits of sleep. While the host is not deathrest-exhausted, it will only have to sleep for very brief periods.\n\nHowever, in order to accomplish this effect it intensifies the need for deathrest, causing the deathresting process to take slightly longer to complete.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCircadianDeathrester</RecipeDef></descriptionHyperlinks>
+    <costList>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>7</ComponentSpacer>
+      <Neutroamine>20</Neutroamine>
+      <WakeUp>10</WakeUp>
+    </costList>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+    </statBases>
+    <techHediffsTags Inherit="False"><li>HVB_Deathrest</li></techHediffsTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_XenospecializedBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="lts.I">
+    <defName>HVB_InstallCircadianDeathrester</defName>
+    <label>install circadian deathrester</label>
+    <description>Install a circadian deathrester.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CircadianDeathrester</ThingDef>
+      <HediffDef>HVB_CircadianDeathrester</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing circadian deathrester.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CircadianDeathrester</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CircadianDeathrester</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CircadianDeathrester</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="lts.I">
+    <defName>HVB_RemoveCircadianDeathrester</defName>
+    <label>remove circadian deathrester</label>
+    <description>Remove circadian deathrester.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CircadianDeathrester</ThingDef>
+      <HediffDef>HVB_CircadianDeathrester</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing circadian deathrester.</jobString>
+    <removesHediff>HVB_CircadianDeathrester</removesHediff>
+  </RecipeDef>
+  
+</Defs>

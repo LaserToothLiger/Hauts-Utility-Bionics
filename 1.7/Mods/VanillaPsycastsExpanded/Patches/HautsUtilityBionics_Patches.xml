@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Psycasts Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--warlock bionics require eltex to make, not gold and jade-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksEye" or defName="HVB_WarlocksTongue" or defName="HVB_WarlocksRictus" or defName="HVB_WarlocksCollum" or defName="HVB_WarlocksEntrails" or defName="HVB_WarlocksHeart" or defName="HVB_GastricMonk" or defName="HVB_WarlocksHand" or defName="Foot"]/costList/Gold</xpath>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksEye"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksTongue"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>3</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksRictus"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksCollum"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksEntrails"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksHeart"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>7</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_GastricMonk"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>2</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksHand"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_WarlocksFoot"]/costList/Jade</xpath>
+					<value>
+						<VPE_Eltex>4</VPE_Eltex>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

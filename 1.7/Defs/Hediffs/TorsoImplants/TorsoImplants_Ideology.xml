@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--internal perfumist-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InternalPerfumist</defName>
+    <label>internal perfumist</label>
+    <labelNoun>an internal perfumist</labelNoun>
+    <description>An installed internal perfumist implant. Improves others' opinions of the host - so long as they have noses, that is.</description>
+    <descriptionHyperlinks><ThingDef>HVB_InternalPerfumist</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_InternalPerfumist</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+		  <SocialImpact>0.25</SocialImpact>
+		  <PruningSpeed>0.35</PruningSpeed>
+		  <Hauts_ApparelWearRateFactor>0.1</Hauts_ApparelWearRateFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InternalPerfumist</defName>
+    <label>internal perfumist</label>
+    <description>This implant alters sweat glands to produce an alluring perfume based on dryad pheromones. So long as they aren't missing noses, others will think more highly of the host. However, continual emanation of this perfume has a slight corrosive effect on worn apparel, causing it to decay quicker.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallInternalPerfumist</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>830</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>HVB_MiscCoolItems</li>
+	</thingSetMakerTags>
+    <recipeMaker>
+      <researchPrerequisite>HVB_GauranlenBionics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallInternalPerfumist</defName>
+    <label>install internal perfumist</label>
+    <description>Install an internal perfumist.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InternalPerfumist</ThingDef>
+      <HediffDef>HVB_InternalPerfumist</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing internal perfumist.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_InternalPerfumist</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_InternalPerfumist</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_InternalPerfumist</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveInternalPerfumist</defName>
+    <label>remove internal perfumist</label>
+    <description>Remove internal perfumist.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_InternalPerfumist</ThingDef>
+      <HediffDef>HVB_InternalPerfumist</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing internal perfumist.</jobString>
+    <removesHediff>HVB_InternalPerfumist</removesHediff>
+  </RecipeDef>
+
+  <!--neural supercharger-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_NeuralSupercharger</defName>
+    <label>neural supercharger</label>
+    <labelNoun>a neural supercharger</labelNoun>
+    <description>An installed neural supercharger implant. Can be used to inflict a neural supercharge on oneself or another individual.</description>
+    <descriptionHyperlinks><ThingDef>HVB_NeuralSupercharger</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_NeuralSupercharger</spawnThingOnRemoved>
+    <abilities>
+      <li>HVB_NeuralSuperchargeTouch</li>
+    </abilities>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_NeuralSupercharger</defName>
+    <label>neural supercharger</label>
+    <description>A bioelectrical circuit that gradually accumulates the necessary energy to impart a neural supercharge. Though it takes longer to do so than a stationary neural supercharger, it is portable, and does not require a power grid to function.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallNeuralSupercharger</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>45</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MarketValue>355</MarketValue>
+    </statBases>
+	<tradeability>Sellable</tradeability>
+    <recipeMaker>
+      <researchPrerequisite>NeuralSupercharger</researchPrerequisite>
+      <memePrerequisitesAny><li>Transhumanist</li></memePrerequisitesAny>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_Ancients</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallNeuralSupercharger</defName>
+    <label>install neural supercharger</label>
+    <description>Install a neural supercharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NeuralSupercharger</ThingDef>
+      <HediffDef>HVB_NeuralSupercharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing neural supercharger.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_NeuralSupercharger</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_NeuralSupercharger</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_NeuralSupercharger</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveNeuralSupercharger</defName>
+    <label>remove neural supercharger</label>
+    <description>Remove neural supercharger.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NeuralSupercharger</ThingDef>
+      <HediffDef>HVB_NeuralSupercharger</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing neural supercharger.</jobString>
+    <removesHediff>HVB_NeuralSupercharger</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech dryadic resonator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ArchotechDryadicResonator</defName>
+    <label>archotech dryadic resonator</label>
+    <labelNoun>an archotech dryadic resonator</labelNoun>
+    <description>An installed archotech dryadic resonator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechDryadicResonator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechDryadicResonator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statFactors>
+		  <Hauts_MaxDryadFactor>1.5</Hauts_MaxDryadFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_ArchotechDryadicResonator</defName>
+    <label>archotech dryadic resonator</label>
+    <description>This whorled, woodlike orb is actually a bionic implant of archotech origin. Once installed in a living, sapient host, it broadcasts a psychic wave that amplifies the host's dryadic telempathy, increasing the number of dryads connected gauranlen trees can support.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechDryadicResonator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1600</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+      <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False"><li>HVB_GauBionic</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_InstallArchotechDryadicResonator</defName>
+    <label>install archotech dryadic resonator</label>
+    <description>Install an archotech dryadic resonator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechDryadicResonator</ThingDef>
+      <HediffDef>HVB_ArchotechDryadicResonator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech dryadic resonator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechDryadicResonator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechDryadicResonator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechDryadicResonator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVB_RemoveArchotechDryadicResonator</defName>
+    <label>remove archotech dryadic resonator</label>
+    <description>Remove archotech dryadic resonator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechDryadicResonator</ThingDef>
+      <HediffDef>HVB_ArchotechDryadicResonator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech dryadic resonator.</jobString>
+    <removesHediff>HVB_ArchotechDryadicResonator</removesHediff>
+  </RecipeDef>
+  
+</Defs>

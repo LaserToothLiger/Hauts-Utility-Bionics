@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+						<!--all of these are uncraftable-->
+  <!--Archotech cerebropearl-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_ArchotechCerebropearl</defName>
+    <label>archotech cerebropearl</label>
+    <labelNoun>an archotech cerebropearl</labelNoun>
+    <description>An installed archotech cerebropearl. Through means unknown to even the most well-educated archotechists, it produces vast quantities of psyfocus over time. The cerebropearl occasionally flares with activity, sending its host into a trancelike state.\n\nThough it derives its name from its pearl-like appearance, during its implantation it "hatched" into a tangle of thorny cables that are now threaded throughout each of the host's cerebral lobes, as well as the cerebellum and brainstem. Thus, only the most accomplished surgeons can extract it.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechCerebropearl</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechCerebropearl</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsyfocusRegenRate>0.24</Hauts_PsyfocusRegenRate>
+		  <PsychicSensitivity>1</PsychicSensitivity>
+        </statOffsets>
+        <mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>30</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_ArchotechCerebropearl</defName>
+    <label>archotech cerebropearl</label>
+    <description>This brain implant resembles a sage-green pearl a few inches in diameter. It passively generates psyfocus and heavily enhances psychic sensitivity, but also randomly induces harmless trancing.\n\nAs it is being implanted into a host, it begins a process best described as "hatching", where thorny cables break through its surface and must be guided by the surgeon to infest each and every part of the brain, up to and including the brainstem. Thus, only a skilled surgeon can even attempt implantation.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechCerebropearl</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <thingSetMakerTags><li>HVB_MiscHighValue</li></thingSetMakerTags>
+    <techHediffsTags Inherit="False"><li>HVB_SuperPsychic</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallArchotechCerebropearl</defName>
+    <label>install archotech cerebropearl</label>
+    <description>Install an archotech cerebropearl.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechCerebropearl</ThingDef>
+      <HediffDef>HVB_ArchotechCerebropearl</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech cerebropearl.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechCerebropearl</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechCerebropearl</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechCerebropearl</addsHediff>
+    <skillRequirements>
+      <Medicine>10</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveArchotechCerebropearl</defName>
+    <label>remove archotech cerebropearl</label>
+    <description>Remove archotech cerebropearl.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechCerebropearl</ThingDef>
+      <HediffDef>HVB_ArchotechCerebropearl</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing archotech cerebropearl.</jobString>
+    <removesHediff>HVB_ArchotechCerebropearl</removesHediff>
+    <skillRequirements>
+      <Medicine>15</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+  
+  <!--Auto-meditator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_AutoMeditator</defName>
+    <label>auto-meditator</label>
+    <labelNoun>an auto-meditator</labelNoun>
+    <description>An installed auto-meditator. It passively generates psyfocus by easing the mind into a constantly meditative state - thus, the effect scales with meditation psyfocus gain.</description>
+    <descriptionHyperlinks><ThingDef>HVB_AutoMeditator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_AutoMeditator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsyfocusRegenRate>0.16</Hauts_PsyfocusRegenRate>
+        </statOffsets>
+        <statOffsetEffectMultiplier>MeditationFocusGain</statOffsetEffectMultiplier>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_AutoMeditator</defName>
+    <label>auto-meditator</label>
+    <description>This brain implant lulls the mind into a constantly meditative state, constantly generating psyfocus based on the host's meditation psyfocus gain.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAutoMeditator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1700</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallAutoMeditator</defName>
+    <label>install auto-meditator</label>
+    <description>Install an auto-meditator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AutoMeditator</ThingDef>
+      <HediffDef>HVB_AutoMeditator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing auto-meditator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AutoMeditator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AutoMeditator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AutoMeditator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveAutoMeditator</defName>
+    <label>remove auto-meditator</label>
+    <description>Remove auto-meditator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AutoMeditator</ThingDef>
+      <HediffDef>HVB_AutoMeditator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing auto-meditator.</jobString>
+    <removesHediff>HVB_AutoMeditator</removesHediff>
+  </RecipeDef>
+  
+  <!--Entropy dissipator-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_EntropyDissipator</defName>
+    <label>entropy dissipator</label>
+    <labelNoun>an entropy dissipator</labelNoun>
+    <description>An installed entropy dissipator.</description>
+    <descriptionHyperlinks><ThingDef>HVB_EntropyDissipator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_EntropyDissipator</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statFactors>
+          <PsychicEntropyRecoveryRate>1.1</PsychicEntropyRecoveryRate>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_EntropyDissipator</defName>
+    <label>entropy dissipator</label>
+    <description>This brain implant reacts to brainwaves indicative of neural heat by producing countersignals, increasing the rate of neural heat recovery.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallEntropyDissipator</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallEntropyDissipator</defName>
+    <label>install entropy dissipator</label>
+    <description>Install an entropy dissipator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EntropyDissipator</ThingDef>
+      <HediffDef>HVB_EntropyDissipator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing entropy dissipator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_EntropyDissipator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_EntropyDissipator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_EntropyDissipator</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveEntropyDissipator</defName>
+    <label>remove entropy dissipator</label>
+    <description>Remove entropy dissipator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_EntropyDissipator</ThingDef>
+      <HediffDef>HVB_EntropyDissipator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing entropy dissipator.</jobString>
+    <removesHediff>HVB_EntropyDissipator</removesHediff>
+  </RecipeDef>
+  
+  <!--Psychic channel-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_PsychicChannel</defName>
+    <label>psychic channel</label>
+    <labelNoun>a psychic channel</labelNoun>
+    <description>An installed psychic channel.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PsychicChannel</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PsychicChannel</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <PsychicSensitivity>0.5</PsychicSensitivity>
+		  <MentalBreakThreshold>0.45</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_PsychicChannel</defName>
+    <label>psychic channel</label>
+    <description>This brain implant greatly stimulates growth in the regions of the brain related to psychic interaction, but also results in increased stress and eccentricity.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPsychicChannel</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallPsychicChannel</defName>
+    <label>install psychic channel</label>
+    <description>Install a psychic channel.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsychicChannel</ThingDef>
+      <HediffDef>HVB_PsychicChannel</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psychic channel.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PsychicChannel</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PsychicChannel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsychicChannel</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemovePsychicChannel</defName>
+    <label>remove psychic channel</label>
+    <description>Remove psychic channel.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsychicChannel</ThingDef>
+      <HediffDef>HVB_PsychicChannel</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing psychic channel.</jobString>
+    <removesHediff>HVB_PsychicChannel</removesHediff>
+  </RecipeDef>
+  
+  <!--Skipgate pathfinder-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_SkipgatePathfinder</defName>
+    <label>skipgate pathfinder</label>
+    <labelNoun>a skipgate pathfinder</labelNoun>
+    <description>An installed skipgate pathfinder.</description>
+    <descriptionHyperlinks><ThingDef>HVB_SkipgatePathfinder</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_SkipgatePathfinder</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_SkipcastRangeFactor>0.35</Hauts_SkipcastRangeFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_SkipgatePathfinder</defName>
+    <label>skipgate pathfinder</label>
+    <description>This brain implant specializes in nth-dimensional hypertopology calculations and lightlike trajectory simulations, allowing it to compute complex "firing solutions" for skip psycasts which enable them to be used on targets that are further away.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSkipgatePathfinder</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallSkipgatePathfinder</defName>
+    <label>install skipgate pathfinder</label>
+    <description>Install a skipgate pathfinder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SkipgatePathfinder</ThingDef>
+      <HediffDef>HVB_SkipgatePathfinder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing skipgate pathfinder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SkipgatePathfinder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SkipgatePathfinder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SkipgatePathfinder</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveSkipgatePathfinder</defName>
+    <label>remove skipgate pathfinder</label>
+    <description>Remove skipgate pathfinder.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SkipgatePathfinder</ThingDef>
+      <HediffDef>HVB_SkipgatePathfinder</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing skipgate pathfinder.</jobString>
+    <removesHediff>HVB_SkipgatePathfinder</removesHediff>
+  </RecipeDef>
+  
+  <!--Thalergy filter-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_ThalergyFilter</defName>
+    <label>thalergy filter</label>
+    <labelNoun>a thalergy filter</labelNoun>
+    <description>An installed thalergy filter.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ThalergyFilter</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ThalergyFilter</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsyfocusFromFood>0.02</Hauts_PsyfocusFromFood>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_ThalergyFilter</defName>
+    <label>thalergy filter</label>
+    <description>This brain implant filters psychic emissions generated from the ingestion of nutritious food, refining some of it into psyfocus.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallThalergyFilter</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallThalergyFilter</defName>
+    <label>install thalergy filter</label>
+    <description>Install a thalergy filter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThalergyFilter</ThingDef>
+      <HediffDef>HVB_ThalergyFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing thalergy filter.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ThalergyFilter</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ThalergyFilter</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ThalergyFilter</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveThalergyFilter</defName>
+    <label>remove thalergy filter</label>
+    <description>Remove thalergy filter.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThalergyFilter</ThingDef>
+      <HediffDef>HVB_ThalergyFilter</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing thalergy filter.</jobString>
+    <removesHediff>HVB_ThalergyFilter</removesHediff>
+  </RecipeDef>
+  
+  <!--Thanergetic conversion matrix-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_ThanergeticConversionMatrix</defName>
+    <label>thanergetic conversion matrix</label>
+    <labelNoun>a thanergetic conversion matrix</labelNoun>
+    <description>An installed thanergetic conversion matrix.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ThanergeticConversionMatrix</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ThanergeticConversionMatrix</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_PsyfocusGainOnKill>0.02</Hauts_PsyfocusGainOnKill>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_ThanergeticConversionMatrix</defName>
+    <label>thanergetic conversion matrix</label>
+    <description>This brain implant absorbs the post-mortem psychic emissions of anyone the host personally slays, transforming a portion of those emissions into psyfocus.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallThanergeticConversionMatrix</RecipeDef></descriptionHyperlinks>
+    <violentTechHediff>true</violentTechHediff>
+    <statBases>
+      <MarketValue>1850</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallThanergeticConversionMatrix</defName>
+    <label>install thanergetic conversion matrix</label>
+    <description>Install a thanergetic conversion matrix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThanergeticConversionMatrix</ThingDef>
+      <HediffDef>HVB_ThanergeticConversionMatrix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing thanergetic conversion matrix.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ThanergeticConversionMatrix</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ThanergeticConversionMatrix</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ThanergeticConversionMatrix</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveThanergeticConversionMatrix</defName>
+    <label>remove thanergetic conversion matrix</label>
+    <description>Remove thanergetic conversion matrix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThanergeticConversionMatrix</ThingDef>
+      <HediffDef>HVB_ThanergeticConversionMatrix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing thanergetic conversion matrix.</jobString>
+    <removesHediff>HVB_ThanergeticConversionMatrix</removesHediff>
+  </RecipeDef>
+  
+  <!--Trance assistant-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_TranceAssistant</defName>
+    <label>trance assistant</label>
+    <labelNoun>a trance assistant</labelNoun>
+    <description>An installed trance assistant.</description>
+    <descriptionHyperlinks><ThingDef>HVB_TranceAssistant</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_TranceAssistant</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeditationFocusGain>0.05</MeditationFocusGain>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="BodyPartRoyalBase">
+    <defName>HVB_TranceAssistant</defName>
+    <label>trance assistant</label>
+    <description>This brain implant assists in attaining a meditative state of mind, improving psyfocus gain from meditation.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallTranceAssistant</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>700</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_InstallTranceAssistant</defName>
+    <label>install trance assistant</label>
+    <description>Install a trance assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TranceAssistant</ThingDef>
+      <HediffDef>HVB_TranceAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing trance assistant.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_TranceAssistant</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_TranceAssistant</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_TranceAssistant</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>HVB_RemoveTranceAssistant</defName>
+    <label>remove trance assistant</label>
+    <description>Remove trance assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_TranceAssistant</ThingDef>
+      <HediffDef>HVB_TranceAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing trance assistant.</jobString>
+    <removesHediff>HVB_TranceAssistant</removesHediff>
+  </RecipeDef>
+  
+  <!--Neural heat substitute-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_NeuralHeatSubstitute</defName>
+    <label>neural heat substitute</label>
+    <labelNoun>a neural heat substitute</labelNoun>
+    <description>An installed neural heat substitute.</description>
+    <descriptionHyperlinks><ThingDef>HVB_NeuralHeatSubstitute</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_NeuralHeatSubstitute</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statFactors>
+          <VPE_PsychicEntropyMinimum>0.8</VPE_PsychicEntropyMinimum>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartRoyalBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_NeuralHeatSubstitute</defName>
+    <label>neural heat substitute</label>
+    <description>This brain implant shoulders some of the burden involved in maintaining ongoing psycasts, reducing the amount of "minimum neural heat" required to sustain them.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallNeuralHeatSubstitute</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_InstallNeuralHeatSubstitute</defName>
+    <label>install neural heat substitute</label>
+    <description>Install a neural heat substitute.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NeuralHeatSubstitute</ThingDef>
+      <HediffDef>HVB_NeuralHeatSubstitute</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing neural heat substitute.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_NeuralHeatSubstitute</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_NeuralHeatSubstitute</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_NeuralHeatSubstitute</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_RemoveNeuralHeatSubstitute</defName>
+    <label>remove neural heat substitute</label>
+    <description>Remove neural heat substitute.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_NeuralHeatSubstitute</ThingDef>
+      <HediffDef>HVB_NeuralHeatSubstitute</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing neural heat substitute.</jobString>
+    <removesHediff>HVB_NeuralHeatSubstitute</removesHediff>
+  </RecipeDef>
+  
+  <!--Psycast formulation optimizer-->
+  <HediffDef ParentName="ImplantHediffBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_PsycastFormulationOptimizer</defName>
+    <label>psycast formulation optimizer</label>
+    <labelNoun>a psycast formulation optimizer</labelNoun>
+    <description>An installed psycast formulation optimizer.</description>
+    <descriptionHyperlinks><ThingDef>HVB_PsycastFormulationOptimizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_PsycastFormulationOptimizer</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <VPE_PsyfocusCostFactor>-0.1</VPE_PsyfocusCostFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartRoyalBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_PsycastFormulationOptimizer</defName>
+    <label>psycast formulation optimizer</label>
+    <description>This brain implant assists in conceiving the structure and implementation of psycasts, reducing the amount of psyfocus necessary to perform psycasting.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallPsycastFormulationOptimizer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1700</MarketValue>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_InstallPsycastFormulationOptimizer</defName>
+    <label>install psycast formulation optimizer</label>
+    <description>Install a psycast formulation optimizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsycastFormulationOptimizer</ThingDef>
+      <HediffDef>HVB_PsycastFormulationOptimizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing psycast formulation optimizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_PsycastFormulationOptimizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_PsycastFormulationOptimizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_PsycastFormulationOptimizer</addsHediff>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>HVB_RemovePsycastFormulationOptimizer</defName>
+    <label>remove psycast formulation optimizer</label>
+    <description>Remove psycast formulation optimizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_PsycastFormulationOptimizer</ThingDef>
+      <HediffDef>HVB_PsycastFormulationOptimizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing psycast formulation optimizer.</jobString>
+    <removesHediff>HVB_PsycastFormulationOptimizer</removesHediff>
+  </RecipeDef>
+
+</Defs>

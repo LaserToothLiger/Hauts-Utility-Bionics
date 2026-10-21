@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PreceptDef[defName="Scarification_Extreme"]/comps</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Extreme"]</xpath>
+						<value>
+							<comps>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Extreme</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (5 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Extreme_Opinion</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (5 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							</comps>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Extreme"]/comps</xpath>
+						<value>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Extreme</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (5 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Extreme_Opinion</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (5 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PreceptDef[defName="Scarification_Heavy"]/comps</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Heavy"]</xpath>
+						<value>
+							<comps>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Heavy</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (3 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Heavy_Opinion</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (3 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							</comps>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Heavy"]/comps</xpath>
+						<value>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Heavy</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (3 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Heavy_Opinion</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (3 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/PreceptDef[defName="Scarification_Minor"]/comps</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Minor"]</xpath>
+						<value>
+							<comps>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Minor</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (1 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							  <li Class="PreceptComp_SituationalThought">
+								<thought>HVB_ScarKintsugi_Minor_Opinion</thought>
+								<thoughtStageDescriptions>
+								  <li>Scar kintsugi (1 desired)</li>
+								</thoughtStageDescriptions>
+							  </li>
+							</comps>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/PreceptDef[defName="Scarification_Minor"]/comps</xpath>
+						<value>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Minor</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (1 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						  <li Class="PreceptComp_SituationalThought">
+							<thought>HVB_ScarKintsugi_Minor_Opinion</thought>
+							<thoughtStageDescriptions>
+							  <li>Scar kintsugi (1 desired)</li>
+							</thoughtStageDescriptions>
+						  </li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientTempleContents"]/root/options/li[chance="0.5"]/thingSetMaker/fixedParams[qualityGenerator="Reward"]/filter/thingSetMakerTagsToAllow</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientTempleContents"]/root/options/li[chance="0.5"]/thingSetMaker/fixedParams[qualityGenerator="Reward"]/filter/thingSetMakerTagsToAllow</xpath>
+			<value>
+				<li>HVB_MiscCoolItems</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientTempleContents"]/root/options</xpath>
+		<value>
+			<li>
+			  <chance>0.02</chance>
+			  <thingSetMaker Class="ThingSetMaker_Count">
+				<fixedParams>
+				  <filter>
+				    <thingSetMakerTagsToAllow><li>HVB_MiscHighValue</li></thingSetMakerTagsToAllow>
+				  </filter>
+				  <countRange>1~2</countRange>
+				</fixedParams>
+			  </thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplexRoomLoot_Better"]/root/options/li[weight="0.05"]/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingSetMakerTagsToAllow</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplexRoomLoot_Better"]/root/options/li[weight="0.05"]/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter</xpath>
+						<value>
+							<thingSetMakerTagsToAllow><li>HVB_MiscHighValue</li></thingSetMakerTagsToAllow>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplexRoomLoot_Better"]/root/options/li[weight="0.05"]/thingSetMaker/fixedParams/filter/thingSetMakerTagsToAllow</xpath>
+						<value>
+							<li>HVB_MiscHighValue</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.5"]/thingSetMaker/fixedParams[countRange="1"]/filter/thingSetMakerTagsToAllow</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.5"]/thingSetMaker/fixedParams[countRange="1"]/filter</xpath>
+						<value>
+							<thingSetMakerTagsToAllow><li>HVB_MiscHighValue</li></thingSetMakerTagsToAllow>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.5"]/thingSetMaker/fixedParams[countRange="1"]/filter/thingSetMakerTagsToAllow</xpath>
+						<value>
+							<li>HVB_MiscHighValue</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.75"]/thingSetMaker/fixedParams[countRange="1"]/filter/thingSetMakerTagsToAllow</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.75"]/thingSetMaker/fixedParams[countRange="1"]/filter</xpath>
+						<value>
+							<thingSetMakerTagsToAllow><li>HVB_MiscCoolItems</li></thingSetMakerTagsToAllow>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li[weight="0.75"]/thingSetMaker/fixedParams[countRange="1"]/filter/thingSetMakerTagsToAllow</xpath>
+						<value>
+							<li>HVB_MiscCoolItems</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

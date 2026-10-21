@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!--liver bionics require bionic livers to make; ditto for kidneys-->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator" or defName="HVB_AssistiveKidney"]/costList/Plasteel</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef[defName="HVB_AssistiveKidney"]/costList/ComponentSpacer</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator"]/costList/ComponentSpacer</xpath>
+				<value>
+					<ComponentSpacer>1</ComponentSpacer>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator"]/costList</xpath>
+				<value>
+					<SyntheticLiver>1</SyntheticLiver>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="HVB_AssistiveKidney"]/costList</xpath>
+				<value>
+					<SyntheticKidney>1</SyntheticKidney>
+				</value>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator" or defName="HVB_AssistiveKidney"]/statBases/WorkToMake</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator" or defName="HVB_AssistiveKidney"]/statBases</xpath>
+					<value><WorkToMake>9000</WorkToMake></value>
+				</nomatch>
+				<match Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HVB_DigestiveAssistant" or defName="HVB_DosageSustainer" or defName="HVB_GrowthStimulator" or defName="HVB_AssistiveKidney"]/statBases/WorkToMake</xpath>
+					<value><WorkToMake>9000</WorkToMake></value>
+				</match>
+			</li>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Biotech</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/costList/Plasteel</xpath>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/costList/ComponentSpacer</xpath>
+							<value>
+								<ComponentSpacer>1</ComponentSpacer>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/costList</xpath>
+							<value>
+								<SyntheticLiver>1</SyntheticLiver>
+							</value>
+						</li>
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/statBases/WorkToMake</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/statBases</xpath>
+								<value><WorkToMake>9000</WorkToMake></value>
+							</nomatch>
+							<match Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]/statBases/WorkToMake</xpath>
+								<value><WorkToMake>9000</WorkToMake></value>
+							</match>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

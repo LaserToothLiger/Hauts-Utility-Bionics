@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Acid Nodules -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_AcidNodules</defName>
+    <label>acid nodules</label>
+    <description>Aggravated boils on this ghoul swell with pungent, corrosive acids. Generates up to five discharges worth of acid over the course of a day, which are released when struck, damaging nearby foes.</description>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>12</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>12</severityPerDay>
+      </li>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffBySpendingSeverity">
+        <severityToTrigger>1</severityToTrigger>
+		<hediffGiven>HVB_SingleAcidDischarge</hediffGiven>
+		<maxSeverityOfCreatedHediff>1</maxSeverityOfCreatedHediff>
+		<severityToGive>1</severityToGive>
+		<showProgressInTooltip>true</showProgressInTooltip>
+      </li>
+	</comps>
+  </HediffDef>
+	<HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVB_SingleAcidDischarge</defName>
+		<label>primed acid discharge</label>
+		<description>When this ghoul is struck, acids will spray out, doing 6 damage to nearby foes.</description>
+		<hediffClass>HautsFramework.Hediff_PreDamageModification</hediffClass>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_DamageRetaliation">
+			<priority>90000</priority>
+			<range>1.49</range>
+			<severityOnHit>-1</severityOnHit>
+			<chanceToDoDamage>0.5</chanceToDoDamage>
+			<retaliationDamageDef>AcidBurn</retaliationDamageDef>
+			<baseRetaliationDamage>6</baseRetaliationDamage>
+			<damageScaleWithDamage>false</damageScaleWithDamage>
+			<visualEffect>Hauts_ToxThornsMist</visualEffect>
+			<vfxCooldownTicks>60</vfxCooldownTicks>
+		  </li>
+		</comps>
+	</HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_AcidNodules</defName>
+    <label>acid nodules</label>
+    <description>A net of bioferrite discs that can be inserted under the skin of a ghoul, causing it to produce nodes of acid that spray outward when hit.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallAcidNodules</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>9000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>30</Bioferrite>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>256</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallAcidNodules</defName>
+    <label>install acid nodules</label>
+    <description>Install acid nodules.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_AcidNodules</ThingDef>
+      <HediffDef>HVB_AcidNodules</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing acid nodules.</jobString>
+    <skillRequirements Inherit="false" />
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_AcidNodules</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_AcidNodules</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_AcidNodules</addsHediff>
+  </RecipeDef>
+  
+  <!--acidic limb-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_RupturingLimb</defName>
+    <label>acidic limb</label>
+    <description>A modified human limb with a bioferrite-lined inner reservoir that produces and stores a highly corrosive acid. Each melee attack has a 60% chance to deal bonus acid damage.</description>
+    <spawnThingOnRemoved>HVB_RupturingLimb</spawnThingOnRemoved>
+	<hediffClass>HautsFramework.Hediff_AddedPartHasExtraOnHitEffects</hediffClass>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>-0.1</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>2</severityPerDay>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit">
+		<extraDamages>
+		  <li>
+			<def>AcidBurn</def>
+			<amount>4</amount>
+			<chance>0.6</chance>
+			<armorPenetration>0.5</armorPenetration>
+		  </li>
+		</extraDamages>
+		<appliedViaAttacks>true</appliedViaAttacks>
+		<damageScaling>false</damageScaling>
+		<cellRange>1.42</cellRange>
+		<severityChangeOnHit>-1</severityChangeOnHit>
+		<showTooltip>false</showTooltip>
+	  </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_RupturingLimb</defName>
+    <label>acidic limb</label>
+    <description>A bioferrite cavity embedded into a ghoul's limb. It accumulates acid which has a 60% chance to be discharged on any melee attack, doing bonus damage.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallRupturingLimb</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>10000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>60</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>257</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallRupturingLimb</defName>
+    <label>install acidic limb</label>
+    <description>Install acidic limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_RupturingLimb</ThingDef>
+      <HediffDef>HVB_RupturingLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing acidic limb.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_RupturingLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_RupturingLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_RupturingLimb</addsHediff>
+  </RecipeDef>
+  
+  <!--skittering limb-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_SkitteringLimb</defName>
+    <label>skittering limb</label>
+    <description>Elongated bioferrite prongs capable of supporting a ghoul's weight tip this limb.</description>
+    <spawnThingOnRemoved>HVB_SkitteringLimb</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.15</MoveSpeed>
+          <Hauts_JumpRangeFactor>0.1</Hauts_JumpRangeFactor>
+          <MeleeCooldownFactor>0.15</MeleeCooldownFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_SkitteringLimb</defName>
+    <label>skittering limb</label>
+    <description>Sturdy, lengthy bioferrite prongs which can be inset into a ghoul's limb. They increase movement speed, but make movement in combat cumbersome.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSkitteringLimb</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>10000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>70</Bioferrite>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>258</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallSkitteringLimb</defName>
+    <label>install skittering limb</label>
+    <description>Install skittering limb.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SkitteringLimb</ThingDef>
+      <HediffDef>HVB_SkitteringLimb</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing skittering limb.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SkitteringLimb</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SkitteringLimb</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+	  <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SkitteringLimb</addsHediff>
+  </RecipeDef>
+  
+  <!--firefoam kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_FirefoamKidney</defName>
+    <label>firefoam kidney</label>
+    <description>A kidney-like bioferrite organ, swollen with firefoam.</description>
+    <spawnThingOnRemoved>HVB_FirefoamKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <Flammability>-0.35</Flammability>
+          <ArmorRating_Heat>0.05</ArmorRating_Heat>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_FirefoamKidney</defName>
+    <label>firefoam kidney</label>
+    <description>A miniature bioferrite device which leverages a ghoul's regenerative abilities to produce and store firefoam, which helps mitigate fire damage.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallFirefoamKidney</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>11000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>259</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallFirefoamKidney</defName>
+    <label>install firefoam kidney</label>
+    <description>Install firefoam kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_FirefoamKidney</ThingDef>
+      <HediffDef>HVB_FirefoamKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing firefoam kidney.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_FirefoamKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_FirefoamKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_FirefoamKidney</addsHediff>
+  </RecipeDef>
+  
+  <!--healing kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_HealingKidney</defName>
+    <label>healing kidney</label>
+    <description>A large, lumpen kidney-like bioferrite organ.</description>
+    <spawnThingOnRemoved>HVB_HealingKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <regeneration>20</regeneration>
+        <statOffsets>
+          <MoveSpeed>-0.15</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_HealingKidney</defName>
+    <label>healing kidney</label>
+    <description>A mass of undifferentiated cells held in a bioferrite-sealed environment. When implanted in a creature with bioferrite-laced biology, it can respond to injury by releasing these cells and appropriate differentiating signals to the location of injury, restoring lost tissue.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallHealingKidney</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>11000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>259</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallHealingKidney</defName>
+    <label>install healing kidney</label>
+    <description>Install healing kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_HealingKidney</ThingDef>
+      <HediffDef>HVB_HealingKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing healing kidney.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_HealingKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_HealingKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_HealingKidney</addsHediff>
+  </RecipeDef>
+  
+  <!--metabolic kidney-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_MetabolicKidney</defName>
+    <label>metabolic kidney</label>
+    <description>A dessicated-looking kidney-like bioferrite organ.</description>
+    <spawnThingOnRemoved>HVB_MetabolicKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <hungerRateFactor>0.9</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_MetabolicKidney</defName>
+    <label>metabolic kidney</label>
+    <description>A miniature bioferrite device with filters to collect and break down some of the more potent toxins which gradually accumulate in a starving ghoul's body, allowing it to go a longer time without eating.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallMetabolicKidney</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>11000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>10</Bioferrite>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>259</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallMetabolicKidney</defName>
+    <label>install metabolic kidney</label>
+    <description>Install metabolic kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_MetabolicKidney</ThingDef>
+      <HediffDef>HVB_MetabolicKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing metabolic kidney.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_MetabolicKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_MetabolicKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_MetabolicKidney</addsHediff>
+  </RecipeDef>
+  
+  <!--cartilaginous spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_CartilaginousSpine</defName>
+    <label>cartilaginous spine</label>
+    <description>Bioferrite organs sewn onto this ghoul's spine have made its bones disturbingly elastic.</description>
+    <spawnThingOnRemoved>HVB_CartilaginousSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeDodgeChance>1.5</MeleeDodgeChance>
+          <Hauts_ExplosiveDamageFactor>0.5</Hauts_ExplosiveDamageFactor>
+		  <StaggerDurationFactor>1.5</StaggerDurationFactor>
+        </statFactors>
+		<statOffsets>
+		  <MoveSpeed>-0.15</MoveSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_CartilaginousSpine</defName>
+    <label>cartilaginous spine</label>
+    <description>Artificial bioferrite hormone-producing organs that can be sewn onto a spine. The morphogens they produce make the skeleton more resemblant of cartilage, enabling them to bend with blows instead of breaking, at the expense of making it more difficult to keep stable in the face of a heavy blow.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallCartilaginousSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>13200</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>40</Bioferrite>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>260</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallCartilaginousSpine</defName>
+    <label>install cartilaginous spine</label>
+    <description>Install cartilaginous spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_CartilaginousSpine</ThingDef>
+      <HediffDef>HVB_CartilaginousSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing cartilaginous spine.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_CartilaginousSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_CartilaginousSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_CartilaginousSpine</addsHediff>
+  </RecipeDef>
+  
+  <!--spike-slinging spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_SpikeSlingingSpine</defName>
+    <label>spike-slinging spine</label>
+    <description>The tailbone of this ghoul has been elongated; it writhes, tipped by wicked-looking keratin spikes which can be flicked at foes. It autonomously acquires targets, but can be commanded to also discharge many spikes at a target at once. Since it acts independently of the ghoul's limbs, it can fire even while the ghoul is moving or attacking.</description>
+    <spawnThingOnRemoved>HVB_SpikeSlingingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <abilities>
+      <li>HVB_SpikeSling</li>
+    </abilities>
+    <stages>
+      <li>
+        <statOffsets>
+          <StaggerDurationFactor>0.18</StaggerDurationFactor>
+        </statOffsets>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_Turret">
+        <turretDef>HVB_TurretSpikeSlingingSpine</turretDef>
+        <angleOffset>-90</angleOffset>
+        <!--<renderNodeProperties>
+          <li>
+            <nodeClass>HautsFramework.PawnRenderNode_TurretGunHediff</nodeClass>
+            <workerClass>HautsFramework.PawnRenderNodeWorker_TurretGunHediff</workerClass>
+            <parentTagDef>Body</parentTagDef>
+            <overrideMeshSize>(1, 1)</overrideMeshSize>
+            <baseLayer>20</baseLayer>
+            <pawnType>Any</pawnType>
+            <drawData>
+              <dataWest>
+                <rotationOffset>180</rotationOffset>
+              </dataWest>
+            </drawData>
+          </li>
+        </renderNodeProperties>-->
+      </li>
+	</comps>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_SpikeSlingingSpine</defName>
+    <label>spike-slinging spine</label>
+    <description>Bioferrite sculpted into the form of an elongated cocyx; piezoelectric distortions within a host's spine can cause this implant to flick violently, throwing the sharp keratin spines which precipitate along its length. However, it makes balancing more difficult, and it can only rarely be consciously controlled.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallSpikeSlingingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>13200</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>60</Bioferrite>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>260</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallSpikeSlingingSpine</defName>
+    <label>install spike-slinging spine</label>
+    <description>Install spike-slinging spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_SpikeSlingingSpine</ThingDef>
+      <HediffDef>HVB_SpikeSlingingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing spike-slinging spine.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_SpikeSlingingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_SpikeSlingingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_SpikeSlingingSpine</addsHediff>
+  </RecipeDef>
+	  <ThingDef ParentName="BaseWeaponTurret">
+		<defName>HVB_TurretSpikeSlingingSpine</defName>
+		<label>spike-slinging spine</label>
+		<description>A writhing cocyx protruding from the tailbone of a ghoul. It is tipped in wicked-looking keratinous spikes which it can fire at foes.</description>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<graphicData>
+		  <texPath>Things/Pawn/Fleshbeast/Fingerspike/Attachments/Fingerspike_TopLimb</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+		  <Mass>2.6</Mass>
+		  <AccuracyTouch>0.9</AccuracyTouch>
+		  <AccuracyShort>0.8</AccuracyShort>
+		  <AccuracyMedium>0.7</AccuracyMedium>
+		  <AccuracyLong>0.6</AccuracyLong>
+		</statBases>
+		<verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<defaultProjectile>Spike_Fingerspike</defaultProjectile>
+			<range>8.9</range>
+			<soundCast>Ability_SpineLaunch</soundCast>
+			<defaultCooldownTime>2.2</defaultCooldownTime>
+			<linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			<ticksBetweenBurstShots>150</ticksBetweenBurstShots>
+		  </li>
+		</verbs>
+	  </ThingDef>
+  
+  <!--thrashing spine-->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HVB_ThrashingSpine</defName>
+    <label>thrashing spine</label>
+    <description>Electrically-active bioferrite strips bolted onto this ghoul's spine cause it to attack recklessly.</description>
+    <spawnThingOnRemoved>HVB_ThrashingSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeCooldownFactor>0.65</MeleeCooldownFactor>
+		  <MeleeDodgeChance>0</MeleeDodgeChance>
+        </statFactors>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartGhoulBase">
+    <defName>HVB_ThrashingSpine</defName>
+    <label>thrashing spine</label>
+    <description>A special bioferrite prosthesis bolted onto the ghoul's spine, which produces frenzy-stimulating feedback when the ghoul performs an aggressive motor task (such as a swipe, bite, or slam). It effectively causes the ghoul to attack faster, but prevents it from even trying to dodge attacks.\n\nDue to the extremely painful nature of the prosthetic, only ghouls can tolerate this enhancement.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallThrashingSpine</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <Mass>0.3</Mass>
+      <WorkToMake>13200</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Ghoul</li>
+    </techHediffsTags>
+    <costList>
+      <Bioferrite>60</Bioferrite>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>GhoulEnhancements</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <displayPriority>260</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>HVB_InstallThrashingSpine</defName>
+    <label>install thrashing spine</label>
+    <description>Install thrashing spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ThrashingSpine</ThingDef>
+      <HediffDef>HVB_ThrashingSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing thrashing spine.</jobString>
+    <anesthetize>false</anesthetize>
+    <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+    <mutantPrerequisite>
+      <li>Ghoul</li>
+    </mutantPrerequisite>
+    <ingredients Inherit="false">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ThrashingSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ThrashingSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ThrashingSpine</addsHediff>
+  </RecipeDef>
+</Defs>

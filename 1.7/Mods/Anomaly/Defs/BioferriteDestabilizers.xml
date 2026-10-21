@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--bioferrite destabilizer-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_BioferriteDestabilizer</defName>
+    <label>bioferrite destabilizer</label>
+    <labelNoun>a bioferrite destabilizer</labelNoun>
+    <description>An installed bioferrite destabilizer. Prevents the host from being ghoulized, or, at the expense of the destabilizer's destruction, from being infected by a metalhorror. Also destroys mutations.</description>
+    <descriptionHyperlinks><ThingDef>HVB_BioferriteDestabilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_BioferriteDestabilizer</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>0.3</Hauts_EntityDamageFactor>
+		  <P42_AllergicSensitivity MayRequire="phil42.allergies">0.1</P42_AllergicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+	    <destroyedBySevereInteractions>true</destroyedBySevereInteractions>
+		<damageVsGhouls>40</damageVsGhouls>
+		<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+		<postKillDamageToShamblers>10</postKillDamageToShamblers>
+		<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+		<damageOnBlockingMetalhorror>5~16</damageOnBlockingMetalhorror>
+		<damageTypeVsMetalhorrors>Burn</damageTypeVsMetalhorrors>
+	  </li>
+    </comps>
+	<tags><li>HVB_BFD</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>HVB_BioferriteDestabilizer</defName>
+    <label>bioferrite destabilizer</label>
+    <description>An artificial organ which harnesses fragments of dark archotechnology to turn bioferrite mechanites against the very tissues they reside in. It destroys any mutations the victim has. It also reacts poorly to metalhorror parasites, causing them to vaporize at the expense of destroying the destabilizer.\n\nDo not implant into a ghoul, unless you want the ghoul to suffer catastrophic (and usually fatal) damage.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallBioferriteDestabilizer</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+	  <Shard>2</Shard>
+	  <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>BioferriteIgnition</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags Inherit="False"><li>HVB_AntiEntity</li></techHediffsTags>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallBioferriteDestabilizer</defName>
+    <label>install bioferrite destabilizer</label>
+    <description>Install a bioferrite destabilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_BioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bioferrite destabilizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_BioferriteDestabilizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_BioferriteDestabilizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_BioferriteDestabilizer</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_BFD</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>HVB_RemoveBioferriteDestabilizer</defName>
+    <label>remove bioferrite destabilizer</label>
+    <description>Remove bioferrite destabilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_BioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_BioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing bioferrite destabilizer.</jobString>
+    <removesHediff>HVB_BioferriteDestabilizer</removesHediff>
+  </RecipeDef>
+  
+  
+  
+  
+  
+  
+						<!--uncraftable-->
+  <!--archotech bioferrite destabilizer-->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>HVB_ArchotechBioferriteDestabilizer</defName>
+    <label>archotech bioferrite destabilizer</label>
+    <labelNoun>an archotech bioferrite destabilizer</labelNoun>
+    <description>An installed archotech bioferrite destabilizer. Prevents ghoulizing, rising as a shambler, and metalhorror infections. Destroys mutations.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechBioferriteDestabilizer</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <statOffsets>
+          <Hauts_EntityDamageFactor>1</Hauts_EntityDamageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="Hauts_Anomaly.HediffCompProperties_BioferriteDestabilizer">
+	    <destroyedBySevereInteractions>false</destroyedBySevereInteractions>
+		<damageVsGhouls>40</damageVsGhouls>
+		<damageTypeVsGhouls>Flame</damageTypeVsGhouls>
+		<postKillDamageToShamblers>10</postKillDamageToShamblers>
+		<damageTypeVsShamblers>Flame</damageTypeVsShamblers>
+	  </li>
+    </comps>
+	<tags><li>HVB_BFD</li></tags>
+  </HediffDef>
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HVB_ArchotechBioferriteDestabilizer</defName>
+    <label>archotech bioferrite destabilizer</label>
+    <description>An implant which manipulates local psychic flows, forcing the destruction of bioferrite-dependent biological modifications undergone by the host. It also induces this same destabilization in those the host attacks, allowing them to dispatch unnatural entities with relative ease.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechBioferriteDestabilizer</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>5000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+	  <li>HVB_MiscHighValue</li>
+	</thingSetMakerTags>
+    <techHediffsTags Inherit="False" />
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>HVB_InstallArchotechBioferriteDestabilizer</defName>
+    <label>install archotech bioferrite destabilizer</label>
+    <description>Install an archotech bioferrite destabilizer.</description>
+    <descriptionHyperlinks>
+      <ThingDef>HVB_ArchotechBioferriteDestabilizer</ThingDef>
+      <HediffDef>HVB_ArchotechBioferriteDestabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing archotech bioferrite destabilizer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HVB_ArchotechBioferriteDestabilizer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HVB_ArchotechBioferriteDestabilizer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HVB_ArchotechBioferriteDestabilizer</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>HVB_BFD</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+  
+</Defs>
