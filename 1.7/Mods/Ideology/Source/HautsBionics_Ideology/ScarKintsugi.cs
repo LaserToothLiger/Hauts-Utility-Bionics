@@ -4,13 +4,15 @@ using UnityEngine;
 
 namespace HautsBionics_Ideology
 {
-    /*This makes it so you can't add scar kintsugi to pawns who don't have the Pain is Virtue meme, and permits their application only on body parts that have scars or scarifications
+    public class ScarKintsugiPermissiveMeme : DefModExtension { }
+    /*This makes it so you can't add scar kintsugi to pawns who don't have a ScarKintsugiPermissive meme, and permits their application only on body parts that have scars or scarifications
      * The actual process removes a scar or scarification on that body part, and replaces it with the addsHediff of equivalent severity to the removed hediff*/
     public class Recipe_ScarKintsugi : Recipe_Surgery
     {
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
         {
-            if (pawn.ideo != null && pawn.ideo.Ideo != null && pawn.ideo.Ideo.memes != null && pawn.ideo.Ideo.HasMeme(DefDatabase<MemeDef>.GetNamedSilentFail("PainIsVirtue")))
+            Ideo id = pawn.Ideo;
+            if (id != null && id.memes != null && id.memes.ContainsAny((MemeDef md)=>md.HasModExtension<ScarKintsugiPermissiveMeme>()))
             {
                 List<Hediff> allHediffs = pawn.health.hediffSet.hediffs;
                 int num;
@@ -76,7 +78,7 @@ namespace HautsBionics_Ideology
             {
                 return ThoughtState.Inactive;
             }
-            return this.CountKintsugis(p) < num ? ThoughtState.Inactive : ThoughtState.ActiveAtStage(0);
+            return this.CountKintsugis(otherPawn) < num ? ThoughtState.Inactive : ThoughtState.ActiveAtStage(0);
         }
         public int CountKintsugis(Pawn pawn)
         {

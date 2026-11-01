@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/MemeDef[defName="PainIsVirtue"]</xpath>
+		<value>
+			<li Class="HautsBionics_Ideology.ScarKintsugiPermissiveMeme" />
+		</value>
+	</Operation>
+</Patch>

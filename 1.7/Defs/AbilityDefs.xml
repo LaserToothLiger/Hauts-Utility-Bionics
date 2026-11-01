@@ -506,14 +506,30 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
-        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-		<customMote>HVB_GraspLine</customMote>
+      <li Class="HautsBionics.CompProperties_AbilityLaunchGraspProjectile">
+        <projectileDef>HVB_GraspProjectile</projectileDef>
+		<customMoteLine>HVB_GraspLine</customMoteLine>
+		<customMoteOnVictim>HVB_GraspHand</customMoteOnVictim>
 		<distanceRange>4.5~99999</distanceRange>
 		<mustBeMelee>true</mustBeMelee>
       </li>
     </comps>
   </AbilityDef>
+	  <ThingDef ParentName="BaseBullet">
+		<defName>HVB_GraspProjectile</defName>
+		<label>telescoping arm's hand</label>
+		<thingClass>HautsBionics.Projectile_GraspHand</thingClass>
+		<graphicData>
+		  <texPath>BionicAbilities/HUB_GraspHand</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <color>(0.7, 0.7, 0.7, 1)</color>
+		  <drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile>
+		  <stoppingPower>1</stoppingPower>
+		  <speed>55</speed>
+		</projectile>
+	  </ThingDef>
 	  <ThingDef ParentName="PawnFlyerBase">
 		<defName>HVB_GrabFlyer</defName>
 		<label>grabbed</label>
@@ -535,7 +551,7 @@
 	  <ThingDef ParentName="MoteBase">
 		<defName>HVB_GraspLine</defName>
 		<thingClass>MoteDualAttached</thingClass>
-		<altitudeLayer>MoteLow</altitudeLayer>
+		<altitudeLayer>Projectile</altitudeLayer>
 		<mote>
 		  <fadeInTime>0.1</fadeInTime>
 		  <fadeOutTime>0.1</fadeOutTime>
@@ -549,6 +565,21 @@
 		  <color>(0.7, 0.7, 0.7, 1)</color>
 		  <drawSize>(0.42,1)</drawSize>
 		</graphicData>
+	  </ThingDef>
+	  <ThingDef ParentName="MoteBase">
+		<defName>HVB_GraspHand</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData><!--should be the same as the ability's projectile. This is used by all variants, to heck with recolors-->
+		  <texPath>BionicAbilities/HUB_GraspHand</texPath>
+		  <color>(0.7, 0.7, 0.7, 1)</color>
+		  <drawSize>(1,1)</drawSize>
+		</graphicData>
+		<mote>
+		  <fadeInTime>0.1</fadeInTime>
+		  <fadeOutTime>0.1</fadeOutTime>
+		  <solidTime>999999</solidTime>
+		  <needsMaintenance>True</needsMaintenance>
+		</mote>
 	  </ThingDef>
   
   <!--Spike-slinging spine-->
@@ -751,9 +782,10 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
-        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-		<customMote>HVB_GraspLineArchotech</customMote>
+      <li Class="HautsBionics.CompProperties_AbilityLaunchGraspProjectile">
+        <projectileDef>HVB_GraspProjectile</projectileDef>
+		<customMoteLine>HVB_GraspLineArchotech</customMoteLine>
+		<customMoteOnVictim>HVB_GraspHand</customMoteOnVictim>
 		<distanceRange>4.5~99999</distanceRange>
 		<mustBeMelee>true</mustBeMelee>
       </li>
@@ -762,7 +794,7 @@
 	  <ThingDef ParentName="MoteBase">
 		<defName>HVB_GraspLineArchotech</defName>
 		<thingClass>MoteDualAttached</thingClass>
-		<altitudeLayer>MoteLow</altitudeLayer>
+		<altitudeLayer>Projectile</altitudeLayer>
 		<mote>
 		  <fadeInTime>0.1</fadeInTime>
 		  <fadeOutTime>0.1</fadeOutTime>

@@ -38,7 +38,7 @@
 				</li>
 				<!--hearts-->
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_AntiBleedingHeart" or defName="HVB_CleanHeart" or defName="HVB_ShieldpowerHeart" or defName="HVB_TemperedHeart" or defName="HVB_ArchotechMarrowheart"]</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_AntiBleedingHeart" or defName="HVB_CleanHeart" or defName="HVB_TemperedHeart" or defName="HVB_ArchotechMarrowheart"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
@@ -122,7 +122,7 @@
 							</li>
 							<!--heart-->
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_WarlocksHeart"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart" or defName="HVB_WarlocksHeart"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -403,7 +403,7 @@
 					<match Class="PatchOperationSequence">
 						<operations>
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechEcholocator" or defName="HVB_AEP_ArchotechFoodDisintegrator" or defName="HVB_AEP_ArchotechMarrowheart" or defName="HVB_AEP_ArchotechApeliotanLung" or defName="HVB_AEP_ArchotechBreathTaker" or defName="HVB_AEP_ArchotechProgrammableLung" or defName="HVB_AEP_ArchotechGrowthStimulator" or defName="HVB_AEP_ArchotechThinkingKidney" or defName="HVB_AEP_ArchotechIntercessor" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechEcholocator" or defName="HVB_AEP_ArchotechFoodDisintegrator" or defName="HVB_AEP_ArchotechMarrowheart" or defName="HVB_AEP_ArchotechApeliotanLung" or defName="HVB_AEP_ArchotechBreathTaker" or defName="HVB_AEP_ArchotechProgrammableLung" or defName="HVB_AEP_ArchotechGrowthStimulator" or defName="HVB_AEP_ArchotechNeutralizer" or defName="HVB_AEP_ArchotechThinkingKidney" or defName="HVB_AEP_ArchotechIntercessor" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>

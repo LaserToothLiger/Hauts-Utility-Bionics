@@ -285,9 +285,10 @@
 		  </targetParams>
 		</verbProperties>
 		<comps>
-		  <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
-			<compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-			<customMote>HVB_GraspLineVoid</customMote>
+		  <li Class="HautsBionics.CompProperties_AbilityLaunchGraspProjectile">
+			<projectileDef>HVB_GraspProjectile</projectileDef>
+			<customMoteLine>HVB_GraspLineVoid</customMoteLine>
+			<customMoteOnVictim>HVB_GraspHand</customMoteOnVictim>
 			<distanceRange>4.5~99999</distanceRange>
 			<mustBeMelee>true</mustBeMelee>
 		  </li>
@@ -296,7 +297,7 @@
 	  <ThingDef ParentName="MoteBase">
 		<defName>HVB_GraspLineVoid</defName>
 		<thingClass>MoteDualAttached</thingClass>
-		<altitudeLayer>MoteLow</altitudeLayer>
+		<altitudeLayer>Projectile</altitudeLayer>
 		<mote>
 		  <fadeInTime>0.1</fadeInTime>
 		  <fadeOutTime>0.1</fadeOutTime>

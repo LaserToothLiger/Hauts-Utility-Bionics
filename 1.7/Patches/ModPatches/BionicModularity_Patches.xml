@@ -38,14 +38,21 @@
 				</li>
 				<!--hearts-->
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_AntiBleedingHeart" or defName="HVB_CleanHeart" or defName="HVB_ShieldpowerHeart" or defName="HVB_TemperedHeart" or defName="HVB_ArchotechMarrowheart"]</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_AntiBleedingHeart" or defName="HVB_CleanHeart" or defName="HVB_TemperedHeart" or defName="HVB_ArchotechMarrowheart"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
 				</li>
 				<!--lungs-->
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_BardsLung" or defName="HVB_SensoryLung" or defName="HVB_ProgrammableLung" or defName="HVB_ArchotechApeliotanLung" or defName="HVB_ArchotechBreathTaker" or defName="HVB_ArchotechProgrammableLung"]</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_BardsLung" or defName="HVB_ProgrammableLung" or defName="HVB_SensoryLung" or defName="HVB_ArchotechApeliotanLung" or defName="HVB_ArchotechBreathTaker" or defName="HVB_ArchotechProgrammableLung"]</xpath>
+					<value>
+						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+					</value>
+				</li>
+				<!--stomachs-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/HediffDef[defName="HVB_GeneratorStomach" or defName="HVB_GutComputingNode" or defName="HVB_RefineryStomach" or defName="HVB_ArchotechRefineryStomach"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
@@ -64,9 +71,9 @@
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
 				</li>
-				<!--stomachs-->
+				<!--arms-->
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_GeneratorStomach" or defName="HVB_GutComputingNode" or defName="HVB_RefineryStomach" or defName="HVB_ArchotechRefineryStomach"]</xpath>
+					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
@@ -74,13 +81,6 @@
 				<!--spines-->
 				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/HediffDef[defName="HVB_BracingSpine" or defName="HVB_HyperflexibleSpine" or defName="HVB_LifeguardSpine" or defName="HVB_LoadBearingSpine" or defName="HVB_ArchotechThinkingSpine" or defName="HVB_ArchotechUndulatingSpine"]</xpath>
-					<value>
-						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
-					</value>
-				</li>
-				<!--arms-->
-				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/HediffDef[defName="HVB_FiringArm" or defName="HVB_LopingArm" or defName="HVB_ServoShankArm" or defName="HVB_TelescopingArm" or defName="HVB_TestudoArm" or defName="HVB_ArchotechShieldBubbler" or defName="HVB_ArchotechTelescopingArm"]</xpath>
 					<value>
 						<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 					</value>
@@ -122,7 +122,7 @@
 							</li>
 							<!--heart-->
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_WarlocksHeart"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_ShieldpowerHeart" or defName="HVB_WarlocksHeart"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -215,6 +215,13 @@
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
 							</li>
+							<!--stomachs-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_HemogenCyclingStomach" or defName="HVB_HemogenBurningStomach"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
 							<!--livers-->
 							<li Class="PatchOperationAddModExtension">
 								<xpath>Defs/HediffDef[defName="HVB_BileBlaster" or defName="HVB_HepaticHemogenReservoir"]</xpath>
@@ -225,13 +232,6 @@
 							<!--kidneys-->
 							<li Class="PatchOperationAddModExtension">
 								<xpath>Defs/HediffDef[defName="HVB_MechanityrantKidney" or defName="HVB_HemogenCyclingKidney"]</xpath>
-								<value>
-									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
-								</value>
-							</li>
-							<!--stomachs-->
-							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_HemogenCyclingStomach" or defName="HVB_HemogenBurningStomach"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -380,7 +380,7 @@
 						<operations>
 							<!--spine-->
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine" or defName="HVB_ArchotechGravitonRepulsor"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_StarlightSpine" or defName="HVB_ArchotechGravitonSpine"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -388,6 +388,13 @@
 							<!--arm-->
 							<li Class="PatchOperationAddModExtension">
 								<xpath>Defs/HediffDef[defName="HVB_ArchotechSentienceCatalyzer"]</xpath>
+								<value>
+									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
+								</value>
+							</li>
+							<!--multi-option-->
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/HediffDef[defName="HVB_ArchotechGravitonRepulsor"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>
@@ -403,7 +410,7 @@
 					<match Class="PatchOperationSequence">
 						<operations>
 							<li Class="PatchOperationAddModExtension">
-								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechEcholocator" or defName="HVB_AEP_ArchotechFoodDisintegrator" or defName="HVB_AEP_ArchotechMarrowheart" or defName="HVB_AEP_ArchotechApeliotanLung" or defName="HVB_AEP_ArchotechBreathTaker" or defName="HVB_AEP_ArchotechProgrammableLung" or defName="HVB_AEP_ArchotechGrowthStimulator" or defName="HVB_AEP_ArchotechThinkingKidney" or defName="HVB_AEP_ArchotechIntercessor" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]</xpath>
+								<xpath>Defs/HediffDef[defName="HVB_AEP_ArchotechDeathGlare" or defName="HVB_AEP_ArchotechProgrammableEye" or defName="HVB_AEP_ArchotechEcholocator" or defName="HVB_AEP_ArchotechFoodDisintegrator" or defName="HVB_AEP_ArchotechMarrowheart" or defName="HVB_AEP_ArchotechApeliotanLung" or defName="HVB_AEP_ArchotechBreathTaker" or defName="HVB_AEP_ArchotechProgrammableLung" or defName="HVB_AEP_ArchotechGrowthStimulator" or defName="HVB_AEP_ArchotechNeutralizer" or defName="HVB_AEP_ArchotechThinkingKidney" or defName="HVB_AEP_ArchotechIntercessor" or defName="HVB_AEP_ArchotechProgrammableLimb" or defName="HVB_AEP_ArchotechThinkingSpine" or defName="HVB_AEP_ArchotechUndulatingSpine" or defName="HVB_AEP_ArchotechTelescopingArm" or defName="HVB_AEP_ArchotechShieldBubbler" or defName="HVB_AEP_ArchotechEarthshaker" or defName="HVB_AEP_ArchotechGeneratorLeg"]</xpath>
 								<value>
 									<li Class="BionicModularity.DefExtension_ModularHediff"></li>
 								</value>

@@ -7,28 +7,27 @@ using Verse.Sound;
 
 namespace HautsBionics
 {
-    /*Bionic Yank either pulls the caster to the target, or the target to the caster, depending on the target's nature. The mote is the graphical line drawn between the two, and it can be specified in XML since the Anomaly voidshard has a different look.
-     * NPC pawns only use on pawns, not items or buildings. Doesn't go on cooldown if you just use it to pull an item to your location, since that's one of the most niche and trivial uses possible.*/
-    public class CompProperties_AbilityMrFantastic : CompProperties_AbilityAiTargetingDistanceRange
+    /*Yank works by throwing out a projectile (the hand) which must remain visually attached to the launcher (caster) via the rope visual as a MoteDualAttached (customMoteLine, which is passed onto the projectile's unique class by the ability so we can have arms of different colors w different abilities).
+     * Theoretically, you could vary the hand graphic (customMoteOnVictim), but I've decided they all look the same. Importantly, whatever that mote is should have the EXACT same graphicData as the projectile to maintain visual continuity. (maybe later make a 'closed' hand graphic for customMoteOnVictim?)
+     * comp also endows the projectile with knowledge of the Ability that begat it, so that it can, on impact, reset the ability's cd if warranted by the target*/
+    public class CompProperties_AbilityLaunchGraspProjectile : CompProperties_AbilityAiTargetingDistanceRange
     {
-        public CompProperties_AbilityMrFantastic()
+        public CompProperties_AbilityLaunchGraspProjectile()
         {
-            this.compClass = typeof(CompAbilityEffect_MrFantastic);
+            this.compClass = typeof(CompAbilityEffect_LaunchGraspProjectile);
         }
-        public ThingDef customMote;
+        public ThingDef customMoteLine;
+        public ThingDef customMoteOnVictim;
+        public ThingDef projectileDef;
     }
-    public class CompAbilityEffect_MrFantastic : CompAbilityEffect_AiTargetingDistanceRange
+    public class CompAbilityEffect_LaunchGraspProjectile : CompAbilityEffect_AiTargetingDistanceRange
     {
-        public new CompProperties_AbilityMrFantastic Props
+        public new CompProperties_AbilityLaunchGraspProjectile Props
         {
             get
             {
-                return (CompProperties_AbilityMrFantastic)this.props;
+                return (CompProperties_AbilityLaunchGraspProjectile)this.props;
             }
-        }
-        public override bool AICanTargetNow(LocalTargetInfo target)
-        {
-            return target.Pawn != null;
         }
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
@@ -40,9 +39,7 @@ namespace HautsBionics
                     {
                         return false;
                     }
-                }
-                else if (target.Thing.def.category != ThingCategory.Building && target.Thing.def.category != ThingCategory.Pawn && (target.Thing.def.category != ThingCategory.Item || !target.Thing.def.EverHaulable))
-                {
+                } else if (target.Thing.def.category != ThingCategory.Building && target.Thing.def.category != ThingCategory.Pawn && (target.Thing.def.category != ThingCategory.Item || !target.Thing.def.EverHaulable)) {
                     return false;
                 }
             }
@@ -50,49 +47,102 @@ namespace HautsBionics
         }
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            base.Apply(target, dest);
-            if (target.Thing != null)
+            if (this.Props.projectileDef != null)
             {
-                if (target.Thing.def.category != ThingCategory.Building && target.Thing.def.category != ThingCategory.Plant && MassUtility.FreeSpace(this.parent.pawn) >= target.Thing.GetStatValue(StatDefOf.Mass))
+                Pawn pawn = this.parent.pawn;
+                Projectile p = ((Projectile)GenSpawn.Spawn(this.Props.projectileDef, pawn.Position, pawn.Map, WipeMode.Vanish));
+                if (p is Projectile_GraspHand pgh)
                 {
-                    int ticksToDisappear = (Mathf.Max(target.Thing.PositionHeld.DistanceTo(this.parent.pawn.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks();
-                    this.DoLink(this.parent.pawn, target.Thing, this.parent.pawn.Position, this.parent.pawn.Map, ticksToDisappear);
-                    if (!(target.Thing is Pawn))
-                    {
-                        this.parent.ResetCooldown();
-                    }
+                    pgh.customMoteLine = this.Props.customMoteLine;
+                    pgh.customMoteOnVictim = this.Props.customMoteOnVictim;
+                    pgh.ability = this.parent;
                 }
-                else
-                {
-                    IntVec3 destination = target.Cell;
-                    if (!target.Cell.Walkable(target.Thing.Map))
-                    {
-                        if (this.parent.pawn.Position.x > destination.x)
-                        {
-                            IntVec3 replacement = new IntVec3(destination.x + 1, destination.y, destination.z);
-                            if (replacement.Walkable(target.Thing.Map))
-                            {
-                                destination = replacement;
-                            }
-                        }
-                        if (this.parent.pawn.Position.z > destination.z)
-                        {
-                            IntVec3 replacement = new IntVec3(destination.x, destination.y, destination.z + 1);
-                            if (replacement.Walkable(target.Thing.Map))
-                            {
-                                destination = replacement;
-                            }
-                        }
-                    }
-                    this.DoLink(target.Thing, this.parent.pawn, destination, target.Thing.Map, (Mathf.Max(target.Thing.PositionHeld.DistanceTo(this.parent.pawn.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks());
-                }
+                p.Launch(pawn, pawn.DrawPos, target, target, ProjectileHitFlags.IntendedTarget, true, null, null);
             }
         }
-        private void DoLink(Thing other, Thing flyer, IntVec3 destination, Map map, int ticksToDisappear)
+        public override bool AICanTargetNow(LocalTargetInfo target)
         {
-            GrabFlyer gFlyer = GrabFlyer.MakeFlyer(HVBDefOf.HVB_GrabFlyer, flyer, other, this.Props.customMote, destination, null, null, false, null, null, default(LocalTargetInfo));
+            return target.Pawn != null;
+        }
+    }
+    public class Projectile_GraspHand : Projectile
+    {
+        public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
+        {
+            base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
+            this.CreateOrMaintainArm();
+        }
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            if (hitThing != null && hitThing == this.intendedTarget && this.launcher != null && this.launcher.Spawned && hitThing.Spawned && this.launcher.Map == hitThing.Map && this.launcher is Pawn p)
+            {
+                if (hitThing != null)
+                {
+                    if (hitThing.def.category != ThingCategory.Building && hitThing.def.category != ThingCategory.Plant && MassUtility.FreeSpace(p) >= hitThing.GetStatValue(StatDefOf.Mass))
+                    {
+                        int ticksToDisappear = (Mathf.Max(hitThing.PositionHeld.DistanceTo(p.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks();
+                        this.DoLink(hitThing, p, false, p.Position, p.Map, ticksToDisappear);
+                        if (this.ability != null && !(hitThing is Pawn))
+                        {
+                            this.ability.ResetCooldown();
+                        }
+                    } else {
+                        IntVec3 destination = hitThing.Position;
+                        if (!hitThing.Position.Walkable(hitThing.Map))//NO WALLHOPPING
+                        {
+                            if (p.Position.x > destination.x)
+                            {
+                                IntVec3 replacement = new IntVec3(destination.x + 1, destination.y, destination.z);
+                                if (replacement.Walkable(hitThing.Map))
+                                {
+                                    destination = replacement;
+                                }
+                            }
+                            if (p.Position.z > destination.z)
+                            {
+                                IntVec3 replacement = new IntVec3(destination.x, destination.y, destination.z + 1);
+                                if (replacement.Walkable(hitThing.Map))
+                                {
+                                    destination = replacement;
+                                }
+                            }
+                        }
+                        this.DoLink(p, hitThing, true, destination, hitThing.Map, (Mathf.Max(hitThing.PositionHeld.DistanceTo(p.PositionHeld), 1f) / HVBDefOf.HVB_GrabFlyer.pawnFlyer.flightSpeed).SecondsToTicks());
+                    }
+                }
+            }
+            base.Impact(hitThing, blockedByShield);
+        }
+        private void DoLink(Thing flyer, Thing other, bool flyerIsCaster, IntVec3 destination, Map map, int ticksToDisappear)
+        {
+            GrabFlyer gFlyer = GrabFlyer.MakeFlyer(HVBDefOf.HVB_GrabFlyer, flyer, other, flyerIsCaster, this.customMoteLine, this.customMoteOnVictim, destination, null, null, false, null, null, default(LocalTargetInfo));
             GenSpawn.Spawn(gFlyer, destination, map, WipeMode.Vanish);
         }
+        protected override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            this.CreateOrMaintainArm();
+        }
+        public void CreateOrMaintainArm()
+        {
+            ThingDef thingDef = this.customMoteLine ?? ThingDefOf.Mote_PsychicLinkLine;
+            if (this.mote == null || this.mote.Destroyed)
+            {
+                this.mote = MoteMaker.MakeInteractionOverlay(thingDef, this, this.launcher);
+            }
+            this.mote.Maintain();
+        }
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look<ThingDef>(ref this.customMoteLine, "customMoteLine");
+            Scribe_Defs.Look<ThingDef>(ref this.customMoteOnVictim, "customMoteOnVictim");
+            Scribe_References.Look<Ability>(ref this.ability, "ability", false);
+        }
+        public ThingDef customMoteLine;
+        public ThingDef customMoteOnVictim;
+        public MoteDualAttached mote;
+        public Ability ability;
     }
     /*It uses a distinct alternative to a PawnFlyer, which enables the mote to be drawn between the flyer and the other party (regardless of whether the other party is the caster or the target).
      * Instead of parabolically arcing the way jump fliers do, it just has the flier move in a visually straight line.*/
@@ -187,12 +237,12 @@ namespace HautsBionics
                 this.ticksFlying = 0;
             }
         }
-        protected virtual void RespawnPawn()
+        protected virtual void RespawnPawn(bool dropAtFlyerPosition = false)
         {
             Thing flyingThing = this.FlyingThing;
             this.LandingEffects();
             Thing thing;
-            this.innerContainer.TryDrop(flyingThing, this.destCell, flyingThing.MapHeld, ThingPlaceMode.Direct, out thing, null, null, false);
+            this.innerContainer.TryDrop(flyingThing, dropAtFlyerPosition ? base.Position : this.destCell, flyingThing.MapHeld, ThingPlaceMode.Direct, out thing, null, null, false);
             Pawn pawn = flyingThing as Pawn;
             if (((pawn != null) ? pawn.drafter : null) != null)
             {
@@ -200,12 +250,12 @@ namespace HautsBionics
                 pawn.drafter.FireAtWill = this.pawnCanFireAtWill;
             }
             flyingThing.Rotation = base.Rotation;
-            if (this.carriedThing != null && this.innerContainer.TryDrop(this.carriedThing, this.destCell, flyingThing.MapHeld, ThingPlaceMode.Direct, out thing, null, null, false) && pawn != null)
+            if (this.carriedThing != null && this.innerContainer.TryDrop(this.carriedThing, dropAtFlyerPosition ? base.Position : this.destCell, flyingThing.MapHeld, ThingPlaceMode.Direct, out thing, null, null, false) && pawn != null)
             {
                 this.carriedThing.DeSpawn(DestroyMode.Vanish);
                 if (!pawn.carryTracker.TryStartCarry(this.carriedThing))
                 {
-                    Log.Error("Could not carry " + this.carriedThing.ToStringSafe<Thing>() + " after respawning flyer pawn.");
+                    Log.Error("Could not carry " + this.carriedThing.ToStringSafe<Thing>() + " after respawning GrabFlyer.");
                 }
             }
             if (pawn != null)
@@ -257,6 +307,18 @@ namespace HautsBionics
                 this.mote = MoteMaker.MakeInteractionOverlay(thingDef, this, this.other);
             }
             this.mote.Maintain();
+            ThingDef thingDef2 = this.moteOnVictimDef ?? ThingDefOf.Mote_TempRoof;
+            if (this.moteOnVictim == null || this.moteOnVictim.Destroyed)
+            {
+                this.moteOnVictim = MoteMaker.MakeAttachedOverlay(this.flyerIsCaster ? this.other : this, thingDef2, Vector3.zero, 1f, -1f);
+            }
+            if (this.moteOnVictim != null)
+            {
+                this.moteOnVictim.exactRotation = this.DrawPos.AngleToFlat(this.other.DrawPos) + 90f;
+                this.moteOnVictim.link1.UpdateDrawPos();
+                this.moteOnVictim.exactPosition = this.moteOnVictim.link1.LastDrawPos;
+            }
+            this.moteOnVictim.Maintain();
         }
         protected override void TickInterval(int delta)
         {
@@ -264,9 +326,7 @@ namespace HautsBionics
             {
                 this.flightEffecter = this.flightEffecterDef.Spawn();
                 this.flightEffecter.Trigger(this, TargetInfo.Invalid, -1);
-            }
-            else
-            {
+            } else {
                 Effecter effecter = this.flightEffecter;
                 if (effecter != null)
                 {
@@ -277,9 +337,7 @@ namespace HautsBionics
             {
                 this.RespawnPawn();
                 this.Destroy(DestroyMode.Vanish);
-            }
-            else
-            {
+            } else {
                 if (this.IsHashIntervalTick(15, delta))
                 {
                     this.CheckDestination();
@@ -290,6 +348,29 @@ namespace HautsBionics
         }
         private void CheckDestination()
         {
+            if (this.other != null && this.other.Spawned)
+            {
+                this.destCell = this.other.Position;
+                if (!this.destCell.Walkable(other.Map))//NO WALLHOPPING ... 2!
+                {
+                    if (this.Position.x > this.destCell.x)
+                    {
+                        IntVec3 replacement = new IntVec3(this.destCell.x + 1, this.destCell.y, this.destCell.z);
+                        if (replacement.Walkable(other.Map))
+                        {
+                            this.destCell = replacement;
+                        }
+                    }
+                    if (this.Position.z > this.destCell.z)
+                    {
+                        IntVec3 replacement = new IntVec3(this.destCell.x, this.destCell.y, this.destCell.z + 1);
+                        if (replacement.Walkable(other.Map))
+                        {
+                            this.destCell = replacement;
+                        }
+                    }
+                }
+            }
             if (!JumpUtility.ValidJumpTarget(this.FlyingThing, base.Map, this.destCell))
             {
                 int num = GenRadial.NumCellsInRadius(3.9f);
@@ -342,7 +423,7 @@ namespace HautsBionics
             matrix4x.SetTRS(drawLoc, Quaternion.identity, vector);
             Graphics.DrawMesh(MeshPool.plane10, matrix4x, shadowMaterial, 0);
         }
-        public static GrabFlyer MakeFlyer(ThingDef flyingDef, Thing thing, Thing other, ThingDef customMote, IntVec3 destCell, EffecterDef flightEffecterDef, SoundDef landingSound, bool flyWithCarriedThing = false, Vector3? overrideStartVec = null, RimWorld.Ability triggeringAbility = null, LocalTargetInfo target = default(LocalTargetInfo))
+        public static GrabFlyer MakeFlyer(ThingDef flyingDef, Thing thing, Thing other, bool flyerIsCaster, ThingDef customMoteLine, ThingDef customMoteOnVictim, IntVec3 destCell, EffecterDef flightEffecterDef, SoundDef landingSound, bool flyWithCarriedThing = false, Vector3? overrideStartVec = null, RimWorld.Ability triggeringAbility = null, LocalTargetInfo target = default(LocalTargetInfo))
         {
             GrabFlyer pawnFlyer = (GrabFlyer)ThingMaker.MakeThing(flyingDef, null);
             pawnFlyer.startVec = overrideStartVec ?? thing.TrueCenter();
@@ -354,8 +435,9 @@ namespace HautsBionics
             pawnFlyer.triggeringAbility = ((triggeringAbility != null) ? triggeringAbility.def : null);
             pawnFlyer.target = target;
             pawnFlyer.other = other;
-            ThingDef thingDef = customMote ?? ThingDefOf.Mote_PsychicLinkLine;
-            pawnFlyer.moteDef = thingDef;
+            pawnFlyer.flyerIsCaster = flyerIsCaster;
+            pawnFlyer.moteDef = customMoteLine ?? ThingDefOf.Mote_PsychicLinkLine;
+            pawnFlyer.moteOnVictimDef = customMoteOnVictim ?? ThingDefOf.Mote_TempRoof;
             if (thing is Pawn pawn)
             {
                 pawnFlyer.pawnWasDrafted = pawn.Drafted;
@@ -368,9 +450,7 @@ namespace HautsBionics
                     if (pawn.CurJob.def == JobDefOf.CastJump)
                     {
                         pawn.jobs.EndCurrentJob(JobCondition.Succeeded, true, true);
-                    }
-                    else
-                    {
+                    } else {
                         pawn.jobs.SuspendCurrentJob(JobCondition.InterruptForced, true, null);
                     }
                 }
@@ -410,6 +490,8 @@ namespace HautsBionics
             Scribe_Values.Look<int>(ref this.ticksFlightTime, "ticksFlightTime", 0, false);
             Scribe_Values.Look<int>(ref this.ticksFlying, "ticksFlying", 0, false);
             Scribe_Defs.Look<ThingDef>(ref this.moteDef, "moteDef");
+            Scribe_Defs.Look<ThingDef>(ref this.moteOnVictimDef, "moteOnVictimDef");
+            Scribe_Values.Look<bool>(ref this.flyerIsCaster, "flyerIsCaster", false, false);
             Scribe_Defs.Look<EffecterDef>(ref this.flightEffecterDef, "flightEffecterDef");
             Scribe_Defs.Look<SoundDef>(ref this.soundLanding, "soundLanding");
             Scribe_Defs.Look<RimWorld.AbilityDef>(ref this.triggeringAbility, "triggeringAbility");
@@ -421,6 +503,9 @@ namespace HautsBionics
         }
         public MoteDualAttached mote;
         public ThingDef moteDef;
+        public Mote moteOnVictim;
+        public ThingDef moteOnVictimDef;
+        public bool flyerIsCaster;
         private ThingOwner<Thing> innerContainer;
         protected Vector3 startVec;
         private IntVec3 destCell;

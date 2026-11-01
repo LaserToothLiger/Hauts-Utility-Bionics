@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Alpha Memes</li>
+		</mods>
+		<match Class="PatchOperationAddModExtension">
+			<xpath>/Defs/MemeDef[defName="AM_PainIsDivine"]</xpath>
+			<value>
+				<li Class="HautsBionics_Ideology.ScarKintsugiPermissiveMeme" />
+			</value>
+		</match>
+	</Operation>
+</Patch>

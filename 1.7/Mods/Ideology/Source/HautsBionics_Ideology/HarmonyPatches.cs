@@ -65,18 +65,22 @@ namespace HautsBionics_Ideology
         //the layer of pawngen that assigns artificial body parts also has a recursive 20% chance to grant scar kintsugi to Pain is Virtue believers. Maybe they should have graphic data... hm.
         public static void HVBI_GenerateTechHediffsForPostfix(Pawn pawn)
         {
-            if (Rand.Value <= 0.2f && pawn.ideo != null && pawn.ideo.Ideo != null && pawn.ideo.Ideo.HasMeme(DefDatabase<MemeDef>.GetNamedSilentFail("PainIsVirtue")))
+            if (Rand.Value <= 0.2f)
             {
-                IEnumerable<RecipeDef> source = from x in DefDatabase<RecipeDef>.AllDefs
-                                                where x.workerClass == typeof(Recipe_ScarKintsugi) && pawn.def.AllRecipes.Contains(x)
-                                                select x;
-                if (source.Any<RecipeDef>())
+                Ideo i = pawn.Ideo;
+                if (i != null && i.memes.ContainsAny((MemeDef md) => md.HasModExtension<ScarKintsugiPermissiveMeme>()))
                 {
-                    RecipeDef recipeDef = source.RandomElement<RecipeDef>();
-                    if (recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any<BodyPartRecord>())
+                    IEnumerable<RecipeDef> source = from x in DefDatabase<RecipeDef>.AllDefs
+                                                    where x.workerClass == typeof(Recipe_ScarKintsugi) && pawn.def.AllRecipes.Contains(x)
+                                                    select x;
+                    if (source.Any<RecipeDef>())
                     {
-                        recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement<BodyPartRecord>(), null, new List<Thing>(), null);
-                        HautsBionics_Ideology.HVBI_GenerateTechHediffsForPostfix(pawn);
+                        RecipeDef recipeDef = source.RandomElement<RecipeDef>();
+                        if (recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any<BodyPartRecord>())
+                        {
+                            recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement<BodyPartRecord>(), null, new List<Thing>(), null);
+                            HautsBionics_Ideology.HVBI_GenerateTechHediffsForPostfix(pawn);
+                        }
                     }
                 }
             }

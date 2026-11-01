@@ -4,7 +4,7 @@ using Verse;
 
 namespace HautsBionics
 {
-    /*cogno-berserkers grant "hediff" when the pawn is harmed by damage. If it already exists, then inttead its severity increases by severityGain, and its duration is set to setDurationTo. Fairly str8forward field naming.
+    /*cogno-berserkers grant "hediff" when the pawn is harmed by damage. If it already exists, then instead its severity increases by severityGain, and its duration is set to setDurationTo. Fairly str8forward field naming.
      * Duration of hediff is determined by a Disappears comp rather than decrementing severity because severity is used to stack the intensity of the hediff's benefits.*/
     public class HediffCompProperties_GainRageWhenHit : HediffCompProperties
     {

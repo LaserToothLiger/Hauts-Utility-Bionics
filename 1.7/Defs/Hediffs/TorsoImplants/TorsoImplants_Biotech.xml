@@ -511,57 +511,41 @@
   
   <!--progenoid gland-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_ProgenoidGlandCharging</defName>
-    <label>progenoid gland (not ready)</label>
-    <labelNoun>a progenoid gland (not ready)</labelNoun>
-    <description>An installed progenoid gland implant. A xenogerm of the host's endogenes or xenogenes (sans any archite genes) can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
+    <defName>HVB_ProgenoidGland</defName>
+    <label>progenoid gland</label>
+    <labelNoun>a progenoid gland</labelNoun>
+    <description>An installed progenoid gland implant. It gradually assembles a xenogerm of the host's endogenes or xenogenes (sans any archite genes), which can then be surgically extracted. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
     <descriptionHyperlinks><ThingDef>HVB_ProgenoidGland</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ProgenoidGland</spawnThingOnRemoved>
 	<tags><li>HVB_progenoid</li></tags>
+	<minSeverity>0.001</minSeverity>
     <initialSeverity>0.001</initialSeverity>
     <maxSeverity>99999.0</maxSeverity>
+	<stages>
+	  <li>
+		<label>ripe</label>
+	  </li>
+	  <li>
+		<label>still ripening</label>
+		<minSeverity>0.002</minSeverity>
+	  </li>
+	</stages>
     <comps>
 	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
 		<severityPerComplexity>5</severityPerComplexity>
 		<canTranscribeArchiteGenes>false</canTranscribeArchiteGenes>
+		<dropXenogermOnDeath>true</dropXenogermOnDeath>
 	  </li>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-1</severityPerDay>
         <showDaysToRecover>true</showDaysToRecover>
       </li>
-	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
-		<atOrBelowThisSeverity>0.01</atOrBelowThisSeverity>
-		<alternativeHediff>HVB_ProgenoidGland</alternativeHediff>
-	  </li>
-	</comps>
-  </HediffDef>
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_ProgenoidGland</defName>
-    <label>progenoid gland (ready)</label>
-    <labelNoun>a progenoid gland (ready)</labelNoun>
-    <description>An installed progenoid gland implant. A xenogerm of the host's endogenes or xenogenes (sans any archite genes) is ready to be extracted from this gland.</description>
-    <descriptionHyperlinks>
-	  <ThingDef>HVB_ProgenoidGland</ThingDef>
-	  <RecipeDef>HVB_HarvestProgenoidGlandEndo</RecipeDef>
-	  <RecipeDef>HVB_HarvestProgenoidGlandXeno</RecipeDef>
-	</descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ProgenoidGland</spawnThingOnRemoved>
-	<tags><li>HVB_progenoid</li></tags>
-    <initialSeverity>0.001</initialSeverity>
-    <maxSeverity>99999.0</maxSeverity>
-    <comps>
-	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
-		<severityPerComplexity>5</severityPerComplexity>
-		<canTranscribeArchiteGenes>false</canTranscribeArchiteGenes>
-		<transformsToWhenHarvested>HVB_ProgenoidGlandCharging</transformsToWhenHarvested>
-		<dropXenogermOnDeath>true</dropXenogermOnDeath>
-	  </li>
 	</comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartBionicBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_ProgenoidGland</defName>
     <label>progenoid gland</label>
-    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome (except for archite genes) via a process very similar to cellular mitosis. The amount of time required for the germ cells to achieve a critical stable population scales directly with the complexity of the host genome. Once ready, the germ cells can be harvested via surgical extraction.</description>
+    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome (except for archite genes) via a process very similar to cellular mitosis. The amount of time required for the germ cells to 'ripen' (that is, achieve a critical stable population ready for surgical extraction) scales directly with the complexity of the host genome.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallProgenoidGland</RecipeDef></descriptionHyperlinks>
     <costList>
       <Neutroamine>15</Neutroamine>
@@ -583,7 +567,7 @@
     <description>Install a progenoid gland.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ProgenoidGland</ThingDef>
-      <HediffDef>HVB_ProgenoidGlandCharging</HediffDef>
+      <HediffDef>HVB_ProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Installing progenoid gland.</jobString>
     <ingredients>
@@ -605,19 +589,19 @@
       <li>Neck</li>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>HVB_ProgenoidGlandCharging</addsHediff>
+    <addsHediff>HVB_ProgenoidGland</addsHediff>
 	<incompatibleWithHediffTags><li>HVB_progenoid</li></incompatibleWithHediffTags>
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_RemoveProgenoidGland</defName>
     <label>remove progenoid gland</label>
-    <description>Remove progenoid gland.</description>
+    <description>Remove progenoid gland.\n(This is NOT the recipe for extracting genes from the gland.)</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ProgenoidGland</ThingDef>
-      <HediffDef>HVB_ProgenoidGlandCharging</HediffDef>
+      <HediffDef>HVB_ProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Removing progenoid gland.</jobString>
-    <removesHediff>HVB_ProgenoidGlandCharging</removesHediff>
+    <removesHediff>HVB_ProgenoidGland</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidEndo" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HarvestProgenoidGlandEndo</defName>
@@ -628,7 +612,7 @@
       <HediffDef>HVB_ProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Harvesting endogenes from a progenoid gland.</jobString>
-    <removesHediff>HVB_ProgenoidGland</removesHediff>
+    <removesHediff>HVB_ProgenoidGland</removesHediff><!--doesn't actually remove it; this is just required to "target" this recipe to the appropriate hediff-->
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
     <defName>HVB_HarvestProgenoidGlandXeno</defName>
@@ -648,60 +632,43 @@
 						<!--uncraftable-->
   <!--archotech progenoid gland-->
   <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_ArchicProgenoidGlandCharging</defName>
-    <label>archotech progenoid gland (not ready)</label>
-    <labelNoun>an archotech progenoid gland (not ready)</labelNoun>
-    <description>An installed archotech progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, can eventually be extracted from this gland - but it is currently not ready. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
-    <descriptionHyperlinks><ThingDef>HVB_ArchicProgenoidGland</ThingDef></descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ArchicProgenoidGland</spawnThingOnRemoved>
+    <defName>HVB_ArchotechProgenoidGland</defName>
+    <label>archotech progenoid gland</label>
+    <labelNoun>an archotech progenoid gland</labelNoun>
+    <description>An installed archotech progenoid gland implant. It gradually assembles a xenogerm of the host's endogenes or xenogenes (including any archite genes), which can then be surgically extracted. The amount of time required to 'ripen' scales with the complexity of the host's genome.</description>
+    <descriptionHyperlinks><ThingDef>HVB_ArchotechProgenoidGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>HVB_ArchotechProgenoidGland</spawnThingOnRemoved>
 	<tags><li>HVB_progenoid</li></tags>
+	<minSeverity>0.001</minSeverity>
     <initialSeverity>0.001</initialSeverity>
     <maxSeverity>99999.0</maxSeverity>
+	<stages>
+	  <li>
+		<label>ripe</label>
+	  </li>
+	  <li>
+		<label>still ripening</label>
+		<minSeverity>0.002</minSeverity>
+	  </li>
+	</stages>
     <comps>
 	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
 		<severityPerComplexity>4</severityPerComplexity>
 		<severityPerArchites>3</severityPerArchites>
 		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
+		<dropXenogermOnDeath>true</dropXenogermOnDeath>
 	  </li>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-1</severityPerDay>
         <showDaysToRecover>true</showDaysToRecover>
       </li>
-	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
-		<atOrBelowThisSeverity>0.01</atOrBelowThisSeverity>
-		<alternativeHediff>HVB_ArchicProgenoidGland</alternativeHediff>
-	  </li>
-	</comps>
-  </HediffDef>
-  <HediffDef ParentName="ImplantHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_ArchicProgenoidGland</defName>
-    <label>archotech progenoid gland (ready)</label>
-    <labelNoun>an archotech progenoid gland (ready)</labelNoun>
-    <description>An installed archotech progenoid gland implant. A xenogerm of the host's endogenes or xenogenes, including any archite genes, is ready to be extracted from this gland.</description>
-    <descriptionHyperlinks>
-	  <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
-	  <RecipeDef>HVB_HarvestArchicProgenoidGlandEndo</RecipeDef>
-	  <RecipeDef>HVB_HarvestArchicProgenoidGlandXeno</RecipeDef>
-	</descriptionHyperlinks>
-    <spawnThingOnRemoved>HVB_ArchicProgenoidGland</spawnThingOnRemoved>
-	<tags><li>HVB_progenoid</li></tags>
-    <initialSeverity>0.001</initialSeverity>
-    <maxSeverity>99999.0</maxSeverity>
-    <comps>
-	  <li Class="HautsBionics_Biotech.HediffCompProperties_ProgenoidCharging">
-		<severityPerComplexity>4</severityPerComplexity>
-		<severityPerArchites>3</severityPerArchites>
-		<canTranscribeArchiteGenes>true</canTranscribeArchiteGenes>
-		<transformsToWhenHarvested>HVB_ArchicProgenoidGlandCharging</transformsToWhenHarvested>
-		<dropXenogermOnDeath>true</dropXenogermOnDeath>
-	  </li>
 	</comps>
   </HediffDef>
   <ThingDef ParentName="BodyPartArchotechBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_ArchicProgenoidGland</defName>
+    <defName>HVB_ArchotechProgenoidGland</defName>
     <label>archotech progenoid gland</label>
-    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome, including any archite genes, via a process very similar to cellular mitosis. The amount of time required for the germ cells to achieve a critical stable population scales directly with the complexity and archite cost of the host genome. Once ready, the germ cells can be harvested via surgical extraction.</description>
-    <descriptionHyperlinks><RecipeDef>HVB_InstallArchicProgenoidGland</RecipeDef></descriptionHyperlinks>
+    <description>An implanted organ which creates universally donatable germ cells carrying the host's entire endogenome or xenogenome (including any archite genes), via a process very similar to cellular mitosis. The amount of time required for the germ cells to 'ripen' (that is, achieve a critical stable population ready for surgical extraction) scales directly with the complexity and archite cost of the host genome.</description>
+    <descriptionHyperlinks><RecipeDef>HVB_InstallArchotechProgenoidGland</RecipeDef></descriptionHyperlinks>
 	<tradeability>Sellable</tradeability>
     <statBases>
       <MarketValue>4200</MarketValue>
@@ -712,19 +679,19 @@
 	</thingSetMakerTags>
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_InstallArchicProgenoidGland</defName>
+    <defName>HVB_InstallArchotechProgenoidGland</defName>
     <label>install archotech progenoid gland</label>
     <description>Install an archotech progenoid gland.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
-      <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
+      <ThingDef>HVB_ArchotechProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchotechProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Installing archotech progenoid gland.</jobString>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>HVB_ArchicProgenoidGland</li>
+            <li>HVB_ArchotechProgenoidGland</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -732,34 +699,34 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HVB_ArchicProgenoidGland</li>
+        <li>HVB_ArchotechProgenoidGland</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Neck</li>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>HVB_ArchicProgenoidGlandCharging</addsHediff>
+    <addsHediff>HVB_ArchotechProgenoidGland</addsHediff>
 	<incompatibleWithHediffTags><li>HVB_progenoid</li></incompatibleWithHediffTags>
   </RecipeDef>
   <RecipeDef ParentName="SurgeryRemoveImplantBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_RemoveArchicProgenoidGland</defName>
+    <defName>HVB_RemoveArchotechProgenoidGland</defName>
     <label>remove archotech progenoid gland</label>
-    <description>Remove archotech progenoid gland.</description>
+    <description>Remove archotech progenoid gland.\n(This is NOT the recipe for extracting genes from the gland.)</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
-      <HediffDef>HVB_ArchicProgenoidGlandCharging</HediffDef>
+      <ThingDef>HVB_ArchotechProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchotechProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Removing archotech progenoid gland.</jobString>
-    <removesHediff>HVB_ArchicProgenoidGlandCharging</removesHediff>
+    <removesHediff>HVB_ArchotechProgenoidGland</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidEndo" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_HarvestArchicProgenoidGlandEndo</defName>
+    <defName>HVB_HarvestArchotechProgenoidGlandEndo</defName>
     <label>harvest endogenes from archotech progenoid gland</label>
     <description>Harvest endogenes from an archotech progenoid gland.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
-      <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
+      <ThingDef>HVB_ArchotechProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchotechProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Harvesting endogenes from an archotech progenoid gland.</jobString>
     <ingredients>
@@ -774,15 +741,15 @@
         <li>ArchiteCapsule</li>
       </thingDefs>
     </fixedIngredientFilter>
-    <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
+    <removesHediff>HVB_ArchotechProgenoidGland</removesHediff>
   </RecipeDef>
   <RecipeDef ParentName="HVB_HarvestProgenoidXeno" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>HVB_HarvestArchicProgenoidGlandXeno</defName>
+    <defName>HVB_HarvestArchotechProgenoidGlandXeno</defName>
     <label>harvest xenogenes from archotech progenoid gland</label>
     <description>Harvest xenogenes from an archotech progenoid gland.</description>
     <descriptionHyperlinks>
-      <ThingDef>HVB_ArchicProgenoidGland</ThingDef>
-      <HediffDef>HVB_ArchicProgenoidGland</HediffDef>
+      <ThingDef>HVB_ArchotechProgenoidGland</ThingDef>
+      <HediffDef>HVB_ArchotechProgenoidGland</HediffDef>
     </descriptionHyperlinks>
     <jobString>Harvesting xenogenes from an archotech progenoid gland.</jobString>
     <ingredients>
@@ -797,7 +764,7 @@
         <li>ArchiteCapsule</li>
       </thingDefs>
     </fixedIngredientFilter>
-    <removesHediff>HVB_ArchicProgenoidGland</removesHediff>
+    <removesHediff>HVB_ArchotechProgenoidGland</removesHediff>
   </RecipeDef>
   
 </Defs>

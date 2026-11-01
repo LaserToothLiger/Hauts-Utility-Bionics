@@ -2332,12 +2332,13 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "HautsBionics.CompProperties_AbilityMrFantastic">
-        <compClass>HautsBionics.CompAbilityEffect_MrFantastic</compClass>
-		<customMote>HVB_GraspLineArchotech</customMote>
+	  <li Class="HautsBionics.CompProperties_AbilityLaunchGraspProjectile">
+		<projectileDef>HVB_GraspProjectile</projectileDef>
+		<customMoteLine>HVB_GraspLineArchotech</customMoteLine>
+		<customMoteOnVictim>HVB_GraspHand</customMoteOnVictim>
 		<distanceRange>4.5~99999</distanceRange>
 		<mustBeMelee>true</mustBeMelee>
-      </li>
+	  </li>
     </comps>
   </AbilityDef>
   

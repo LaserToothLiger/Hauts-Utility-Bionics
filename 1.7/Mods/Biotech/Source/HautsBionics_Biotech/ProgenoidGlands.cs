@@ -7,10 +7,10 @@ namespace HautsBionics_Biotech
      * The not-ready (unripe?) versions start at a severity = severityPerComplexity * [whichever is higher, the pawn's total endogenetic complexity or xenogenetic cpx].
      *   Severity drops by 1 per day (handled by a vanilla hediff comp) until it hits nearabout the minimum value, at which point it transforms into the ripe version (handled by ChangeBelowSeverity, a Framework comp).
      * canTranscribeArchiteGenes: imparts the pawn's archogenes into the produced xenogerm. This also alters the severity equation, by adding the [total archite capsule cost*severityPerArchites of the endo/xenogerm] to each of those cpx sums.
-     * dropXenogermOnDeath: on death, the xenogerm or endogerm is produced (preferrentially the former), then the hediff removes itself. That sounds wonky, but because the endo/xenogerm dropping methods create the "transformsToWhenHarvested" hediff
-     *   on the pawn, in practice it looks like it's just expended its charge. (this is of course reliant on you not turning this flag on for the unripe variant, turning it on for the ripe variant, and setting the ripe's transformsToWhenHarvested
-     *   to the unripe variant)
-     * naturally, transformsToWhenHarvested is also added to the pawn when you use the recipes to harvest the e/xgerm. And then the recipe destroys the original hediff, once more looking like a charge expenditure.*/
+     * dropXenogermOnDeath: on death, the xenogerm or endogerm is automatically produced (preferrentially the former). This DOES bypass the need for surgery I guess...
+     * whenever DropEndogerm or DropXenogerm is triggered, its severity is reset.
+     * Yes, you can give someone with a low cpx a progenoid, then change their geneset to something more complex, allowing you to harvest a relatively complex xenogerm for a low cooldown.
+     *      That's up to you chief, I don't really care if you 'cheat' and it's both simpler and more mod-compatible to not patch that exploit.*/
     public class HediffCompProperties_ProgenoidCharging : HediffCompProperties
     {
         public HediffCompProperties_ProgenoidCharging()
@@ -18,10 +18,9 @@ namespace HautsBionics_Biotech
             this.compClass = typeof(HediffComp_ProgenoidCharging);
         }
         public float severityPerComplexity = 1f;
-        public bool canTranscribeArchiteGenes = false;
+        public bool canTranscribeArchiteGenes;
         public float severityPerArchites = 1f;
-        public HediffDef transformsToWhenHarvested = null;
-        public bool dropXenogermOnDeath = false;
+        public bool dropXenogermOnDeath;
     }
     public class HediffComp_ProgenoidCharging : HediffComp
     {
@@ -32,53 +31,46 @@ namespace HautsBionics_Biotech
                 return (HediffCompProperties_ProgenoidCharging)this.props;
             }
         }
-        public override void CompPostPostAdd(DamageInfo? dinfo)
+        public void SetSeverityToGeneticComplexity()
         {
-            base.CompPostPostAdd(dinfo);
             float totalComplexity = 0f;
             float totalComplexity2 = 0f;
-            if (this.parent.pawn.genes != null && this.parent.pawn.genes.GenesListForReading.Count > 0)
+            if (this.Pawn.genes != null && this.Pawn.genes.GenesListForReading.Count > 0)
             {
-                if (this.parent.pawn.genes.Endogenes.Count > 0)
+                if (this.Pawn.genes.Endogenes.Count > 0)
                 {
-                    foreach (Gene g in this.parent.pawn.genes.Endogenes)
+                    foreach (Gene g in this.Pawn.genes.Endogenes)
                     {
                         totalComplexity += g.def.biostatArc <= 0 ? g.def.biostatCpx * this.Props.severityPerComplexity : (this.Props.canTranscribeArchiteGenes ? (g.def.biostatArc * this.Props.severityPerArchites) + (g.def.biostatCpx * this.Props.severityPerComplexity) : 0f);
                     }
                 }
-                if (this.parent.pawn.genes.Xenogenes.Count > 0)
+                if (this.Pawn.genes.Xenogenes.Count > 0)
                 {
-                    foreach (Gene g in this.parent.pawn.genes.Xenogenes)
+                    foreach (Gene g in this.Pawn.genes.Xenogenes)
                     {
                         totalComplexity2 += g.def.biostatArc <= 0 ? g.def.biostatCpx * this.Props.severityPerComplexity : (this.Props.canTranscribeArchiteGenes ? (g.def.biostatArc * this.Props.severityPerArchites) + (g.def.biostatCpx * this.Props.severityPerComplexity) : 0f);
                     }
                 }
-                this.parent.Severity = Math.Max(Math.Max(totalComplexity, totalComplexity2), 1f);
+                this.parent.Severity = Math.Max(Math.Max(totalComplexity, totalComplexity2), 1f) + this.parent.def.minSeverity;
+            } else {
+                this.Pawn.health.RemoveHediff(this.parent);
             }
-            else
-            {
-                this.parent.pawn.health.RemoveHediff(this.parent);
-            }
+        }
+        public override void CompPostPostAdd(DamageInfo? dinfo)
+        {
+            base.CompPostPostAdd(dinfo);
+            this.SetSeverityToGeneticComplexity();
         }
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             base.Notify_PawnDied(dinfo, culprit);
-            if (this.Props.dropXenogermOnDeath)
+            if (this.Props.dropXenogermOnDeath && this.parent.CurStageIndex == 0)
             {
-                bool didDrop = false;
                 if (this.parent.pawn.genes.Xenogenes.Count > 0)
                 {
                     this.DropXenogerm();
-                    didDrop = true;
-                }
-                else if (this.parent.pawn.genes.Endogenes.Count > 0)
-                {
+                } else if (this.parent.pawn.genes.Endogenes.Count > 0) {
                     this.DropEndogerm();
-                    didDrop = true;
-                }
-                if (didDrop)
-                {
-                    this.parent.pawn.health.RemoveHediff(this.parent);
                 }
             }
         }
@@ -96,11 +88,7 @@ namespace HautsBionics_Biotech
                 }
             }
             GenSpawn.Spawn(xenogerm, this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, WipeMode.Vanish);
-            if (this.Props.transformsToWhenHarvested != null)
-            {
-                Hediff hediffToAdd = HediffMaker.MakeHediff(this.Props.transformsToWhenHarvested, this.parent.pawn, this.parent.Part);
-                this.parent.pawn.health.AddHediff(hediffToAdd, this.parent.Part);
-            }
+            this.SetSeverityToGeneticComplexity();
         }
         public void DropXenogerm()
         {
@@ -116,14 +104,10 @@ namespace HautsBionics_Biotech
                 }
             }
             GenSpawn.Spawn(xenogerm, this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, WipeMode.Vanish);
-            if (this.Props.transformsToWhenHarvested != null)
-            {
-                Hediff hediffToAdd = HediffMaker.MakeHediff(this.Props.transformsToWhenHarvested, this.parent.pawn, this.parent.Part);
-                this.parent.pawn.health.AddHediff(hediffToAdd, this.parent.Part);
-            }
+            this.SetSeverityToGeneticComplexity();
         }
     }
-    /*you can choose to either generate a xenogerm of the pawn's endogenes or xenogenes, but not both at once.
+    /*you can choose to either generate a xenogerm of the pawn's endogenes or xenogenes, but not both at once. This is only usable on progenoid hediffs that are in their first stage (as you can see in the XML, the 'ripe' stage)
      * this triggers either the DropEndogerm or DropXenogerm methods of the ProgenoidCharging comp*/
     public class Recipe_HarvestProgenoidEndo : Recipe_Surgery
     {
@@ -135,7 +119,7 @@ namespace HautsBionics_Biotech
                 int num;
                 for (int i = 0; i < allHediffs.Count; i = num + 1)
                 {
-                    if (allHediffs[i].Part != null && allHediffs[i].def == recipe.removesHediff && allHediffs[i].Visible)
+                    if (allHediffs[i].Part != null && allHediffs[i].def == recipe.removesHediff && allHediffs[i].Visible && allHediffs[i].CurStageIndex == 0)
                     {
                         yield return allHediffs[i].Part;
                     }
@@ -162,17 +146,10 @@ namespace HautsBionics_Biotech
                     return;
                 }
                 Hediff hediff = pawn.health.hediffSet.hediffs.FirstOrDefault((Hediff x) => x.def == this.recipe.removesHediff && x.Part == part);
-                if (hediff != null && hediff is HediffWithComps h)
+                if (hediff != null)
                 {
-                    foreach (HediffComp hc in h.comps)
-                    {
-                        if (hc is HediffComp_ProgenoidCharging progchar)
-                        {
-                            progchar.DropEndogerm();
-                            pawn.health.RemoveHediff(h);
-                            break;
-                        }
-                    }
+                    HediffComp_ProgenoidCharging progchar = hediff.TryGetComp<HediffComp_ProgenoidCharging>();
+                    progchar.DropEndogerm();
                 }
             }
             if (this.IsViolationOnPawn(pawn, part, Faction.OfPlayer))
@@ -191,7 +168,7 @@ namespace HautsBionics_Biotech
                 int num;
                 for (int i = 0; i < allHediffs.Count; i = num + 1)
                 {
-                    if (allHediffs[i].Part != null && allHediffs[i].def == recipe.removesHediff && allHediffs[i].Visible)
+                    if (allHediffs[i].Part != null && allHediffs[i].def == recipe.removesHediff && allHediffs[i].Visible && allHediffs[i].CurStageIndex == 0)
                     {
                         yield return allHediffs[i].Part;
                     }
@@ -218,16 +195,12 @@ namespace HautsBionics_Biotech
                     return;
                 }
                 Hediff hediff = pawn.health.hediffSet.hediffs.FirstOrDefault((Hediff x) => x.def == this.recipe.removesHediff && x.Part == part);
-                if (hediff != null && hediff is HediffWithComps h)
+                if (hediff != null)
                 {
-                    foreach (HediffComp hc in h.comps)
+                    HediffComp_ProgenoidCharging progchar = hediff.TryGetComp<HediffComp_ProgenoidCharging>();
+                    if (progchar != null)
                     {
-                        if (hc is HediffComp_ProgenoidCharging progchar)
-                        {
-                            progchar.DropXenogerm();
-                            pawn.health.RemoveHediff(h);
-                            break;
-                        }
+                        progchar.DropXenogerm();
                     }
                 }
             }
