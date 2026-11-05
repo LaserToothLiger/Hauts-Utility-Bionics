@@ -147,4 +147,30 @@ namespace HautsBionics_Anomaly
             }
         }
     }
+    //Voidshard Telescoping Arm gains +25% cast range per 10% part efficiency offset. yeah that means the range scaling goes crazy w FSF ABE, that's fine by me, I just didn't want to do another whole "let's map different anomaly levels to certain values for this specific phenomenon" thing
+    public class Verb_CastVoidshardLasso : Verb_CastAbility
+    {
+        public override float EffectiveRange
+        {
+            get
+            {
+                if (this.ability != null)
+                {
+                    foreach (Hediff h in this.ability.pawn.health.hediffSet.hediffs)
+                    {
+                        if (h.def.abilities != null && h.def.abilities.Contains(this.ability.def))
+                        {
+                            HediffStage hs = h.CurStage;
+                            if (h.CurStage != null)
+                            {
+                                return base.EffectiveRange * (1f + (2.5f*h.CurStage.partEfficiencyOffset));
+                            }
+                            break;
+                        }
+                    }
+                }
+                return base.EffectiveRange;
+            }
+        }
+    }
 }

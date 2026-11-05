@@ -124,7 +124,7 @@
     <defName>HVB_VoidshardTelescopingArm</defName>
     <label>voidshard telescoping arm</label>
     <labelNoun>a voidshard telescoping arm</labelNoun>
-    <description>An installed dark archotech telescoping arm. Its potency scales with the current anomalous activity level.</description>
+    <description>An installed dark archotech telescoping arm. Its potency and range scale with the current anomalous activity level.</description>
     <descriptionHyperlinks><ThingDef>HVB_ArchotechTelescopingArm</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_ArchotechTelescopingArm</spawnThingOnRemoved>
     <addedPartProps>
@@ -204,14 +204,6 @@
 			<li>HVB_DownsideIncubator</li>
 		</downsides>
 	  </li>
-	  <li Class="HautsFramework.HediffCompProperties_AbilityCooldownModifier">
-		<increasedCooldownRecovery>0.25</increasedCooldownRecovery>
-		<affectedAbilities>
-			<li>HVB_BionicYank</li>
-			<li>HVB_VSYank</li>
-		</affectedAbilities>
-		<multiplyBySeverity>true</multiplyBySeverity>
-	  </li>
       <li Class="HediffCompProperties_VerbGiver">
         <tools>
           <li>
@@ -231,7 +223,7 @@
   <RecipeDef ParentName="HVB_SurgeryInstallVoidBodyPartArtificialBase">
     <defName>HVB_InstallVoidshardTelescopingArm</defName>
     <label>upgrade archotech telescoping arm with shards</label>
-    <description>Alter an archotech telescoping arm by merging it with the shards of a dark archotech, improving its capabilities in accordance with the current anomaly activity level.</description>
+    <description>Alter an archotech telescoping arm by merging it with the shards of a dark archotech, improving its capabilities (including its telescoping range) in accordance with the current anomaly activity level.</description>
     <descriptionHyperlinks>
       <ThingDef>HVB_ArchotechTelescopingArm</ThingDef>
       <HediffDef>HVB_VoidshardTelescopingArm</HediffDef>
@@ -270,7 +262,7 @@
 		<cooldownTicksRange>2500</cooldownTicksRange>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<verbProperties>
-		  <verbClass>Verb_CastAbility</verbClass>
+		  <verbClass>HautsBionics_Anomaly.Verb_CastVoidshardLasso</verbClass>
 		  <drawAimPie>True</drawAimPie>
 		  <range>14</range>
 		  <warmupTime>0.01</warmupTime>

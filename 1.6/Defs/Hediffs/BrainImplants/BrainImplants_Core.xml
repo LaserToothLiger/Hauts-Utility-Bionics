@@ -598,7 +598,7 @@
     <defName>HVB_CognoPreserver</defName>
     <label>cogno-preserver</label>
     <labelNoun>a cogno-preserver</labelNoun>
-    <description>An installed cogno-preserver implant.</description>
+    <description>An installed cogno-preserver implant. Though it reduces passive skill loss, it also gradually induces susceptibility to mental breaks.</description>
     <descriptionHyperlinks><ThingDef>HVB_CognoPreserver</ThingDef></descriptionHyperlinks>
     <spawnThingOnRemoved>HVB_CognoPreserver</spawnThingOnRemoved>
     <stages>
@@ -608,20 +608,35 @@
 		</statFactors>
       </li>
     </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_CreateHediffPeriodically">
+        <ticksToNextSpawn>60000</ticksToNextSpawn>
+		<hediffGiven>HVB_PreserversPrice</hediffGiven>
+		<startingCharges>0</startingCharges>
+		<severityToGive>1.25</severityToGive>
+      </li>
+	</comps>
 	<tags><li>HVB_CognoImplant</li></tags>
   </HediffDef>
-  <ThingDef ParentName="BodyPartBase" MayRequire="EBSG.Framework">
+  <ThingDef ParentName="BodyPartProstheticMakeableBase" MayRequire="EBSG.Framework">
     <defName>HVB_CognoPreserver</defName>
     <label>cogno-preserver</label>
-    <description>A brain implant which uses high-density data storage to routinely store copies of technical knowledge. By routinely transmitting modulated versions of this knowledge to the organic brain, it can slow the gradual loss of technical skills.</description>
+    <description>A brain implant which uses high-density data storage to routinely store copies of technical knowledge. By routinely transmitting modulated versions of this knowledge to the organic brain, it can slow the gradual loss of technical skills. However, this also takes an ever-increasing toll on one's sanity.</description>
     <descriptionHyperlinks><RecipeDef>HVB_InstallCognoPreserver</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>2300</MarketValue>
     </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HVB_BrainInterfacing</researchPrerequisite>
+    </recipeMaker>
     <thingSetMakerTags>
 	  <li>RewardStandardMidFreq</li>
 	  <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
+    <costList>
+      <Gold>10</Gold>
+      <ComponentSpacer>7</ComponentSpacer>
+    </costList>
     <techHediffsTags>
       <li>Advanced</li>
     </techHediffsTags>
@@ -669,6 +684,28 @@
     <jobString>Removing cogno-preserver.</jobString>
     <removesHediff>HVB_CognoPreserver</removesHediff>
   </RecipeDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="EBSG.Framework">
+		<defName>HVB_PreserversPrice</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>preserver's price</label>
+		<description>A mental disorder brought about by exposure to the para-memories of a cogno-preserver implant. If the preserver is removed, it will fade over time.</description>
+		<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+		<initialSeverity>1.25</initialSeverity>
+		<comps>
+		  <li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-0.25</severityPerDay>
+		  </li>
+		</comps>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <MentalBreakThreshold>0.002</MentalBreakThreshold>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.002</VAEI_SanityLossMultiplier>
+			</statOffsets>
+			<multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+		  </li>
+		</stages>
+	  </HediffDef>
 	  
   
   
