@@ -314,7 +314,7 @@ namespace HautsBionics
             }
             if (this.moteOnVictim != null)
             {
-                this.moteOnVictim.exactRotation = this.DrawPos.AngleToFlat(this.other.DrawPos) + 90f;
+                this.moteOnVictim.exactRotation = this.DrawPos.AngleToFlat(this.other.DrawPos) + (this.flyerIsCaster ? 90f : 270f);
                 this.moteOnVictim.link1.UpdateDrawPos();
                 this.moteOnVictim.exactPosition = this.moteOnVictim.link1.LastDrawPos;
             }

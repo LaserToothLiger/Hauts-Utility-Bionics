@@ -479,7 +479,7 @@
     <label>bionic lasso</label>
     <description>Grabs a distant object, creature, building, or tree. If the target is immobile or too heavy to carry, the caster is rapidly pulled to its location; otherwise, it is brought to the caster's position.\n\nOnly goes on cooldown if used to move the caster or another creature.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>UI/Buttons/UnDismiss</iconPath>
+    <iconPath>BionicAbilities/HUB_BionicGrasp</iconPath>
     <stunTargetWhileCasting>True</stunTargetWhileCasting>
     <showPsycastEffects>False</showPsycastEffects>
     <aiCanUse>true</aiCanUse>
@@ -570,7 +570,7 @@
 		<defName>HVB_GraspHand</defName>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<graphicData><!--should be the same as the ability's projectile. This is used by all variants, to heck with recolors-->
-		  <texPath>BionicAbilities/HUB_GraspHand</texPath>
+		  <texPath>BionicAbilities/HUB_GraspHandOnTarget</texPath>
 		  <color>(0.7, 0.7, 0.7, 1)</color>
 		  <drawSize>(1,1)</drawSize>
 		</graphicData>

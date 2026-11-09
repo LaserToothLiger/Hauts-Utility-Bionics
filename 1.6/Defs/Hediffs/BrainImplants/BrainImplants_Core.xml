@@ -634,7 +634,7 @@
 	  <li>HVB_MiscCoolItems</li>
 	</thingSetMakerTags>
     <costList>
-      <Gold>10</Gold>
+      <Gold>2</Gold>
       <ComponentSpacer>7</ComponentSpacer>
     </costList>
     <techHediffsTags>
@@ -688,7 +688,7 @@
 		<defName>HVB_PreserversPrice</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>preserver's price</label>
-		<description>A mental disorder brought about by exposure to the para-memories of a cogno-preserver implant. If the preserver is removed, it will fade over time.</description>
+		<description>A mental disorder brought about by prolonged exposure to the para-memories of a cogno-preserver implant. Continually being reminded of past experiences, even neutral or positive ones, makes this person more irritable when exposed to new unpleasant phenomena.\n\nIf the preserver is removed, it will fade over time.</description>
 		<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
 		<initialSeverity>1.25</initialSeverity>
 		<comps>
